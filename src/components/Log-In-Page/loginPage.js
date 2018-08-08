@@ -1,8 +1,8 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {LoginForm} from './loginForm';
-import {RegisterForm} from './registerForm';
-import './styles/loginPage.css';
+import LoginForm from './loginForm';
+import {Redirect} from 'react-router-dom';
+import RegistrationForm from './registerForm';
 
 export function LoginPage(props){
   if(props.loggedIn) {
@@ -20,7 +20,7 @@ export function LoginPage(props){
         </div>
         <div className="col-4 signup form-container">
           <h3 className="heading">Sign-Up</h3>
-          <RegisterForm />
+          <RegistrationForm />
         </div>
       </div>
     </div>
@@ -28,7 +28,7 @@ export function LoginPage(props){
 }
 
 const mapStateToProps = state => ({
-  logginIn: state.auth.currentUser !== null
+  logginIn: state.currentUser !== null
 });
 
 export default connect(mapStateToProps)(LoginPage);
