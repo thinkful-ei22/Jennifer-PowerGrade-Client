@@ -2,7 +2,7 @@ import React from 'react';
 import {reduxForm, Field, focus} from 'redux-form';
 import {login} from '../../actions/Log-In-Actions/loginAction';
 import Input from '../input';
-//need validators
+import {required, nonEmpty} from '../../validators';
 
 class LoginForm extends React.Component {
   render(){
@@ -24,7 +24,7 @@ class LoginForm extends React.Component {
             type="text" 
             name="username"
             id="username"
-            /* validate=?? */>
+            validate={[required, nonEmpty]}>
           </Field>
         </div>
         <div>
@@ -34,7 +34,7 @@ class LoginForm extends React.Component {
             type="password" 
             name="password"
             id="password"
-            /* validate=?? */>
+            validate={[required, nonEmpty]}>
           </Field>
         </div>
         <div className="button-container">
