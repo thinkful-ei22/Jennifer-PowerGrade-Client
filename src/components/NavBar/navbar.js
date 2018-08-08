@@ -14,7 +14,7 @@ export default function NavBar(props){
         <li>
           <Link to="/assignments">Assignments</Link>
         </li>
-        <li className="icon"><a href="#"><i className="fa fa-bars expandnav"></i></a></li>
+        <li className="icon"><i className="fa fa-bars expandnav"></i></li>
       </ul>
     </nav>
   );

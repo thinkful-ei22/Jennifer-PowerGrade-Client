@@ -1,19 +1,19 @@
 import React from 'react';
 import {connect} from 'react-redux';
-// import './styles/loginPage.css';
+import CreateClassForm from './createClassForm';
+import NavBar from '../NavBar/navbar';
+import requiresLogin from '../requiresLogin';
+import GradebookSetupForm from './gradebookSetupForm';
 
 class Dashboard extends React.Component {
-//   componentDidMount(){
-//     this.props.dispatch(fetchAssignments());
-//   }
   render(){
     return (
       <div>
         <div className="row">
-          {/* navbar goes here */}
+          <NavBar />
         </div>
         <div className="row">
-          <h1 className="welcome">Welcome to PowerGrade, Jennifer!</h1>
+          <h1 className="welcome">Welcome to PowerGrade, {this.props.name}!</h1>
         </div>
         <div className="row">
           <div className="col-3 option get-started">
@@ -23,10 +23,12 @@ class Dashboard extends React.Component {
           <div className="col-3 option create-class">
             <div className="go"><a><i className="fa fa-plus"></i></a></div>
             <h2 className="action" >Create Class</h2>
+            <CreateClassForm/>
           </div>
           <div className="col-3 option set-up">
             <div className="go"><a><i className="fa fa-plus"></i></a></div>
             <h2 className="action" >Setup Gradebook</h2>
+            <GradebookSetupForm/>
           </div>
         </div>
       </div>
@@ -36,7 +38,8 @@ class Dashboard extends React.Component {
 
 const mapStateToProps = state =>{
   return {
+    name: state.loginReducer.currentUser.firstName
   };
 };
 
-export default connect(mapStateToProps)(Dashboard);
+export default requiresLogin()(connect(mapStateToProps)(Dashboard));

@@ -4,7 +4,7 @@ import {registerUser} from '../../actions/Login-Page-Actions/registerAction';
 import Input from '../input';
 import {login} from '../../actions/Login-Page-Actions/loginAction';
 import {required, nonEmpty, matches, length, isTrimmed} from '../../validators';
-const passwordLength = length({min: 10, max: 72});
+const passwordLength = length({min: 8, max: 72});
 const matchesPassword = matches('password');
  
 export class RegistrationForm extends React.Component {
@@ -17,64 +17,59 @@ export class RegistrationForm extends React.Component {
   }
   render(){
     return (
-      <form onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
-        <div> 
-          <label htmlFor="firstName">First Name</label>
-          <Field
-            component={Input}
-            type="text"
-            id="firstName"
-            name="firstName"
-            validate = {[required, nonEmpty, isTrimmed]}>
-          </Field>
-        </div>
-        <div>
-          <label htmlFor="lastName">Last Name</label>
-          <Field
-            component={Input}
-            type="text"
-            id="lastName"
-            name="lastName"
-            validate = {[required, nonEmpty, isTrimmed]}>
-          </Field>
-        </div> 
-        <div>
-          <label htmlFor="username">Username</label>
-          <Field 
-            component={Input}
-            type="text"
-            id="username"
-            name="username"
-            validate = {[required, nonEmpty, isTrimmed]}>
-          </Field>
-        </div>
-        <div>
-          <label htmlFor="password">Password</label>
-          <Field
-            component={Input} 
-            type="password"
-            id="password"
-            name="password"
-            validate={[required, passwordLength, isTrimmed]}>
-          </Field>
-        </div>
-        <div>
-          <label htmlFor="passwordConfirm">Confirm Password</label>
-          <Field
-            component={Input} 
-            type="password"
-            id="passwordConfirm"
-            name="passwordConfirm"
-            validate={[required, nonEmpty, matchesPassword]}>
-          </Field>
-        </div>
-        <div className="button-container">
-          <button
-            type="submit" 
-            disabled={this.props.pristine||this.props.submitting}>
+      <form onSubmit={this.props.handleSubmit(values => 
+        this.onSubmit(values)
+      )}>
+        <Field
+          component={Input}
+          element="input"
+          type="text"
+          id="firstName"
+          name="firstName"
+          label="First Name"
+          validate = {[required, nonEmpty, isTrimmed]}>
+        </Field>
+        <Field
+          component={Input}
+          element="input"
+          type="text"
+          id="lastName"
+          name="lastName"
+          label="Last Name"
+          validate = {[required, nonEmpty, isTrimmed]}>
+        </Field>
+        <Field 
+          component={Input}
+          element="input"
+          type="text"
+          id="r-username"
+          name="username"
+          label="Username"
+          validate = {[required, nonEmpty, isTrimmed]}>
+        </Field>
+        <Field
+          component={Input}
+          element="input" 
+          type="password"
+          id="r-password"
+          name="password"
+          label="Password"
+          validate={[required, passwordLength, isTrimmed]}>
+        </Field>
+        <Field
+          component={Input}
+          element="input" 
+          type="password"
+          id="passwordConfirm"
+          name="passwordConfirm"
+          label="Confirm Password"
+          validate={[required, nonEmpty, matchesPassword]}>
+        </Field>
+        <button
+          type="submit" 
+          disabled={this.props.pristine||this.props.submitting}>
           Sign-Up
-          </button>
-        </div>
+        </button>
       </form>
     );
   }

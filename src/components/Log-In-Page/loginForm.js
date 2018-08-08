@@ -4,8 +4,11 @@ import {login} from '../../actions/Login-Page-Actions/loginAction';
 import Input from '../input';
 import {required, nonEmpty} from '../../validators';
 
-class LoginForm extends React.Component {
-  render(){
+export class LoginForm extends React.Component {
+  onSubmit(values) {
+    return this.props.dispatch(login(values.username, values.password));
+  }
+  render() {
     let error;
     if(this.props.error){
       error = (
@@ -16,32 +19,31 @@ class LoginForm extends React.Component {
     }
     return (   
       <form
-        onSubmit={this.props.handleSubmit(values => this.props.dispatch(login(values.username,values.password)))}>
-        <div>
-          <label htmlFor="username">Username</label>
-          <Field 
-            component={Input}
-            type="text" 
-            name="username"
-            id="username"
-            validate={[required, nonEmpty]}>
-          </Field>
-        </div>
-        <div>
-          <label htmlFor="password">Password</label>
-          <Field 
-            component={Input}
-            type="password" 
-            name="password"
-            id="password"
-            validate={[required, nonEmpty]}>
-          </Field>
-        </div>
-        <div className="button-container">
-          <button disabled={this.props.pristine||this.props.submitting}>
+        onSubmit={this.props.handleSubmit(values => 
+          this.onSubmit(values)
+        )}>
+        {error}
+        <Field 
+          component={Input}
+          element="input"
+          type="text" 
+          name="username"
+          id="li-username"
+          label="Username"
+          validate={[required, nonEmpty]}>
+        </Field>
+        <Field 
+          component={Input}
+          element="input"
+          type="password" 
+          name="password"
+          id="li-password"
+          label="Password"
+          validate={[required, nonEmpty]}>
+        </Field>
+        <button disabled={this.props.pristine||this.props.submitting}>
             Log-In
-          </button>
-        </div>
+        </button>
       </form>
     );
   }

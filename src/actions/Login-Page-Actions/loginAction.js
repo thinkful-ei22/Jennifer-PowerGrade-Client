@@ -41,16 +41,15 @@ const storeAuthInfo = (authToken, dispatch) => {
   const decodedToken = jwtDecode(authToken);
   dispatch(setAuthToken(authToken));
   dispatch(authSuccess(decodedToken.user));
-  // saveAuthToken(authToken);
 };
 
 export const login = (username, password) => dispatch => {
   dispatch(authRequest());
-  return fetch(`${API_BASE_URL}/login`, {
+  return fetch(`${API_BASE_URL}/api/login`, {
     method: 'POST',
     body: JSON.stringify({username, password}),
     headers: {
-      'Content-Type': 'appliccation/json'
+      'Content-Type': 'application/json'
     }
   })
     .then(res => normalizeResponseErrors(res))
@@ -88,6 +87,5 @@ export const refreshAuthToken = () => (dispatch, getState) => {
       // them and sign us out
       dispatch(authError(err));
       dispatch(clearAuth());
-      // clearAuthToken(authToken);
     });
 };
