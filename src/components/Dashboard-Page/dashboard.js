@@ -10,15 +10,7 @@ class Dashboard extends React.Component {
     return (
       <div>
         <div className="row">
-          <nav className="topnav">
-            <ul>
-              <li className="active"><a href="#">Home</a></li>
-              <li><a href="#">Grades</a></li>
-              <li><a href="#">Assignments</a></li>
-              <li><a href="#">Performance</a></li>
-              <li className="icon"><a href="#"><i className="fa fa-bars expandnav"></i></a></li>
-            </ul>
-          </nav>
+          {/* navbar goes here */}
         </div>
         <div className="row">
           <h1 className="welcome">Welcome to PowerGrade, Jennifer!</h1>
