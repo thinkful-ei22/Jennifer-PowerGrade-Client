@@ -3,7 +3,8 @@ import {Route} from 'react-router-dom';
 import './App.css';
 import LoginPage from './components/Log-In-Page/loginPage';
 import Dashboard from './components/Dashboard-Page/dashboard';
-// import Test from './components/test';
+import AssignmentsPage from './components/Assignments-Page/assignmentsPage';
+import GradesPage from './components/Grades-Page/gradesPage';
 
 class App extends Component {
   render() {
@@ -11,7 +12,8 @@ class App extends Component {
       <div>
         <Route path="/" exact component={LoginPage}/>
         <Route path="/dashboard" exact component={Dashboard}/>
-        {/* <Route path="/test" exact component={Test}/> */}
+        <Route path="/assignments" exact component={AssignmentsPage}/>
+        <Route path="/grades" exact component={GradesPage}/>
       </div>
     );
   }

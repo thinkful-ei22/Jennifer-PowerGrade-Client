@@ -1,19 +1,19 @@
 
-import {FETCH_STUDENTS_SUCCESS, FETCH_STUDENTS_ERROR} from '../../actions/Dashboard-Page-Actions/studentList';
+import {FETCH_CLASSES_SUCCESS, FETCH_CLASSES_ERROR} from '../../actions/Grades-Page-Actions/getClasses';
 
 const initialState = {
-  students: [],
+  classes: [],
   error: null
 };
 
 export default (state=initialState, action) =>{
-  if(action.type===FETCH_STUDENTS_SUCCESS){
+  if(action.type===FETCH_CLASSES_SUCCESS){
     return Object.assign({}, state, {
       error: null,
-      students: action.students
+      classes: action.classes
     });
   }
-  else if(action.type===FETCH_STUDENTS_ERROR){
+  else if(action.type===FETCH_CLASSES_ERROR){
     return Object.assign({}, state, {
       error: action.error
     });

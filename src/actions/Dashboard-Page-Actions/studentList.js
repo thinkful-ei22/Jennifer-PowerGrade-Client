@@ -21,7 +21,6 @@ export const fetchStudents = () => (dispatch,getState) => {
     }
   })
     .then(res => normalizeResponseErrors(res))
-    // .then(res => JSON.stringify(res))
     .then(res => res.json())
     .then((students) => dispatch(fetchStudentsSuccess(students)))
     .catch(err => {
