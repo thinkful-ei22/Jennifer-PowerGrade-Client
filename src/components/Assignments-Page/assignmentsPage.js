@@ -2,8 +2,10 @@ import React from 'react';
 import {connect} from 'react-redux';
 import NavBar from '../NavBar/navbar';
 import requiresLogin from '../requiresLogin';
-import AssignmentDisplay from '../Assignments-Page/assignmentDisplay';
-import CreateAssignmentForm from '../Assignments-Page/createAssignmentForm';
+import AssignmentDisplay from './assignmentDisplay';
+import CreateAssignmentForm from './createAssignmentForm';
+import AssignmentFilters from './assignmentFilters';
+import StandardSelectForm from './standardSelectForm';
 
 class AssignmentsPage extends React.Component {
   render(){
@@ -17,7 +19,7 @@ class AssignmentsPage extends React.Component {
           {/* <StandardSelectForm/> */}
         </div>
         <div>
-          {/* <AssignmentFilters/> */}
+          <AssignmentFilters/>
           <AssignmentDisplay/>
         </div>
       </div>

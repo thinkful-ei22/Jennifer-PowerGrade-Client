@@ -1,18 +1,23 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 import requiresLogin from '../requiresLogin';
-import GradesDisplay from './gradeDisplay';
+import {reduxForm, Field} from 'redux-form';
+import Input from '../input';
+import { filterClasses } from '../../actions/Grades-Page-Actions/getClasses';
+import './sidebar.css';
 
 class SideBar extends React.Component{
+  onClick(values){
+    return this.props.dispatch(filterClasses(values));
+  }
   render(){
-    const currentClasses = this.props.classes.filter(classItem => classItem.userId === this.props.currentUser.id);
-    const classLink = currentClasses.map(classItem => 
-      <Link to={GradesDisplay}>{classItem.name}</Link>);
+    const currentClasses = this.props.classes.filter(classItem => classItem.userId.id === this.props.currentUser.id);
+    const classLinks = currentClasses.map(classItem =>
+      <li onClick={() => this.onClick(classItem.name)} key={classItem.id}><a href="#">{classItem.name}</a></li>);
     return (
       <nav className="sidenav">
         <ul>
-          {classLink}
+          {classLinks}
         </ul>
       </nav>
     );
@@ -22,8 +27,12 @@ class SideBar extends React.Component{
 const mapStateToProps = state => {
   return {
     currentUser: state.loginReducer.currentUser,
-    classes: state.fetchClassesReducer.classes
+    classes: state.fetchClassesReducer.classes,
   };
 };
   
 export default requiresLogin()(connect(mapStateToProps)(SideBar));
+
+// export default reduxForm({
+//   form: 'sidebar'
+// })(SideBar);

@@ -12,6 +12,18 @@ export const fetchClassesError= error => ({
   error
 });
 
+export const FILTER_CLASSES = 'FILTER_CLASSES';  //action for applying a filter to the classes
+export const filteredClasses = filter => ({
+  type: FILTER_CLASSES,
+  filter
+});
+
+export const filterClasses = (filter) => (dispatch, getState) => {
+  const classes = getState().fetchClassesReducer.classes;
+  const filtering = classes.filter(classItem => classItem.name === filter);
+  dispatch(filteredClasses(filtering));
+};
+
 export const fetchClasses = () => (dispatch,getState) => {
   const authToken = getState().loginReducer.authToken;
   return fetch(`${API_BASE_URL}/api/classes`, {

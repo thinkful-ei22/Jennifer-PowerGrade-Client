@@ -5,7 +5,7 @@ import requiresLogin from '../requiresLogin';
 import {Field} from 'redux-form';
 import Input from '../input';
 
-class StudentList extends React.Component {
+class CategoryList extends React.Component {
   componentDidMount(){
     this.props.dispatch(fetchCategories());
   }
@@ -34,6 +34,6 @@ const mapStateToProps = state => {
   };
 };
 
-export default requiresLogin()(connect(mapStateToProps)(StudentList));
+export default requiresLogin()(connect(mapStateToProps)(CategoryList));
 
 

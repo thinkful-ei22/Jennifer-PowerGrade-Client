@@ -1,0 +1,124 @@
+* {
+    box-sizing: border-box;
+}
+.row {
+    max-width: 100%;
+    margin: auto;
+}
+/* Clearfix */
+    .row::before,
+    .row::after 
+{
+    display: table;
+    content: '';
+}
+.row::after {
+    clear: both;
+}
+.col-3, .col-4, .col-6, .col-12 {
+    float: left;
+    padding-left: 1.04166666%;
+    padding-right: 1.04166666%;
+}
+/* Mobile defaults */
+.col-3, .col-4, .col-6, .col-12 {
+    width: 100%;
+}
+.sidenav {
+    /* z-index: 0; */
+    height: 100%;
+    width: 15%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #222222;
+    overflow-x: hidden;
+    padding-top: 20px;
+}
+
+.sidenav a {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+}
+.sidenav a:link {
+    text-decoration: none;
+    color: #868686;
+}
+.sidenav a:visited {
+    text-decoration: none;
+    color: #868686;
+}
+
+.sidenav a:hover {
+    text-decoration: none;
+    color: #95A3B3
+}
+
+.sidenav a:active {
+    text-decoration: none;
+    color: #95A3B3
+}
+.sidenav ul {
+    list-style-type: none;
+    Font-Family: 'Quattrocento Sans', Sans-Serif;
+    padding:0px;
+}
+@media only screen and (min-width: 640px) {
+/* 3 columns, 3/12 in % */
+.col-3 {
+    width: 25%;
+}
+/* 4 columns, 4/12 in % */
+.col-4 {
+    width: 33.33333%;
+}
+/* 6 columns, 6/12 in % */
+.col-6 {
+    width: 50%;
+}
+/* 12 columns, 12/12 in % */
+.col-12 {
+    width: 100%;
+}
+.sidenav {
+/* z-index: 0; */
+    height: 100%;
+    width: 15%;
+    position: fixed;
+    top: 40px;
+    left: 0;
+    background-color: #222222;
+    overflow-x: hidden;
+    padding-top: 20px;
+}
+.sidenav a {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: inline-block;
+}
+.sidenav a:link {
+    text-decoration: none;
+    color: #868686;
+}
+.sidenav a:visited {
+    text-decoration: none;
+    color: #868686;
+}
+.sidenav a:hover {
+    text-decoration: none;
+    color: #95A3B3
+}
+.sidenav a:active {
+    text-decoration: none;
+    color: #95A3B3
+}
+.sidenav ul {
+    list-style-type: none;
+    Font-Family: 'Quattrocento Sans', Sans-Serif;
+    padding:0px;
+}}

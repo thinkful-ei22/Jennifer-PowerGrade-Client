@@ -4,13 +4,15 @@ import NavBar from '../NavBar/navbar';
 import requiresLogin from '../requiresLogin';
 import GradeDisplay from '../Grades-Page/gradeDisplay';
 import SideBar from './classSidebar';
+// import './gradePage.css';
+
 
 class GradesPage extends React.Component {
   render(){
     return (
       <div>
         <div className="row">
-          <NavBar />
+          {/* <NavBar /> */}
         </div>
         <SideBar/>
         <div>
@@ -24,6 +26,7 @@ class GradesPage extends React.Component {
 const mapStateToProps = state =>{
   return {
     name: state.loginReducer.currentUser.firstName
+    
   };
 };
 
