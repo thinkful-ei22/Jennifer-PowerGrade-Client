@@ -18,8 +18,8 @@ class StudentList extends React.Component {
         component="select"
         element="select"
         type="select"
-        name="category-select"
-        id="category-select"
+        name="categoryId"
+        id="categoryId"
         label='Select a Category'>
         <option>Choose a Category</option>
         {categoryOptions}

@@ -3,10 +3,11 @@ import {reduxForm, Field} from 'redux-form';
 import Input from '../input';
 import CategoryList from './categoryList';
 import { createAssignment } from '../../actions/Assignment-Page-Actions/createAssignment';
+import ClassList from '../Assignments-Page/classList';
 
 class CreateAssignmentForm extends React.Component {
   onSubmit(values){
-    console.log(values.name, values.date, values.categoryId);
+    console.log(values);
     return this.props.dispatch(createAssignment(values));
   }
   render (){
@@ -28,9 +29,10 @@ class CreateAssignmentForm extends React.Component {
           name="date"
           id="date"
           label= "Assignment Date"
-        >
+        > 
         </Field>
         <CategoryList/>
+        <ClassList/>
         <button disabled={this.props.pristine||this.props.submitting}>
             Save
         </button>
@@ -40,5 +42,5 @@ class CreateAssignmentForm extends React.Component {
 }
 
 export default reduxForm({
-  form: 'createClass'
+  form: 'createAssignment'
 })(CreateAssignmentForm);

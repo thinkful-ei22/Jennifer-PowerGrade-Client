@@ -7,9 +7,9 @@ export const createAssignmentRequest = () => ({
 });
 
 export const CREATE_ASSIGNMENT_SUCCESS = 'CREATE_ASSIGNMENT_SUCCESS';
-export const createAssignmentSuccess = (classInfo) => ({
+export const createAssignmentSuccess = (assignmentInfo) => ({
   type: CREATE_ASSIGNMENT_SUCCESS,
-  classInfo
+  assignmentInfo
 });
 
 export const CREATE_ASSIGNMENT_ERROR = 'CREATE_ASSIGNMENT_ERROR';
@@ -18,7 +18,7 @@ export const createAssignmentError = error => ({
   error
 });
 
-export const createAssignment = (assignmentName, categoryId, classId, assignmentDate) => (dispatch, getState) => {
+export const createAssignment = (name, categoryId, classId, date) => (dispatch, getState) => {
   const authToken = getState().loginReducer.authToken;
   dispatch(createAssignmentRequest());
   return fetch(`${API_BASE_URL}/api/assignments`, {
@@ -28,14 +28,14 @@ export const createAssignment = (assignmentName, categoryId, classId, assignment
       Authorization: `Bearer ${authToken}`
     },
     body: JSON.stringify({
-      name: assignmentName,
-      category: categoryId,
+      name: name,
+      categoryId: categoryId,
       classes: [classId],
-      date: assignmentDate
+      date: date
     })
   })
     .then( body => {
-      console.log(body);
+      console.log('this is the body', body);
       return body;
     })
     .then(res => dispatch(createAssignmentSuccess(res)))

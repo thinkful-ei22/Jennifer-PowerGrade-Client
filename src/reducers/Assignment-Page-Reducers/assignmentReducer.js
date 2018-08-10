@@ -7,7 +7,6 @@ const initialState = {
 
 export default (state=initialState, action) =>{
   if(action.type===FETCH_ASSIGNMENT_SUCCESS){
-    console.log('this is the action', action);
     return Object.assign({}, state, {
       error: null,
       assignments: action.assignmentInfo

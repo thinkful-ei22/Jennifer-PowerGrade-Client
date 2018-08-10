@@ -8,6 +8,7 @@ import createClassReducer from './reducers/Dashboard-Page-Reducers/createClassRe
 import fetchGradesReducer from './reducers/Grades-Page-Reducers/fetchGradesReducer';
 import fetchClassesReducer from './reducers/Grades-Page-Reducers/fetchClassesReducer';
 import categoriesReducer from './reducers/Assignment-Page-Reducers/categoriesReducer';
+import createAssignmentReducer from './reducers/Assignment-Page-Reducers/createAssignmentReducer';
 
 const rootReducer = combineReducers({
   loginReducer,
@@ -17,7 +18,8 @@ const rootReducer = combineReducers({
   createClassReducer,
   fetchGradesReducer,
   fetchClassesReducer,
-  categoriesReducer
+  categoriesReducer,
+  createAssignmentReducer
 });
 const store= createStore(rootReducer, applyMiddleware(thunk));
 

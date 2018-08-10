@@ -13,18 +13,17 @@ const initialState = {
   assignmentDate:''
 };
   
-export default function classReducer(state = initialState, action) {
+export default function createAssignmentReducer(state = initialState, action) {
   if(action.type === CREATE_ASSIGNMENT_REQUEST) {
     return Object.assign({}, state, {
       loading: true
     });
   }else if(action.type === CREATE_ASSIGNMENT_SUCCESS) {
-    console.log(action.assignmentInfo.assignmentDate);
     return Object.assign({}, state, {
       assignmentName: action.assignmentInfo.name,
       categoryId: action.assignmentInfo.categoryId,
       classes: action.assignmentInfo.classes,
-      assignmentDate: `${action.assignmentInfo.assignmentDate}`,
+      assignmentDate: action.assignmentInfo.assignmentDate,
       loading: false,
       error: null
     });
