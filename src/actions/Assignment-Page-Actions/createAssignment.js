@@ -41,36 +41,3 @@ export const createAssignment = (name, categoryId, classId, date) => (dispatch, 
     .then(res => dispatch(createAssignmentSuccess(res)))
     .catch(err => dispatch(createAssignmentError(err)));
 };
-
-// //add classId to students' class lists
-// export const ADD_STUDENT_ASSIGNMENT_REQUEST = 'ADD_STUDENT_ASSIGNMENT_REQUEST';
-// export const addStudentClassRequest = classId => ({
-//   type: ADD_STUDENT_ASSIGNMENT_REQUEST,
-//   classId
-// });
-// export const ADD_STUDENT_ASSIGNMENT_SUCCESS = 'ADD_STUDENT_ASSIGNMENT_SUCCESS';
-// export const addStudentClassSuccess = classId => ({
-//   type: ADD_STUDENT_ASSIGNMENT_SUCCESS,
-//   classId
-// });
-// export const ADD_STUDENT_ASSIGNMENT_ERROR = 'ADD_STUDENT_ASSIGNMENT_ERROR';
-// export const addStudentClassError = err => ({
-//   type: ADD_STUDENT_ASSIGNMENT_ERROR,
-//   err
-// });
-// //add classId to teachers' class lists
-// export const ADD_USER_ASSIGNMENT_REQUEST = 'ADD_STUDENT_ASSIGNMENT_REQUEST';
-// export const addUserClassRequest = classId => ({
-//   type: ADD_USER_ASSIGNMENT_REQUEST,
-//   classId
-// });
-// export const ADD_USER_ASSIGNMENT_SUCCESS = 'ADD_STUDENT_ASSIGNMENT_SUCCESS';
-// export const addUserClassSuccess = classId => ({
-//   type: ADD_USER_ASSIGNMENT_SUCCESS,
-//   classId
-// });
-// export const ADD_USER_ASSIGNMENT_ERROR = 'ADD_STUDENT_ASSIGNMENT_ERROR';
-// export const addUserClassError = err => ({
-//   type: ADD_USER_ASSIGNMENT_ERROR,
-//   err
-// });

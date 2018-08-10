@@ -1,15 +1,11 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import requiresLogin from '../requiresLogin';
-import { fetchAssignments } from '../../actions/Assignment-Page-Actions/assignmentList';
-import { fetchStudents } from '../../actions/Dashboard-Page-Actions/studentList';
 import {fetchGrades} from '../../actions/Grades-Page-Actions/getGrades';
 import { fetchClasses } from '../../actions/Grades-Page-Actions/getClasses';
 
 class GradeDisplay extends React.Component {
   componentDidMount(){
-    this.props.dispatch(fetchAssignments());
-    this.props.dispatch(fetchStudents());
     this.props.dispatch(fetchGrades());
     this.props.dispatch(fetchClasses());
   }
@@ -23,27 +19,29 @@ class GradeDisplay extends React.Component {
       }
     }
   }
+  makeStudentList(student){
+    const studentList = [];
+    for(let i=0; i<=student.length; i++){
+      return studentList.push(student[i]);
+    }
+    return studentList;
+  }
   render(){
-    const currentClasses = this.props.classes.filter(classItem => classItem.userId === this.props.currentUser.id);
-    const currentAssignments = this.props.assignments.filter(assignment => assignment.userId === this.props.currentUser.id);
-    // console.log(currentClasses.map(classItem => classItem.students));
+    const currentClasses = this.props.classes.filter(classItem => classItem.userId.id === this.props.currentUser.id);
+    const assignmentList = currentClasses.map(classItem => classItem.assignments.map(assignment => assignment.name));
+    const studentNames = currentClasses.map(classitem => classitem.students.map(student => `${student.lastName}, ${student.firstName}`));
+    console.log(this.makeStudentList(studentNames[0]));
+    const assignmentRows = assignmentList.map((assignment => assignment.map(name => <th key={name}>{name}</th>)));
 
-    (this.props.students.map(student => student.teachers+'').filter(teacher => teacher.includes(this.props.currentUser.id)));
-    const teachers = this.props.students.map(student=> student.teachers);
-    const filteredTeachers = teachers.map(teacher=> teacher+'');
-    const currentTeacher = filteredTeachers.filter(teacher => teacher.includes(this.props.currentUser.id))[0];
-    const assignmentRows=currentAssignments.map((assignment, i) => (
-      <th key={i}>{assignment.name}</th>
-    ));
-    const studentCells=this.props.students.map((student, i) =>{
-      const assignmentsList = currentAssignments.map((assignment, i) => {
-        return <td contenteditable="true" key={i}>{this.getValue(assignment, student)}</td>;      
+    const studentCells=studentNames.map((student, i) =>{
+      const assignments = assignmentList.map((assignment, i) => {
+        return <td /* contentEditable="true" */ key={i}>{this.getValue(assignment, student)}</td>;      
       });
-      assignmentsList.unshift(<td key="average">Weighted Average Goes Here</td>);
-      assignmentsList.unshift(<td key="studentName">{`${student.lastName}, ${student.firstName}`}</td>);
+      assignments.unshift(<td key="average">Weighted Average Goes Here</td>);
+      assignments.unshift(<td key="studentName">{`${student}`}</td>);
 
       return (<tr key={i}>
-        {assignmentsList}
+        {assignments}
       </tr>);
     });
     return (
@@ -64,8 +62,6 @@ class GradeDisplay extends React.Component {
 const mapStateToProps = state => {
   return {
     currentUser: state.loginReducer.currentUser,
-    assignments: state.assignmentReducer.assignments,
-    students: state.studentListReducer.students,
     grades: state.fetchGradesReducer.grades,
     classes: state.fetchClassesReducer.classes,
   };
