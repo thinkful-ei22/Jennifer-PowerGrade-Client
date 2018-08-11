@@ -1,6 +1,5 @@
 import {API_BASE_URL} from '../../config';
 
-//add class to classes collection
 export const CREATE_ASSIGNMENT_REQUEST = 'CREATE_ASSIGNMENT_REQUEST';
 export const createAssignmentRequest = () => ({
   type: CREATE_ASSIGNMENT_REQUEST,
@@ -35,7 +34,6 @@ export const createAssignment = (name, categoryId, classId, date) => (dispatch, 
     })
   })
     .then( body => {
-      console.log('this is the body', body);
       return body;
     })
     .then(res => dispatch(createAssignmentSuccess(res)))

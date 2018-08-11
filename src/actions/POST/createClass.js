@@ -1,6 +1,5 @@
 import {API_BASE_URL} from '../../config';
 
-//add class to classes collection
 export const CREATE_CLASS_REQUEST = 'CREATE_CLASS_REQUEST';
 export const createClassRequest = () => ({
   type: CREATE_CLASS_REQUEST,
@@ -33,7 +32,6 @@ export const createClass = (className, studentIds) => (dispatch, getState) => {
     })
   })
     .then( body => {
-      console.log(body);
       return body;
     })
     .then(res => dispatch(createClassSuccess(res)))
