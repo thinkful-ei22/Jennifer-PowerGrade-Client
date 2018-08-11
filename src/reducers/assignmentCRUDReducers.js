@@ -53,7 +53,7 @@ export default function assignmentCRUDReducers(state = initialState, action) {
       filteredAssignments: action.filter
     });
   }
-  //get one??
+  //GET one class
   //PUT update assignment
   //DELETE    
   else if(action.type === DELETE_ASSIGNMENT_SUCCESS) {

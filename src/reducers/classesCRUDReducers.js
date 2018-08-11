@@ -1,6 +1,7 @@
-import { CREATE_CLASS_ERROR, CREATE_CLASS_REQUEST, CREATE_CLASS_SUCCESS} from '../actions/POST/createClass';
+import {CREATE_CLASS_ERROR, CREATE_CLASS_REQUEST, CREATE_CLASS_SUCCESS} from '../actions/POST/createClass';
 import {FETCH_CLASSES_SUCCESS, FETCH_CLASSES_ERROR, FILTER_CLASSES} from '../actions/GET/fetchClasses';
-  
+import {DELETE_CLASS_SUCCESS, DELETE_CLASS_ERROR} from '../actions/DELETE/deleteClass';
+
 const initialState = {
   loading:false,
   error: null,
@@ -51,8 +52,23 @@ export default function classesCRUDReducers(state = initialState, action) {
       filteredClasses: action.filter
     });
   }
+  else if(action.type===DELETE_CLASS_SUCCESS){
+    //DELTE one class
+    const indexToDelete = state.findIndex(classItem => {
+      return classItem.id === action.class.id;
+    });
+    return Object.assign({}, state, {
+      classes: this.classes.splice(indexToDelete, 1),
+      loading:false,
+      error:null
+    });
+  }
+  else if(action.type===DELETE_CLASS_ERROR){
+    return Object.assign({}, state, {
+      error: action.error
+    });
+  }
+  //GET one class
+  //PUT edit one class
   return state;
 }
-//GET one class
-//PUT edit one class
-//DELTE one class
