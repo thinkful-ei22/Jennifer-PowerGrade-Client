@@ -1,11 +1,4 @@
-import {
-  SET_AUTH_TOKEN,
-  CLEAR_AUTH,
-  AUTH_REQUEST,
-  AUTH_SUCCESS,
-  AUTH_ERROR,
-  AUTH_SET_WARNING
-} from '../../actions/Login-Page-Actions/loginAction';
+import {SET_AUTH_TOKEN, CLEAR_AUTH, AUTH_REQUEST, AUTH_SUCCESS, AUTH_ERROR, AUTH_SET_WARNING} from '../actions/AUTH/loginAction';
   
 const initialState = {
   authToken: null, // authToken !== null does not mean it has been validated

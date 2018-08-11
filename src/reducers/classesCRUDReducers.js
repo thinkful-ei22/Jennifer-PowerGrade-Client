@@ -1,5 +1,5 @@
-import { CREATE_CLASS_ERROR, CREATE_CLASS_REQUEST, CREATE_CLASS_SUCCESS} from '../../actions/Dashboard-Page-Actions/createClass';
-import {FETCH_CLASSES_SUCCESS, FETCH_CLASSES_ERROR, FILTER_CLASSES} from '../../actions/Grades-Page-Actions/fetchClasses';
+import { CREATE_CLASS_ERROR, CREATE_CLASS_REQUEST, CREATE_CLASS_SUCCESS} from '../actions/POST/createClass';
+import {FETCH_CLASSES_SUCCESS, FETCH_CLASSES_ERROR, FILTER_CLASSES} from '../actions/GET/fetchClasses';
   
 const initialState = {
   loading:false,

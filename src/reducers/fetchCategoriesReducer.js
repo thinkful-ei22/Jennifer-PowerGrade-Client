@@ -1,5 +1,5 @@
 
-import {FETCH_CATEGORIES_SUCCESS, FETCH_CATEGORIES_ERROR} from '../../actions/Assignment-Page-Actions/fetchCategories';
+import {FETCH_CATEGORIES_SUCCESS, FETCH_CATEGORIES_ERROR} from '../actions/GET/fetchCategories';
 
 const initialState = {
   categories: [],

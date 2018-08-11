@@ -1,4 +1,4 @@
-import {SET_TEST_VALUE, SET_QUIZ_VALUE, SET_CLASSWORK_VALUE, SET_HOMEWORK_VALUE,} from '../../actions/Dashboard-Page-Actions/setCategoryValues';
+import {SET_TEST_VALUE, SET_QUIZ_VALUE, SET_CLASSWORK_VALUE, SET_HOMEWORK_VALUE,} from '../actions/OTHER/setCategoryValues';
 
 const initialState = {
   testValue: 0,

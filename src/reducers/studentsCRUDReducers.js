@@ -1,4 +1,4 @@
-import {FETCH_STUDENTS_SUCCESS, FETCH_STUDENTS_ERROR} from '../../actions/Dashboard-Page-Actions/fetchStudents';
+import {FETCH_STUDENTS_SUCCESS, FETCH_STUDENTS_ERROR} from '../actions/GET/fetchStudents';
 
 const initialState = {
   students: [],
