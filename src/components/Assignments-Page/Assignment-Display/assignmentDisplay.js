@@ -9,7 +9,10 @@ class AssignmentDisplay extends React.Component {
     this.props.dispatch(fetchAssignments());
   }
   render(){
-    const assignmentList=this.props.assignments.map(assignment =>(<li key={assignment.id}>{assignment.name}</li>)); 
+    const assignmentList=this.props.assignments.map(assignment =>(
+      <div className="assignment-list" key={assignment.id}>
+        <li><a href="#">{assignment.name}</a><i className="fa fa-times"></i></li>     
+      </div>)); 
     return (
       <div>
         <ul>{assignmentList}</ul>
@@ -20,7 +23,7 @@ class AssignmentDisplay extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    assignments: state.fetchAssignmentsReducer.assignments
+    assignments: state.fetchAssignmentsReducer.filteredAssignments
   };
 };
 

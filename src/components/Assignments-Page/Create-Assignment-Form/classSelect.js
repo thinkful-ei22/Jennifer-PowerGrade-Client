@@ -13,6 +13,7 @@ class ClassList extends React.Component {
   render(){
     const classList = this.props.classes.map(classItem => (
       <Field 
+        key={`${classItem.id}`}
         className="class-option"
         component={Input}
         element="checkbox"

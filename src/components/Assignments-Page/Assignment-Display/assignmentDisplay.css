@@ -1,17 +1,51 @@
 .class-filter {
-        margin-top: 15px;
-        margin-bottom: 15px;
-        width: 100%;
-        height: 30px;
-    }
+    margin-top: 15px;
+    margin-bottom: 15px;
+    width: 100%;
+    height: 30px;
+}
+.assignment-list {
+    background-color:#95A3B3;
+    color: #222222;
+    border-radius: 10px;
+    border: 1px solid #222222;
+    padding:5px;
+}
 ul {
     list-style: none;
-    padding:5%;
     margin:0px;
+    padding-left:0px;
 }
-
-li {
+.assignment-list .class-filter li {
     color:white;
     height: 30px;
 }
+.assignment-list a {
+    text-decoration: none;
+    font-size: 15px;
+    color: #222222;
+    display: inline-block;
+}
+.assignment-list a:link {
+    text-decoration: none;
+    color: #222222;
+}
+.assignment-list a:visited {
+    text-decoration: none;
+    color:  #222222;
+}
 
+.assignment-list a:hover {
+    text-decoration: none;
+    color: white;
+}
+
+.assignment-list a:active {
+    text-decoration: none;
+    color:  #222222;
+}
+i {
+    color:white;
+    float:right;
+    padding: 5px;
+}

@@ -20,8 +20,12 @@ export const filteredAssignments = filter => ({
 
 export const filterAssignments = (filter) => (dispatch, getState) => {
   const assignments = getState().fetchAssignmentsReducer.assignments;   
-  const filtering = assignments.filter(assignment => assignment.id === filter);
-  dispatch(filteredAssignments(filtering));
+  const filtering = assignments.filter(assignment => assignment.classes.includes(filter));
+  if(filter===0){
+    dispatch(fetchAssignmentsSuccess(assignments));
+  }else {
+    dispatch(filteredAssignments(filtering));
+  }
 };
 
 export const fetchAssignments = () => (dispatch, getState) => {
