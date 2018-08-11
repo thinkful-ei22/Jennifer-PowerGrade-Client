@@ -1,5 +1,5 @@
 import {API_BASE_URL} from '../../config';
-import {normalizeResponseErrors} from '../utils';
+import {normalizeResponseErrors} from '../OTHER/utils';
 
 export const FETCH_ASSIGNMENT_SUCCESS='FETCH_ASSIGNMENT_SUCCESS';
 export const fetchAssignmentsSuccess= assignmentInfo => ({

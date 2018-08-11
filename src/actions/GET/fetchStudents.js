@@ -1,5 +1,5 @@
 import {API_BASE_URL} from '../../config';
-import {normalizeResponseErrors} from '../utils';
+import {normalizeResponseErrors} from '../OTHER/utils';
 
 export const FETCH_STUDENTS_SUCCESS='FETCH_STUDENTS_SUCCESS';
 export const fetchStudentsSuccess= students => ({

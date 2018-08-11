@@ -1,5 +1,5 @@
 import {API_BASE_URL} from '../../config';
-import {normalizeResponseErrors} from '../utils';
+import {normalizeResponseErrors} from '../OTHER/utils';
 
 export const FETCH_GRADES_SUCCESS='FETCH_GRADES_SUCCESS';
 export const fetchGradessSuccess= grades => ({

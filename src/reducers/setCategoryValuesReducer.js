@@ -28,4 +28,5 @@ export default (state=initialState, action) => {
       homeworkValue: action.value/100
     });
   }
+  return state;
 };

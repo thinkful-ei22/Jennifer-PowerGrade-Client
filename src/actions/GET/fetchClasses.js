@@ -1,5 +1,5 @@
 import {API_BASE_URL} from '../../config';
-import {normalizeResponseErrors} from '../utils';
+import {normalizeResponseErrors} from '../OTHER/utils';
 
 export const FETCH_CLASSES_SUCCESS='FETCH_CLASSES_SUCCESS';
 export const fetchClassesSuccess= classes => ({

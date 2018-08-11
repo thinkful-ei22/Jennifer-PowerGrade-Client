@@ -1,7 +1,7 @@
 import jwtDecode from 'jwt-decode';
 import {SubmissionError} from 'redux-form';
 import {API_BASE_URL} from '../../config';
-import {normalizeResponseErrors} from '../utils';
+import {normalizeResponseErrors} from '../../actions/OTHER/utils';
 
 export const SET_AUTH_TOKEN = 'SET_AUTH_TOKEN';
 export const setAuthToken = authToken => ({

@@ -1,5 +1,5 @@
 import {API_BASE_URL} from '../../config';
-import {normalizeResponseErrors} from '../utils';
+import {normalizeResponseErrors} from '../OTHER/utils';
 
 export const FETCH_CATEGORIES_SUCCESS='FETCH_CATEGORIES_SUCCESS';
 export const fetchCategoriesSuccess= categories => ({
