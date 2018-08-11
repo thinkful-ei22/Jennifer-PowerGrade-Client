@@ -5,7 +5,7 @@ const initialState = {
   error: null
 };
 
-export default function gradesCRUDReducer(state=initialState, action){
+export default function gradesCRUDReducers(state=initialState, action){
   //GET all grades
   if(action.type===FETCH_GRADES_SUCCESS){
     return Object.assign({}, state, {
