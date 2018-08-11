@@ -2,6 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import requiresLogin from '../../requiresLogin';
 import { fetchAssignments } from '../../../actions/Assignment-Page-Actions/fetchAssignments';
+import {deleteAssignment} from '../../../actions/Assignment-Page-Actions/deleteAssignment';
 import './assignmentDisplay.css';
 
 class AssignmentDisplay extends React.Component {
@@ -11,7 +12,7 @@ class AssignmentDisplay extends React.Component {
   render(){
     const assignmentList=this.props.assignments.map(assignment =>(
       <div className="assignment-list" key={assignment.id}>
-        <li><a href="#">{assignment.name}</a><i className="fa fa-times"></i></li>     
+        <li id={assignment.id}><a href="#">{assignment.name}</a><i onClick={(e) => this.props.dispatch(deleteAssignment(e.target.parentElement.id))} className="fa fa-times"></i></li>     
       </div>)); 
     return (
       <div>

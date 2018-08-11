@@ -1,12 +1,15 @@
-
 import {FETCH_STUDENTS_SUCCESS, FETCH_STUDENTS_ERROR} from '../../actions/Dashboard-Page-Actions/fetchStudents';
 
 const initialState = {
   students: [],
   error: null
 };
+//POST new student --> not a feature
+//PUT edit one student --> not a feature
+//DELETE one student --> not a feature
 
-export default (state=initialState, action) =>{
+export default function studentsCRUDReducer(state=initialState, action) {
+//GET all students
   if(action.type===FETCH_STUDENTS_SUCCESS){
     return Object.assign({}, state, {
       error: null,
@@ -19,4 +22,4 @@ export default (state=initialState, action) =>{
     });
   }
   return state;
-};
+}
