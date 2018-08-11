@@ -1,5 +1,5 @@
 
-import {FETCH_STUDENTS_SUCCESS, FETCH_STUDENTS_ERROR} from '../../actions/Dashboard-Page-Actions/studentList';
+import {FETCH_STUDENTS_SUCCESS, FETCH_STUDENTS_ERROR} from '../../actions/Dashboard-Page-Actions/fetchStudents';
 
 const initialState = {
   students: [],

@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import requiresLogin from '../../requiresLogin';
-import { fetchAssignments } from '../../../actions/Assignment-Page-Actions/assignmentList';
+import { fetchAssignments } from '../../../actions/Assignment-Page-Actions/fetchAssignments';
 import './assignmentDisplay.css';
 
 class AssignmentDisplay extends React.Component {
@@ -20,7 +20,7 @@ class AssignmentDisplay extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    assignments: state.assignmentReducer.assignments
+    assignments: state.fetchAssignmentsReducer.assignments
   };
 };
 

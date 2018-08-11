@@ -1,10 +1,6 @@
 import {API_BASE_URL} from '../../config';
 import {normalizeResponseErrors} from '../utils';
 
-// export const FETCH_ASSIGNMENT_REQUEST='FETCH_ASSIGNMENT_REQUEST';
-// export const fetchAssignmentsRequest = () => ({
-//   type: FETCH_ASSIGNMENT_REQUEST
-// });
 export const FETCH_ASSIGNMENT_SUCCESS='FETCH_ASSIGNMENT_SUCCESS';
 export const fetchAssignmentsSuccess= assignmentInfo => ({
   type: FETCH_ASSIGNMENT_SUCCESS,
@@ -15,6 +11,18 @@ export const fetchAssignmentsError= error => ({
   type: FETCH_ASSIGNMENT_ERROR,
   error
 });
+
+export const FILTER_ASSIGNMENTS = 'FILTER_ASSIGNMENTS';
+export const filteredAssignments = filter => ({
+  type: FILTER_ASSIGNMENTS,
+  filter
+});
+
+export const filterAssignments = (filter) => (dispatch, getState) => {
+  const assignments = getState().fetchAssignmentsReducer.assignments;   
+  const filtering = assignments.filter(assignment => assignment.id === filter);
+  dispatch(filteredAssignments(filtering));
+};
 
 export const fetchAssignments = () => (dispatch, getState) => {
   const authToken = getState().loginReducer.authToken;

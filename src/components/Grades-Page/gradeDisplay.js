@@ -1,9 +1,9 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import requiresLogin from '../requiresLogin';
-import {fetchGrades} from '../../actions/Grades-Page-Actions/getGrades';
-import {fetchStudents} from '../../actions/Dashboard-Page-Actions/studentList';
-import {fetchClasses} from '../../actions/Grades-Page-Actions/getClasses';
+import {fetchGrades} from '../../actions/Grades-Page-Actions/fetchGrades';
+import {fetchStudents} from '../../actions/Dashboard-Page-Actions/fetchStudents';
+import {fetchClasses} from '../../actions/Grades-Page-Actions/fetchClasses';
 
 class GradeDisplay extends React.Component {
   componentDidMount(){
@@ -70,7 +70,7 @@ const mapStateToProps = state => {
     grades: state.fetchGradesReducer.grades,
     classes: state.fetchClassesReducer.classes,
     filteredClasses: state.fetchClassesReducer.filteredClasses,
-    students: state.studentListReducer.students
+    students: state.fetchStudentsReducer.students
   };
 };
 

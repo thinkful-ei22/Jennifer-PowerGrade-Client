@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import requiresLogin from '../requiresLogin';
 import {reduxForm, Field} from 'redux-form';
 import Input from '../input';
-import { filterClasses } from '../../actions/Grades-Page-Actions/getClasses';
+import { filterClasses } from '../../actions/Grades-Page-Actions/fetchClasses';
 import './sidebar.css';
 
 class SideBar extends React.Component{
@@ -32,7 +32,3 @@ const mapStateToProps = state => {
 };
   
 export default requiresLogin()(connect(mapStateToProps)(SideBar));
-
-// export default reduxForm({
-//   form: 'sidebar'
-// })(SideBar);

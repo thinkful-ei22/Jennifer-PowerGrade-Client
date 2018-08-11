@@ -1,5 +1,5 @@
 
-import {FETCH_CLASSES_SUCCESS, FETCH_CLASSES_ERROR, FILTER_CLASSES} from '../../actions/Grades-Page-Actions/getClasses';
+import {FETCH_CLASSES_SUCCESS, FETCH_CLASSES_ERROR, FILTER_CLASSES} from '../../actions/Grades-Page-Actions/fetchClasses';
 
 const initialState = {
   classes: [],

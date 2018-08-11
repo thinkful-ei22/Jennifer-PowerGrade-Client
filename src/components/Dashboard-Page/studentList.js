@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {fetchStudents} from '../../actions/Dashboard-Page-Actions/studentList';
+import {fetchStudents} from '../../actions/Dashboard-Page-Actions/fetchStudents';
 import requiresLogin from '../requiresLogin';
 import {Field} from 'redux-form';
 import Input from '../input';
@@ -33,7 +33,7 @@ class StudentList extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    students: state.studentListReducer.students
+    students: state.fetchStudentsReducer.students
   };
 };
 

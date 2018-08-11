@@ -1,10 +1,6 @@
 import {API_BASE_URL} from '../../config';
 import {normalizeResponseErrors} from '../utils';
 
-// export const FETCH_GRADES_REQUEST='FETCH_GRADES_REQUEST';
-// export const fetchGradessRequest = () => ({
-//   type: FETCH_GRADES_REQUEST
-// });
 export const FETCH_GRADES_SUCCESS='FETCH_GRADES_SUCCESS';
 export const fetchGradessSuccess= grades => ({
   type: FETCH_GRADES_SUCCESS,

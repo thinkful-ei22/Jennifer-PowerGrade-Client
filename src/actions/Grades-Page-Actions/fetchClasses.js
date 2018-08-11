@@ -12,7 +12,7 @@ export const fetchClassesError= error => ({
   error
 });
 
-export const FILTER_CLASSES = 'FILTER_CLASSES';  //action for applying a filter to the classes
+export const FILTER_CLASSES = 'FILTER_CLASSES';
 export const filteredClasses = filter => ({
   type: FILTER_CLASSES,
   filter

@@ -25,7 +25,7 @@ class GradesPage extends React.Component {
 
 const mapStateToProps = state =>{
   return {
-    name: state.loginReducer.currentUser.firstName
+    name: state.loginReducer.currentUser.firstName  //DO I NEED THIS?
     
   };
 };

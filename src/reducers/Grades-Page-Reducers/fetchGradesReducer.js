@@ -1,5 +1,5 @@
 
-import {FETCH_GRADES_SUCCESS, FETCH_GRADES_ERROR} from '../../actions/Grades-Page-Actions/getGrades';
+import {FETCH_GRADES_SUCCESS, FETCH_GRADES_ERROR} from '../../actions/Grades-Page-Actions/fetchGrades';
 
 const initialState = {
   grades: [],
