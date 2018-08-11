@@ -1,9 +1,10 @@
 import React from 'react';
 import {reduxForm, Field} from 'redux-form';
-import Input from '../input';
+import Input from '../../input';
 import CategoryList from './categoryList';
-import { createAssignment } from '../../actions/Assignment-Page-Actions/createAssignment';
-import ClassList from '../Assignments-Page/classList';
+import { createAssignment } from '../../../actions/Assignment-Page-Actions/createAssignment';
+import ClassList from './classSelect';
+import './createAssignmentForm.css';
 
 class CreateAssignmentForm extends React.Component {
   onSubmit(values){
@@ -12,8 +13,9 @@ class CreateAssignmentForm extends React.Component {
   }
   render (){
     return (
-      <form onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
+      <form className="create-assignment" onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
         <Field
+          className="assignment-name"
           component={Input}
           element="input"
           type="text"
@@ -23,6 +25,7 @@ class CreateAssignmentForm extends React.Component {
         >
         </Field>
         <Field
+          className="assignment-date"
           component={Input}
           element="input"
           type="date"
@@ -33,9 +36,11 @@ class CreateAssignmentForm extends React.Component {
         </Field>
         <CategoryList/>
         <ClassList/>
-        <button disabled={this.props.pristine||this.props.submitting}>
+        <div className="create-button">
+          <button disabled={this.props.pristine||this.props.submitting}>
             Save
-        </button>
+          </button>
+        </div>
       </form>
     );
   }

@@ -21,12 +21,21 @@ class GradeDisplay extends React.Component {
       }
     }
   }
+  // getAssignmentAverage(assignment){
+  //   if(this.props.grades){
+  //     const grade = this.props.grades.find(grade=> grade.assignmentId.id===assignment.id);
+  //     if(grade){
+  //       return grade.value;
+  //     }else{
+  //       return '-';
+  //     }
+  //   }
+  // }
 
   render(){
     const currentStudents =this.props.filteredClasses.map(item => item.students.map(student => student));
     const currentClasses = this.props.filteredClasses.filter(classItem => classItem.userId.id === this.props.currentUser.id);
     const assignmentList = currentClasses.map(classItem => classItem.assignments.map(assignment => assignment));
-
     const assignmentRows = assignmentList.map((assignment => assignment.map(name => <th key={name.name}>{name.name}</th>)));
 
     const studentCells=currentStudents.map(students => students.map(student =>{

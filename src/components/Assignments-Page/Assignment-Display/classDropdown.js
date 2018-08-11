@@ -1,9 +1,9 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {fetchClasses} from '../../actions/Grades-Page-Actions/getClasses';
-import requiresLogin from '../requiresLogin';
+import {fetchClasses} from '../../../actions/Grades-Page-Actions/getClasses';
+import requiresLogin from '../../requiresLogin';
 import {Field} from 'redux-form';
-import Input from '../input';
+import './classDropdown.css';
 
 class ClassDropdown extends React.Component {
   componentDidMount(){
@@ -16,6 +16,7 @@ class ClassDropdown extends React.Component {
     ));
     return(
       <Field
+        className="class-filter"
         component="select"
         element="select"
         type="select"

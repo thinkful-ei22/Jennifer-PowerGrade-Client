@@ -2,10 +2,10 @@ import React from 'react';
 import {connect} from 'react-redux';
 import NavBar from '../NavBar/navbar';
 import requiresLogin from '../requiresLogin';
-import AssignmentDisplay from './assignmentDisplay';
-import CreateAssignmentForm from './createAssignmentForm';
-import AssignmentFilters from './assignmentFilters';
-import StandardSelectForm from './standardSelectForm';
+import AssignmentDisplay from './Assignment-Display/assignmentDisplay';
+import CreateAssignmentForm from './Create-Assignment-Form/createAssignmentForm';
+import AssignmentFilters from './Assignment-Display/assignmentFilters';
+import './assignmentPage.css';
 
 class AssignmentsPage extends React.Component {
   render(){
@@ -14,13 +14,16 @@ class AssignmentsPage extends React.Component {
         <div className="row">
           <NavBar />
         </div>
-        <div>
-          <CreateAssignmentForm />
-          {/* <StandardSelectForm/> */}
-        </div>
-        <div>
-          <AssignmentFilters/>
-          <AssignmentDisplay/>
+        <div className="row">
+          <div className="assignment-create col-4">
+            <h2 className="heading">Create an Assignment</h2>
+            <CreateAssignmentForm />
+          </div>
+          <div className="assignment-display col-4">
+            <h2 className="heading">Your Assignments</h2>
+            <AssignmentFilters/>
+            <AssignmentDisplay/>
+          </div>
         </div>
       </div>
     );

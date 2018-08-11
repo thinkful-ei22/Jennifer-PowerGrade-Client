@@ -4,7 +4,7 @@ import NavBar from '../NavBar/navbar';
 import requiresLogin from '../requiresLogin';
 import GradeDisplay from '../Grades-Page/gradeDisplay';
 import SideBar from './classSidebar';
-// import './gradePage.css';
+import './gradePage.css';
 
 
 class GradesPage extends React.Component {
@@ -12,7 +12,7 @@ class GradesPage extends React.Component {
     return (
       <div>
         <div className="row">
-          {/* <NavBar /> */}
+          <NavBar />
         </div>
         <SideBar/>
         <div>

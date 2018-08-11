@@ -41,7 +41,7 @@ border-radius: 5px;
 .button-container {
 text-align: center;
 }
-input {
+.login input {
 width: 90%;
 height: 30px;
 margin-right:5%;
@@ -51,7 +51,7 @@ margin-bottom: 5px;
 border-radius: 5px;
 background-color: #95A3B3;
 }
-button {
+.login button {
 margin: 5px;
 margin-top: 15px;
 Font-Family: 'Quattrocento Sans', Sans-Serif;
@@ -59,7 +59,7 @@ font-size: 14px;
 background-color: #84DCC6;
 border-radius: 5px;
 }
-label {
+.login label {
 Font-Family: 'Quattrocento Sans', Sans-Serif;
 color: #FFFFFF;
 margin-left:5%;
@@ -101,7 +101,7 @@ border-radius: 5px;
 .button-container {
 text-align: center;
 }
-input {
+.login input {
 width: 90%;
 height: 30px;
 margin-right:5%;
@@ -112,7 +112,7 @@ border-radius: 5px;
 background-color: #95A3B3;
 }
 
-button {
+.login button {
 margin: 5px;
 margin-top: 15px;
 Font-Family: 'Quattrocento Sans', Sans-Serif;
@@ -121,7 +121,7 @@ background-color: #84DCC6;
 border-radius: 5px;
 }
 
-label {
+.login label {
 Font-Family: 'Quattrocento Sans', Sans-Serif;
 color: #FFFFFF;
 margin-left:5%;

@@ -44,7 +44,7 @@
       .button-container {
         text-align: center;
       }
-      input {
+      .signup input {
         width: 90%;
         height: 30px;
         margin-right:5%;
@@ -55,7 +55,7 @@
         background-color: #95A3B3;
       }
       
-      button {
+      .signup button {
         margin: 5px;
         margin-top: 15px;
         Font-Family: 'Quattrocento Sans', Sans-Serif;
@@ -64,7 +64,7 @@
         border-radius: 5px;
       }
       
-      label {
+      .signup label {
         Font-Family: 'Quattrocento Sans', Sans-Serif;
         color: #FFFFFF;
         margin-left:5%;
@@ -108,7 +108,7 @@
         .button-container {
           text-align: center;
         }
-        input {
+        .signup input {
           width: 90%;
           height: 30px;
           margin-right:5%;
@@ -119,7 +119,7 @@
           background-color: #95A3B3;
         }
         
-        button {
+        .signup button {
           margin: 5px;
           margin-top: 15px;
           Font-Family: 'Quattrocento Sans', Sans-Serif;
@@ -128,7 +128,7 @@
           border-radius: 5px;
         }
         
-        label {
+        .signup label {
           Font-Family: 'Quattrocento Sans', Sans-Serif;
           color: #FFFFFF;
           margin-left:5%;

@@ -1,7 +1,8 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import requiresLogin from '../requiresLogin';
-import { fetchAssignments } from '../../actions/Assignment-Page-Actions/assignmentList';
+import requiresLogin from '../../requiresLogin';
+import { fetchAssignments } from '../../../actions/Assignment-Page-Actions/assignmentList';
+import './assignmentDisplay.css';
 
 class AssignmentDisplay extends React.Component {
   componentDidMount(){

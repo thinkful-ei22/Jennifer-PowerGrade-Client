@@ -1,9 +1,9 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {fetchCategories} from '../../actions/Assignment-Page-Actions/fetchCategories';
-import requiresLogin from '../requiresLogin';
+import {fetchCategories} from '../../../actions/Assignment-Page-Actions/fetchCategories';
+import requiresLogin from '../../requiresLogin';
 import {Field} from 'redux-form';
-import Input from '../input';
+import './categoryList.css';
 
 class CategoryList extends React.Component {
   componentDidMount(){
@@ -15,6 +15,7 @@ class CategoryList extends React.Component {
     ));
     return(
       <Field
+        className='category-list'
         component="select"
         element="select"
         type="select"
