@@ -1,10 +1,8 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {fetchClasses} from '../../../actions/Grades-Page-Actions/fetchClasses';
+import {fetchClasses} from '../../../actions/GET/fetchClasses';
 import requiresLogin from '../../requiresLogin';
-import {filterAssignments} from '../../../actions/Assignment-Page-Actions/fetchAssignments';
-import {fetchAssignments} from '../../../actions/Assignment-Page-Actions/fetchAssignments';
-import {Field} from 'redux-form';
+import {filterAssignments, fetchAssignments} from '../../../actions/GET/fetchAssignments';
 import './classDropdown.css';
 
 class ClassDropdown extends React.Component {

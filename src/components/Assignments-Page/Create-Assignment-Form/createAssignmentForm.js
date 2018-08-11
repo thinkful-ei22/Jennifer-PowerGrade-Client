@@ -2,7 +2,7 @@ import React from 'react';
 import {reduxForm, Field} from 'redux-form';
 import Input from '../../input';
 import CategoryList from './categoryList';
-import { createAssignment } from '../../../actions/Assignment-Page-Actions/createAssignment';
+import {createAssignment} from '../../../actions/POST/createAssignment';
 import ClassList from './classSelect';
 import './createAssignmentForm.css';
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {fetchStudents} from '../../actions/Dashboard-Page-Actions/fetchStudents';
+import {fetchStudents} from '../../actions/GET/fetchStudents';
 import requiresLogin from '../requiresLogin';
 import {Field} from 'redux-form';
 import Input from '../input';

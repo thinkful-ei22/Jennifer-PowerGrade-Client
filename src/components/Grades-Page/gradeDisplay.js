@@ -1,9 +1,9 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import requiresLogin from '../requiresLogin';
-import {fetchGrades} from '../../actions/Grades-Page-Actions/fetchGrades';
-import {fetchStudents} from '../../actions/Dashboard-Page-Actions/fetchStudents';
-import {fetchClasses} from '../../actions/Grades-Page-Actions/fetchClasses';
+import {fetchGrades} from '../../actions/GET/fetchGrades';
+import {fetchStudents} from '../../actions/GET/fetchStudents';
+import {fetchClasses} from '../../actions/GET/fetchClasses';
 
 class GradeDisplay extends React.Component {
   componentDidMount(){

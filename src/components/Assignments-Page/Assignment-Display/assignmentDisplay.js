@@ -1,8 +1,8 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import requiresLogin from '../../requiresLogin';
-import { fetchAssignments } from '../../../actions/Assignment-Page-Actions/fetchAssignments';
-import {deleteAssignment} from '../../../actions/Assignment-Page-Actions/deleteAssignment';
+import {fetchAssignments} from '../../../actions/GET/fetchAssignments';
+import {deleteAssignment} from '../../../actions/DELETE/deleteAssignment';
 import './assignmentDisplay.css';
 
 class AssignmentDisplay extends React.Component {

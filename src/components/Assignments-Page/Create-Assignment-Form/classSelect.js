@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {fetchClasses} from '../../../actions/Grades-Page-Actions/fetchClasses';
+import {fetchClasses} from '../../../actions/GET/fetchClasses';
 import requiresLogin from '../../requiresLogin';
 import {Field} from 'redux-form';
 import Input from '../../input';

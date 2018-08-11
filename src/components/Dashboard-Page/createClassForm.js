@@ -2,7 +2,7 @@ import React from 'react';
 import {reduxForm, Field} from 'redux-form';
 import Input from '../input';
 import StudentList from './studentList';
-import { createClass } from '../../actions/Dashboard-Page-Actions/createClass';
+import {createClass} from '../../actions/POST/createClass';
 
 class CreateClassForm extends React.Component {
   onSubmit(values){

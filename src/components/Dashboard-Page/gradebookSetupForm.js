@@ -1,7 +1,7 @@
 import React from 'react';
 import {reduxForm, Field} from 'redux-form';
 import Input from '../input';
-import { setQuizValue, setClassworkValue, setTestValue, setHomeworkValue } from '../../actions/Dashboard-Page-Actions/setCategoryValues';
+import { setQuizValue, setClassworkValue, setTestValue, setHomeworkValue } from '../../actions/OTHER/setCategoryValues';
 
 class GradebookSetupForm extends React.Component {
   onSubmit(values){
