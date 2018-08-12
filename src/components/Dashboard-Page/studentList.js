@@ -11,20 +11,20 @@ class StudentList extends React.Component {
   }
   render(){
     const studentList = this.props.students.map(student => (
-      <div key={student.id}>
-        <Field 
-          component={Input}
-          element="checkbox"
-          type="checkbox"
-          name={`students.student-${student.id}`}
-          id={student.id}
-          label={`${student.lastName}, ${student.firstName}`}>
-        </Field>
-      </div>
+      <Field 
+        className="student-checkbox"
+        key={student.id}
+        component={Input}
+        element="checkbox"
+        type="checkbox"
+        name={`students.student-${student.id}`}
+        id={student.id}
+        label={`${student.lastName}, ${student.firstName}`}>
+      </Field>
     ));
     return(
-      <fieldset>
-        <legend>Select Your Students</legend>
+      <fieldset className="student-checkbox-container">
+        <legend className="student-checkbox-legend">Select Your Students</legend>
         {studentList}
       </fieldset>
     );
@@ -33,7 +33,7 @@ class StudentList extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    students: state.studentsCRUDReducers.students
+    students: state.studentsCRUDReducer.students
   };
 };
 

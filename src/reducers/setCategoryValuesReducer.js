@@ -9,21 +9,25 @@ const initialState = {
 
 export default (state=initialState, action) => {
   if(action.type===SET_TEST_VALUE){
+    console.log(action);
     return Object.assign({}, state,{
       testValue: action.value/100
     });
   }
   else if(action.type===SET_QUIZ_VALUE){
+    console.log(action);
     return Object.assign({}, state,{
       quizValue: action.value/100
     });
   }
   else if(action.type===SET_CLASSWORK_VALUE){
+    console.log(action);
     return Object.assign({}, state,{
       classworkValue: action.value/100
     });
   }
   else if(action.type===SET_HOMEWORK_VALUE){
+    console.log(action);
     return Object.assign({}, state,{
       homeworkValue: action.value/100
     });

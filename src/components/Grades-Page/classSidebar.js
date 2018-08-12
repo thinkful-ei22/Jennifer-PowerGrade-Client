@@ -14,7 +14,7 @@ class SideBar extends React.Component{
       <li onClick={() => this.onClick(classItem.name)} key={classItem.id}><a href="#">{classItem.name}</a></li>);
     return (
       <nav className="sidenav">
-        <ul>
+        <ul className="sidenav-classes">
           {classLinks}
         </ul>
       </nav>
@@ -25,7 +25,7 @@ class SideBar extends React.Component{
 const mapStateToProps = state => {
   return {
     currentUser: state.loginReducer.currentUser,
-    classes: state.classesCRUDReducers.classes,
+    classes: state.classesCRUDReducer.classes,
   };
 };
   

@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import {fetchClasses} from '../../../actions/GET/fetchClasses';
 import requiresLogin from '../../requiresLogin';
 import {filterAssignments, fetchAssignments} from '../../../actions/GET/fetchAssignments';
-import './classDropdown.css';
+// import './classDropdown.css';
 
 class ClassDropdown extends React.Component {
   componentDidMount(){
@@ -15,8 +15,8 @@ class ClassDropdown extends React.Component {
       <option  key={i} value={classItem.id}>{classItem.name}</option>
     ));
     return(
-      <div>
-        <label htmlFor="classId">Filter by Class</label>
+      <div className="class-select-container">
+        <label className="class-select-label" htmlFor="classId">Filter by Class</label>
         <select
           onChange={(e => {
             console.log(e.target.value);
@@ -28,11 +28,11 @@ class ClassDropdown extends React.Component {
             }
           }
           )}
-          className="class-filter"
+          className="class-select"
           type="select"
           name="classId"
           id="classId">
-          <option value="">All Assignments</option>
+          <option className="class-option" value="0">All Assignments</option>
           {classOptions}
         </select>
       </div>

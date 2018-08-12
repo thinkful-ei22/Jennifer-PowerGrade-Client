@@ -11,11 +11,11 @@ class GradesPage extends React.Component {
   render(){
     return (
       <div>
-        <div className="row">
+        <div className="row nav-container">
           <NavBar />
         </div>
         <SideBar/>
-        <div>
+        <div className="grade-display">
           <GradeDisplay/>
         </div>
       </div>

@@ -19,7 +19,7 @@ export const filteredClasses = filter => ({
 });
 
 export const filterClasses = (filter) => (dispatch, getState) => {
-  const classes = getState().fetchClassesReducer.classes;
+  const classes = getState().classesCRUDReducer.classes;
   const filtering = classes.filter(classItem => classItem.name === filter);
   dispatch(filteredClasses(filtering));
 };

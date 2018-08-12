@@ -3,8 +3,6 @@ import {connect} from 'react-redux';
 import requiresLogin from '../../requiresLogin';
 import {fetchAssignments, fetchOneAssignment} from '../../../actions/GET/fetchAssignments';
 import {deleteAssignment} from '../../../actions/DELETE/deleteAssignment';
-import EditAssignmentForm from './editAssignmentForm';
-import './assignmentDisplay.css';
 
 class AssignmentDisplay extends React.Component {
   componentDidMount(){
@@ -13,26 +11,21 @@ class AssignmentDisplay extends React.Component {
   render(){
     const assignmentList=this.props.assignments.map(assignment =>(
       <div className="assignment-list" key={assignment.id}>
-        <li id={assignment.id}>
-          <a href="#" onClick={this.props.dispatch(fetchOneAssignment(assignment.id))}>{assignment.name}</a>
-          <i onClick={(e) => this.props.dispatch(deleteAssignment(e.target.parentElement.id))} className="fa fa-times"></i>
+        <li className="assignment-list-item" id={assignment.id}>
+          <a className="assignment-name-link" href="#" onClick={(e)=>this.props.dispatch(fetchOneAssignment(e.target.parentElement.id))}>{assignment.name}</a>
+          <i className="delete-assignment-x" onClick={(e) => this.props.dispatch(deleteAssignment(e.target.parentElement.id))} className="fa fa-times"></i>
         </li>     
       </div>)); 
     return (
-      <div>
-        {EditAssignmentForm}
-        <div>
-          <ul>{assignmentList}</ul>
-        </div>
-      </div>
+      <ul className="assignment-list-ul">{assignmentList}</ul>
     );
   }
 }
 
 const mapStateToProps = state => {
   return {
-    assignments: state.assignmentCRUDReducers.filteredAssignments,
-    currentAssignment: state.assignmentCRUDReducers.currentAssignment
+    assignments: state.assignmentCRUDReducer.filteredAssignments,
+    currentAssignment: state.assignmentCRUDReducer.currentAssignment
   };
 };
 

@@ -7,14 +7,15 @@ import ClassList from '../Create-Assignment-Form/classSelect';
 
 class EditAssignmentForm extends React.Component {
   onSubmit(values){
-    console.log(values);
-    return this.props.dispatch(editAssignment(values));
+    const classes = Object.keys(values.classes);
+    const classIds = classes.map(classItem => classItem.slice(6));
+    return this.props.dispatch(editAssignment(values.name, values.date, classIds));
   }
   render (){
     return (
-      <form className="edit-assignment" onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
+      <form className="edit-assignment-form" onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
         <Field
-          className="assignment-name"
+          className="assignment-name-edit"
           component={Input}
           element="input"
           type="text"
@@ -24,7 +25,7 @@ class EditAssignmentForm extends React.Component {
         >
         </Field>
         <Field
-          className="assignment-date"
+          className="assignment-date-edit"
           component={Input}
           element="input"
           type="date"
@@ -35,8 +36,8 @@ class EditAssignmentForm extends React.Component {
         </Field>
         <CategoryList/>
         <ClassList/>
-        <div className="create-button">
-          <button disabled={this.props.pristine||this.props.submitting}>
+        <div className="assignment-edit-save-button-container">
+          <button className="assignment-edit-save-button" disabled={this.props.pristine||this.props.submitting}>
             Save
           </button>
         </div>

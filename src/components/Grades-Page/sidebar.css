@@ -1,4 +1,4 @@
-* {
+*{
     box-sizing: border-box;
 }
 .row {
@@ -20,7 +20,7 @@
     padding-left: 1.04166666%;
     padding-right: 1.04166666%;
 }
-/* Mobile defaults */
+Mobile defaults */
 .col-3, .col-4, .col-6, .col-12 {
     width: 100%;
 }
@@ -78,7 +78,7 @@
 /* 6 columns, 6/12 in % */
 .col-6 {
     width: 50%;
-}
+} 
 /* 12 columns, 12/12 in % */
 .col-12 {
     width: 100%;

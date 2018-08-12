@@ -1,4 +1,4 @@
-* {
+/* * {
     box-sizing: border-box;
 }
 .row {
@@ -6,7 +6,7 @@
     margin: auto;
 }
 /* Clearfix */
-.row::before,
+/* .row::before,
 .row::after 
 {
     display: table;
@@ -19,13 +19,13 @@
     float: left;
     padding-left: 1.04166666%;
     padding-right: 1.04166666%;
-}
+} */
 /* Mobile defaults */
-.col-3, .col-4, .col-6, .col-12 {
+/* .col-3, .col-4, .col-6, .col-12 {
     width: 100%;
-}
+} */
 /* .topnav li:not(:first-child) {display: none;} */
-.topnav .icon {
+/* .topnav .icon {
     float: right;
     display: block;
 }
@@ -94,21 +94,21 @@
 
 /* Non-mobile, grid */
 
-@media only screen and (min-width: 640px) {
+/* @media only screen and (min-width: 640px) { */
 /* 3 columns, 3/12 in % */
-.col-3 {
+/* .col-3 {
     width: 25%;
-    }
+    } */
     /* 4 columns, 4/12 in % */
-.col-4 {
+/* .col-4 {
     width: 33.33333%;
-    }
+    } */
     /* 6 columns, 6/12 in % */
-.col-6 {
+/* .col-6 {
     width: 50%;
-    }
+    } */
     /* 12 columns, 12/12 in % */
-.col-12 {
+/* .col-12 {
     width: 100%;
     }
 
@@ -132,7 +132,7 @@
     background-color: #95A3B3;
     height: 40px; /* Full height */
     /* position: fixed; Make it stick, even on scroll */
-    overflow: auto;
+    /* overflow: auto;
     Font-Family: 'Quattrocento Sans', Sans-Serif;
 }
 
@@ -164,4 +164,4 @@
     display: none;
   }
 
-}
+} */

@@ -14,18 +14,18 @@ class ClassList extends React.Component {
     const classList = this.props.classes.map(classItem => (
       <Field 
         key={`${classItem.id}`}
-        className="class-option"
+        className="class-checkbox-list-item"
         component={Input}
         element="checkbox"
         type="checkbox"
-        name={`${classItem.id}`}
+        name={`classes.class-${classItem.id}`}
         id={classItem.id}
         label={`${classItem.name}`}>
       </Field>
     ));
     return(
-      <fieldset>
-        <legend>Assign to a Class</legend>
+      <fieldset className="class-checkbox-container">
+        <legend className="class-checkbox-legend">Assign to a Class</legend>
         {classList}
       </fieldset>
     );
@@ -34,7 +34,7 @@ class ClassList extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    classes: state.classesCRUDReducers.classes
+    classes: state.classesCRUDReducer.classes
   };
 };
 

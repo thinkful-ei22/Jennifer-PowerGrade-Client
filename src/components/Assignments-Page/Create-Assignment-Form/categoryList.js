@@ -15,7 +15,7 @@ class CategoryList extends React.Component {
     ));
     return(
       <Field
-        className='category-list'
+        className='category-select'
         component="select"
         element="select"
         type="select"

@@ -8,14 +8,16 @@ import './createAssignmentForm.css';
 
 class CreateAssignmentForm extends React.Component {
   onSubmit(values){
-    console.log(values);
-    return this.props.dispatch(createAssignment(values));
+    const classes = Object.keys(values.classes);
+    const classIds = classes.map(classItem => classItem.slice(6));
+    console.log('values=', values, 'classIds=', classIds);
+    return this.props.dispatch(createAssignment(values.name, values.date, classIds));
   }
   render (){
     return (
-      <form className="create-assignment" onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
+      <form className="create-assignment-form" onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
         <Field
-          className="assignment-name"
+          className="assignment-name-create"
           component={Input}
           element="input"
           type="text"
@@ -25,7 +27,7 @@ class CreateAssignmentForm extends React.Component {
         >
         </Field>
         <Field
-          className="assignment-date"
+          className="assignment-date-create"
           component={Input}
           element="input"
           type="date"
@@ -36,8 +38,8 @@ class CreateAssignmentForm extends React.Component {
         </Field>
         <CategoryList/>
         <ClassList/>
-        <div className="create-button">
-          <button disabled={this.props.pristine||this.props.submitting}>
+        <div className="assignment-create-save-button-container">
+          <button className="assignment-create-save-button" disabled={this.props.pristine||this.props.submitting}>
             Save
           </button>
         </div>

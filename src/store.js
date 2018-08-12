@@ -8,7 +8,7 @@ import assignmentCRUDReducer from './reducers/assignmentCRUDReducers';
 import classesCRUDReducer from './reducers/classesCRUDReducers';
 import gradesCRUDReducer from './reducers/gradesCRUDReducers';
 import setCategoryValuesReducer from './reducers/setCategoryValuesReducer';
-import studentsCRUDReducer from './reducers/gradesCRUDReducers';
+import studentsCRUDReducer from './reducers/studentsCRUDReducers';
 
 const rootReducer = combineReducers({
   loginReducer,

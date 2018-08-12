@@ -1,31 +1,32 @@
 import React from 'react';
 import {reduxForm, Field} from 'redux-form';
 import Input from '../input';
+import {editClass} from '../../actions/PUT/editClass';
 import StudentList from './studentList';
-import {createClass} from '../../actions/POST/createClass';
 
-class CreateClassForm extends React.Component {
+class EditClassForm extends React.Component {
   onSubmit(values){
     const students = Object.keys(values.students);
     const studentIds = students.map(student => student.slice(8));
-    return this.props.dispatch(createClass(values.name, studentIds));
+    return this.props.dispatch(editClass(values.name, studentIds));
   }
   render (){
     return (
-      <form className="create-class-form" onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
+      <form className="edit-class-form" onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
+        <h2>Edit Class</h2>
         <Field
-          className="create-class-name"
+          className="edit-class-name"
           component={Input}
           element="input"
           type="text"
           name="name"
           id="name"
-          label="Class Name"
+          label= "Class Name"
         >
         </Field>
         <StudentList/>
-        <div className="create-class-save-button-container">
-          <button className="create-class-save-button" disabled={this.props.pristine||this.props.submitting}>
+        <div className="edit-class-save-button-container">
+          <button className="edit-class-save-button" disabled={this.props.pristine||this.props.submitting}>
             Save
           </button>
         </div>
@@ -35,5 +36,5 @@ class CreateClassForm extends React.Component {
 }
 
 export default reduxForm({
-  form: 'createClass'
-})(CreateClassForm);
+  form: 'editClass'
+})(EditClassForm);

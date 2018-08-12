@@ -5,15 +5,16 @@ import { setQuizValue, setClassworkValue, setTestValue, setHomeworkValue } from 
 
 class GradebookSetupForm extends React.Component {
   onSubmit(values){
-    return this.props.dispatch(setTestValue(values.tests))
-      .then(()=> this.props.dispatch(setQuizValue(values.quizzes)))
-      .then(()=> this.props.dispatch(setClassworkValue(values.classwork)))
-      .then(() => this.props.dispatch(setHomeworkValue(values.homework)));
+    this.props.dispatch(setTestValue(values.tests));
+    this.props.dispatch(setQuizValue(values.quizzes));
+    this.props.dispatch(setClassworkValue(values.classwork));
+    this.props.dispatch(setHomeworkValue(values.homework));
   }
   render (){
     return (
-      <form onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
+      <form className="gradebook-setup-form" onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
         <Field
+          className="value-input"
           component={Input}
           element="input"
           type="number"
@@ -23,6 +24,7 @@ class GradebookSetupForm extends React.Component {
         >
         </Field>
         <Field
+          className="value-input"
           component={Input}
           element="input"
           type="number"
@@ -32,6 +34,7 @@ class GradebookSetupForm extends React.Component {
         >
         </Field>
         <Field
+          className="value-input"
           component={Input}
           element="input"
           type="number"
@@ -41,6 +44,7 @@ class GradebookSetupForm extends React.Component {
         >
         </Field>
         <Field
+          className="value-input"
           component={Input}
           element="input"
           type="number"
@@ -49,9 +53,11 @@ class GradebookSetupForm extends React.Component {
           label="Homework"
         >
         </Field>
-        <button disabled={this.props.pristine||this.props.submitting}>
-      Save Settings
-        </button>
+        <div className="class-setup-button-container">
+          <button className="class-setup-button" disabled={this.props.pristine||this.props.submitting}>
+          Save Settings
+          </button>
+        </div>
       </form>
     );
   }

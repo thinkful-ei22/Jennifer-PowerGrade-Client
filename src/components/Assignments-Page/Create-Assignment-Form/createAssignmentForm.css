@@ -1,4 +1,4 @@
-.create-assignment {
+/* .create-assignment {
     width: 100%;
     margin: auto;
 }
@@ -16,7 +16,7 @@
     height: 30px;
     /* margin-right:5%;
     margin-left: 5%; */
-    margin-top: 5px;
+    /* margin-top: 5px;
     margin-bottom: 5px;
     border-radius: 5px;
     background-color: #95A3B3;
@@ -35,7 +35,7 @@
     Font-Family: 'Quattrocento Sans', Sans-Serif;
     color: #FFFFFF;
     /* margin-left:5%; */
-    width:50%;
+    /* width:50%;
     margin-top: 10px;
   }
 
@@ -44,7 +44,7 @@
     height: 30px;
     /* margin-right:5%;
     margin-left: 5%; */
-    margin-top: 5px;
+    /* margin-top: 5px;
     margin-bottom: 5px;
     border-radius: 5px;
     background-color: #95A3B3;
@@ -63,7 +63,7 @@
     Font-Family: 'Quattrocento Sans', Sans-Serif;
     color: #FFFFFF;
     /* margin-left:5%; */
-    width:50%;
+    /* width:50%;
     margin-top: 10px;
   }
 
@@ -79,4 +79,4 @@
     .create-button {
       padding-top: 5px;
       text-align: center;
-    }
+    } */

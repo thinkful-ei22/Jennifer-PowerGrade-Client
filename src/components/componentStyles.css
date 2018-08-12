@@ -1,0 +1,367 @@
+@media only screen and (min-width: 640px){
+/* UNIVERSAL STYLES */
+*{
+    box-sizing:border-box;
+}
+body {
+    background-color: #222222;
+}
+.row{
+    max-width: 1260px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin: auto;
+}
+/* Clearfix */
+.row::before,
+.row::after {
+    display: table;
+    content: '';
+}
+.row::after {
+    clear: both;
+}
+.col-2, .col-3, .col-4{
+    float: left;
+    padding-left: 1.04166666%;
+    padding-right: 1.04166666%;
+}
+/* 2 columns - each 1/2 a page */
+.col-2{
+    width:50%;
+}
+/* 3 columns -each 1/3 a page */
+.col-3{
+    width: 33.333333%;
+}
+/* 4 columns - each 1/4 page*/
+.col-4{
+    width: 25%;
+}
+/* LANDING PAGE STYLES */
+    /* loginForm.js STYLES  */
+    .form-error{
+
+    }
+    .login-form{
+
+    }
+    .login-username{
+
+    }
+    .login-password{
+
+    }
+    .login-button-container{
+
+    }
+    .login-button{
+
+    }
+    /* registerForm.js STYLES  */
+    .signup-form{
+
+    }
+    .signup-name{
+
+    }
+    .signup-username{
+
+    }
+    .signup-password{
+
+    }
+    .signup-confirm-password{
+
+    }
+    .signup-button-container{
+
+    }
+    .signup-button{
+
+    }
+    /* landingPage.js STYLES  */
+    .welcome-heading{
+        text-align: center;
+        Font-Family: 'Ovo', Serif;
+        color: white;
+    }
+    .login-heading{
+        text-align: center;
+        Font-Family: 'Ovo', Serif;
+        color: white;
+    }
+    .login-form-container{
+        background-color: #4B4E6D;
+        border-radius: 5px;
+    }
+    .signup-heading{
+        text-align: center;
+        Font-Family: 'Ovo', Serif;
+        color: white;
+    }
+    .signup-form-container{
+        background-color: #4B4E6D;
+        border-radius: 5px;
+    }
+/* NAVBAR STYLES */
+    /* navbar.js STYLES */
+    .nav-container{
+
+    }
+    .topnav{
+
+    }
+    .topnav-link-list{
+
+    }
+    .topnav-link{
+
+    }
+/* DASHBOARD PAGE STYLES */
+    /* classesDisplay.js STYLES */
+    .class-list{
+
+    }
+    .class-list-item{
+
+    }
+    .class-name-link{
+
+    }
+    .delete-class-x{
+
+    }
+    .class-list-ul{
+
+    }
+    /* createClassForm.js STYLES */
+    .create-class-form{
+
+    }
+    .create-class-name{
+
+    }
+    .create-class-save-button-container{
+
+    }
+    .create-class-save-button{
+
+    }
+    /* dashboard.js STYLES */
+    .welcome{
+
+    }
+    .option{
+
+    }
+    .go{
+
+    }
+    .set-up{
+
+    }
+    .action-heading{
+
+    }
+    .get-started-popup-hidden{
+
+    }
+    .create-class-popup-hidden{
+
+    }
+    .view-classes-popup-hidden{
+
+    }
+    .edit-class-popup-hidden{
+
+    }
+    .gradebook-setup-popup-hidden{
+        
+    }
+    .get-started-popup-active{
+
+    }
+    .create-class-popup-active{
+
+    }
+    .view-classes-popup-active{
+
+    }
+    .edit-class-popup-active{
+
+    }
+    .gradebook-setup-popup-active{
+        
+    }
+    /* editClassForm.js STYLES */
+    .edit-class-form{
+
+    }
+    .edit-class-name{
+
+    }
+    .edit-class-save-button-container{
+
+    }
+    .edit-class-save-button{
+
+    }
+    /* gettingStarted.js STYLES */
+    /* gradebookSetupForm.js STYLES */
+    .gradebook-set-up-form{
+
+    }
+    .value-input{
+
+    }
+    .class-setup-button-container{
+
+    }
+    .class-setup-button{
+
+    }
+    /* studentList.js STYLES */
+    .student-checkbox{
+
+    }
+    .student-checkbox-container{
+
+    }
+    .student-checkbox-legend{
+
+    }
+/* GRADES PAGE STYLES */
+    /* classSidebar.js STYLES */
+    .sidenav{
+
+    }
+    .sidenav-classes{
+
+    }
+    /* gradeDisplay.js STYLES */
+    .grades-table{
+
+    }
+    tbody{
+
+    }
+    tr{
+
+    }
+    th{
+
+    }
+    td{
+
+    }
+    /* gradesPage.js STYLES */
+    .grade-display{
+
+    }
+/* ASSIGNMENT PAGE STYLES */
+    /* assignmentPage.js STYLES */
+    .option-container{
+
+    }
+    .assignment-create{
+
+    }
+    .assignment-display{
+
+    }
+    .assignment-edit{
+
+    }
+    .assignment-option-heading{
+
+    }
+    /* Assignment-Display STYLES */
+        /* assignmentDisplay.js STYLES */
+        .assignment-list{
+
+        }
+        .assignment-list-item{
+
+        }
+        .assignment-name-link{
+
+        }
+        .delete-assignment-x{
+
+        }
+        .assignment-list-ul{
+
+        }
+        /*  assignmentFilters.js STYLES */
+        .assignment-filters{
+
+        }
+        .assignment-search-filter{
+
+        }
+        /* classDropdown.js STYLES */
+        .class-select-container{
+
+        }
+        .class-select-label{
+
+        }
+        .class-select{
+
+        }
+        .class-option{
+
+        }
+        /* editAssignmentForm.js STYLES */
+        .edit-assignment-form{
+
+        }
+        .assignment-name-edit{
+
+        }
+        .assignment-date-edit{
+
+        }
+        .assignment-edit-save-button-container{
+
+        }
+        .assignment-edit-save-button{
+
+        }
+    /* Create-Assignment-Form STYLES */
+        /* categoryList.js STYLES */
+        .category-select{
+
+        }
+        /* classSelect.js STYLES */
+        .class-checkbox-list-item{
+
+        }
+        .class-checkbox-container{
+
+        }
+        .class-checkbox-legend{
+
+        }
+        /* createAssignmentForm.js STYLES */
+        .create-assignment-form{
+
+        }
+        .assignment-name-create{
+
+        }
+        .assignment-date-create{
+
+        }
+        .assignment-create-save-button-container{
+
+        }
+        .assignment-create-save-button{
+
+        }
+    }
+
+
+
+
