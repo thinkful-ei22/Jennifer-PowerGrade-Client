@@ -1,8 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import requiresLogin from '../requiresLogin';
-import {reduxForm, Field} from 'redux-form';
-import Input from '../input';
 import { filterClasses } from '../../actions/GET/fetchClasses';
 import './sidebar.css';
 
@@ -27,7 +25,7 @@ class SideBar extends React.Component{
 const mapStateToProps = state => {
   return {
     currentUser: state.loginReducer.currentUser,
-    classes: state.fetchClassesReducer.classes,
+    classes: state.classesCRUDReducers.classes,
   };
 };
   

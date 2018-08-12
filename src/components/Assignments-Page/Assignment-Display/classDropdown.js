@@ -43,7 +43,7 @@ class ClassDropdown extends React.Component {
 const mapStateToProps = state => {
   return {
     currentUserId: state.loginReducer.currentUser.id,
-    classes: state.fetchClassesReducer.classes
+    classes: state.classesCRUDReducer.classes
   };
 };
 

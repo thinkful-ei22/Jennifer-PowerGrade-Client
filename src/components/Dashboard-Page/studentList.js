@@ -33,7 +33,7 @@ class StudentList extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    students: state.fetchStudentsReducer.students
+    students: state.studentsCRUDReducers.students
   };
 };
 

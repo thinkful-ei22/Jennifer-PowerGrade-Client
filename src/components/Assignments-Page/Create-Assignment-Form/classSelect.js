@@ -34,7 +34,7 @@ class ClassList extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    classes: state.fetchClassesReducer.classes
+    classes: state.classesCRUDReducers.classes
   };
 };
 

@@ -67,10 +67,10 @@ class GradeDisplay extends React.Component {
 const mapStateToProps = state => {
   return {
     currentUser: state.loginReducer.currentUser,
-    grades: state.fetchGradesReducer.grades,
-    classes: state.fetchClassesReducer.classes,
-    filteredClasses: state.fetchClassesReducer.filteredClasses,
-    students: state.fetchStudentsReducer.students
+    grades: state.gradesCRUDReducers.grades,
+    classes: state.classesCRUDReducers.classes,
+    filteredClasses: state.classesCRUDReducers.filteredClasses,
+    students: state.studentsCRUDReducers.students
   };
 };
 

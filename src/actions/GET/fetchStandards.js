@@ -40,7 +40,7 @@ export const fetchStates = () => (dispatch) => {
     method: 'GET',
     headers: {
       'content-type': 'application/json',
-      'Api-Key': 'vZKoJwFB1PTJnozKBSANADc3',
+      'Api-Key': API_KEY,
       'Access-Control-Allow-Origin': 'http://localhost:3000'
     }
   })
