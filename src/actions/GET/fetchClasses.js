@@ -39,3 +39,31 @@ export const fetchClasses = () => (dispatch,getState) => {
       dispatch(fetchClassesError(err));
     });
 };
+
+export const FETCH_ONE_CLASS_SUCCESS = 'FETCH_ONE_CLASS_SUCCESS';
+export const fetchOneClassSuccess = currentClass => ({
+  type: FETCH_ONE_CLASS_SUCCESS,
+  currentClass
+});
+
+export const FETCH_ONE_CLASS_ERROR = 'FETCH_ONE_CLASS_ERROR';
+export const fetchOneClassError = error => ({
+  type: FETCH_ONE_CLASS_ERROR,
+  error
+});
+
+export const fetchOneClass = (id) => (dispatch, getState) => {
+  const authToken = getState().loginReducer.authToken;
+  return fetch(`${API_BASE_URL}/api/classes/${id}`, {
+    method: 'GET',
+    headers: {
+      Authorization:`Bearer ${authToken}`
+    }
+  })
+    .then(res => normalizeResponseErrors(res))
+    .then(res => res.json())
+    .then((currentClass) => dispatch(fetchOneClassSuccess(currentClass)))
+    .catch(err => {
+      dispatch(fetchOneClassError(err));
+    });
+};

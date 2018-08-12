@@ -1,6 +1,7 @@
 import {CREATE_CLASS_ERROR, CREATE_CLASS_REQUEST, CREATE_CLASS_SUCCESS} from '../actions/POST/createClass';
-import {FETCH_CLASSES_SUCCESS, FETCH_CLASSES_ERROR, FILTER_CLASSES} from '../actions/GET/fetchClasses';
+import {FETCH_CLASSES_SUCCESS, FETCH_CLASSES_ERROR, FILTER_CLASSES, FETCH_ONE_CLASS_SUCCESS} from '../actions/GET/fetchClasses';
 import {DELETE_CLASS_SUCCESS, DELETE_CLASS_ERROR} from '../actions/DELETE/deleteClass';
+import { FETCH_ONE_ASSIGNMENT_ERROR } from '../actions/GET/fetchAssignments';
 
 const initialState = {
   loading:false,
@@ -12,6 +13,7 @@ const initialState = {
   userClasses: [],
   classes: [],
   filteredClasses: [],
+  currentClass: {}
 };
   
 export default function classesCRUDReducers(state = initialState, action) {
@@ -47,6 +49,19 @@ export default function classesCRUDReducers(state = initialState, action) {
       error: action.error
     });
   }
+  //GET one class
+  else if(action.type===FETCH_ONE_CLASS_SUCCESS){
+    return Object.assign({}, state, {
+      error: null,
+      currentClass: action.currentClass
+    });
+  }
+  else if(action.type===FETCH_ONE_ASSIGNMENT_ERROR){
+    return Object.assign({}, state, {
+      error: action.error
+    });
+  }
+  //filter class list
   else if(action.type===FILTER_CLASSES){
     return Object.assign({}, state, {
       filteredClasses: action.filter
@@ -68,7 +83,6 @@ export default function classesCRUDReducers(state = initialState, action) {
       error: action.error
     });
   }
-  //GET one class
   //PUT edit one class
   return state;
 }

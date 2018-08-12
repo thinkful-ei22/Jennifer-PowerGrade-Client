@@ -1,5 +1,5 @@
 import {CREATE_ASSIGNMENT_ERROR,CREATE_ASSIGNMENT_REQUEST,CREATE_ASSIGNMENT_SUCCESS} from '../actions/POST/createAssignment';
-import  {FETCH_ASSIGNMENT_SUCCESS, FETCH_ASSIGNMENT_ERROR, FILTER_ASSIGNMENTS} from '../actions/GET/fetchAssignments';
+import  {FETCH_ASSIGNMENT_SUCCESS, FETCH_ASSIGNMENT_ERROR, FILTER_ASSIGNMENTS, FETCH_ONE_ASSIGNMENT_SUCCESS, FETCH_ONE_ASSIGNMENT_ERROR} from '../actions/GET/fetchAssignments';
 import {DELETE_ASSIGNMENT_ERROR, DELETE_ASSIGNMENT_SUCCESS} from '../actions/DELETE/deleteAssignment';
 
 const initialState = {
@@ -11,6 +11,7 @@ const initialState = {
   assignmentDate:'',
   assignments: [],
   filteredAssignments: [],
+  currentAssignment: {}
 };
   
 export default function assignmentCRUDReducers(state = initialState, action) {
@@ -54,6 +55,17 @@ export default function assignmentCRUDReducers(state = initialState, action) {
     });
   }
   //GET one class
+  else if(action.type===FETCH_ONE_ASSIGNMENT_SUCCESS){
+    return Object.assign({}, state, {
+      error: null,
+      currentAssignment: action.currentAssignment
+    });
+  }
+  else if(action.type===FETCH_ONE_ASSIGNMENT_ERROR){
+    return Object.assign({}, state, {
+      error: action.error
+    });
+  }
   //PUT update assignment
   //DELETE    
   else if(action.type === DELETE_ASSIGNMENT_SUCCESS) {

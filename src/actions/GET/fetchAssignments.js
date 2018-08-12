@@ -43,3 +43,31 @@ export const fetchAssignments = () => (dispatch, getState) => {
       dispatch(fetchAssignmentsError(err));
     });
 };
+
+export const FETCH_ONE_ASSIGNMENT_SUCCESS = 'FETCH_ONE_ASSIGNMENT_SUCCESS';
+export const fetchOneAssignmentSuccess = currentAssignment => ({
+  type: FETCH_ONE_ASSIGNMENT_SUCCESS,
+  currentAssignment
+});
+
+export const FETCH_ONE_ASSIGNMENT_ERROR = 'FETCH_ONE_ASSIGNMENT_ERROR';
+export const fetchOneAssignmentError = error => ({
+  type: FETCH_ONE_ASSIGNMENT_ERROR,
+  error
+});
+
+export const fetchOneAssignment = (id) => (dispatch, getState) => {
+  const authToken = getState().loginReducer.authToken;
+  return fetch(`${API_BASE_URL}/api/assignments/${id}`, {
+    method: 'GET',
+    headers: {
+      Authorization:`Bearer ${authToken}`
+    }
+  })
+    .then(res => normalizeResponseErrors(res))
+    .then(res => res.json())
+    .then((currentAssignment) => dispatch(fetchOneAssignmentSuccess(currentAssignment)))
+    .catch(err => {
+      dispatch(fetchOneAssignmentError(err));
+    });
+};
