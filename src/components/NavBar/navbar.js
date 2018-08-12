@@ -1,6 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import './navbar.css';
+import '../componentStyles.css';
+import '../componentMobileStyles.css';
 
 export default function NavBar(props){
   return (
@@ -15,7 +16,6 @@ export default function NavBar(props){
         <li className="topnav-link">
           <Link to="/assignments">Assignments</Link>
         </li>
-        <li className="icon"><i className="fa fa-bars expandnav"></i></li>
       </ul>
     </nav>
   );

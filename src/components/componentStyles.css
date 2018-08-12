@@ -5,12 +5,15 @@
 }
 body {
     background-color: #222222;
+    width: 100%;
+    height: 100%;
 }
 .row{
     max-width: 1260px;
     padding-left: 20px;
     padding-right: 20px;
     margin: auto;
+    background-color: #222222;
 }
 /* Clearfix */
 .row::before,
@@ -21,7 +24,7 @@ body {
 .row::after {
     clear: both;
 }
-.col-2, .col-3, .col-4{
+.col-2, .col-3, .col-4, .col-6{
     float: left;
     padding-left: 1.04166666%;
     padding-right: 1.04166666%;
@@ -38,47 +41,120 @@ body {
 .col-4{
     width: 25%;
 }
+/* 6 columns - each 1/6 page */
+.col-6{
+    width: 16.666667%;
+}
 /* LANDING PAGE STYLES */
     /* loginForm.js STYLES  */
-    .form-error{
+    .form-error-active{
+
+    }
+    .form-error-hidden{
 
     }
     .login-form{
-
+        height: 400px;
+        margin: 20px;
+    }
+    .login-form label{
+        Font-Family: 'Quattrocento Sans', Sans-Serif;
+        color: #FFFFFF;
+        margin-left:5%;
+        margin-top: 10px;
     }
     .login-username{
-
+        width: 90%;
+        height: 30px;
+        margin-right:5%;
+        margin-left: 5%;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        border-radius: 5px;
+        background-color: #95A3B3;
     }
     .login-password{
-
+        width: 90%;
+        height: 30px;
+        margin-right:5%;
+        margin-left: 5%;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        border-radius: 5px;
+        background-color: #95A3B3;
     }
     .login-button-container{
-
+        text-align: center;
     }
     .login-button{
-
+        margin: 5px;
+        margin-top: 15px;
+        Font-Family: 'Quattrocento Sans', Sans-Serif;
+        font-size: 14px;
+        background-color: #84DCC6;
+        border-radius: 5px;
     }
     /* registerForm.js STYLES  */
     .signup-form{
-
+        height: 100%;
+        margin: 20px;
+    }
+    .signup-form label{
+        Font-Family: 'Quattrocento Sans', Sans-Serif;
+        color: #FFFFFF;
+        margin-left:5%;
+        margin-top: 10px;
     }
     .signup-name{
-
+        width: 90%;
+        height: 30px;
+        margin-right:5%;
+        margin-left: 5%;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        border-radius: 5px;
+        background-color: #95A3B3;
     }
     .signup-username{
-
+        width: 90%;
+        height: 30px;
+        margin-right:5%;
+        margin-left: 5%;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        border-radius: 5px;
+        background-color: #95A3B3;
     }
     .signup-password{
-
+        width: 90%;
+        height: 30px;
+        margin-right:5%;
+        margin-left: 5%;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        border-radius: 5px;
+        background-color: #95A3B3;
     }
     .signup-confirm-password{
-
+        width: 90%;
+        height: 30px;
+        margin-right:5%;
+        margin-left: 5%;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        border-radius: 5px;
+        background-color: #95A3B3;
     }
     .signup-button-container{
-
+        text-align: center;
     }
     .signup-button{
-
+        margin: 5px;
+        margin-top: 15px;
+        Font-Family: 'Quattrocento Sans', Sans-Serif;
+        font-size: 14px;
+        background-color: #84DCC6;
+        border-radius: 5px;
     }
     /* landingPage.js STYLES  */
     .welcome-heading{
@@ -94,6 +170,7 @@ body {
     .login-form-container{
         background-color: #4B4E6D;
         border-radius: 5px;
+        height: 400px;
     }
     .signup-heading{
         text-align: center;
@@ -103,6 +180,7 @@ body {
     .signup-form-container{
         background-color: #4B4E6D;
         border-radius: 5px;
+        height: 400px;
     }
 /* NAVBAR STYLES */
     /* navbar.js STYLES */
@@ -110,13 +188,47 @@ body {
 
     }
     .topnav{
-
+        position: fixed;
+        width: 100%;
+        left:0;
     }
     .topnav-link-list{
-
+        list-style-type: none;
+        margin: 0px;
+        padding: 0px;
+        width: 100%;
+        background-color: #95A3B3;
+        height: 40px;
+        overflow: hidden;
+        Font-Family: 'Quattrocento Sans', Sans-Serif;
     }
     .topnav-link{
-
+        float: left;
+        height: 100%;
+        margin-right: 20px;
+        padding: 10px;
+        width: 100px;
+        text-align: center;
+    }
+    .topnav-link a{
+        display: block;
+        text-align: left;
+    }
+    .topnav-link a:link{
+        text-decoration: none;
+        color: #222222;
+    }
+    .topnav-link a:visited{
+        text-decoration: none;
+        color: #222222;
+    }
+    .topnav-link a:hover{
+        text-decoration: none;
+        color: #868686;
+    }
+    .topnav-link a:active{
+        text-decoration: none;
+        color: #84DCC6;;
     }
 /* DASHBOARD PAGE STYLES */
     /* classesDisplay.js STYLES */
@@ -150,49 +262,91 @@ body {
     }
     /* dashboard.js STYLES */
     .welcome{
-
+        Font-Family: 'Ovo', Serif;
+        text-align: center;
+        color: white;
+        margin-top:50px;
+        margin-bottom:100px;
     }
-    .option{
-
+    .get-started-container{
+        background-color: #95A3B3;
+        border-radius: 5px;
+        margin-left:6.6666668%;
+        margin-right:3.33333334%;
+    }
+    .create-class-container{
+        background-color: #95A3B3;
+        border-radius: 5px;
+        margin-left:3.33333334%;
+        margin-right:3.33333334%;
+    }
+    .view-classes-container{
+        background-color: #95A3B3;
+        border-radius: 5px;
+        margin-left:3.33333334%;
+        margin-right:3.33333334%;
+    }
+    .set-up-container{
+        background-color: #95A3B3;
+        border-radius: 5px;
+        margin-left:3.33333334%;
+        margin-right:3.33333334%;
     }
     .go{
-
-    }
-    .set-up{
-
+        width:100%;
+        text-align:center;
+        font-size: 60px;
+        color: #4B4E6D;
+        margin-top: 20px;
     }
     .action-heading{
-
+        color: white;
+        font-size:28px;
+        text-align:center;
+        margin-top:0px;
+        Font-Family: 'Ovo', Serif;
     }
     .get-started-popup-hidden{
-
+        display: none;
     }
     .create-class-popup-hidden{
-
+        display: none;
     }
     .view-classes-popup-hidden{
-
+        display: none;
     }
     .edit-class-popup-hidden{
-
+        display: none;
     }
     .gradebook-setup-popup-hidden{
-        
+        display: none;
     }
     .get-started-popup-active{
 
     }
     .create-class-popup-active{
-
+        position: absolute;
+        background-color: #84DCC6;
+        margin: auto;
+        border-radius: 10px;
+        top: 100px;
     }
     .view-classes-popup-active{
-
+        position: absolute;
+        background-color: #84DCC6;
+        margin: auto;
+        border-radius: 10px;
+        top: 100px;
     }
     .edit-class-popup-active{
 
     }
     .gradebook-setup-popup-active{
-        
+        position: absolute;
+        background-color: #84DCC6;
+        margin: auto;
+        border-radius: 10px;
+        top: 100px;
     }
     /* editClassForm.js STYLES */
     .edit-class-form{

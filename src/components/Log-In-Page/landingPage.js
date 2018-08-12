@@ -3,7 +3,8 @@ import {connect} from 'react-redux';
 import LoginForm from './loginForm';
 import {Redirect} from 'react-router-dom';
 import RegistrationForm from './registerForm';
-// import './loginPage.css';
+import '../componentStyles.css';
+import '../componentMobileStyles.css';
 
 class LoginPage extends React.Component{
   render(){

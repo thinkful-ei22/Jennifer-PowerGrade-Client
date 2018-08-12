@@ -7,6 +7,8 @@ import GradebookSetupForm from './gradebookSetupForm';
 import ClassesDisplay from './classesDisplay';
 import EditClassForm from './editClassForm';
 // import GettingStarted from './gettingStarted';
+import '../componentMobileStyles.css';
+import '../componentStyles.css';
 
 class Dashboard extends React.Component {
   render(){
@@ -19,34 +21,34 @@ class Dashboard extends React.Component {
           <h1 className="welcome">Welcome to PowerGrade, {this.props.name}!</h1>
         </div>
         <div className="row">
-          <div className="col-3 option">
+          <div className="col-6 get-started-container">
             <div className="go"><a><i className="fa fa-plus"></i></a></div>
             <h2 className="action-heading" >Get Started</h2>
-            <div className="get-started-popup"/* style={{'display':('plus sign is clicked')?'block':'none'}} */ >
+            <div className="get-started-popup-hidden"/* style={{'display':('plus sign is clicked')?'block':'none'}} */ >
               {/* <GettingStarted/> */}
             </div>
           </div>
-          <div className="col-3 option">
+          <div className="col-6 create-class-container">
             <div className="go"><a><i className="fa fa-plus"></i></a></div>
             <h2 className="action-heading" >Create Class</h2>
-            <div className="create-class-popup"/* style={{'display':('plus sign is clicked')?'block':'none'}} */ >
-              <CreateClassForm/>
-            </div>
           </div>
-          <div className="col-3 option">
+          <div className="create-class-popup-hidden col-2"/* style={{'display':('plus sign is clicked')?'block':'none'}} */ >
+            <CreateClassForm/>
+          </div>
+          <div className="col-6 view-classes-container">
             <div className="go"><a><i className="fa fa-plus"></i></a></div>
             <h2 className="action-heading" >View Classes</h2>
-            <div className="view-classes-popup"/* style={{'display':('plus sign is clicked')?'block':'none'}} */ >
+            <div className="view-classes-popup-hidden"/* style={{'display':('plus sign is clicked')?'block':'none'}} */ >
               <ClassesDisplay/>
               <div className="edit-class-popup"  /* style={{'display':('name of a class is clicked')?'block':'none'}} */>
                 <EditClassForm/>
               </div>
             </div>
           </div>
-          <div className="col-3 option set-up">
+          <div className="col-6 set-up-container">
             <div className="go"><a><i className="fa fa-plus"></i></a></div>
             <h2 className="action-heading" >Setup Gradebook</h2>
-            <div className="gradebook-setup-popup"/* style={{'display':('the plus sign is clicked')?'block':'none'}} */>
+            <div className="gradebook-setup-popup-hidden"/* style={{'display':('the plus sign is clicked')?'block':'none'}} */>
               <GradebookSetupForm/>
             </div>
           </div>

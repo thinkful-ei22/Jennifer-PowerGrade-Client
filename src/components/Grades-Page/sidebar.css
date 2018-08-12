@@ -1,29 +1,9 @@
 *{
     box-sizing: border-box;
 }
-.row {
-    max-width: 100%;
-    margin: auto;
-}
-/* Clearfix */
-    .row::before,
-    .row::after 
-{
-    display: table;
-    content: '';
-}
-.row::after {
-    clear: both;
-}
-.col-3, .col-4, .col-6, .col-12 {
-    float: left;
-    padding-left: 1.04166666%;
-    padding-right: 1.04166666%;
-}
+
 Mobile defaults */
-.col-3, .col-4, .col-6, .col-12 {
-    width: 100%;
-}
+
 .sidenav {
     /* z-index: 0; */
     height: 100%;
@@ -68,21 +48,7 @@ Mobile defaults */
 }
 @media only screen and (min-width: 640px) {
 /* 3 columns, 3/12 in % */
-.col-3 {
-    width: 25%;
-}
-/* 4 columns, 4/12 in % */
-.col-4 {
-    width: 33.33333%;
-}
-/* 6 columns, 6/12 in % */
-.col-6 {
-    width: 50%;
-} 
-/* 12 columns, 12/12 in % */
-.col-12 {
-    width: 100%;
-}
+
 .sidenav {
 /* z-index: 0; */
     height: 100%;
