@@ -6,7 +6,8 @@ const initialState = {
   error: null
 };
 
-export default (state=initialState, action) =>{
+export default function categoriesCRUDReducer(state=initialState, action){
+  //get all
   if(action.type===FETCH_CATEGORIES_SUCCESS){
     return Object.assign({}, state, {
       error: null,
@@ -18,5 +19,7 @@ export default (state=initialState, action) =>{
       error: action.error
     });
   }
+  //edit
+  
   return state;
-};
+}

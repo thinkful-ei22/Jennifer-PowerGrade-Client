@@ -32,7 +32,7 @@ class CategoryList extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    categories: state.fetchCategoriesReducer.categories
+    categories: state.categoriesCRUDReducer.categories
   };
 };
 

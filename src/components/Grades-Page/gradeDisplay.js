@@ -7,12 +7,14 @@ import {fetchClasses} from '../../actions/GET/fetchClasses';
 import {editGrade} from '../../actions/PUT/editGrade';
 import '../componentStyles.css';
 import '../componentMobileStyles.css';
+import { fetchCategories } from '../../actions/GET/fetchCategories';
 
 class GradeDisplay extends React.Component {
   componentDidMount(){
     this.props.dispatch(fetchGrades());
     this.props.dispatch(fetchClasses());
     this.props.dispatch(fetchStudents());
+    this.props.dispatch(fetchCategories());
   }
   getValue(assignment, student){
     if(this.props.grades){
@@ -31,7 +33,6 @@ class GradeDisplay extends React.Component {
       let total = 0;
       for(let i=0; i<gradeValues.length; i++){
         total += gradeValues[i];
-        console.log(total);
       }
       let averageGrade = total/gradeValues.length;
       return Math.round(averageGrade*100);
@@ -46,33 +47,37 @@ class GradeDisplay extends React.Component {
   }
   calculateStudentAverage(student){
     if(this.props.grades){
-      const grade = this.props.grades.filter(grade=> grade.studentId===student.id);
-
+      const grade = this.props.grades.filter(grade=> grade.studentId.id===student.id);
+      
       const homework = this.props.categories.filter(category => category.id==='444444444444444444444400');
-      const homeworkWeight = homework.value;
+      const homeworkWeight = homework[0].value;
+      
       const classwork = this.props.categories.filter(category => category.id==='444444444444444444444401');
-      const classworkWeight = classwork.value;
+      const classworkWeight = classwork[0].value;
+    
       const quiz = this.props.categories.filter(category => category.id==='444444444444444444444402');
-      const quizWeight = quiz.value;
+      const quizWeight = quiz[0].value;
+   
       const test = this.props.categories.filter(category => category.id==='444444444444444444444403');
-      const testWeight = test.value;
+      const testWeight = test[0].value;
+   
 
       let total = 0;
       for(let i=0; i<grade.length; i++){
-        if(grade.categoryId === '444444444444444444444400'){
-          total+=grade.value*homeworkWeight;
+        if(grade[i].assignmentId.categoryId === '444444444444444444444400'){
+          total+=(grade[i].value*100)*homeworkWeight;
         }
-        else if(grade.categoryId === '444444444444444444444401'){
-          total+=grade.value*classworkWeight;
+        if(grade[i].assignmentId.categoryId === '444444444444444444444401'){
+          total+=(grade[i].value*100)*classworkWeight;
         }
-        else if(grade.categoryId === '444444444444444444444402'){
-          total+=grade.value*quizWeight;
+        if(grade[i].assignmentId.categoryId === '444444444444444444444402'){
+          total+=(grade[i].value*100)*quizWeight;
         }
-        else if(grade.categoryId === '444444444444444444444403'){
-          total+=grade.value*testWeight;
+        if(grade[i].assignmentId.categoryId === '444444444444444444444403'){
+          total+=(grade[i].value*100)*testWeight;
         }
-        return total;
       }
+      return Math.round(total);
     }
     return '-';
   }
@@ -97,7 +102,7 @@ class GradeDisplay extends React.Component {
         });
       });
 
-      assignments.unshift(<td key="average">Weighted Average Goes Here</td>);
+      assignments.unshift(<td key="average">{this.calculateStudentAverage(student)}</td>);
       assignments.unshift(<td key="studentName">{`${student.lastName}, ${student.firstName}`}</td>);
 
       return (
@@ -133,7 +138,7 @@ const mapStateToProps = state => {
     classes: state.classesCRUDReducer.classes,
     filteredClasses: state.classesCRUDReducer.filteredClasses,
     students: state.studentsCRUDReducer.students,
-    categoryValues: state.fetchCategoriesReducer.categories
+    categories: state.categoriesCRUDReducer.categories
   };
 };
 

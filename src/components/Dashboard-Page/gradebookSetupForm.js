@@ -1,15 +1,15 @@
 import React from 'react';
 import {reduxForm, Field} from 'redux-form';
 import Input from '../input';
-import { setQuizValue, setClassworkValue, setTestValue, setHomeworkValue } from '../../actions/OTHER/setCategoryValues';
+// import { setQuizValue, setClassworkValue, setTestValue, setHomeworkValue } from '../../actions/OTHER/setCategoryValues';
 
 class GradebookSetupForm extends React.Component {
-  onSubmit(values){
-    this.props.dispatch(setTestValue(values.tests));
-    this.props.dispatch(setQuizValue(values.quizzes));
-    this.props.dispatch(setClassworkValue(values.classwork));
-    this.props.dispatch(setHomeworkValue(values.homework));
-  }
+  // onSubmit(values){
+  //   // this.props.dispatch(setTestValue(values.tests));
+  //   // this.props.dispatch(setQuizValue(values.quizzes));
+  //   // this.props.dispatch(setClassworkValue(values.classwork));
+  //   // this.props.dispatch(setHomeworkValue(values.homework));
+  // }
   render (){
     return (
       <form className="gradebook-setup-form" onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>

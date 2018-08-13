@@ -3,12 +3,12 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import thunk from 'redux-thunk';
 import { reducer as form  } from 'redux-form';
 import loginReducer from './reducers/loginReducer';
-import fetchCategoriesReducer from './reducers/fetchCategoriesReducer';
+import categoriesCRUDReducer from './reducers/categoriesCRUDReducer';
 import fetchStandardsReducer from './reducers/fetchStandardsReducer';
 import assignmentCRUDReducer from './reducers/assignmentCRUDReducers';
 import classesCRUDReducer from './reducers/classesCRUDReducers';
 import gradesCRUDReducer from './reducers/gradesCRUDReducers';
-import setCategoryValuesReducer from './reducers/setCategoryValuesReducer';
+// import setCategoryValuesReducer from './reducers/setCategoryValuesReducer';
 import studentsCRUDReducer from './reducers/studentsCRUDReducers';
 
 const rootReducer = combineReducers({
@@ -16,11 +16,11 @@ const rootReducer = combineReducers({
   form,
   assignmentCRUDReducer,
   classesCRUDReducer,
-  fetchCategoriesReducer,
+  categoriesCRUDReducer,
   fetchStandardsReducer,
   gradesCRUDReducer,
   studentsCRUDReducer,
-  setCategoryValuesReducer,
+  // setCategoryValuesReducer,
 });
 const store= createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)));
 
