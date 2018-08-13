@@ -27,7 +27,7 @@ class App extends Component {
   startPeriodicRefresh() {
     this.refreshInterval = setInterval(
       () => this.props.dispatch(refreshAuthToken()),
-      60 * 15 * 1000 // 15 minutes
+      60 * 60 * 1000 // 1 hour
     );
   }
   stopPeriodicRefresh() {
