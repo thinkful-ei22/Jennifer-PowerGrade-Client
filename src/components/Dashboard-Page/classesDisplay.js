@@ -9,12 +9,19 @@ class ClassesDisplay extends React.Component {
   componentDidMount(){
     this.props.dispatch(fetchClasses());
   }
+  activatePopupEditClass(e){
+    const popup = e.target.parentElement.parentElement.parentElement.nextSibling;
+    if(popup.className === 'edit-class-popup-hidden'){
+      return popup.className = 'edit-class-popup-active';
+    }
+    return;
+  }
   render(){
     const classList=this.props.classes.map(classItem =>(
       <div className="class-list" key={classItem.id}>
-        <li className="class-list-item" id={classItem.id}>
+        <li onClick={(e)=>this.activatePopupEditClass(e)}className="class-list-item" id={classItem.id}>
           <a className="class-name-link" href="#" onClick={(e)=>this.props.dispatch(fetchOneClass(e.target.parentElement.id))}>{classItem.name}</a>
-          <i className="delete-class-x" onClick={(e) => this.props.dispatch(deleteClass(e.target.parentElement.id))} className="fa fa-times"></i>
+          <i className="delete-class-x fa fa-times" onClick={(e) => this.props.dispatch(deleteClass(e.target.parentElement.id))}></i>
         </li>     
       </div>)); 
     return (

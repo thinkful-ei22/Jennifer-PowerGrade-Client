@@ -1,4 +1,5 @@
 import {createStore, applyMiddleware, combineReducers} from 'redux';
+import { composeWithDevTools } from 'redux-devtools-extension';
 import thunk from 'redux-thunk';
 import { reducer as form  } from 'redux-form';
 import loginReducer from './reducers/loginReducer';
@@ -19,10 +20,8 @@ const rootReducer = combineReducers({
   fetchStandardsReducer,
   gradesCRUDReducer,
   studentsCRUDReducer,
-  setCategoryValuesReducer
-
-
+  setCategoryValuesReducer,
 });
-const store= createStore(rootReducer, applyMiddleware(thunk));
+const store= createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)));
 
 export default store;

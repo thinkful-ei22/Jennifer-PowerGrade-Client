@@ -4,7 +4,8 @@ import {fetchClasses} from '../../../actions/GET/fetchClasses';
 import requiresLogin from '../../requiresLogin';
 import {Field} from 'redux-form';
 import Input from '../../input';
-import './classSelect.css';
+import '../../componentStyles.css';
+import '../../componentMobileStyles.css';
 
 class ClassList extends React.Component {
   componentDidMount(){

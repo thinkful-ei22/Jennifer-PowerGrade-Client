@@ -5,6 +5,8 @@ import {fetchGrades} from '../../actions/GET/fetchGrades';
 import {fetchStudents} from '../../actions/GET/fetchStudents';
 import {fetchClasses} from '../../actions/GET/fetchClasses';
 import {editGrade} from '../../actions/PUT/editGrade';
+import '../componentStyles.css';
+import '../componentMobileStyles.css';
 
 class GradeDisplay extends React.Component {
   componentDidMount(){
@@ -27,7 +29,7 @@ class GradeDisplay extends React.Component {
       const grade = this.props.grades.filter(grade=> grade.assignmentId.id===assignment.id);
       const gradeValues = grade.map(grade => grade.value);
       let total = 0;
-      for(let i=0; i<gradeValues.length, i++;){
+      for(let i=0; i<gradeValues.length; i++){
         console.log('this is the value=', gradeValues[i]);
         console.log('total=', total);
         return total + gradeValues[i];

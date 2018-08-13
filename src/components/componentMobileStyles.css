@@ -31,6 +31,7 @@ body {
     padding-right: 1.04166666%;
 }
 /* LANDING PAGE STYLES */
+    /* logoutAlert.js STYLES */
     /* loginForm.js STYLES  */
     .form-error-active{
 
@@ -217,33 +218,83 @@ body {
     }
 /* DASHBOARD PAGE STYLES */
     /* classesDisplay.js STYLES */
+    .class-view-edit-container{
+        display:inline-flex;
+    }
     .class-list{
-
+        background-color:#95A3B3;
+        color: #222222;
+        border-radius: 10px;
+        border: 1px solid #222222;
+        padding:5px;
     }
     .class-list-item{
 
     }
     .class-name-link{
-
+        text-decoration: none;
+        font-size: 15px;
+        color: #222222;
+        display: inline-block;
     }
     .delete-class-x{
-
+        color:white;
+        float:right;
+        padding: 5px;
     }
     .class-list-ul{
-
+        list-style: none;
+        margin:0px;
+        padding-left:0px;
+    }
+    .class-list a:link {
+        text-decoration: none;
+        color: #222222;
+    }
+    .class-list a:visited {
+        text-decoration: none;
+        color:  #222222;
+    }
+    
+    .class-list a:hover {
+        text-decoration: none;
+        color: white;
+    }
+    
+    .class-list a:active {
+        text-decoration: none;
+        color:  #222222;
     }
     /* createClassForm.js STYLES */
     .create-class-form{
 
     }
+    .create-class-form label{
+        Font-Family: 'Quattrocento Sans', Sans-Serif;
+        color: #FFFFFF;
+        margin-left:5%;
+        margin-top: 10px;
+    }
     .create-class-name{
-
+        width: 90%;
+        height: 30px;
+        margin-right:5%;
+        margin-left: 5%;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        border-radius: 5px;
+        background-color: #95A3B3;
     }
     .create-class-save-button-container{
-
+        text-align: center;
     }
     .create-class-save-button{
-
+        margin: 5px;
+        margin-top: 15px;
+        Font-Family: 'Quattrocento Sans', Sans-Serif;
+        font-size: 14px;
+        background-color: #84DCC6;
+        border-radius: 5px;
     }
     /* dashboard.js STYLES */
     .welcome{
@@ -321,14 +372,32 @@ body {
     .edit-class-form{
 
     }
+    .edit-class-form label{
+        Font-Family: 'Quattrocento Sans', Sans-Serif;
+        color: #FFFFFF;
+        margin-left:5%;
+        margin-top: 10px;
+    }
     .edit-class-name{
-
+        width: 90%;
+        height: 30px;
+        margin-right:5%;
+        margin-left: 5%;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        border-radius: 5px;
+        background-color: #95A3B3;
     }
     .edit-class-save-button-container{
-
+        text-align: center;
     }
     .edit-class-save-button{
-
+        margin: 5px;
+        margin-top: 15px;
+        Font-Family: 'Quattrocento Sans', Sans-Serif;
+        font-size: 14px;
+        background-color: #84DCC6;
+        border-radius: 5px;
     }
     /* gettingStarted.js STYLES */
     /* gradebookSetupForm.js STYLES */
@@ -357,14 +426,56 @@ body {
 /* GRADES PAGE STYLES */
     /* classSidebar.js STYLES */
     .sidenav{
-
+        height: 100%;
+        width: 15%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        background-color: #222222;
+        overflow-x: hidden;
+        padding-top: 20px;
     }
     .sidenav-classes{
 
     }
+    .sidenav a {
+        padding: 6px 8px 6px 16px;
+        text-decoration: none;
+        font-size: 25px;
+        color: #818181;
+        display: block;
+    }
+    .sidenav a:link {
+        text-decoration: none;
+        color: #868686;
+    }
+    .sidenav a:visited {
+        text-decoration: none;
+        color: #868686;
+    }
+    
+    .sidenav a:hover {
+        text-decoration: none;
+        color: #95A3B3
+    }
+    
+    .sidenav a:active {
+        text-decoration: none;
+        color: #95A3B3
+    }
+    .sidenav ul {
+        list-style-type: none;
+        Font-Family: 'Quattrocento Sans', Sans-Serif;
+        padding:0px;
+    }
     /* gradeDisplay.js STYLES */
     .grades-table{
-
+        width: 85%;
+        margin-left:15%;
+        margin-top:40px;
+        background-color: white;
+        border: solid 1px #222222;
+      border-collapse: collapse;
     }
     tbody{
 
@@ -373,10 +484,17 @@ body {
 
     }
     th{
-
+        border: solid 1px #222222;
+        border-collapse: collapse;
+        height: 35px;
+        background-color: #4B4E6D;
+        Font-Family: 'Ovo', Serif;
+        color: white;
     }
     td{
-
+        border: solid 1px #222222;
+        border-collapse: collapse;
+        height: 35px;
     }
     /* gradesPage.js STYLES */
     .grade-display{
@@ -393,8 +511,11 @@ body {
     .assignment-display{
 
     }
-    .assignment-edit{
+    .assignment-edit-active{
 
+    }
+    .assignment-edit-hidden{
+        display: none;
     }
     .assignment-option-heading{
 
@@ -402,19 +523,48 @@ body {
     /* Assignment-Display STYLES */
         /* assignmentDisplay.js STYLES */
         .assignment-list{
-
+            background-color:#95A3B3;
+            color: #222222;
+            border-radius: 10px;
+            border: 1px solid #222222;
+            padding:5px;
         }
         .assignment-list-item{
 
         }
         .assignment-name-link{
-
+            text-decoration: none;
+            font-size: 15px;
+            color: #222222;
+            display: inline-block;
         }
         .delete-assignment-x{
-
+            color:white;
+            float:right;
+            padding: 5px;
+        }
+        .assignment-list a:link {
+            text-decoration: none;
+            color: #222222;
+        }
+        .assignment-list a:visited {
+            text-decoration: none;
+            color:  #222222;
+        }
+        
+        .assignment-list a:hover {
+            text-decoration: none;
+            color: white;
+        }
+        
+        .assignment-list a:active {
+            text-decoration: none;
+            color:  #222222;
         }
         .assignment-list-ul{
-
+            list-style: none;
+            margin:0px;
+            padding-left:0px;
         }
         /*  assignmentFilters.js STYLES */
         .assignment-filters{
@@ -455,32 +605,74 @@ body {
     /* Create-Assignment-Form STYLES */
         /* categoryList.js STYLES */
         .category-select{
-
+            margin-top: 15px;
+            margin-bottom: 15px;
+            width: 90%;
+            height: 30px;
         }
         /* classSelect.js STYLES */
         .class-checkbox-list-item{
-
+            display: flex;
         }
         .class-checkbox-container{
-
+            width: 90%;
+            margin:auto;
+            color:white;
         }
         .class-checkbox-legend{
-
+            margin:auto;
+            color: white;
         }
         /* createAssignmentForm.js STYLES */
         .create-assignment-form{
-
+            width: 100%;
+            margin: auto;
         }
         .assignment-name-create{
-
+            width: 100%;
+            display:inline-flex;
+        }
+        .assignmente-name-create input{
+            width: 90%;
+            height: 30px;
+            margin-top: 5px;
+            margin-bottom: 5px;
+            border-radius: 5px;
+            background-color: #95A3B3;
+        }
+        .assignment-name-create label{
+            Font-Family: 'Quattrocento Sans', Sans-Serif;
+            color: #FFFFFF;
+            width:50%;
+            margin-top: 10px;
         }
         .assignment-date-create{
-
+            width:100%;
+            display:inline-flex;
+        }
+        .assignmente-date-create input{
+            width: 90%;
+            height: 30px;
+            margin-bottom: 5px;
+            border-radius: 5px;
+            background-color: #95A3B3;
+        }
+        .assignment-date-create label{
+            Font-Family: 'Quattrocento Sans', Sans-Serif;
+            color: #FFFFFF;
+            width:50%;
+            margin-top: 10px;
         }
         .assignment-create-save-button-container{
-
+            padding-top: 5px;
+            text-align: center;
         }
         .assignment-create-save-button{
-
+            margin: 5px;
+            margin-top: 15px;
+            Font-Family: 'Quattrocento Sans', Sans-Serif;
+            font-size: 14px;
+            background-color: #84DCC6;
+            border-radius: 5px;
         }
     }

@@ -19,15 +19,45 @@ export const filteredAssignments = filter => ({
 });
 
 export const filterAssignments = (filter) => (dispatch, getState) => {
-  const assignments = getState().fetchAssignmentsReducer.assignments;   
+  const assignments = getState().assignmentCRUDReducer.assignments;   
   const filtering = assignments.filter(assignment => assignment.classes.includes(filter));
-  if(filter===0){
+  if(filter==='0'){
     dispatch(fetchAssignmentsSuccess(assignments));
   }else {
     dispatch(filteredAssignments(filtering));
   }
 };
 
+export const SEARCH_ASSIGNMENTS_SUCCESS = 'SEARCH_ASSIGNMENTS_SUCCESS';
+export const searchAssignmentsSuccess = searchTerm => ({
+  type: SEARCH_ASSIGNMENTS_SUCCESS,
+  searchTerm
+});
+
+export const SEARCH_ASSIGNMENTS_ERROR = 'SEARCH_ASSIGNMENTS_ERROR';
+export const searchAssignmentsError = error => ({
+  type: SEARCH_ASSIGNMENTS_ERROR,
+  error
+});
+
+export const searchAssignmentFilter = searchTerm => (dispatch, getState) => {
+  const authToken = getState().loginReducer.authToken;
+  return fetch(`${API_BASE_URL}/api/assignments/?searchTerm=${searchTerm}`, {
+    method: 'GET',
+    headers: {
+      Authorization: `Bearer ${authToken}`
+    }
+  })
+    .then(res => {
+      return res.json();
+    })
+    .then(res => 
+      dispatch(searchAssignmentsSuccess(res)) 
+    )
+    .catch(err =>
+      dispatch(searchAssignmentsError(err))
+    );
+};
 export const fetchAssignments = () => (dispatch, getState) => {
   const authToken = getState().loginReducer.authToken;
   return fetch(`${API_BASE_URL}/api/assignments`, {

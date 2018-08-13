@@ -4,7 +4,8 @@ import Input from '../../input';
 import CategoryList from './categoryList';
 import {createAssignment} from '../../../actions/POST/createAssignment';
 import ClassList from './classSelect';
-import './createAssignmentForm.css';
+import '../../componentStyles.css';
+import '../../componentMobileStyles.css';
 
 class CreateAssignmentForm extends React.Component {
   onSubmit(values){

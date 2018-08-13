@@ -4,6 +4,8 @@ import Input from '../../input';
 import CategoryList from '../Create-Assignment-Form/categoryList';
 import {editAssignment} from '../../../actions/PUT/editAssignment';
 import ClassList from '../Create-Assignment-Form/classSelect';
+import '../../componentStyles.css';
+import '../../componentMobileStyles.css';
 
 class EditAssignmentForm extends React.Component {
   onSubmit(values){

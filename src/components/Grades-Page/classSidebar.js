@@ -2,7 +2,8 @@ import React from 'react';
 import {connect} from 'react-redux';
 import requiresLogin from '../requiresLogin';
 import { filterClasses } from '../../actions/GET/fetchClasses';
-import './sidebar.css';
+import '../componentMobileStyles.css';
+import '../componentStyles.css';
 
 class SideBar extends React.Component{
   onClick(values){

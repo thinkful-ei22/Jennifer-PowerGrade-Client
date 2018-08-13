@@ -3,7 +3,8 @@ import {connect} from 'react-redux';
 import {fetchCategories} from '../../../actions/GET/fetchCategories';
 import requiresLogin from '../../requiresLogin';
 import {Field} from 'redux-form';
-import './categoryList.css';
+import '../../componentStyles.css';
+import '../../componentMobileStyles.css';
 
 class CategoryList extends React.Component {
   componentDidMount(){

@@ -6,9 +6,17 @@ import AssignmentDisplay from './Assignment-Display/assignmentDisplay';
 import CreateAssignmentForm from './Create-Assignment-Form/createAssignmentForm';
 import AssignmentFilters from './Assignment-Display/assignmentFilters';
 import EditAssignmentForm from './Assignment-Display/editAssignmentForm';
-import './assignmentPage.css';
+import '../componentMobileStyles.css';
+import '../componentStyles.css';
 
 class AssignmentsPage extends React.Component {
+  closeEditPopup(e){
+    const popup = e.target.parentElement;
+    if(popup.className==='assignment-edit-active col-3'){
+      return popup.className = 'assignment-edit-hidden col-3';
+    }
+    return;
+  }
   render(){
     return (
       <div>
@@ -25,8 +33,9 @@ class AssignmentsPage extends React.Component {
             <AssignmentFilters/>
             <AssignmentDisplay/>
           </div>
-          <div className="assignment-edit col-3">
+          <div className="assignment-edit-hidden col-3">
             <h2 className="assignment-option-heading">Edit Assignment</h2>
+            <i className="close-form fa fa-times" onClick={(e) => this.closeEditPopup(e)}></i>
             <EditAssignmentForm/>
           </div>
         </div>

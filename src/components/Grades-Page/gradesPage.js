@@ -4,7 +4,8 @@ import NavBar from '../NavBar/navbar';
 import requiresLogin from '../requiresLogin';
 import GradeDisplay from '../Grades-Page/gradeDisplay';
 import SideBar from './classSidebar';
-import './gradePage.css';
+import '../componentStyles.css';
+import '../componentMobileStyles.css';
 
 
 class GradesPage extends React.Component {

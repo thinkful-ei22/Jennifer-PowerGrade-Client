@@ -3,7 +3,8 @@ import {connect} from 'react-redux';
 import {fetchClasses} from '../../../actions/GET/fetchClasses';
 import requiresLogin from '../../requiresLogin';
 import {filterAssignments, fetchAssignments} from '../../../actions/GET/fetchAssignments';
-// import './classDropdown.css';
+import '../../componentStyles.css';
+import '../../componentMobileStyles.css';
 
 class ClassDropdown extends React.Component {
   componentDidMount(){
