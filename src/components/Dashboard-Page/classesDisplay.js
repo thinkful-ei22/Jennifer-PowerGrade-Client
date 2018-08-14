@@ -8,7 +8,6 @@ import {deleteClass} from '../../actions/DELETE/deleteClass';
 class ClassesDisplay extends React.Component {
   componentDidMount(){
     this.props.dispatch(fetchClasses());
-    console.log('classes-display currentClass=',this.props.currentClass);
   }
   activatePopupEditClass(e){
     const popup = e.target.parentElement.parentElement.parentElement.nextSibling;
@@ -21,7 +20,7 @@ class ClassesDisplay extends React.Component {
     const classList=this.props.classes.map(classItem =>(
       <div className="class-list" key={classItem.id}>
         <li onClick={(e)=>this.activatePopupEditClass(e)}className="class-list-item" id={classItem.id}>
-          <a className="class-name-link" href="#" onClick={(e)=>this.props.dispatch(fetchOneClass(e.target.parentElement.id))}>{classItem.name}</a>
+          <a className="class-name-link" role="button" onClick={(e)=>this.props.dispatch(fetchOneClass(e.target.parentElement.id))}>{classItem.name}</a>
           <i className="delete-class-x fa fa-times" onClick={(e) => this.props.dispatch(deleteClass(e.target.parentElement.id))}></i>
         </li>     
       </div>)); 

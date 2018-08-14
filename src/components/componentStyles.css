@@ -391,7 +391,39 @@ body {
         display: none;
     }
     .get-started-popup-active{
-
+        position: absolute;
+        background-color: #84DCC6;
+        border-radius: 10px;
+        margin-left: 23%;
+        margin-right: 23%;
+        top: 100px;
+    }
+    .getting-started-carousel{
+        width: 100%;
+    }
+    .current-lesson-container{
+        max-width: 75%;
+        margin: auto;
+    }
+    .current-lesson-container p{
+        height: 200px;
+        margin-bottom: 20px;
+        width:100%;
+    }
+    .current-lesson img {
+        height: 100%
+    } 
+    .thumbnail {
+        display: inline-block;
+        cursor: pointer;
+        height: 60px;
+    }
+    a.thumbnail:hover {
+        box-shadow: 5px 5px 5px gray;
+    } 
+    .thumbnail p{
+        height: 60px;
+        max-width: 100%;
     }
     .create-class-popup-active{
         position: absolute;

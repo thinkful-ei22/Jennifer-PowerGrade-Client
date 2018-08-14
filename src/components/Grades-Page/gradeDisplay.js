@@ -85,7 +85,7 @@ class GradeDisplay extends React.Component {
     const currentStudents =this.props.filteredClasses.map(item => item.students.map(student => student));
 
     const currentClasses = this.props.filteredClasses.filter(classItem => classItem.userId.id === this.props.currentUser.id);
-
+    console.log(currentClasses);
     const assignmentList = currentClasses.map(classItem => classItem.assignments.map(assignment => assignment));
 
     const assignmentRows = assignmentList.map((assignment => assignment.map(name => <th key={name.name}>{name.name}</th>)));

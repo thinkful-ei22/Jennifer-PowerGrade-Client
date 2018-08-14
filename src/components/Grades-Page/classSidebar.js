@@ -12,7 +12,7 @@ class SideBar extends React.Component{
   render(){
     const currentClasses = this.props.classes.filter(classItem => classItem.userId.id === this.props.currentUser.id);
     const classLinks = currentClasses.map(classItem =>
-      <li onClick={() => this.onClick(classItem.name)} key={classItem.id}><a href="#">{classItem.name}</a></li>);
+      <li onClick={() => this.onClick(classItem.name)} key={classItem.id}><a role="button">{classItem.name}</a></li>);
     return (
       <nav className="sidenav">
         <ul className="sidenav-classes">

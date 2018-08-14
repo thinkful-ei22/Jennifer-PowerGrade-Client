@@ -17,8 +17,8 @@ export const editClassError = error => ({
   error
 });
 
-export const editClass = (id, name, assignments, students) => (dispatch, getState) => {
-  const authToken = getState().auth.authToken;
+export const editClass = (id, name, students, assignments, userId) => (dispatch, getState) => {
+  const authToken = getState().loginReducer.authToken;
   dispatch(editClassRequest(id));
   return fetch(`${API_BASE_URL}/api/classes/${id}`, {
     method: 'PUT',
@@ -27,9 +27,11 @@ export const editClass = (id, name, assignments, students) => (dispatch, getStat
       'Content-Type': 'application/json'
     },
     body: JSON.stringify({
-      name, 
-      assignments, 
-      students
+      id,
+      name,
+      students,
+      assignments,
+      userId
     })
   })
     .then(res => {

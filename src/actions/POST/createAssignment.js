@@ -17,7 +17,7 @@ export const createAssignmentError = error => ({
   error
 });
 
-export const createAssignment = (name, categoryId, classId, date) => (dispatch, getState) => {
+export const createAssignment = (name, date, classes, userId, categoryId) => (dispatch, getState) => {
   const authToken = getState().loginReducer.authToken;
   dispatch(createAssignmentRequest());
   return fetch(`${API_BASE_URL}/api/assignments`, {
@@ -27,10 +27,11 @@ export const createAssignment = (name, categoryId, classId, date) => (dispatch, 
       Authorization: `Bearer ${authToken}`
     },
     body: JSON.stringify({
-      name: name,
-      categoryId: categoryId,
-      classes: [classId],
-      date: date
+      name,
+      date,
+      classes,
+      userId,
+      categoryId
     })
   })
     .then( body => {

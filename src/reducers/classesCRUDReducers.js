@@ -64,6 +64,7 @@ export default function classesCRUDReducers(state = initialState, action) {
   }
   //filter class list
   else if(action.type===FILTER_CLASSES){
+    console.log(action);
     return Object.assign({}, state, {
       filteredClasses: action.filter
     });
@@ -74,8 +75,8 @@ export default function classesCRUDReducers(state = initialState, action) {
     const indexToUpdate = state.findIndex(classItem => {
       return classItem.id === action.class.id;
     });
-    const updatedClasses = [...this.classes];
-    this.classes[indexToUpdate]=action.class;
+    const updatedClasses = [...state.classes];
+    state.classes[indexToUpdate]=action.class;
     return Object.assign({}, state, {
       classes: updatedClasses
     });
@@ -91,7 +92,7 @@ export default function classesCRUDReducers(state = initialState, action) {
       return classItem.id === action.class.id;
     });
     return Object.assign({}, state, {
-      classes: this.classes.splice(indexToDelete, 1),
+      classes: state.classes.splice(indexToDelete, 1),
       loading:false,
       error:null
     });

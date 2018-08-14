@@ -17,8 +17,8 @@ export const editAssignmentError = error => ({
   error
 });
 
-export const editAssignment = (id, name, categoryId, date) => (dispatch, getState) => {
-  const authToken = getState().auth.authToken;
+export const editAssignment = (id, name, date, userId, classes, categoryId, grades) => (dispatch, getState) => {
+  const authToken = getState().loginReducer.authToken;
   dispatch(editAssignmentRequest(id));
   return fetch(`${API_BASE_URL}/api/assignments/${id}`, {
     method: 'PUT',
@@ -28,8 +28,11 @@ export const editAssignment = (id, name, categoryId, date) => (dispatch, getStat
     },
     body: JSON.stringify({
       name,
+      date,
+      userId,
+      classes,
       categoryId,
-      date
+      grades
     })
   })
     .then(res => {

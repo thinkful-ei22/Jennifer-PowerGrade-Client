@@ -12,7 +12,7 @@ const initialState = {
   assignmentDate:'',
   assignments: [],
   filteredAssignments: [],
-  currentAssignment: {}
+  currentAssignment: null
 };
   
 export default function assignmentCRUDReducers(state = initialState, action) {
@@ -23,11 +23,14 @@ export default function assignmentCRUDReducers(state = initialState, action) {
     });
   }
   else if(action.type === CREATE_ASSIGNMENT_SUCCESS) {
+    console.log(action.assignmentInfo);
     return Object.assign({}, state, {
-      assignmentName: action.assignmentInfo.name,
+      name: action.assignmentInfo.name,
+      date: action.assignmentInfo.date,
+      userId: action.assignmentInfo.userId,
       categoryId: action.assignmentInfo.categoryId,
       classes: action.assignmentInfo.classes,
-      assignmentDate: action.assignmentInfo.assignmentDate,
+      grades:action.assignmentInfo.grades,
       loading: false,
       error: null
     });
@@ -78,10 +81,10 @@ export default function assignmentCRUDReducers(state = initialState, action) {
     const indexToUpdate = state.findIndex(assignment => {
       return assignment.id === action.assignment.id;
     });
-    const updatedAssignments = [...this.assignments];
-    this.assignments[indexToUpdate]=action.assignment;
+    const updatedAssignments = [...state.assignments];
+    state.assignments[indexToUpdate]=action.assignment;
     return Object.assign({}, state, {
-      classes: updatedAssignments
+      assignments: updatedAssignments
     });
   }
   else if(action.type===EDIT_ASSIGNMENT_ERROR){

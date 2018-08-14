@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import NavBar from '../NavBar/navbar';
 import requiresLogin from '../requiresLogin';
 import AssignmentDisplay from './Assignment-Display/assignmentDisplay';
-import CreateAssignmentForm from './Create-Assignment-Form/createAssignmentForm';
+import CreateAssignmentForm from './createAssignmentForm';
 import AssignmentFilters from './Assignment-Display/assignmentFilters';
 import EditAssignmentForm from './Assignment-Display/editAssignmentForm';
 import '../componentMobileStyles.css';

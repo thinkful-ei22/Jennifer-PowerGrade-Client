@@ -5,7 +5,6 @@ import {authSetWarning} from '../../actions/AUTH/loginAction';
 class LogoutAlert extends React.Component {
   
   render() {
-    console.log(this.props.warning);
     return (
       <div className="warning-box" style={{'display':(this.props.warning)?'block':'none'}}>
         <p className="warning-text">You are about to be logged out due to inactivity.</p>

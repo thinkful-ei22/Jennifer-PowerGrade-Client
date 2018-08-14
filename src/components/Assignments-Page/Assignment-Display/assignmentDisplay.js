@@ -18,10 +18,11 @@ class AssignmentDisplay extends React.Component {
     return;
   }
   render(){
-    const assignmentList=this.props.assignments.map(assignment =>(
+    const availableAssignmnets = this.props.assignments.filter(assignment=>assignment.userId===this.props.currentUser.id);
+    const assignmentList=availableAssignmnets.map(assignment =>(
       <div className="assignment-list" key={assignment.id}>
         <li onClick={(e)=>this.activateAssignmentEditPopup(e)} className="assignment-list-item" id={assignment.id}>
-          <a className="assignment-name-link" href="#" onClick={(e)=>this.props.dispatch(fetchOneAssignment(e.target.parentElement.id))}>{assignment.name}</a>
+          <a className="assignment-name-link" role="button" onClick={(e)=>this.props.dispatch(fetchOneAssignment(e.target.parentElement.id))}>{assignment.name}</a>
           <i className="delete-assignment-x fa fa-times" onClick={(e) => this.props.dispatch(deleteAssignment(e.target.parentElement.id))}></i>
         </li>     
       </div>)); 
@@ -34,7 +35,8 @@ class AssignmentDisplay extends React.Component {
 const mapStateToProps = state => {
   return {
     assignments: state.assignmentCRUDReducer.filteredAssignments,
-    currentAssignment: state.assignmentCRUDReducer.currentAssignment
+    currentAssignment: state.assignmentCRUDReducer.currentAssignment,
+    currentUser: state.loginReducer.currentUser
   };
 };
 
