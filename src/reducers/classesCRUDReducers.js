@@ -14,7 +14,7 @@ const initialState = {
   userClasses: [],
   classes: [],
   filteredClasses: [],
-  currentClass: {}
+  currentClass: null
 };
   
 export default function classesCRUDReducers(state = initialState, action) {

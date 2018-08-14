@@ -6,7 +6,7 @@ import requiresLogin from '../requiresLogin';
 import GradebookSetupForm from './gradebookSetupForm';
 import ClassesDisplay from './classesDisplay';
 import EditClassForm from './editClassForm';
-// import GettingStarted from './gettingStarted';
+import GettingStarted from './gettingStarted';
 import '../componentMobileStyles.css';
 import '../componentStyles.css';
 
@@ -83,7 +83,7 @@ class Dashboard extends React.Component {
           </div>
           <div className="get-started-popup-hidden col-2">
             <i className="close-form fa fa-times" onClick={(e) => this.closePopupGetStarted(e)}></i>
-            {/* <GettingStarted/> */}
+            <GettingStarted/>
           </div>
           <div className="col-6 create-class-container">
             <div className="go"><a onClick={(e)=> this.activatePopupClassForm(e)}><i className="fa fa-plus"></i></a></div>

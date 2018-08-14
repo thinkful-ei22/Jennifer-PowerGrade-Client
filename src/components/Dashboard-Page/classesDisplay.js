@@ -8,6 +8,7 @@ import {deleteClass} from '../../actions/DELETE/deleteClass';
 class ClassesDisplay extends React.Component {
   componentDidMount(){
     this.props.dispatch(fetchClasses());
+    console.log('classes-display currentClass=',this.props.currentClass);
   }
   activatePopupEditClass(e){
     const popup = e.target.parentElement.parentElement.parentElement.nextSibling;
