@@ -34,8 +34,11 @@ export const createAssignment = (name, date, classes, userId, categoryId) => (di
       categoryId
     })
   })
-    .then( body => {
-      return body;
+    .then((res)=> {
+      if(!res.ok){
+        return dispatch(createAssignmentError(res));
+      }
+      return res.json();
     })
     .then(res => dispatch(createAssignmentSuccess(res)))
     .catch(err => dispatch(createAssignmentError(err)));

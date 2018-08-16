@@ -5,6 +5,7 @@ import {clearAuth} from '../../actions/AUTH/loginAction';
 import requiresLogin from '../requiresLogin';
 import '../componentStyles.css';
 import '../componentMobileStyles.css';
+import '../componentTabletStyles.css';
 
 class NavBar extends React.Component{
   render(){

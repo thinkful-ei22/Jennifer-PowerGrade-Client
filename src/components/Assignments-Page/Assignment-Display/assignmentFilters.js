@@ -4,6 +4,7 @@ import ClassDropdown from './classDropdown';
 import Input from '../../input';
 import {searchAssignmentFilter} from '../../../actions/GET/fetchAssignments';
 import '../../componentStyles.css';
+import '../../componentTabletStyles.css';
 import '../../componentMobileStyles.css';
 import { fetchStates } from '../../../actions/GET/fetchStandards';
 import requiresLogin from '../../requiresLogin';
@@ -16,7 +17,7 @@ class AssignmentFilters extends React.Component {
   render(){
     return (
       <div className="assignment-filters">
-        <label htmlFor="search">Search</label>
+        <label className="assignment-filters-label" htmlFor="search">Search</label>
         <input
           className="assignment-search-filter"
           onChange={(e) => this.props.dispatch(searchAssignmentFilter(e.target.value))}

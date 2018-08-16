@@ -1,6 +1,9 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {authSetWarning} from '../../actions/AUTH/loginAction';
+import '../componentStyles.css';
+import '../componentMobileStyles.css';
+import '../componentTabletStyles.css';
 
 class LogoutAlert extends React.Component {
   

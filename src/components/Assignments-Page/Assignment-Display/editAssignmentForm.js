@@ -5,12 +5,30 @@ import {fetchCategories} from '../../../actions/GET/fetchCategories';
 import {fetchClasses} from '../../../actions/GET/fetchClasses';
 import requiresLogin from '../../requiresLogin';
 import '../../componentStyles.css';
+import '../../componentTabletStyles.css';
 import '../../componentMobileStyles.css';
 
 class EditAssignmentForm extends React.Component {
   componentDidMount(){
     this.props.dispatch(fetchCategories());
     this.props.dispatch(fetchClasses());
+  }
+  onSubmit(e){
+    const id = e.target.id;
+    const name = e.target.name.value;
+    const date = e.target.date.value;
+    const categoryId = e.target.categoryId.value;
+    const grades = this.props.currentAssignment.grades;
+    const classes = this.props.currentAssignment.classes;
+    const userId = this.props.currentUser.id;
+    return this.props.dispatch(editAssignment(id, name, date, userId, classes, categoryId, grades));
+  }
+  closeEditPopup(e){
+    const popup= e.target.parentElement;
+    if(popup.className === 'assignment-edit-active col-3'){
+      return popup.className = 'assignment-edit-hidden col-3';
+    }
+    return;
   }
   render (){
     const availableClasses = this.props.classes.filter(classItem => classItem.userId.id === this.props.currentUser.id);
@@ -20,8 +38,8 @@ class EditAssignmentForm extends React.Component {
     const classList = availableClasses.map(classItem => {
       if(this.props.currentAssignment.classes.includes(classItem.id)){
         return (
-          <div key={classItem.id}>
-            <label htmlFor={classItem.id}>{classItem.name}</label>
+          <div className="edit-class-checkbox-container" key={classItem.id}>
+            <label className="edit-class-checkbox-label" htmlFor={classItem.id}>{classItem.name}</label>
             <input
               onChange={(e)=> {
                 if(e.target.checked===true){
@@ -41,8 +59,8 @@ class EditAssignmentForm extends React.Component {
       }
       else{
         return(
-          <div key={classItem.id}>
-            <label htmlFor={classItem.id}>{classItem.name}</label>
+          <div className="edit-class-checkbox-container" key={classItem.id}>
+            <label className="edit-class-checkbox-label" htmlFor={classItem.id}>{classItem.name}</label>
             <input
               onChange={(e)=> {
                 if(e.target.checked===true){
@@ -66,42 +84,36 @@ class EditAssignmentForm extends React.Component {
         className="edit-assignment-form" 
         onSubmit={(e) => {
           e.preventDefault();
-          const id = e.target.id;
-          const name = e.target.name.value;
-          const date = e.target.date.value;
-          const categoryId = e.target.categoryId.value;
-          const grades = this.props.currentAssignment.grades;
-          const classes = this.props.currentAssignment.classes;
-          const userId = this.props.currentUser.id;
-          console.log(classes);
-          return this.props.dispatch(editAssignment(id, name, date, userId, classes, categoryId, grades));
+          this.closeEditPopup(e);
+          this.onSubmit(e);
         }
         }>
-        <label htmlFor="name">Assignment Name</label>
+        <label className="assignment-edit-label" htmlFor="name">Assignment Name</label>
         <input
-          className="assignment-name-edit"
+          className="assignment-edit-input"
           type="text"
           name="name"
           id="name"
           defaultValue={(this.props.currentAssignment.name !== 'Loading') ? this.props.currentAssignment.name : ''}>
         </input>
-        <label htmlFor="date">Assignment Date</label>
+        <label className="assignment-edit-label" htmlFor="date">Assignment Date</label>
         <input
-          className="assignment-date-edit"
+          className="assignment-edit-input"
           type="date"
           name="date"
           id="date"
           defaultValue={(this.props.currentAssignment.date !== '1/6/1988') ? this.props.currentAssignment.date : ''}> 
         </input>
-        <label htmlFor="categoryId">Choose a Category</label>
+        <label className="assignment-edit-label" htmlFor="categoryId">Choose a Category</label>
         <select
+          className="assignment-edit-input"
           type="select"
           name="categoryId"
           id="categoryId">
           {categoryOptions}
         </select>
-        <fieldset className="class-checkbox-container">
-          <legend className="class-checkbox-legend">Assign to a Class</legend>
+        <fieldset className="edit-class-checkbox-container">
+          <legend className="edit-class-checkbox-legend">Assign to a Class</legend>
           {classList}
         </fieldset>
         <div className="assignment-edit-save-button-container">

@@ -4,6 +4,7 @@ import {connect} from 'react-redux';
 import requiresLogin from '../requiresLogin';
 import '../componentStyles.css';
 import '../componentMobileStyles.css';
+import '../componentTabletStyles.css';
 
 class CreateAssignmentForm extends React.Component {
 
@@ -15,8 +16,8 @@ class CreateAssignmentForm extends React.Component {
     const availableClasses = this.props.classes.filter(classItem=> classItem.userId.id === this.props.currentUser.id);
     const classList = availableClasses.map(classItem =>{
       return(
-        <div key={classItem.id}>
-          <label htmlFor={classItem.id}>{classItem.name}</label>
+        <div className="class-checkbox-container" key={classItem.id}>
+          <label className="class-checkbox-label" htmlFor={classItem.id}>{classItem.name}</label>
           <input
             onChange={(e) =>{
               if(e.target.checked===true){
@@ -46,25 +47,26 @@ class CreateAssignmentForm extends React.Component {
           const userId = this.props.currentUser.id;
           return this.props.dispatch(createAssignment(name, date, classes, userId, categoryId));
         }}>
-        <label htmlFor="name">Assignment Name</label>
+        <label className="assignment-create-label" htmlFor="name">Assignment Name</label>
         <input
           className="assignment-name-create"
           type="text"
           name="name"
           id="name">
         </input>
-        <label htmlFor="date">Assignment Date</label>
+        <label className="assignment-create-label" htmlFor="date">Assignment Date</label>
         <input
           className="assignment-date-create"
           type="date"
           name="date"
           id="date">
         </input>
+        <label className="assignment-create-label" htmlFor="date">Select a Category</label>
         <select
+          className="category-select"
           type="select"
           name="categoryId"
           id="categoryId">
-          <option>Choose a Category</option>
           {categoryOptions}
         </select>
         <fieldset className="class-checkbox-container">

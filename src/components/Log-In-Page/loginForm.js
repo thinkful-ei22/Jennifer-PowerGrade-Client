@@ -4,6 +4,8 @@ import {login} from '../../actions/AUTH/loginAction';
 import Input from '../input';
 import {required, nonEmpty} from '../../validators';
 import '../componentStyles.css';
+import '../componentMobileStyles.css';
+import '../componentTabletStyles.css';
 
 export class LoginForm extends React.Component {
   onSubmit(values) {

@@ -2,6 +2,8 @@ import React from 'react';
 import {connect} from 'react-redux';
 import requiresLogin from '../requiresLogin';
 import '../componentStyles.css';
+import '../componentMobileStyles.css';
+import '../componentTabletStyles.css';
 
 class GettingStarted extends React.Component {
 

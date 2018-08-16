@@ -9,6 +9,7 @@ import EditClassForm from './editClassForm';
 import GettingStarted from './gettingStarted';
 import '../componentMobileStyles.css';
 import '../componentStyles.css';
+import '../componentTabletStyles.css';
 
 class Dashboard extends React.Component {
   activatePopupGetStarted(e){

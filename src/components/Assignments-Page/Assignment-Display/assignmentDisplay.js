@@ -4,21 +4,52 @@ import requiresLogin from '../../requiresLogin';
 import {fetchAssignments, fetchOneAssignment} from '../../../actions/GET/fetchAssignments';
 import {deleteAssignment} from '../../../actions/DELETE/deleteAssignment';
 import '../../componentStyles.css';
+import '../../componentTabletStyles.css';
 import '../../componentMobileStyles.css';
 
 class AssignmentDisplay extends React.Component {
-  componentDidMount(){
+  constructor(props){
+    super(props);
+    this.state ={
+      assignments: []
+    };
+    this.generateAssignmentList = this.generateAssignmentList.bind(this);
+    this.activateAssignmentEditPopup =this.activateAssignmentEditPopup.bind(this);
+  }
+  componentWillMount(){
     this.props.dispatch(fetchAssignments());
   }
+  componentDidMount(){
+    setTimeout(()=> {
+      this.setState({
+        assignments: this.props.assignments
+      });
+    }, 200);
+  }
+  componentWillReceiveProps(nextProps){
+    if(nextProps.assignments !== this.state.assignments){
+      console.log('fired', nextProps.assignments);
+      setTimeout(()=> {
+        this.setState({
+          assignments: this.props.assignments
+        });
+      }, 100);
+      this.render();
+    }
+  }
+  // componentDidMount(){
+  //   this.props.dispatch(fetchAssignments());
+  // }
   activateAssignmentEditPopup(e){
     const popup = e.target.parentElement.parentElement.parentElement.nextSibling;
+    console.log(popup);
     if(popup.className === 'assignment-edit-hidden col-3'){
       return popup.className = 'assignment-edit-active col-3';
     }
     return;
   }
   generateAssignmentList(){
-    return this.props.assignments.filter(assignment=>assignment.userId===this.props.currentUser.id);
+    return this.state.assignments.filter(assignment=>assignment.userId===this.props.currentUser.id);
   }
   render(){
     const assignmentList=this.generateAssignmentList().map(assignment =>(
@@ -30,9 +61,9 @@ class AssignmentDisplay extends React.Component {
           }} 
           className="assignment-list-item" 
           id={assignment.id}>
-          <a className="assignment-name-link" role="button">{assignment.name}</a>
-          <i className="delete-assignment-x fa fa-times" onClick={(e) => this.props.dispatch(deleteAssignment(e.target.parentElement.id))}></i>
-        </li>     
+          {assignment.name}
+        </li>
+        <i id={assignment.id} className="delete-assignment-x fa fa-times" onClick={(e) => this.props.dispatch(deleteAssignment(e.target.id))}></i>     
       </div>)); 
     return (
       <ul className="assignment-list-ul">{assignmentList}</ul>

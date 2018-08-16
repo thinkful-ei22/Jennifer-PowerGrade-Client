@@ -6,6 +6,7 @@ import GradeDisplay from '../Grades-Page/gradeDisplay';
 import SideBar from './classSidebar';
 import '../componentStyles.css';
 import '../componentMobileStyles.css';
+import '../componentTabletStyles.css';
 
 
 class GradesPage extends React.Component {

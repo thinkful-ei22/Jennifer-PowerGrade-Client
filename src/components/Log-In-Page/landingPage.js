@@ -5,6 +5,7 @@ import {Redirect} from 'react-router-dom';
 import RegistrationForm from './registerForm';
 import '../componentStyles.css';
 import '../componentMobileStyles.css';
+import '../componentTabletStyles.css';
 
 class LoginPage extends React.Component{
   render(){

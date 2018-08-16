@@ -4,6 +4,7 @@ import requiresLogin from '../requiresLogin';
 import { filterClasses } from '../../actions/GET/fetchClasses';
 import '../componentMobileStyles.css';
 import '../componentStyles.css';
+import '../componentTabletStyles.css';
 
 class SideBar extends React.Component{
   onClick(values){

@@ -8,6 +8,7 @@ import AssignmentFilters from './Assignment-Display/assignmentFilters';
 import EditAssignmentForm from './Assignment-Display/editAssignmentForm';
 import '../componentMobileStyles.css';
 import '../componentStyles.css';
+import '../componentTabletStyles.css';
 
 class AssignmentsPage extends React.Component {
   closeEditPopup(e){
@@ -34,8 +35,8 @@ class AssignmentsPage extends React.Component {
             <AssignmentDisplay/>
           </div>
           <div className="assignment-edit-hidden col-3">
-            <h2 className="assignment-option-heading">Edit Assignment</h2>
             <i className="close-form fa fa-times" onClick={(e) => this.closeEditPopup(e)}></i>
+            <h2 className="assignment-edit-heading">Edit Assignment</h2>
             <EditAssignmentForm/>
           </div>
         </div>

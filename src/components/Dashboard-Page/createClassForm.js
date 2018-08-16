@@ -3,6 +3,9 @@ import {connect} from 'react-redux';
 import {createClass} from '../../actions/POST/createClass';
 import requiresLogin from '../requiresLogin';
 import { fetchStudents } from '../../actions/GET/fetchStudents';
+import '../componentStyles.css';
+import '../componentMobileStyles.css';
+import '../componentTabletStyles.css';
 
 class CreateClassForm extends React.Component {
   componentDidMount(){

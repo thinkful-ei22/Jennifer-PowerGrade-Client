@@ -2,6 +2,7 @@ import {CREATE_ASSIGNMENT_ERROR,CREATE_ASSIGNMENT_REQUEST,CREATE_ASSIGNMENT_SUCC
 import  {FETCH_ASSIGNMENT_SUCCESS, FETCH_ASSIGNMENT_ERROR, FILTER_ASSIGNMENTS, FETCH_ONE_ASSIGNMENT_SUCCESS, FETCH_ONE_ASSIGNMENT_ERROR, SEARCH_ASSIGNMENTS_SUCCESS} from '../actions/GET/fetchAssignments';
 import {DELETE_ASSIGNMENT_ERROR, DELETE_ASSIGNMENT_SUCCESS} from '../actions/DELETE/deleteAssignment';
 import {EDIT_ASSIGNMENT_SUCCESS, EDIT_ASSIGNMENT_ERROR, ADD_ASSIGNMENT_CLASS, REMOVE_ASSIGNMENT_CLASS} from '../actions/PUT/editAssignment';
+import { EDIT_GRADE_SUCCESS } from '../actions/PUT/editGrade';
 
 const initialState = {
   loading:false,
@@ -118,6 +119,23 @@ export default function assignmentCRUDReducers(state = initialState, action) {
         classes: newClasses,
         grades: state.currentAssignment.grades
       }
+    });
+  }
+  else if(action.type===EDIT_GRADE_SUCCESS){
+    const indexToUpdate = state.assignments.findIndex(assignment => assignment.id === action.currentGrade.assignmentId);
+    const assignmentToEdit = state.assignments[indexToUpdate];
+    if(assignmentToEdit.grades.includes(action.currentGrade.id)){
+      console.log('the grade is part of the assignment');
+      const gradeIndexToUpdate = assignmentToEdit.grades.findIndex(grade => grade === action.currentGrade.id);
+      assignmentToEdit.grades = [...assignmentToEdit.grades.splice(gradeIndexToUpdate, 1), action.currentGrade];
+    }else{
+      console.log('the grade is not in the assignment');
+      assignmentToEdit.grades = [...assignmentToEdit.grades, action.currentGrade];
+    }
+    const updatedAssignments = [...state.assignments.splice(indexToUpdate, 1), assignmentToEdit];
+    console.log('updatedAssignments=', updatedAssignments);
+    return Object.assign({}, state, {
+      assignments: updatedAssignments
     });
   }
   //DELETE    

@@ -5,8 +5,10 @@ import {fetchGrades} from '../../actions/GET/fetchGrades';
 import {fetchStudents} from '../../actions/GET/fetchStudents';
 import {fetchClasses} from '../../actions/GET/fetchClasses';
 import {editGrade} from '../../actions/PUT/editGrade';
+import {createGrade} from '../../actions/POST/createGrade';
 import '../componentStyles.css';
 import '../componentMobileStyles.css';
+import '../componentTabletStyles.css';
 import { fetchCategories } from '../../actions/GET/fetchCategories';
 import { fetchAssignments } from '../../actions/GET/fetchAssignments';
 
@@ -24,7 +26,11 @@ class GradeDisplay extends React.Component {
       if(grade){
         return grade;
       }else{
-        return {value:'-'};
+        return {
+          studentId: {id: student.id},
+          assignmentId: {id: assignment.id},
+          value:0
+        };
       }
     }
   }

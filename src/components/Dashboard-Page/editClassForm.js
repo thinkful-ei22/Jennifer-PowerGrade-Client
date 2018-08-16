@@ -4,6 +4,7 @@ import {editClass, addClassStudent, removeClassStudent} from '../../actions/PUT/
 import requiresLogin from '../requiresLogin';
 import '../componentStyles.css';
 import '../componentMobileStyles.css';
+import '../componentTabletStyles.css';
 
 class EditClassForm extends React.Component {
   closePopupEditClass(e){
@@ -12,6 +13,24 @@ class EditClassForm extends React.Component {
       return popup.className = 'edit-class-popup-hidden';
     }
     return;
+  }
+  submitClosePopupEditClass(e){
+    const popup = e.target.parentElement;
+    console.log(popup);
+    if(popup.className === 'edit-class-popup-active'){
+      return popup.className = 'edit-class-popup-hidden';
+    }
+    return;
+  }
+  onSubmit(e){
+    const name = e.target.name.value;
+    const id = e.target.id;
+    const userId = {
+      id: this.props.currentUser.id,
+    };
+    const assignments = this.props.currentClass.assignments;
+    const students = this.props.currentClass.students;
+    this.props.dispatch(editClass(id, name, students, assignments, userId));
   }
   render(){
     const studentCheckboxes = this.props.students.map(
@@ -65,16 +84,10 @@ class EditClassForm extends React.Component {
       <form 
         id={(this.props.currentClass.id !==null) ? `${this.props.currentClass.id}` : 'id'}
         className="edit-class-form" 
-        onSubmit={(e)=>{
+        onSubmit={(e)=>{  
           e.preventDefault();
-          const name = e.target.name.value;
-          const id = e.target.id;
-          const userId = {
-            id: this.props.currentUser.id,
-          };
-          const assignments = this.props.currentClass.assignments;
-          const students = this.props.currentClass.students;
-          return this.props.dispatch(editClass(id, name, students, assignments, userId));
+          this.onSubmit(e);
+          this.submitClosePopupEditClass(e);
         }}>
         <i className="close-form fa fa-times" onClick={(e) => this.closePopupEditClass(e)}></i>
         <h2>Edit Class</h2>

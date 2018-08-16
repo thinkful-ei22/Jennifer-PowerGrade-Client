@@ -4,7 +4,10 @@ import {registerUser} from '../../actions/AUTH/registerAction';
 import Input from '../input';
 import {login} from '../../actions/AUTH/loginAction';
 import {required, nonEmpty, matches, length, isTrimmed} from '../../validators';
-// import './registerForm.css';
+import '../componentStyles.css';
+import '../componentMobileStyles.css';
+import '../componentTabletStyles.css';
+
 const passwordLength = length({min: 8, max: 72});
 const matchesPassword = matches('password');
  

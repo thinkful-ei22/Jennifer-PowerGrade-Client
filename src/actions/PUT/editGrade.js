@@ -20,16 +20,16 @@ export const editGradeError = error => ({
 export const editGrade = (grade) => (dispatch, getState) => {
   const authToken = getState().loginReducer.authToken;
   dispatch(editGradeRequest(grade.id));
-  return fetch(`${API_BASE_URL}/api/grades/${grade.id}`, {
+  return fetch(`${API_BASE_URL}/api/grades`, {
     method: 'PUT',
     headers: {
       Authorization: `Bearer ${authToken}`,
       'Content-Type': 'application/json'
     },
     body: JSON.stringify({
+      id: grade.id,
       value: grade.value/100,
       studentId: grade.studentId.id,
-      classId: grade.classId.id,
       assignmentId: grade.assignmentId.id
     })
   })

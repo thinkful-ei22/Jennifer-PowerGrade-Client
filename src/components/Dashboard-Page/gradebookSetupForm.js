@@ -3,6 +3,9 @@ import {connect} from 'react-redux';
 import requiresLogin from '../requiresLogin';
 import { editCategory } from '../../actions/PUT/editCategoryValues';
 import { fetchCategories } from '../../actions/GET/fetchCategories';
+import '../componentStyles.css';
+import '../componentMobileStyles.css';
+import '../componentTabletStyles.css';
 
 class GradebookSetupForm extends React.Component { 
   componentDidMount(){
