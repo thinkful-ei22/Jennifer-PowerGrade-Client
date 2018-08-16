@@ -17,7 +17,8 @@ class ClassesDisplay extends React.Component {
     return;
   }
   render(){
-    const classList=this.props.classes.map(classItem =>(
+    const availableClasses = this.props.classes.filter(classItem => classItem.userId.id === this.props.currentUser.id);
+    const classList=availableClasses.map(classItem =>(
       <div className="class-list" key={classItem.id}>
         <li onClick={(e)=>this.activatePopupEditClass(e)}className="class-list-item" id={classItem.id}>
           <a className="class-name-link" role="button" onClick={(e)=>this.props.dispatch(fetchOneClass(e.target.parentElement.id))}>{classItem.name}</a>
@@ -33,7 +34,8 @@ class ClassesDisplay extends React.Component {
 const mapStateToProps = state => {
   return {
     classes: state.classesCRUDReducer.classes,
-    currentClass: state.classesCRUDReducer.currentClass
+    currentClass: state.classesCRUDReducer.currentClass,
+    currentUser: state.loginReducer.currentUser
   };
 };
 

@@ -1,5 +1,17 @@
 import {API_BASE_URL} from '../../config';
 
+export const ADD_ASSIGNMENT_CLASS = 'ADD_ASSIGNMENT_CLASS';
+export const addAssignmentClass = (classItem) => ({
+  type: ADD_ASSIGNMENT_CLASS,
+  classItem
+});
+
+export const REMOVE_ASSIGNMENT_CLASS= 'REMOVE_ASSIGNMENT_CLASS';
+export const removeAssignmentClass = (classItem) => ({
+  type: REMOVE_ASSIGNMENT_CLASS,
+  classItem
+});
+
 export const EDIT_ASSIGNMENT_REQUEST = 'EDIT_ASSIGNMENT_REQUEST';
 export const editAssignmentRequest = () => ({
   type: EDIT_ASSIGNMENT_REQUEST

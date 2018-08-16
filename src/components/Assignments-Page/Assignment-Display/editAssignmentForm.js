@@ -1,7 +1,8 @@
 import React from 'react';
-import {editAssignment} from '../../../actions/PUT/editAssignment';
+import {editAssignment, addAssignmentClass, removeAssignmentClass} from '../../../actions/PUT/editAssignment';
 import {connect} from 'react-redux';
 import {fetchCategories} from '../../../actions/GET/fetchCategories';
+import {fetchClasses} from '../../../actions/GET/fetchClasses';
 import requiresLogin from '../../requiresLogin';
 import '../../componentStyles.css';
 import '../../componentMobileStyles.css';
@@ -9,10 +10,10 @@ import '../../componentMobileStyles.css';
 class EditAssignmentForm extends React.Component {
   componentDidMount(){
     this.props.dispatch(fetchCategories());
+    this.props.dispatch(fetchClasses());
   }
   render (){
     const availableClasses = this.props.classes.filter(classItem => classItem.userId.id === this.props.currentUser.id);
-    const currentClasses = [...availableClasses];
     const categoryOptions = this.props.categories.map((category, i) => (
       <option key={i} value={category.id}>{category.name}</option>
     ));
@@ -22,11 +23,19 @@ class EditAssignmentForm extends React.Component {
           <div key={classItem.id}>
             <label htmlFor={classItem.id}>{classItem.name}</label>
             <input
+              onChange={(e)=> {
+                if(e.target.checked===true){
+                  this.props.dispatch(addAssignmentClass(classItem.id));
+                }
+                else if(e.target.checked===false){
+                  this.props.dispatch(removeAssignmentClass(classItem.id));
+                }
+              }}
               className="class-checkbox-list-item"
               type="checkbox"
               name={classItem.name}
               id={classItem.id}
-              checked>
+              defaultChecked>
             </input>
           </div>);
       }
@@ -35,6 +44,14 @@ class EditAssignmentForm extends React.Component {
           <div key={classItem.id}>
             <label htmlFor={classItem.id}>{classItem.name}</label>
             <input
+              onChange={(e)=> {
+                if(e.target.checked===true){
+                  this.props.dispatch(addAssignmentClass(classItem.id));
+                }
+                else if(e.target.checked===false){
+                  this.props.dispatch(removeAssignmentClass(classItem.id));
+                }
+              }}
               className="class-checkbox-list-item"
               type="checkbox"
               name={classItem.name}
@@ -54,8 +71,9 @@ class EditAssignmentForm extends React.Component {
           const date = e.target.date.value;
           const categoryId = e.target.categoryId.value;
           const grades = this.props.currentAssignment.grades;
-          const classes = currentClasses.map(classItem => classItem.id);
+          const classes = this.props.currentAssignment.classes;
           const userId = this.props.currentUser.id;
+          console.log(classes);
           return this.props.dispatch(editAssignment(id, name, date, userId, classes, categoryId, grades));
         }
         }>
@@ -80,7 +98,6 @@ class EditAssignmentForm extends React.Component {
           type="select"
           name="categoryId"
           id="categoryId">
-          <option>Choose a Category</option>
           {categoryOptions}
         </select>
         <fieldset className="class-checkbox-container">

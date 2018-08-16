@@ -1,21 +1,60 @@
 import React from 'react';
-import {reduxForm, Field} from 'redux-form';
 import {connect} from 'react-redux';
-import Input from '../input';
-import StudentList from './studentList';
 import {createClass} from '../../actions/POST/createClass';
 import requiresLogin from '../requiresLogin';
+import { fetchStudents } from '../../actions/GET/fetchStudents';
 
 class CreateClassForm extends React.Component {
-  // onSubmit(values){
-  //   const students = Object.keys(values.students);
-  //   const studentIds = students.map(student => student.slice(8));
-  //   return this.props.dispatch(createClass(values.name, studentIds));
-  // }
+  componentDidMount(){
+    this.props.dispatch(fetchStudents());
+  }
+  closePopupClassForm(e){
+    const popup = e.target.parentElement;
+    if(popup.className==='create-class-popup-active col-2'){
+      return popup.className = 'create-class-popup-hidden col-2';
+    }
+    return;
+  }
   render (){
-    // const studentCheckboxes = this.props.students.map();
+    const studentsToAdd=[];
+    const studentCheckboxes = this.props.students.map(
+      student => {
+        return (
+          <div key={student.id} className="student-checkbox-container">
+            <label htmlFor={`students.student-${student.id}`}>{`${student.lastName}, ${student.firstName}`}</label>
+            <input
+              onChange={(e) => {
+                if(e.target.checked===true){
+                  studentsToAdd.push(student.id);
+                }
+                else if(e.target.checked===false){
+                  const indexToDelete = studentsToAdd.indexOf(student.id);
+                  studentsToAdd.splice(indexToDelete, 1);
+                }
+                console.log(studentsToAdd);
+                return studentsToAdd;
+              }} 
+              className="student-checkbox"
+              type="checkbox"
+              name={`students.student-${student.id}`}
+              id={student.id}>
+            </input>
+            <hr></hr>
+          </div>
+        );}
+    );
     return (
-      <form className="create-class-form" onSubmit={(e)=> console.log(e)}>
+      <form 
+        className="create-class-form" 
+        onSubmit={(e)=> {
+          e.preventDefault();
+          const name = e.target.name.value;
+          const userId = this.props.currentUser.id;
+          const students = studentsToAdd;
+          this.closePopupClassForm(e);
+          return this.props.dispatch(createClass(name, userId, students));
+        }
+        }>
         <label htmlFor="name">Class Name</label>
         <input
           className="create-class-name"
@@ -24,7 +63,10 @@ class CreateClassForm extends React.Component {
           id="name"
         >
         </input>
-        <StudentList/>
+        <fieldset className="checkboxes-container">
+          <legend className="student-checkbox-legend">Select Your Students</legend>
+          {studentCheckboxes}
+        </fieldset>
         <div className="create-class-save-button-container">
           <button className="create-class-save-button" disabled={this.props.pristine||this.props.submitting}>
             Save

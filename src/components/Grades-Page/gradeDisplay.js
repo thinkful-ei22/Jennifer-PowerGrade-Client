@@ -8,6 +8,7 @@ import {editGrade} from '../../actions/PUT/editGrade';
 import '../componentStyles.css';
 import '../componentMobileStyles.css';
 import { fetchCategories } from '../../actions/GET/fetchCategories';
+import { fetchAssignments } from '../../actions/GET/fetchAssignments';
 
 class GradeDisplay extends React.Component {
   componentDidMount(){
@@ -15,6 +16,7 @@ class GradeDisplay extends React.Component {
     this.props.dispatch(fetchClasses());
     this.props.dispatch(fetchStudents());
     this.props.dispatch(fetchCategories());
+    this.props.dispatch(fetchAssignments());
   }
   getValue(assignment, student){
     if(this.props.grades){
@@ -42,6 +44,7 @@ class GradeDisplay extends React.Component {
     }
   }
   onGradeChange(e, editedGrade){
+    console.log(editedGrade);
     editedGrade.value =e.target.innerHTML;
     this.props.dispatch(editGrade(editedGrade));
   }
@@ -85,7 +88,7 @@ class GradeDisplay extends React.Component {
     const currentStudents =this.props.filteredClasses.map(item => item.students.map(student => student));
 
     const currentClasses = this.props.filteredClasses.filter(classItem => classItem.userId.id === this.props.currentUser.id);
-    console.log(currentClasses);
+    
     const assignmentList = currentClasses.map(classItem => classItem.assignments.map(assignment => assignment));
 
     const assignmentRows = assignmentList.map((assignment => assignment.map(name => <th key={name.name}>{name.name}</th>)));
@@ -121,7 +124,7 @@ class GradeDisplay extends React.Component {
           </tr>
           {studentCells}
           <tr>
-            <td>Averages</td>
+            <td>Assignment Averages</td>
             <td></td>
             {averageCells}
           </tr>
@@ -138,7 +141,10 @@ const mapStateToProps = state => {
     classes: state.classesCRUDReducer.classes,
     filteredClasses: state.classesCRUDReducer.filteredClasses,
     students: state.studentsCRUDReducer.students,
-    categories: state.categoriesCRUDReducer.categories
+    categories: state.categoriesCRUDReducer.categories,
+    currentClass: state.classesCRUDReducer.currentClass,
+    currentAssignment: state.assignmentCRUDReducer.currentAssignment,
+    assignments: state.assignmentCRUDReducer.assignments
   };
 };
 

@@ -1,5 +1,17 @@
 import {API_BASE_URL} from '../../config';
 
+export const ADD_CLASS_STUDENT = 'ADD_CLASS_STUDENT';
+export const addClassStudent = (student) => ({
+  type: ADD_CLASS_STUDENT,
+  student
+});
+
+export const REMOVE_CLASS_STUDENT = 'REMOVE_CLASS_STUDENT';
+export const removeClassStudent = (student) => ({
+  type: REMOVE_CLASS_STUDENT,
+  student
+});
+
 export const EDIT_CLASS_REQUEST = 'EDIT_CLASS_REQUEST';
 export const editClassRequest = () => ({
   type: EDIT_CLASS_REQUEST

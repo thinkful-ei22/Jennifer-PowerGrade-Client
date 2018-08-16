@@ -20,7 +20,6 @@ class ClassDropdown extends React.Component {
         <label className="class-select-label" htmlFor="classId">Filter by Class</label>
         <select
           onChange={(e => {
-            console.log(e.target.value);
             if(e.target.value===0){
               this.props.dispatch(fetchAssignments());
             }

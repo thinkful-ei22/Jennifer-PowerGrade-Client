@@ -11,18 +11,26 @@ class AssignmentDisplay extends React.Component {
     this.props.dispatch(fetchAssignments());
   }
   activateAssignmentEditPopup(e){
-    const popup = e.target.parentElement.parentElement.parentElement.parentElement.nextSibling;
+    const popup = e.target.parentElement.parentElement.parentElement.nextSibling;
     if(popup.className === 'assignment-edit-hidden col-3'){
       return popup.className = 'assignment-edit-active col-3';
     }
     return;
   }
+  generateAssignmentList(){
+    return this.props.assignments.filter(assignment=>assignment.userId===this.props.currentUser.id);
+  }
   render(){
-    const availableAssignmnets = this.props.assignments.filter(assignment=>assignment.userId===this.props.currentUser.id);
-    const assignmentList=availableAssignmnets.map(assignment =>(
+    const assignmentList=this.generateAssignmentList().map(assignment =>(
       <div className="assignment-list" key={assignment.id}>
-        <li onClick={(e)=>this.activateAssignmentEditPopup(e)} className="assignment-list-item" id={assignment.id}>
-          <a className="assignment-name-link" role="button" onClick={(e)=>this.props.dispatch(fetchOneAssignment(e.target.parentElement.id))}>{assignment.name}</a>
+        <li 
+          onClick={(e)=>{
+            this.activateAssignmentEditPopup(e);
+            this.props.dispatch(fetchOneAssignment(e.target.id));
+          }} 
+          className="assignment-list-item" 
+          id={assignment.id}>
+          <a className="assignment-name-link" role="button">{assignment.name}</a>
           <i className="delete-assignment-x fa fa-times" onClick={(e) => this.props.dispatch(deleteAssignment(e.target.parentElement.id))}></i>
         </li>     
       </div>)); 

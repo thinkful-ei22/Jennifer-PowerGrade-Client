@@ -22,7 +22,7 @@ export class RegistrationForm extends React.Component {
         this.onSubmit(values)
       )}>
         <Field
-          className="signup-name"
+          className="signup-input"
           component={Input}
           element="input"
           type="text"
@@ -32,7 +32,7 @@ export class RegistrationForm extends React.Component {
           validate = {[required, nonEmpty, isTrimmed]}>
         </Field>
         <Field
-          className="signup-name"
+          className="signup-input"
           component={Input}
           element="input"
           type="text"
@@ -42,7 +42,7 @@ export class RegistrationForm extends React.Component {
           validate = {[required, nonEmpty, isTrimmed]}>
         </Field>
         <Field 
-          className="signup-username"
+          className="signup-input"
           component={Input}
           element="input"
           type="text"
@@ -52,7 +52,7 @@ export class RegistrationForm extends React.Component {
           validate = {[required, nonEmpty, isTrimmed]}>
         </Field>
         <Field
-          className="signup-password"
+          className="signup-input"
           component={Input}
           element="input" 
           type="password"
@@ -62,7 +62,7 @@ export class RegistrationForm extends React.Component {
           validate={[required, passwordLength, isTrimmed]}>
         </Field>
         <Field
-          className="signup-confirm-password"
+          className="signup-input"
           component={Input}
           element="input" 
           type="password"

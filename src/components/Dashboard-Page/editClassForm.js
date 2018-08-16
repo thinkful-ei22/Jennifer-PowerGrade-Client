@@ -1,9 +1,10 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {editClass} from '../../actions/PUT/editClass';
+import {editClass, addClassStudent, removeClassStudent} from '../../actions/PUT/editClass';
 import requiresLogin from '../requiresLogin';
+import '../componentStyles.css';
+import '../componentMobileStyles.css';
 
-//change onChange listeners to dispatch actions that add or remove students from the current class.
 class EditClassForm extends React.Component {
   closePopupEditClass(e){
     const popup = e.target.parentElement.parentElement;
@@ -13,7 +14,6 @@ class EditClassForm extends React.Component {
     return;
   }
   render(){
-    const currentStudents = [...this.props.currentClass.students];
     const studentCheckboxes = this.props.students.map(
       student => {
         if(this.props.currentClass.students.includes(student.id)){ //if the student is already in the class show them as checked
@@ -21,17 +21,21 @@ class EditClassForm extends React.Component {
             <div key={student.id} className="student-checkbox-container">
               <label htmlFor={`students.student-${student.id}`}>{`${student.lastName}, ${student.firstName}`}</label>
               <input
-                onChange={e => {
-                  const indexToDelete = currentStudents.indexOf(e.target.id);
-                  currentStudents.splice(indexToDelete, 1);
-                  console.log(currentStudents);
+                onChange={(e)=> {
+                  if(e.target.checked===true){
+                    this.props.dispatch(addClassStudent(student.id));
+                  }
+                  else if(e.target.checked===false){
+                    this.props.dispatch(removeClassStudent(student.id));
+                  }
                 }}
                 className="student-checkbox"
                 type="checkbox"
                 name={`students.student-${student.id}`}
                 id={student.id}
-                checked>
+                defaultChecked>
               </input>
+              <hr></hr>
             </div>
           );
         }
@@ -40,15 +44,20 @@ class EditClassForm extends React.Component {
             <div key={student.id} className="student-checkbox-container">
               <label htmlFor={`students.student-${student.id}`}>{`${student.lastName}, ${student.firstName}`}</label>
               <input
-                onChange={e => {
-                  currentStudents.push(e.target.id);
-                  console.log(currentStudents);
-                }} 
+                onChange={(e)=> {
+                  if(e.target.checked===true){
+                    this.props.dispatch(addClassStudent(student.id));
+                  }
+                  else if(e.target.checked===false){
+                    this.props.dispatch(removeClassStudent(student.id));
+                  }
+                }}
                 className="student-checkbox"
                 type="checkbox"
                 name={`students.student-${student.id}`}
                 id={student.id}>
               </input>
+              <hr></hr>
             </div>);
         }
       });
@@ -64,16 +73,14 @@ class EditClassForm extends React.Component {
             id: this.props.currentUser.id,
           };
           const assignments = this.props.currentClass.assignments;
-          return this.props.dispatch(editClass(id, name, currentStudents, assignments, userId));
+          const students = this.props.currentClass.students;
+          return this.props.dispatch(editClass(id, name, students, assignments, userId));
         }}>
         <i className="close-form fa fa-times" onClick={(e) => this.closePopupEditClass(e)}></i>
         <h2>Edit Class</h2>
         <label htmlFor="name">Class Name</label>
         <input
-          onChange={e => {
-            console.log(e.target.value);
-          }}
-          className="edit-class-name"
+          className="edit-class-input"
           type="text"
           name="name"
           id="name"

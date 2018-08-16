@@ -1,23 +1,35 @@
-export const SET_TEST_VALUE = 'SET_TEST_VALUE';
-export const setTestValue = value => ({
-  type: SET_TEST_VALUE,
-  value
+import {API_BASE_URL} from '../../config';
+
+export const EDIT_CATEGORY_SUCCESS = 'EDIT_CATEGORY_SUCCESS';
+export const editCategorySuccess = (category) => ({
+  type: EDIT_CATEGORY_SUCCESS,
+  category
 });
 
-export const SET_QUIZ_VALUE = 'SET_QUIZ_VALUE';
-export const setQuizValue = value => ({
-  type: SET_QUIZ_VALUE,
-  value
+export const EDIT_CATEGORY_ERROR = 'EDIT_CATEGORY_ERROR';
+export const editCategoryError = (error) => ({
+  type: EDIT_CATEGORY_ERROR,
+  error
 });
 
-export const SET_CLASSWORK_VALUE = 'SET_CLASSWORK_VALUE';
-export const setClassworkValue = value => ({
-  type: SET_CLASSWORK_VALUE,
-  value
-});
+export const editCategory = (id, name, value) => (dispatch, getState) => {
+  const authToken = getState().loginReducer.authToken;
+  return fetch(`${API_BASE_URL}/api/categories/${id}`, {
+    method: 'PUT',
+    headers: {
+      Authorization: `Bearer ${authToken}`,
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      id,
+      name,
+      value
+    })
+  })
+    .then(res => {
+      return res.json();
+    })
+    .then(res => dispatch(editCategorySuccess(res))
+    ).catch(err => dispatch(editCategoryError(err)));
+};
 
-export const SET_HOMEWORK_VALUE = 'SET_HOMEWORK_VALUE';
-export const setHomeworkValue = value => ({
-  type: SET_HOMEWORK_VALUE,
-  value
-});

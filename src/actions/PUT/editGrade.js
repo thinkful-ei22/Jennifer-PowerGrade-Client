@@ -34,7 +34,6 @@ export const editGrade = (grade) => (dispatch, getState) => {
     })
   })
     .then(res => {
-      console.log('this happened');
       return res.json();
     })
     .then(res => 

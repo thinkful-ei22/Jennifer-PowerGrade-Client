@@ -1,15 +1,11 @@
 import {CREATE_ASSIGNMENT_ERROR,CREATE_ASSIGNMENT_REQUEST,CREATE_ASSIGNMENT_SUCCESS} from '../actions/POST/createAssignment';
 import  {FETCH_ASSIGNMENT_SUCCESS, FETCH_ASSIGNMENT_ERROR, FILTER_ASSIGNMENTS, FETCH_ONE_ASSIGNMENT_SUCCESS, FETCH_ONE_ASSIGNMENT_ERROR, SEARCH_ASSIGNMENTS_SUCCESS} from '../actions/GET/fetchAssignments';
 import {DELETE_ASSIGNMENT_ERROR, DELETE_ASSIGNMENT_SUCCESS} from '../actions/DELETE/deleteAssignment';
-import {EDIT_ASSIGNMENT_SUCCESS, EDIT_ASSIGNMENT_ERROR} from '../actions/PUT/editAssignment';
+import {EDIT_ASSIGNMENT_SUCCESS, EDIT_ASSIGNMENT_ERROR, ADD_ASSIGNMENT_CLASS, REMOVE_ASSIGNMENT_CLASS} from '../actions/PUT/editAssignment';
 
 const initialState = {
   loading:false,
   error: null,
-  categoryId: '',
-  assignmentName: '',
-  classes: [],
-  assignmentDate:'',
   assignments: [],
   filteredAssignments: [],
   currentAssignment: null
@@ -23,14 +19,19 @@ export default function assignmentCRUDReducers(state = initialState, action) {
     });
   }
   else if(action.type === CREATE_ASSIGNMENT_SUCCESS) {
-    console.log(action.assignmentInfo);
-    return Object.assign({}, state, {
+    console.log(action);
+    const newAssignment = {
       name: action.assignmentInfo.name,
       date: action.assignmentInfo.date,
       userId: action.assignmentInfo.userId,
       categoryId: action.assignmentInfo.categoryId,
       classes: action.assignmentInfo.classes,
       grades:action.assignmentInfo.grades,
+    };
+    const updatedAssignments = [...state.assignments, newAssignment];
+    console.log(updatedAssignments);
+    return Object.assign({}, state, {
+      assignments: updatedAssignments,
       loading: false,
       error: null
     });
@@ -59,7 +60,7 @@ export default function assignmentCRUDReducers(state = initialState, action) {
     });
   }
   else if(action.type===SEARCH_ASSIGNMENTS_SUCCESS){
-    return Object.assign({
+    return Object.assign({}, state, {
       filteredAssignments: action.searchTerm
     });
   }
@@ -77,8 +78,7 @@ export default function assignmentCRUDReducers(state = initialState, action) {
   }
   //PUT update assignment
   else if(action.type===EDIT_ASSIGNMENT_SUCCESS){
-    console.log(action);
-    const indexToUpdate = state.findIndex(assignment => {
+    const indexToUpdate = state.assignments.findIndex(assignment => {
       return assignment.id === action.assignment.id;
     });
     const updatedAssignments = [...state.assignments];
@@ -90,6 +90,34 @@ export default function assignmentCRUDReducers(state = initialState, action) {
   else if(action.type===EDIT_ASSIGNMENT_ERROR){
     return Object.assign({}, state, {
       error: action.error
+    });
+  }
+  else if(action.type=== ADD_ASSIGNMENT_CLASS){
+    console.log(action);
+    const newClasses = [...state.currentAssignment.classes, action.classItem];
+    return Object.assign({}, state, {
+      currentAssignment:{
+        name: state.currentAssignment.name,
+        date: state.currentAssignment.date,
+        userId: state.currentAssignment.userId,
+        categoryId: state.currentAssignment.categoryId,
+        classes: newClasses,
+        grades: state.currentAssignment.grades
+      }
+    });
+  }
+  else if(action.type=== REMOVE_ASSIGNMENT_CLASS){
+    console.log(action);
+    const newClasses = state.currentAssignment.classes.filter(classItem => classItem !== action.classItem);
+    return Object.assign({}, state, {
+      currentAssignment:{
+        name: state.currentAssignment.name,
+        date: state.currentAssignment.date,
+        userId: state.currentAssignment.userId,
+        categoryId: state.currentAssignment.categoryId,
+        classes: newClasses,
+        grades: state.currentAssignment.grades
+      }
     });
   }
   //DELETE    

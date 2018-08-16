@@ -8,7 +8,6 @@ import fetchStandardsReducer from './reducers/fetchStandardsReducer';
 import assignmentCRUDReducer from './reducers/assignmentCRUDReducers';
 import classesCRUDReducer from './reducers/classesCRUDReducers';
 import gradesCRUDReducer from './reducers/gradesCRUDReducers';
-// import setCategoryValuesReducer from './reducers/setCategoryValuesReducer';
 import studentsCRUDReducer from './reducers/studentsCRUDReducers';
 
 const rootReducer = combineReducers({
@@ -20,7 +19,6 @@ const rootReducer = combineReducers({
   fetchStandardsReducer,
   gradesCRUDReducer,
   studentsCRUDReducer,
-  // setCategoryValuesReducer,
 });
 const store= createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)));
 

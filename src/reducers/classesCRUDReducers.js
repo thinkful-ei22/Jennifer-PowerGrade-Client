@@ -1,17 +1,12 @@
 import {CREATE_CLASS_ERROR, CREATE_CLASS_REQUEST, CREATE_CLASS_SUCCESS} from '../actions/POST/createClass';
-import {FETCH_CLASSES_SUCCESS, FETCH_CLASSES_ERROR, FILTER_CLASSES, FETCH_ONE_CLASS_SUCCESS} from '../actions/GET/fetchClasses';
+import {FETCH_CLASSES_SUCCESS, FETCH_CLASSES_ERROR, FILTER_CLASSES, FETCH_ONE_CLASS_SUCCESS, FETCH_ONE_CLASS_ERROR} from '../actions/GET/fetchClasses';
 import {DELETE_CLASS_SUCCESS, DELETE_CLASS_ERROR} from '../actions/DELETE/deleteClass';
-import {FETCH_ONE_ASSIGNMENT_ERROR} from '../actions/GET/fetchAssignments';
-import {EDIT_CLASS_SUCCESS, EDIT_CLASS_ERROR} from '../actions/PUT/editClass';
+import {EDIT_CLASS_SUCCESS, EDIT_CLASS_ERROR, ADD_CLASS_STUDENT, REMOVE_CLASS_STUDENT} from '../actions/PUT/editClass';
+import { CREATE_ASSIGNMENT_SUCCESS } from '../actions/POST/createAssignment';
 
 const initialState = {
   loading:false,
   error: null,
-  classId: '',
-  className: '',
-  classStudents: [],
-  studentClasses: [],
-  userClasses: [],
   classes: [],
   filteredClasses: [],
   currentClass: null
@@ -25,10 +20,14 @@ export default function classesCRUDReducers(state = initialState, action) {
     });
   }
   else if(action.type === CREATE_CLASS_SUCCESS) {
+    const newClass ={
+      name: action.classInfo.name,
+      userId: action.classInfo.userId,
+      students: action.classInfo.students,
+    };
+    const updatedClasses = [...state.classes, newClass];
     return Object.assign({}, state, {
-      className: action.classInfo.name,
-      classStudents: action.classInfo.studentIds,
-      classId: action.id,
+      classes: updatedClasses,
       loading: false,
       error: null
     });
@@ -57,22 +56,20 @@ export default function classesCRUDReducers(state = initialState, action) {
       currentClass: action.currentClass
     });
   }
-  else if(action.type===FETCH_ONE_ASSIGNMENT_ERROR){
+  else if(action.type===FETCH_ONE_CLASS_ERROR){
     return Object.assign({}, state, {
       error: action.error
     });
   }
   //filter class list
   else if(action.type===FILTER_CLASSES){
-    console.log(action);
     return Object.assign({}, state, {
       filteredClasses: action.filter
     });
   }
   //PUT edit one class
   else if(action.type===EDIT_CLASS_SUCCESS){
-    console.log(action);
-    const indexToUpdate = state.findIndex(classItem => {
+    const indexToUpdate = state.classes.findIndex(classItem => {
       return classItem.id === action.class.id;
     });
     const updatedClasses = [...state.classes];
@@ -86,8 +83,43 @@ export default function classesCRUDReducers(state = initialState, action) {
       error: action.error
     });
   }
+  else if(action.type===ADD_CLASS_STUDENT){
+    const newStudents = [...state.currentClass.students, action.student];
+    return Object.assign({}, state, {
+      currentClass:{
+        name: state.currentClass.name,
+        id: state.currentClass.id,
+        userId: state.currentClass.id,
+        students: newStudents
+      }
+    });
+  }
+  else if(action.type===REMOVE_CLASS_STUDENT){
+    const newStudents = state.currentClass.students.filter(student => student !== action.student);
+    return Object.assign({}, state, {
+      currentClass:{
+        name: state.currentClass.name,
+        id: state.currentClass.id,
+        userId: state.currentClass.id,
+        students: newStudents
+      }
+    });
+  }
+  else if(action.type === CREATE_ASSIGNMENT_SUCCESS){
+    const newAssignmentId = action.assignmentInfo.id;
+    const classesInAssignment = action.assignmentInfo.classes;
+    const updatedAssignmentList = state.classes.map(classItem => {
+      if(classesInAssignment.includes(classItem.id)){
+        classItem.assignments = [...classItem.assignments, newAssignmentId];
+      }
+      return classItem;
+    });
+    return Object.assign({}, state, {
+      classes: updatedAssignmentList
+    });
+  }
+  //DELTE one class
   else if(action.type===DELETE_CLASS_SUCCESS){
-    //DELTE one class
     const indexToDelete = state.findIndex(classItem => {
       return classItem.id === action.class.id;
     });

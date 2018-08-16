@@ -70,14 +70,14 @@ class Dashboard extends React.Component {
   render(){
     return (
       <div>
-        <div className="row nav-container">
+        <div className="row">
           <NavBar />
         </div>
         <div className="row">
           <h1 className="welcome">Welcome to PowerGrade, {this.props.name}!</h1>
         </div>
         <div className="row">
-          <div className="col-6 get-started-container">
+          <div className="col-6 get-started-container option-box">
             <div className="go"><a onClick={(e)=> this.activatePopupGetStarted(e)}><i className="fa fa-plus"></i></a></div>
             <h2 className="action-heading" >Get Started</h2>
           </div>
@@ -85,15 +85,16 @@ class Dashboard extends React.Component {
             <i className="close-form fa fa-times" onClick={(e) => this.closePopupGetStarted(e)}></i>
             <GettingStarted/>
           </div>
-          <div className="col-6 create-class-container">
+          <div className="col-6 create-class-container option-box">
             <div className="go"><a onClick={(e)=> this.activatePopupClassForm(e)}><i className="fa fa-plus"></i></a></div>
             <h2 className="action-heading" >Create Class</h2>
           </div>
           <div className="create-class-popup-hidden col-2">
             <i className="close-form fa fa-times" onClick={(e) => this.closePopupClassForm(e)}></i>
+            <h2 className="popup-heading">Create a Class</h2>
             <CreateClassForm/>
           </div>
-          <div className="col-6 view-classes-container">
+          <div className="col-6 view-classes-container option-box">
             <div className="go"><a onClick={(e)=> this.activatePopupClassView(e)}><i className="fa fa-plus"></i></a></div>
             <h2 className="action-heading" >View Classes</h2>
           </div>
@@ -106,12 +107,14 @@ class Dashboard extends React.Component {
               </div>
             </div>
           </div>
-          <div className="col-6 set-up-container">
+          <div className="col-6 set-up-container option-box">
             <div className="go"><a onClick={(e)=> this.activatePopupSetup(e)}><i className="fa fa-plus"></i></a></div>
             <h2 className="action-heading" >Setup Gradebook</h2>
           </div>
           <div className="gradebook-setup-popup-hidden col-2">
             <i className="close-form fa fa-times" onClick={(e) => this.closePopupSetup(e)}></i>
+            <h2 className="popup-heading">Set Gradebook Categories</h2>
+            <p className="setup-instructions">Please enter the percentage that you would like each category to be worth.</p>
             <GradebookSetupForm/>
           </div>
         </div>
