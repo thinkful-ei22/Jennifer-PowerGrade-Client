@@ -1,6 +1,7 @@
 import React from 'react';
 import {editAssignment, addAssignmentClass, removeAssignmentClass} from '../../../actions/PUT/editAssignment';
 import {connect} from 'react-redux';
+import {fetchAssignments} from '../../../actions/GET/fetchAssignments';
 import {fetchCategories} from '../../../actions/GET/fetchCategories';
 import {fetchClasses} from '../../../actions/GET/fetchClasses';
 import requiresLogin from '../../requiresLogin';
@@ -21,7 +22,10 @@ class EditAssignmentForm extends React.Component {
     const grades = this.props.currentAssignment.grades;
     const classes = this.props.currentAssignment.classes;
     const userId = this.props.currentUser.id;
-    return this.props.dispatch(editAssignment(id, name, date, userId, classes, categoryId, grades));
+    this.props.dispatch(fetchClasses());
+    this.props.dispatch(fetchCategories());
+    this.props.dispatch(fetchAssignments());
+    this.props.dispatch(editAssignment(id, name, date, userId, classes, categoryId, grades));
   }
   closeEditPopup(e){
     const popup= e.target.parentElement;
@@ -44,9 +48,11 @@ class EditAssignmentForm extends React.Component {
               onChange={(e)=> {
                 if(e.target.checked===true){
                   this.props.dispatch(addAssignmentClass(classItem.id));
+                  this.props.dispatch(fetchClasses());
                 }
                 else if(e.target.checked===false){
                   this.props.dispatch(removeAssignmentClass(classItem.id));
+                  this.props.dispatch(fetchClasses());
                 }
               }}
               className="class-checkbox-list-item"
@@ -65,9 +71,11 @@ class EditAssignmentForm extends React.Component {
               onChange={(e)=> {
                 if(e.target.checked===true){
                   this.props.dispatch(addAssignmentClass(classItem.id));
+                  this.props.dispatch(fetchClasses());
                 }
                 else if(e.target.checked===false){
                   this.props.dispatch(removeAssignmentClass(classItem.id));
+                  this.props.dispatch(fetchClasses());
                 }
               }}
               className="class-checkbox-list-item"

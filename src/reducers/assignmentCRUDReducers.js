@@ -124,16 +124,11 @@ export default function assignmentCRUDReducers(state = initialState, action) {
   else if(action.type===EDIT_GRADE_SUCCESS){
     const indexToUpdate = state.assignments.findIndex(assignment => assignment.id === action.currentGrade.assignmentId);
     const assignmentToEdit = state.assignments[indexToUpdate];
-    if(assignmentToEdit.grades.includes(action.currentGrade.id)){
-      console.log('the grade is part of the assignment');
-      const gradeIndexToUpdate = assignmentToEdit.grades.findIndex(grade => grade === action.currentGrade.id);
-      assignmentToEdit.grades = [...assignmentToEdit.grades.splice(gradeIndexToUpdate, 1), action.currentGrade];
-    }else{
-      console.log('the grade is not in the assignment');
-      assignmentToEdit.grades = [...assignmentToEdit.grades, action.currentGrade];
+    if(!assignmentToEdit.grades.includes(action.currentGrade.id)){
+      return assignmentToEdit.grades = [...assignmentToEdit.grades, action.currentGrade.id];
     }
-    const updatedAssignments = [...state.assignments.splice(indexToUpdate, 1), assignmentToEdit];
-    console.log('updatedAssignments=', updatedAssignments);
+    const updatedAssignments = [...state.assignments];
+    updatedAssignments.splice(indexToUpdate, 1, assignmentToEdit);
     return Object.assign({}, state, {
       assignments: updatedAssignments
     });

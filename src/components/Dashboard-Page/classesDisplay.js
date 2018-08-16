@@ -31,7 +31,11 @@ class ClassesDisplay extends React.Component {
           className="class-list-item" id={classItem.id}>
           {classItem.name}
         </li>
-        <i  id={classItem.id} className="delete-class-x fa fa-times" onClick={(e) => this.props.dispatch(deleteClass(e.target.id))}></i>     
+        <i  id={classItem.id} className="delete-class-x fa fa-times" 
+          onClick={(e) => {
+            this.props.dispatch(deleteClass(e.target.id));
+            this.props.dispatch(fetchClasses());
+          }}></i>     
       </div>)); 
     return (
       <ul className="class-list-ul">{classList}</ul>

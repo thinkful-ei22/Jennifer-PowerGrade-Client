@@ -5,6 +5,8 @@ import requiresLogin from '../requiresLogin';
 import '../componentStyles.css';
 import '../componentMobileStyles.css';
 import '../componentTabletStyles.css';
+import { fetchAssignments } from '../../actions/GET/fetchAssignments';
+import { fetchClasses } from '../../actions/GET/fetchClasses';
 
 class CreateAssignmentForm extends React.Component {
 
@@ -45,7 +47,9 @@ class CreateAssignmentForm extends React.Component {
           const date = e.target.date.value;
           const categoryId = e.target.categoryId.value;
           const userId = this.props.currentUser.id;
-          return this.props.dispatch(createAssignment(name, date, classes, userId, categoryId));
+          this.props.dispatch(createAssignment(name, date, classes, userId, categoryId));
+          this.props.dispatch(fetchClasses());
+          this.props.dispatch(fetchAssignments());
         }}>
         <label className="assignment-create-label" htmlFor="name">Assignment Name</label>
         <input

@@ -8,38 +8,9 @@ import '../../componentTabletStyles.css';
 import '../../componentMobileStyles.css';
 
 class AssignmentDisplay extends React.Component {
-  constructor(props){
-    super(props);
-    this.state ={
-      assignments: []
-    };
-    this.generateAssignmentList = this.generateAssignmentList.bind(this);
-    this.activateAssignmentEditPopup =this.activateAssignmentEditPopup.bind(this);
-  }
-  componentWillMount(){
+  componentDidMount(){
     this.props.dispatch(fetchAssignments());
   }
-  componentDidMount(){
-    setTimeout(()=> {
-      this.setState({
-        assignments: this.props.assignments
-      });
-    }, 200);
-  }
-  componentWillReceiveProps(nextProps){
-    if(nextProps.assignments !== this.state.assignments){
-      console.log('fired', nextProps.assignments);
-      setTimeout(()=> {
-        this.setState({
-          assignments: this.props.assignments
-        });
-      }, 100);
-      this.render();
-    }
-  }
-  // componentDidMount(){
-  //   this.props.dispatch(fetchAssignments());
-  // }
   activateAssignmentEditPopup(e){
     const popup = e.target.parentElement.parentElement.parentElement.nextSibling;
     console.log(popup);
@@ -49,7 +20,7 @@ class AssignmentDisplay extends React.Component {
     return;
   }
   generateAssignmentList(){
-    return this.state.assignments.filter(assignment=>assignment.userId===this.props.currentUser.id);
+    return this.props.assignments.filter(assignment=>assignment.userId===this.props.currentUser.id);
   }
   render(){
     const assignmentList=this.generateAssignmentList().map(assignment =>(
@@ -63,7 +34,10 @@ class AssignmentDisplay extends React.Component {
           id={assignment.id}>
           {assignment.name}
         </li>
-        <i id={assignment.id} className="delete-assignment-x fa fa-times" onClick={(e) => this.props.dispatch(deleteAssignment(e.target.id))}></i>     
+        <i id={assignment.id} className="delete-assignment-x fa fa-times" onClick={(e) => {
+          this.props.dispatch(deleteAssignment(e.target.id));
+          this.props.dispatch(fetchAssignments());
+        }}></i>     
       </div>)); 
     return (
       <ul className="assignment-list-ul">{assignmentList}</ul>

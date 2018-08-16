@@ -44,6 +44,7 @@ class GradebookSetupForm extends React.Component {
         e.preventDefault();
         this.onSubmit(e);
         this.closePopup(e);
+        this.props.dispatch(fetchCategories());
       }}>
         {categoryInputs}
         <div className="class-setup-button-container">

@@ -5,7 +5,6 @@ import {fetchGrades} from '../../actions/GET/fetchGrades';
 import {fetchStudents} from '../../actions/GET/fetchStudents';
 import {fetchClasses} from '../../actions/GET/fetchClasses';
 import {editGrade} from '../../actions/PUT/editGrade';
-import {createGrade} from '../../actions/POST/createGrade';
 import '../componentStyles.css';
 import '../componentMobileStyles.css';
 import '../componentTabletStyles.css';
@@ -50,7 +49,7 @@ class GradeDisplay extends React.Component {
     }
   }
   onGradeChange(e, editedGrade){
-    console.log(editedGrade);
+    console.log('this.props.assignmetns=',this.props.assignments);
     editedGrade.value =e.target.innerHTML;
     this.props.dispatch(editGrade(editedGrade));
   }

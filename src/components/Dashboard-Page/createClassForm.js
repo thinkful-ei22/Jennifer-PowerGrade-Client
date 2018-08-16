@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {createClass} from '../../actions/POST/createClass';
+import {fetchClasses} from '../../actions/GET/fetchClasses';
 import requiresLogin from '../requiresLogin';
 import { fetchStudents } from '../../actions/GET/fetchStudents';
 import '../componentStyles.css';
@@ -55,7 +56,8 @@ class CreateClassForm extends React.Component {
           const userId = this.props.currentUser.id;
           const students = studentsToAdd;
           this.closePopupClassForm(e);
-          return this.props.dispatch(createClass(name, userId, students));
+          this.props.dispatch(createClass(name, userId, students));
+          this.props.dispatch(fetchClasses());
         }
         }>
         <label htmlFor="name">Class Name</label>
