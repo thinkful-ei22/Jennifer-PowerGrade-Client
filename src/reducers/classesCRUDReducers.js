@@ -106,11 +106,10 @@ export default function classesCRUDReducers(state = initialState, action) {
     });
   }
   else if(action.type === CREATE_ASSIGNMENT_SUCCESS){
-    const newAssignmentId = action.assignmentInfo.id;
     const classesInAssignment = action.assignmentInfo.classes;
     const updatedAssignmentList = state.classes.map(classItem => {
       if(classesInAssignment.includes(classItem.id)){
-        classItem.assignments = [...classItem.assignments, newAssignmentId];
+        classItem.assignments = [...classItem.assignments, action.assignmentInfo];
       }
       return classItem;
     });

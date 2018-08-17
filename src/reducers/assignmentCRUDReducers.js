@@ -20,7 +20,6 @@ export default function assignmentCRUDReducers(state = initialState, action) {
     });
   }
   else if(action.type === CREATE_ASSIGNMENT_SUCCESS) {
-    console.log(action);
     const newAssignment = {
       name: action.assignmentInfo.name,
       date: action.assignmentInfo.date,
@@ -30,7 +29,6 @@ export default function assignmentCRUDReducers(state = initialState, action) {
       grades:action.assignmentInfo.grades,
     };
     const updatedAssignments = [...state.assignments, newAssignment];
-    console.log(updatedAssignments);
     return Object.assign({}, state, {
       assignments: updatedAssignments,
       loading: false,

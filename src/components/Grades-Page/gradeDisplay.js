@@ -104,7 +104,13 @@ class GradeDisplay extends React.Component {
       const assignments = assignmentList.map((assignment) => {
         return assignment.map(name => {
           const grade = this.getValue(name, student);
-          return (<td contentEditable="true" id={grade.id} onInput={(e) => this.onGradeChange(e, grade)} key={name.id}>
+          return (<td 
+            contentEditable="true" 
+            id={grade.id} 
+            onInput={(e) => {
+              this.onGradeChange(e, grade);
+            }}
+            key={name.id}>
             {this.getValue(name, student).value*100}
           </td>);
         });

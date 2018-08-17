@@ -9,12 +9,16 @@ import { fetchAssignments } from '../../actions/GET/fetchAssignments';
 import { fetchClasses } from '../../actions/GET/fetchClasses';
 
 class CreateAssignmentForm extends React.Component {
-
+  clearValues(e){
+    e.target.categoryId.value='0';
+    e.target.name.value='';
+    e.target.date.value='';
+  }
   render (){
     const categoryOptions = this.props.categories.map((category, i) => (
       <option key={i} value={category.id}>{category.name}</option>
     ));
-    const classesToAdd = [];
+    let classesToAdd = [];
     const availableClasses = this.props.classes.filter(classItem=> classItem.userId.id === this.props.currentUser.id);
     const classList = availableClasses.map(classItem =>{
       return(
@@ -24,10 +28,12 @@ class CreateAssignmentForm extends React.Component {
             onChange={(e) =>{
               if(e.target.checked===true){
                 classesToAdd.push(e.target.id);
+                console.log('adding a class', classesToAdd);
               }
               if(e.target.checked===false){
                 const indexToDelete = classesToAdd.indexOf(e.target.id);
                 classesToAdd.splice(indexToDelete, 1);
+                console.log('removing a class', classesToAdd);
               }
             }}
             className="class-checkbox-list-item"
@@ -48,6 +54,7 @@ class CreateAssignmentForm extends React.Component {
           const categoryId = e.target.categoryId.value;
           const userId = this.props.currentUser.id;
           this.props.dispatch(createAssignment(name, date, classes, userId, categoryId));
+          this.clearValues(e);
           this.props.dispatch(fetchClasses());
           this.props.dispatch(fetchAssignments());
         }}>
@@ -71,6 +78,7 @@ class CreateAssignmentForm extends React.Component {
           type="select"
           name="categoryId"
           id="categoryId">
+          <option value="0"></option>
           {categoryOptions}
         </select>
         <fieldset className="class-checkbox-container">
