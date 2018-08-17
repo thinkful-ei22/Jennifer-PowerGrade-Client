@@ -6,7 +6,7 @@ import '../componentMobileStyles.css';
 import '../componentStyles.css';
 import '../componentTabletStyles.css';
 
-class SideBar extends React.Component{
+export class SideBar extends React.Component{
   onClick(values){
     return this.props.dispatch(filterClasses(values));
   }

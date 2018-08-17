@@ -9,7 +9,7 @@ import '../componentMobileStyles.css';
 import '../componentTabletStyles.css';
 
 
-class GradesPage extends React.Component {
+export class GradesPage extends React.Component {
   render(){
     return (
       <div>
