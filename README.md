@@ -18,14 +18,18 @@ And later view a list of their classes and make edits.
 <img src=“” width=100%>
 
 After creating a class, the teacher can go to the assignments page and create assignments for each class.
+<<<<<<< HEAD
 
 <img src=“https://github.com/thinkful-ei22/Jennifer-PowerGrade-Client/blob/master/AssignmentsPage.png” width=100%>
+=======
+>>>>>>> f242a784d730f8d2b4ab5dd4b519301d3b6de9dd
 
 He or she can then make edits to the assignments if they wish.
 <img src=“” width=100%>
 
 Once assignments have been added to the classes, the teacher can view their gradebook and add or edit student grades.  Overall student averages are calculated based on the gradebook category weights and displayed in the first column.  Assignment averages are calculated and displayed as well.
-<img src=“” width=100%>
+
+<img src=“https://github.com/thinkful-ei22/Jennifer-PowerGrade-Client/blob/master/AssignmentsPage.png”>
 
 Summary and Tech Info:
 
