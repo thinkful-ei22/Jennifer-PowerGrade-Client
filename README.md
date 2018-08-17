@@ -6,27 +6,37 @@ A link to a deployed version
 
 Features:
 Teachers can login to an existing account or register for the first time.
-<img src=“” width=100%>
+
+<img src="https://github.com/thinkful-ei22/Jennifer-PowerGrade-Client/blob/master/Screenshots/LandingPage.png">
+
+Teachers can learn how to use the app by clicking "Get Started"
+
+<img src="https://github.com/thinkful-ei22/Jennifer-PowerGrade-Client/blob/master/Screenshots/GettingStarted.png">
 
 Teachers then may change the pre-set category weights for each assignment type.  These weights will be used to calculate overall student averages.
-<img src=“” width=100%>
+
+<img src="https://github.com/thinkful-ei22/Jennifer-PowerGrade-Client/blob/master/Screenshots/GradebookSetup.png">
 
 This app comes "pre-loaded" with all of the students in the "school".  The teacher create a new class with a custom student list and name.
-<img src=“” width=100%>
+
+<img src="https://github.com/thinkful-ei22/Jennifer-PowerGrade-Client/blob/master/Screenshots/CreateClass.png">
 
 And later view a list of their classes and make edits.
-<img src=“” width=100%>
+
+<img src="https://github.com/thinkful-ei22/Jennifer-PowerGrade-Client/blob/master/Screenshots/ViewClasses.png">
+<img src="https://github.com/thinkful-ei22/Jennifer-PowerGrade-Client/blob/master/Screenshots/EditClass.png">
 
 After creating a class, the teacher can go to the assignments page and create assignments for each class.
 
-<img src=“https://github.com/thinkful-ei22/Jennifer-PowerGrade-Client/blob/master/AssignmentsPage.png”>
+<img src="https://github.com/thinkful-ei22/Jennifer-PowerGrade-Client/blob/master/Screenshots/AssignmentsPage.png">
 
 He or she can then make edits to the assignments if they wish.
-<img src=“” width=100%>
+
+<img src="https://github.com/thinkful-ei22/Jennifer-PowerGrade-Client/blob/master/Screenshots/EditAssignment.png">
 
 Once assignments have been added to the classes, the teacher can view their gradebook and add or edit student grades.  Overall student averages are calculated based on the gradebook category weights and displayed in the first column.  Assignment averages are calculated and displayed as well.
 
-<img src=“https://github.com/thinkful-ei22/Jennifer-PowerGrade-Client/blob/master/AssignmentsPage.png”>
+<img src="https://github.com/thinkful-ei22/Jennifer-PowerGrade-Client/blob/master/Screenshots/GradesPage.png">
 
 Summary and Tech Info:
 
