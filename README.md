@@ -18,7 +18,8 @@ And later view a list of their classes and make edits.
 <img src=“” width=100%>
 
 After creating a class, the teacher can go to the assignments page and create assignments for each class.
-<img src=“” width=100%>
+
+<img src=“https://github.com/thinkful-ei22/Jennifer-PowerGrade-Client/blob/master/AssignmentsPage.png” width=100%>
 
 He or she can then make edits to the assignments if they wish.
 <img src=“” width=100%>
