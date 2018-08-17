@@ -5,7 +5,7 @@ import '../componentStyles.css';
 import '../componentMobileStyles.css';
 import '../componentTabletStyles.css';
 
-class LogoutAlert extends React.Component {
+export class LogoutAlert extends React.Component {
   
   render() {
     return (
