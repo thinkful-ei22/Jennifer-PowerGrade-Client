@@ -40,6 +40,7 @@ class CreateClassForm extends React.Component {
               }} 
               className="student-checkbox"
               type="checkbox"
+              role="checkbox"
               name={`students.student-${student.id}`}
               id={student.id}>
             </input>

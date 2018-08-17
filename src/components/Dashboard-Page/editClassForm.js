@@ -52,6 +52,7 @@ class EditClassForm extends React.Component {
                 type="checkbox"
                 name={`students.student-${student.id}`}
                 id={student.id}
+                role="checkbox"
                 defaultChecked>
               </input>
               <hr></hr>

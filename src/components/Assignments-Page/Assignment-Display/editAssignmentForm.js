@@ -57,6 +57,7 @@ class EditAssignmentForm extends React.Component {
               }}
               className="class-checkbox-list-item"
               type="checkbox"
+              role="checkbox"
               name={classItem.name}
               id={classItem.id}
               defaultChecked>
