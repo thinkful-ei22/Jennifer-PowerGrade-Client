@@ -4,6 +4,6 @@ import {EditAssignmentForm} from './editAssignmentForm';
 
 describe('<EditAssignmentForm/>', () => {
   it('should render without crashing', () => {
-    const wrapper = shallow(<EditAssignmentForm dispatch={()=>{}} assignments={[]}/>);
+    const wrapper = shallow(<EditAssignmentForm dispatch={()=>{}} currentAssignment={{}} assignments={[]} categories={[]} classes={[]}/>);
   });
 });

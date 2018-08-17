@@ -1,9 +1,9 @@
 import React from 'react';
 import {shallow} from 'enzyme';
-import {RegisterForm} from './landingPage';
+import {RegistrationForm} from './registerForm';
 
-describe('<RegisterForm/>', () => {
+describe('<RegistrationForm/>', () => {
   it('should render without crashing', () => {
-    const wrapper = shallow(<RegisterForm dispatch={()=>{}}/>);
+    const wrapper = shallow(<RegistrationForm dispatch={()=>{}} handleSubmit={()=>{}}/>);
   });
 });
