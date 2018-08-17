@@ -6,7 +6,7 @@ import '../componentStyles.css';
 import '../componentMobileStyles.css';
 import '../componentTabletStyles.css';
 
-class EditClassForm extends React.Component {
+export class EditClassForm extends React.Component {
   closePopupEditClass(e){
     const popup = e.target.parentElement.parentElement;
     if(popup.className === 'edit-class-popup-active'){

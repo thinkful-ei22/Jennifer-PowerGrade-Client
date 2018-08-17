@@ -8,7 +8,7 @@ import '../componentStyles.css';
 import '../componentMobileStyles.css';
 import '../componentTabletStyles.css';
 
-class CreateClassForm extends React.Component {
+export class CreateClassForm extends React.Component {
   componentDidMount(){
     this.props.dispatch(fetchStudents());
   }

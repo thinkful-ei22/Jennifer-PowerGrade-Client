@@ -5,7 +5,7 @@ import '../componentStyles.css';
 import '../componentMobileStyles.css';
 import '../componentTabletStyles.css';
 
-class GettingStarted extends React.Component {
+export class GettingStarted extends React.Component {
 
   render(){
     return (

@@ -7,7 +7,7 @@ import '../componentStyles.css';
 import '../componentMobileStyles.css';
 import '../componentTabletStyles.css';
 
-class NavBar extends React.Component{
+export class NavBar extends React.Component{
   render(){
     return (
       <nav className="topnav">

@@ -8,7 +8,7 @@ import '../componentMobileStyles.css';
 import '../componentTabletStyles.css';
 
 
-class ClassesDisplay extends React.Component {
+export class ClassesDisplay extends React.Component {
   componentDidMount(){
     this.props.dispatch(fetchClasses());
   }

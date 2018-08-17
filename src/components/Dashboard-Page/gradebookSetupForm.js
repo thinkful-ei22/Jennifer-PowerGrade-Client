@@ -7,7 +7,7 @@ import '../componentStyles.css';
 import '../componentMobileStyles.css';
 import '../componentTabletStyles.css';
 
-class GradebookSetupForm extends React.Component { 
+export class GradebookSetupForm extends React.Component { 
   componentDidMount(){
     this.props.dispatch(fetchCategories());
   }

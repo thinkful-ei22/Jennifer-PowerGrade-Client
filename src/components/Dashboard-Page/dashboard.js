@@ -11,7 +11,7 @@ import '../componentMobileStyles.css';
 import '../componentStyles.css';
 import '../componentTabletStyles.css';
 
-class Dashboard extends React.Component {
+export class Dashboard extends React.Component {
   activatePopupGetStarted(e){
     const popup = e.target.parentElement.parentElement.parentElement.nextSibling;
     if(popup.className ==='get-started-popup-hidden col-2'){
