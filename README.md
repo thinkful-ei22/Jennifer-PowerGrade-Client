@@ -1,10 +1,10 @@
-##PowerGrade
+PowerGrade
 
 As I former teacher, I know how important it is to be able to quicky manage classroom data. PowerGrade is a tool for teachers to create classes, add assignments, and view and edit grades.  
 
 <a href="https://powergrade-client.herokuapp.com/"></a>
 
-##Features:
+Features:
 Teachers can login to an existing account or register for the first time.
 
 <img src="https://github.com/thinkful-ei22/Jennifer-PowerGrade-Client/blob/master/Screenshots/LandingPage.png">
@@ -38,7 +38,7 @@ Once assignments have been added to the classes, the teacher can view their grad
 
 <img src="https://github.com/thinkful-ei22/Jennifer-PowerGrade-Client/blob/master/Screenshots/GradesPage.png">
 
-##Summary and Tech Info:
+Summary and Tech Info:
 
 Target Audience : Educators
 MVP features - account creation/create,update,delete classes, grades, and assignments/calculate grade averages/filter and search assignments.
