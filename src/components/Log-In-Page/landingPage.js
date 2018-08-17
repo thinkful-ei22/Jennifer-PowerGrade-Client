@@ -7,7 +7,7 @@ import '../componentStyles.css';
 import '../componentMobileStyles.css';
 import '../componentTabletStyles.css';
 
-class LoginPage extends React.Component{
+export class LoginPage extends React.Component{
   render(){
     if(this.props.loggedIn) {
       return <Redirect to="/dashboard"/>;

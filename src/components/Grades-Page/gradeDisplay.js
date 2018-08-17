@@ -11,7 +11,7 @@ import '../componentTabletStyles.css';
 import { fetchCategories } from '../../actions/GET/fetchCategories';
 import { fetchAssignments } from '../../actions/GET/fetchAssignments';
 
-class GradeDisplay extends React.Component {
+export class GradeDisplay extends React.Component {
   componentDidMount(){
     this.props.dispatch(fetchGrades());
     this.props.dispatch(fetchClasses());

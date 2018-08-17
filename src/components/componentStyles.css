@@ -250,7 +250,8 @@ body {
         border-radius: 10px;
         border: 1px solid #222222;
         padding: 5px;
-        width: 75%;
+        width: 230%;
+        margin: 2px;
         display: inline-flex;
         margin-left: 6.25%;
     }
@@ -261,9 +262,10 @@ body {
         display: inline-block;
     }
     .delete-class-x{
-        color:white;
-        float:right;
+        color: white;
+        float: right;
         padding: 5px;
+        margin-left: 50%;
     }
     .class-list-ul{
         list-style: none;
@@ -354,9 +356,8 @@ body {
     .option-box{
         height: 200px;
         width: 200px;
-        height: 200px;
-        width: 200px;
         padding-top: 50px;
+        box-shadow: 5px 5px 10px;
     }
     .go{
         width:100%;
@@ -393,33 +394,15 @@ body {
         margin-left: 22.7%;
         top: 100px;
         padding: 20px;
+        box-shadow: 5px 5px 10px;
     }
     .getting-started{
         width: 100%;
-    }
-    .current-lesson-container{
-        max-width: 75%;
-        margin: auto;
     }
     .current-lesson-container p{
         height: 200px;
         margin-bottom: 20px;
         width:100%;
-    }
-    .current-lesson img {
-        height: 100%
-    } 
-    .thumbnail {
-        display: inline-block;
-        cursor: pointer;
-        height: 60px;
-    }
-    a.thumbnail:hover {
-        box-shadow: 5px 5px 5px gray;
-    } 
-    .thumbnail p{
-        height: 60px;
-        max-width: 100%;
     }
     .create-class-popup-active{
         position: absolute;
@@ -428,6 +411,7 @@ body {
         margin-left: 22.7%;
         top: 100px;
         padding: 20px;
+        box-shadow: 5px 5px 10px;
     }
     .view-classes-popup-active{
         position: absolute;
@@ -436,9 +420,15 @@ body {
         border-radius: 10px;
         top: 100px;
         padding: 15px;
+        box-shadow: 5px 5px 10px;
     }
     .edit-class-popup-active{
-        width:60%;
+        width: 610px;
+        box-shadow: 5px 5px 10px;
+        position: absolute;
+        background-color: #6DB5A3;
+        border-radius: 10px;
+        padding: 10px;
     }
     .gradebook-setup-popup-active{
         position: absolute;
@@ -447,6 +437,7 @@ body {
         border-radius: 10px;
         top: 100px;
         padding:20px;
+        box-shadow: 5px 5px 10px;
     }
     .popup-heading{
         color: #222222;
@@ -703,6 +694,7 @@ body {
         background-color: #84DCC6;
         padding: 15px;
         position: absolute;
+        box-shadow: 5px 5px 10px;
     }
     .assignment-edit label{
         Font-Family: 'Quattrocento Sans', Sans-Serif;

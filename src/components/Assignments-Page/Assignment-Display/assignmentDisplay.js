@@ -7,7 +7,7 @@ import '../../componentStyles.css';
 import '../../componentTabletStyles.css';
 import '../../componentMobileStyles.css';
 
-class AssignmentDisplay extends React.Component {
+export class AssignmentDisplay extends React.Component {
   componentDidMount(){
     this.props.dispatch(fetchAssignments());
   }

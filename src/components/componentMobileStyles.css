@@ -307,7 +307,7 @@ body {
     .get-started-container{
         background-color: #95A3B3;
         border-radius: 5px;
-        margin-left:6.6666668%;
+        margin-left: 13.666667%;
         margin-right:3.33333334%;
     }
     .create-class-container{
@@ -334,6 +334,7 @@ body {
         padding-top: 14px;
         margin-left: 25%;
         margin-bottom: 3%;
+        box-shadow: 5px 5px 10px;
     }
     .go{
         width:100%;
@@ -371,6 +372,7 @@ body {
         top: 55px;
         padding: 20px;
         width: auto;
+        box-shadow: 5px 5px 10px;
     }
     .getting-started{
         width: 100%;
@@ -403,6 +405,7 @@ body {
         top: 52px;
         padding: 10px;
         width: 355px;
+        box-shadow: 5px 5px 10px;
     }
     .view-classes-popup-active{
         position: absolute;
@@ -410,6 +413,7 @@ body {
         width: 355px;
         border-radius: 10px;
         padding: 15px;
+        box-shadow: 5px 5px 10px;
     }
     .edit-class-popup-active{
         position: absolute;
@@ -417,6 +421,7 @@ body {
         width: 325px;
         padding: 5px;
         border-radius: 10px;
+        box-shadow: 5px 5px 10px;
     }
     .gradebook-setup-popup-active{
         position: absolute;
@@ -425,6 +430,7 @@ body {
         width: auto;
         border-radius: 10px;
         padding: 20px;
+        box-shadow: 5px 5px 10px;
     }
     .popup-heading{
         color: #222222;
@@ -679,6 +685,7 @@ body {
         padding: 15px;
         position: absolute;
         width: auto;
+        box-shadow: 5px 5px 10px;
     }
     .assignment-edit label{
         Font-Family: 'Quattrocento Sans', Sans-Serif;
