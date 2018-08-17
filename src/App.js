@@ -8,7 +8,7 @@ import AssignmentsPage from './components/Assignments-Page/assignmentsPage';
 import GradesPage from './components/Grades-Page/gradesPage';
 import {refreshAuthToken, clearAuth, authSetWarning} from './actions/AUTH/loginAction';
 
-class App extends Component {
+export class App extends Component {
   componentDidUpdate(prevProps) {
     if (!prevProps.loggedIn && this.props.loggedIn) {
       // When we are logged in, refresh the auth token periodically

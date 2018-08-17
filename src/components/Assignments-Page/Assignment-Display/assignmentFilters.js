@@ -10,7 +10,7 @@ import { fetchStates } from '../../../actions/GET/fetchStandards';
 import requiresLogin from '../../requiresLogin';
 
 
-class AssignmentFilters extends React.Component {
+export class AssignmentFilters extends React.Component {
   componentDidMount(){
     this.props.dispatch(fetchStates());
   }
@@ -31,10 +31,6 @@ class AssignmentFilters extends React.Component {
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    states: state.fetchStandardsReducer.states
-  };
-};
 
-export default requiresLogin()(connect(mapStateToProps)(AssignmentFilters));
+
+export default requiresLogin()(connect()(AssignmentFilters));

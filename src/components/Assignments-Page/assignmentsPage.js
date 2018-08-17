@@ -10,7 +10,7 @@ import '../componentMobileStyles.css';
 import '../componentStyles.css';
 import '../componentTabletStyles.css';
 
-class AssignmentsPage extends React.Component {
+export class AssignmentsPage extends React.Component {
   closeEditPopup(e){
     const popup = e.target.parentElement;
     if(popup.className==='assignment-edit-active col-3'){

@@ -8,7 +8,7 @@ import '../componentTabletStyles.css';
 import { fetchAssignments } from '../../actions/GET/fetchAssignments';
 import { fetchClasses } from '../../actions/GET/fetchClasses';
 
-class CreateAssignmentForm extends React.Component {
+export class CreateAssignmentForm extends React.Component {
   clearValues(e){
     e.target.categoryId.value='0';
     e.target.name.value='';

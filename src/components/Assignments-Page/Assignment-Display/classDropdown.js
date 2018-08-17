@@ -7,7 +7,7 @@ import '../../componentStyles.css';
 import '../../componentTabletStyles.css';
 import '../../componentMobileStyles.css';
 
-class ClassDropdown extends React.Component {
+export class ClassDropdown extends React.Component {
   componentDidMount(){
     this.props.dispatch(fetchClasses());
   }

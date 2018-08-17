@@ -9,7 +9,7 @@ import '../../componentStyles.css';
 import '../../componentTabletStyles.css';
 import '../../componentMobileStyles.css';
 
-class EditAssignmentForm extends React.Component {
+export class EditAssignmentForm extends React.Component {
   componentDidMount(){
     this.props.dispatch(fetchCategories());
     this.props.dispatch(fetchClasses());
