@@ -74,7 +74,7 @@ body {
         margin: 20px;
     }
     .login-form label{
-        Font-Family: 'Quattrocento Sans', Sans-Serif;
+        font-family: 'Raleway', sans-serif;
         color: #FFFFFF;
         margin-left:5%;
         margin-top: 10px;
@@ -96,7 +96,7 @@ body {
     .login-button{
         margin: 5px;
         margin-top: 15px;
-        Font-Family: 'Quattrocento Sans', Sans-Serif;
+        font-family: 'Raleway', sans-serif;
         font-size: 14px;
         background-color: #84DCC6;
         border-radius: 5px;
@@ -107,7 +107,7 @@ body {
         margin: 20px;
     }
     .signup-form label{
-        Font-Family: 'Quattrocento Sans', Sans-Serif;
+        font-family: 'Raleway', sans-serif;
         color: #FFFFFF;
         margin-left:5%;
         margin-top: 10px;
@@ -128,7 +128,7 @@ body {
     .signup-button{
         margin: 5px;
         margin-top: 15px;
-        Font-Family: 'Quattrocento Sans', Sans-Serif;
+        font-family: 'Raleway', sans-serif;
         font-size: 14px;
         background-color: #84DCC6;
         border-radius: 5px;
@@ -136,12 +136,12 @@ body {
     /* landingPage.js STYLES  */
     .welcome-heading{
         text-align: center;
-        Font-Family: 'Ovo', Serif;
+        font-family: 'Poppins', sans-serif;
         color: white;
     }
     .login-heading{
         text-align: center;
-        Font-Family: 'Ovo', Serif;
+        font-family: 'Poppins', sans-serif;
         color: white;
     }
     .login-form-container{
@@ -152,7 +152,7 @@ body {
     }
     .signup-heading{
         text-align: center;
-        Font-Family: 'Ovo', Serif;
+        font-family: 'Poppins', sans-serif;
         color: white;
     }
     .signup-form-container{
@@ -176,7 +176,7 @@ body {
         background-color: #95A3B3;
         height: 40px;
         overflow: hidden;
-        Font-Family: 'Quattrocento Sans', Sans-Serif;
+        font-family: 'Raleway', sans-serif;
     }
     .topnav-link{
         float: left;
@@ -295,7 +295,7 @@ body {
     }
     /* createClassForm.js STYLES */
     .create-class-form label{
-        Font-Family: 'Quattrocento Sans', Sans-Serif;
+        font-family: 'Raleway', sans-serif;
         color: #222222;
         margin-left: 5%;
         margin-top: 10px;
@@ -315,7 +315,7 @@ body {
     .create-class-save-button{
         margin: 5px;
         margin-top: 15px;
-        Font-Family: 'Quattrocento Sans', Sans-Serif;
+        font-family: 'Raleway', sans-serif;
         font-size: 14px;
         color:white;
         background-color: #4B4E6DC6;
@@ -323,7 +323,7 @@ body {
     }
     /* dashboard.js STYLES */
     .welcome{
-        Font-Family: 'Ovo', Serif;
+        font-family: 'Poppins', sans-serif;
         text-align: center;
         color: white;
         margin-top:50px;
@@ -370,7 +370,7 @@ body {
         font-size:28px;
         text-align:center;
         margin:0px;
-        Font-Family: 'Ovo', Serif;
+        font-family: 'Poppins', sans-serif;
     }
     .get-started-popup-hidden{
         display: none;
@@ -442,7 +442,7 @@ body {
     .popup-heading{
         color: #222222;
         text-align: center;
-        Font-Family: 'Ovo', Serif;
+        font-family: 'Poppins', sans-serif;
     }
     .heading-close-container{
         display: inline-flex;
@@ -459,7 +459,7 @@ body {
         text-align: center;
     }
     .edit-class-form label{
-        Font-Family: 'Quattrocento Sans', Sans-Serif;
+        font-family: 'Raleway', sans-serif;
         color: #222222;
     }
     .edit-class-input{
@@ -486,7 +486,7 @@ body {
     .edit-class-save-button{
         margin: 5px;
         margin-top: 15px;
-        Font-Family: 'Quattrocento Sans', Sans-Serif;
+        font-family: 'Raleway', sans-serif;
         font-size: 14px;
         background-color: #95A3B3;
         border-radius: 5px;
@@ -547,7 +547,7 @@ body {
     .class-setup-button{
         margin: 5px;
         margin-top: 15px;
-        Font-Family: 'Quattrocento Sans', Sans-Serif;
+        font-family: 'Raleway', sans-serif;
         font-size: 14px;
         background-color: #95A3B3;
         border-radius: 5px;
@@ -567,7 +567,7 @@ body {
     .student-checkbox label{
         margin-top: 6px;
         width:60%;
-        Font-Family: 'Quattrocento Sans', Sans-Serif;
+        font-family: 'Raleway', sans-serif;
         color: #222222;
     }
     .student-checkbox-container{
@@ -580,7 +580,7 @@ body {
         margin: auto;
     }
     .checkboxes-container label{
-        Font-Family: 'Quattrocento Sans', Sans-Serif;
+        font-family: 'Raleway', sans-serif;
         color: #222222;
         margin-left: 5%;
     }
@@ -631,7 +631,7 @@ body {
     }
     .sidenav ul {
         list-style-type: none;
-        Font-Family: 'Quattrocento Sans', Sans-Serif;
+        font-family: 'Raleway', sans-serif;
         padding:0px;
     }
     /* gradeDisplay.js STYLES */
@@ -649,7 +649,7 @@ body {
         border-collapse: collapse;
         height: 35px;
         background-color: #4B4E6D;
-        Font-Family: 'Ovo', Serif;
+        font-family: 'Poppins', sans-serif;
         color: white;
     }
     td{
@@ -673,7 +673,7 @@ body {
         padding: 15px;
     }
     .assignment-create-label{
-        Font-Family: 'Quattrocento Sans', Sans-Serif;
+        font-family: 'Raleway', sans-serif;
         color: #FFFFFF;
         width:50%;
         margin-top: 10px;
@@ -697,7 +697,7 @@ body {
         box-shadow: 5px 5px 10px;
     }
     .assignment-edit label{
-        Font-Family: 'Quattrocento Sans', Sans-Serif;
+        font-family: 'Raleway', sans-serif;
         color: #222222;
         width:50%;
         margin-top: 10px;
@@ -707,13 +707,13 @@ body {
     }
     .assignment-option-heading{
         text-align: center;
-        Font-Family: 'Ovo', Serif;
+        font-family: 'Poppins', sans-serif;
         color: white;
         margin:5px;
     }
     .assignment-edit-heading{
         text-align: center;
-        Font-Family: 'Ovo', Serif;
+        font-family: 'Poppins', sans-serif;
         color: #222222;
         margin:5px;
     }
@@ -750,7 +750,7 @@ body {
         }
         /*  assignmentFilters.js STYLES */
         .assignment-filters-label{
-            Font-Family: 'Quattrocento Sans', Sans-Serif;
+            font-family: 'Raleway', sans-serif;
             color: #FFFFFF;
             margin-top: 10px;
         }
@@ -769,7 +769,7 @@ body {
            width: 100%
         }
         .class-select-label{
-            Font-Family: 'Quattrocento Sans', Sans-Serif;
+            font-family: 'Raleway', sans-serif;
             color: #FFFFFF;
             margin-top: 10px;
         }
@@ -782,7 +782,7 @@ body {
         }
         /* editAssignmentForm.js STYLES */
         .assignment-edit-label{
-            Font-Family: 'Quattrocento Sans', Sans-Serif;
+            font-family: 'Raleway', sans-serif;
             color: #222222;
             margin-top: 10px;
         }
@@ -819,7 +819,7 @@ body {
         .assignment-edit-save-button{
             margin: 5px;
             margin-top: 15px;
-            Font-Family: 'Quattrocento Sans', Sans-Serif;
+            font-family: 'Raleway', sans-serif;
             font-size: 14px;
             background-color: #95A3B3;
             border-radius: 5px;
@@ -875,7 +875,7 @@ body {
             background-color: #95A3B3;
         }
         .class-checkbox-label{
-            Font-Family: 'Quattrocento Sans', Sans-Serif;
+            font-family: 'Raleway', sans-serif;
             color: #FFFFFF;
             width:80%;
         }
@@ -886,7 +886,7 @@ body {
         .assignment-create-save-button{
             margin: 5px;
             margin-top: 15px;
-            Font-Family: 'Quattrocento Sans', Sans-Serif;
+            font-family: 'Raleway', sans-serif;
             font-size: 14px;
             background-color: #84DCC6;
             border-radius: 5px;
