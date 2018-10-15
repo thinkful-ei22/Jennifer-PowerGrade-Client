@@ -11,13 +11,15 @@ const initialState = {
 export default function reducer(state = initialState, action) {
   if (action.type === SET_AUTH_TOKEN) {
     return Object.assign({}, state, {
-      authToken: action.authToken
+      authToken: action.authToken,
+      loading: false
     });
   } else if (action.type === CLEAR_AUTH) {
     return Object.assign({}, state, {
       authToken: null,
       currentUser: null,
-      warning: false
+      warning: false,
+      loading: false
     });
   } else if (action.type === AUTH_REQUEST) {
     return Object.assign({}, state, {
@@ -36,7 +38,8 @@ export default function reducer(state = initialState, action) {
     });
   } else if (action.type === AUTH_SET_WARNING){
     return Object.assign({}, state, {
-      warning: action.warning
+      warning: action.warning,
+      loading: false
     });
   }
   return state;

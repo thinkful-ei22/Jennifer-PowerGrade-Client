@@ -12,10 +12,18 @@ export class ClassDropdown extends React.Component {
     this.props.dispatch(fetchClasses());
   }
   render(){
-    const currentClasses = this.props.classes.filter(item => item.userId.id === this.props.currentUserId);
-    const classOptions = currentClasses.map((classItem, i) => (
-      <option  key={i} value={classItem.id}>{classItem.name}</option>
-    ));
+    let classOptions;
+    if(this.props.loading === false){
+      const currentClasses = this.props.classes.filter(item => item.userId.id === this.props.currentUserId);
+      classOptions = currentClasses.map((classItem, i) => (
+        <option  id={classItem.id+i} key={i} value={classItem.id}>{classItem.name}</option>
+      ));
+    }
+    if(this.props.loading === true){
+      classOptions = <option>Loading...</option>;
+    }
+    
+
     return(
       <div className="class-select-container">
         <label className="class-select-label" htmlFor="classId">Filter by Class</label>
@@ -44,7 +52,8 @@ export class ClassDropdown extends React.Component {
 const mapStateToProps = state => {
   return {
     currentUserId: state.loginReducer.currentUser.id,
-    classes: state.classesCRUDReducer.classes
+    classes: state.classesCRUDReducer.classes,
+    loading: state.classesCRUDReducer.loading
   };
 };
 

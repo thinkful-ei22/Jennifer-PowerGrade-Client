@@ -49,7 +49,6 @@ export class GradeDisplay extends React.Component {
     }
   }
   onGradeChange(e, editedGrade){
-    console.log('this.props.assignmetns=',this.props.assignments);
     editedGrade.value =e.target.innerHTML;
     this.props.dispatch(editGrade(editedGrade));
   }
@@ -91,15 +90,10 @@ export class GradeDisplay extends React.Component {
   }
   render(){
     const currentStudents =this.props.filteredClasses.map(item => item.students.map(student => student));
-
     const currentClasses = this.props.filteredClasses.filter(classItem => classItem.userId.id === this.props.currentUser.id);
-    
     const assignmentList = currentClasses.map(classItem => classItem.assignments.map(assignment => assignment));
-
     const assignmentRows = assignmentList.map((assignment => assignment.map(name => <th key={name.name}>{name.name}</th>)));
-
     const averageCells = assignmentList.map(assignment => assignment.map(assignment => <td key={assignment.id}>{this.getAssignmentAverage(assignment)}</td>));
-
     const studentCells=currentStudents.map(students => students.map(student =>{
       const assignments = assignmentList.map((assignment) => {
         return assignment.map(name => {
@@ -111,7 +105,7 @@ export class GradeDisplay extends React.Component {
               this.onGradeChange(e, grade);
             }}
             key={name.id}>
-            {this.getValue(name, student).value*100}
+            {Math.round(this.getValue(name, student).value*100)}
           </td>);
         });
       });

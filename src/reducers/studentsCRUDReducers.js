@@ -1,6 +1,5 @@
-import {FETCH_STUDENTS_SUCCESS, FETCH_STUDENTS_ERROR} from '../actions/GET/fetchStudents';
+import {FETCH_STUDENTS_SUCCESS, FETCH_STUDENTS_ERROR, FETCH_STUDENTS_REQUEST} from '../actions/GET/fetchStudents';
 import { CREATE_CLASS_SUCCESS } from '../actions/POST/createClass';
-import {EDIT_GRADE_SUCCESS} from '../actions/PUT/editGrade';
 
 const initialState = {
   students: [],
@@ -12,12 +11,19 @@ export default function studentsCRUDReducer(state=initialState, action) {
   if(action.type===FETCH_STUDENTS_SUCCESS){
     return Object.assign({}, state, {
       error: null,
-      students: action.students
+      students: action.students,
+      loading: false
     });
   }
   else if(action.type===FETCH_STUDENTS_ERROR){
     return Object.assign({}, state, {
-      error: action.error
+      error: action.error,
+      loading: false
+    });
+  }
+  else if(action.type===FETCH_STUDENTS_REQUEST){
+    return Object.assign({}, state, {
+      loading: true
     });
   }
   else if(action.type===CREATE_CLASS_SUCCESS){
@@ -30,11 +36,9 @@ export default function studentsCRUDReducer(state=initialState, action) {
       return student;
     });
     return Object.assign({}, state, {
-      students: updatedClassList
+      students: updatedClassList,
+      loading: false
     });
-  }
-  else if(action.type===EDIT_GRADE_SUCCESS){
-    console.log('assignment reducer says', action);
   }
   return state;
 }

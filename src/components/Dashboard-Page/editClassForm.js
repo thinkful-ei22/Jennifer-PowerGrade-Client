@@ -16,7 +16,6 @@ export class EditClassForm extends React.Component {
   }
   submitClosePopupEditClass(e){
     const popup = e.target.parentElement;
-    console.log(popup);
     if(popup.className === 'edit-class-popup-active'){
       return popup.className = 'edit-class-popup-hidden';
     }
@@ -52,7 +51,6 @@ export class EditClassForm extends React.Component {
                 type="checkbox"
                 name={`students.student-${student.id}`}
                 id={student.id}
-                role="checkbox"
                 defaultChecked>
               </input>
               <hr></hr>

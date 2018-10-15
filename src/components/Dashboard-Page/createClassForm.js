@@ -21,33 +21,38 @@ export class CreateClassForm extends React.Component {
   }
   render (){
     const studentsToAdd=[];
-    const studentCheckboxes = this.props.students.map(
-      student => {
-        return (
-          <div key={student.id} className="student-checkbox-container">
-            <label htmlFor={`students.student-${student.id}`}>{`${student.lastName}, ${student.firstName}`}</label>
-            <input
-              onChange={(e) => {
-                if(e.target.checked===true){
-                  studentsToAdd.push(student.id);
-                }
-                else if(e.target.checked===false){
-                  const indexToDelete = studentsToAdd.indexOf(student.id);
-                  studentsToAdd.splice(indexToDelete, 1);
-                }
-                console.log(studentsToAdd);
-                return studentsToAdd;
-              }} 
-              className="student-checkbox"
-              type="checkbox"
-              role="checkbox"
-              name={`students.student-${student.id}`}
-              id={student.id}>
-            </input>
-            <hr></hr>
-          </div>
-        );}
-    );
+    let studentCheckboxes;
+    if(this.props.loading===false){
+      studentCheckboxes = this.props.students.map(
+        (student,i) => {
+          return (
+            <div key={student.id} className="student-checkbox-container">
+              <label htmlFor={`students.student-${student.id}`}>{`${student.lastName}, ${student.firstName}`}</label>
+              <input
+                onChange={(e) => {
+                  if(e.target.checked===true){
+                    studentsToAdd.push(student.id);
+                  }
+                  else if(e.target.checked===false){
+                    const indexToDelete = studentsToAdd.indexOf(student.id);
+                    studentsToAdd.splice(indexToDelete, 1);
+                  }
+                  return studentsToAdd;
+                }} 
+                className="student-checkbox"
+                type="checkbox"
+                name={`students.student-${student.id}`}
+                id={student.id+i}>
+              </input>
+              <hr></hr>
+            </div>
+          );}
+      );
+    }
+    if(this.props.loading===true){
+      studentCheckboxes=<div>Loading</div>;
+    }
+
     return (
       <form 
         className="create-class-form" 
@@ -61,12 +66,12 @@ export class CreateClassForm extends React.Component {
           this.props.dispatch(fetchClasses());
         }
         }>
-        <label htmlFor="name">Class Name</label>
+        <label htmlFor="class-name">Class Name</label>
         <input
           className="create-class-name"
           type="text"
           name="name"
-          id="name"
+          id="class-name"
         >
         </input>
         <fieldset className="checkboxes-container">
@@ -87,7 +92,8 @@ const mapStateToProps = state => {
   return {
     students: state.studentsCRUDReducer.students,
     currentClass: (state.classesCRUDReducer.currentClass !== null) ? state.classesCRUDReducer.currentClass : { name: 'Loading', students: [], id: null },
-    currentUser: state.loginReducer.currentUser
+    currentUser: state.loginReducer.currentUser,
+    loading: state.studentsCRUDReducer.loading
   };
 };
 

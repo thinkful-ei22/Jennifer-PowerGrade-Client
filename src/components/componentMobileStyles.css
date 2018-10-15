@@ -12,7 +12,7 @@ body {
     height: 100%;
 }
 .row{
-    max-width: 768px;
+    max-width: 100%;
     padding-left: 10px;
     padding-right: 10px;
     margin: auto;
@@ -34,6 +34,80 @@ body {
     padding-right: 1.04166666%;
 }
 /* LANDING PAGE STYLES */
+    /* aboutPage.js styles */
+    .container{
+        background-color: #8895A3;
+        padding-bottom: 25px;
+        border-radius: 10px;
+    }
+    .info-heading{
+        font-family: 'Poppins', sans-serif;
+    }
+    .about-info{
+        max-width:500px;
+        text-align:left;
+        padding:0px 25px;
+        margin:auto;
+        font-family: 'Raleway', sans-serif;
+    }
+    .about-icon-container{
+       width:100%;
+       float:left;
+       display:inline-flex;
+    }
+    .go-to-login{
+        float:left;
+        display: inline-flex;
+        color:white;
+        cursor: pointer;
+    }
+    .go-to-register{
+        float: left;
+        display: inline-flex;
+        color: white;
+        cursor: pointer;
+    }
+    .go-to-about{
+        float: right;
+        display: inline-flex;
+        color:white;
+        cursor: pointer;
+    }
+    .aboutLogin{
+        display: inline-flex;
+        float: left;
+        margin-left: 25%;
+        margin-top: 15px;
+        font-family: 'Raleway', sans-serif;
+        font-size: 14px;
+        background-color: #84DCC6;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    .aboutRegister{
+        display: inline-flex;
+        float: right;
+        margin-right: 25%;
+        margin-top: 15px;
+        font-family: 'Raleway', sans-serif;
+        font-size: 14px;
+        background-color: #84DCC6;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    .boxItem{
+        width: 150px;
+        text-align: center;
+        float: left;
+        display: inline-block;
+        font-family: 'Raleway', sans-serif;
+    }
+    .about-icon-container img{
+        position: relative;
+        width: 60px;
+        margin: auto;
+        display: block;
+    }
     /* logoutAlert.js STYLES */
     .warning-box{
         display:none;
@@ -72,7 +146,7 @@ body {
         margin-top: 5px;
         margin-bottom: 5px;
         border-radius: 5px;
-        background-color: #95A3B3;
+        background-color: #8895A3;
     }
 
     .login-button-container{
@@ -85,6 +159,7 @@ body {
         font-size: 14px;
         background-color: #84DCC6;
         border-radius: 5px;
+        cursor: pointer;
     }
     /* registerForm.js STYLES  */
     .signup-form{
@@ -105,7 +180,7 @@ body {
         margin-top: 5px;
         margin-bottom: 5px;
         border-radius: 5px;
-        background-color: #95A3B3;
+        background-color: #8895A3;
     }
     .signup-button-container{
         text-align: center;
@@ -117,6 +192,7 @@ body {
         font-size: 14px;
         background-color: #84DCC6;
         border-radius: 5px;
+        cursor: pointer;
     }
     /* landingPage.js STYLES  */
     .welcome-heading{
@@ -133,6 +209,7 @@ body {
         background-color: #4B4E6D;
         border-radius: 10px;
         margin-bottom: 10px;
+        padding: 10px;
     }
     .signup-heading{
         text-align: center;
@@ -142,6 +219,7 @@ body {
     .signup-form-container{
         background-color: #4B4E6D;
         border-radius: 10px;
+        padding: 10px;
     }
 /* NAVBAR STYLES */
     /* navbar.js STYLES */
@@ -149,36 +227,45 @@ body {
         position: fixed;
         width: 100%;
         left:0;
+        text-align: center;
     }
     .topnav-link-list{
         list-style-type: none;
         margin: 0px;
-        padding: 0px;
+        padding: 0px 5px 0px 5px;
         width: 100%;
-        background-color: #95A3B3;
+        background-color: #8895A3;
         height: 40px;
-        overflow: hidden;
+        /* overflow: hidden; */
         font-family: 'Raleway', sans-serif;
+        text-align: center;
+        display: inline-flex;
     }
     .topnav-link{
         float: left;
         height: 100%;
-        margin-right: 20px;
-        padding: 10px;
-        width: 100px;
+        margin-right: 6%;
+        margin-left: 4%;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        padding-left: 0px;
+        padding-right: 0px;
         text-align: center;
     }
     .topnav-link-logout{
-        float: right;
+        float: left;
         height: 100%;
-        margin-right: 20px;
-        padding: 10px;
-        width: 100px;
+        margin-right: 5px;
+        margin-left: 5px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        padding-left: 0px;
+        padding-right: 0px;
         text-align: center;
     }
     .topnav-link a{
         display: block;
-        text-align: left;
+        text-align: center;
     }
     .topnav-link a:link{
         text-decoration: none;
@@ -198,7 +285,7 @@ body {
     }
     .topnav-link-logout a{
         display: block;
-        text-align: left;
+        text-align: center;
     }
     .topnav-link-logout a:link{
         text-decoration: none;
@@ -223,13 +310,14 @@ body {
         width:100%;
     }
     .class-list{
-        background-color: #95A3B3;
+        background-color: #8895A3;
         color: #222222;
         border-radius: 10px;
         border: 1px solid #222222;
         padding: 5px;
         width: 217%;
         margin-left: 6.25%;
+        display: inline-flex;
     }
     .class-name-link{
         text-decoration: none;
@@ -241,6 +329,7 @@ body {
         color:white;
         float:right;
         padding: 5px;
+        cursor: pointer;
     }
     .class-list-ul{
         list-style: none;
@@ -249,6 +338,9 @@ body {
         margin-bottom: 25px;
         padding-left: 0px;
         width: 40%;
+    }
+    .class-list-item{
+        width: 90%;
     }
     .class-list a:link {
         text-decoration: none;
@@ -282,7 +374,7 @@ body {
         margin-top: 5px;
         margin-bottom: 5px;
         border-radius: 5px;
-        background-color: #95A3B3;
+        background-color: #8895A3;
     }
     .create-class-save-button-container{
         text-align: center;
@@ -295,6 +387,7 @@ body {
         color:white;
         background-color: #4B4E6D;
         border-radius: 5px;
+        cursor: pointer;
     }
     /* dashboard.js STYLES */
     .welcome{
@@ -305,34 +398,34 @@ body {
         margin-bottom: 20px;
     }
     .get-started-container{
-        background-color: #95A3B3;
+        background-color: #8895A3;
         border-radius: 5px;
         margin-left: 13.666667%;
         margin-right:3.33333334%;
     }
     .create-class-container{
-        background-color: #95A3B3;
+        background-color: #8895A3;
         border-radius: 5px;
         margin-left:3.33333334%;
         margin-right:3.33333334%;
     }
     .view-classes-container{
-        background-color: #95A3B3;
+        background-color: #8895A3;
         border-radius: 5px;
         margin-left:3.33333334%;
         margin-right:3.33333334%;
     }
     .set-up-container{
-        background-color: #95A3B3;
+        background-color: #8895A3;
         border-radius: 5px;
         margin-left:3.33333334%;
         margin-right:3.33333334%;
     }
     .option-box{
         height: 150px;
-        width: 175px;
-        padding-top: 14px;
-        margin-left: 25%;
+        width: 70%;
+        padding-top: 15px;
+        margin-left: 15%;
         margin-bottom: 3%;
         box-shadow: 5px 5px 10px;
     }
@@ -344,7 +437,7 @@ body {
     }
     .action-heading{
         color: white;
-        font-size:28px;
+        font-size:23px;;
         text-align:center;
         margin:0px;
         font-family: 'Poppins', sans-serif;
@@ -404,13 +497,13 @@ body {
         border-radius: 10px;
         top: 52px;
         padding: 10px;
-        width: 355px;
+        width: 95%;
         box-shadow: 5px 5px 10px;
     }
     .view-classes-popup-active{
         position: absolute;
         background-color: #84DCC6;
-        width: 355px;
+        width: 95%;
         border-radius: 10px;
         padding: 15px;
         box-shadow: 5px 5px 10px;
@@ -427,7 +520,7 @@ body {
         position: absolute;
         background-color: #84DCC6;
         margin-right: 10%;
-        width: auto;
+        width: 95%;
         border-radius: 10px;
         padding: 20px;
         box-shadow: 5px 5px 10px;
@@ -461,7 +554,7 @@ body {
         margin-top: 5px;
         margin-bottom: 5px;
         border-radius: 5px;
-        background-color: #95A3B3;
+        background-color: #8895A3;
         font-size: 15px;
     }
     .edit-class-name{
@@ -481,8 +574,9 @@ body {
         margin-top: 15px;
         font-family: 'Raleway', sans-serif;
         font-size: 14px;
-        background-color: #95A3B3;
+        background-color: #8895A3;
         border-radius: 5px;
+        cursor: pointer;
     }
     /* gettingStarted.js STYLES */
     .lesson {
@@ -503,9 +597,7 @@ body {
     /* gradebookSetupForm.js STYLES */
     .gradebook-setup-form{
         padding-top: 25px;
-        padding-right: 50px;
         padding-bottom: 25px;
-        padding-left: 50px;
     }
     .gradebook-setup-form label{
         margin-top: 10px;
@@ -530,7 +622,7 @@ body {
         margin-right: 5%;
         border-radius: 5px;
         text-align:center;
-        background-color: #95A3B3;
+        background-color: #8895A3;
         font-size: 15px;
         float:right;
     }
@@ -542,8 +634,9 @@ body {
         margin-top: 15px;
         font-family: 'Raleway', sans-serif;
         font-size: 14px;
-        background-color: #95A3B3;
+        background-color: #8895A3;
         border-radius: 5px;
+        cursor: pointer;
     }
     /* studentList.js STYLES */
     .student-checkbox{
@@ -564,11 +657,11 @@ body {
         color: #222222;
     }
     .student-checkbox-container{
-        background-color: #95A3B3;
+        background-color: #8895A3;
         margin:5px;
     }
     .checkboxes-container{
-        background-color: #95A3B3;
+        background-color: #8895A3;
         width: 90%;
         margin: auto;
     }
@@ -612,12 +705,12 @@ body {
     
     .sidenav a:hover {
         text-decoration: none;
-        color: #95A3B3
+        color: #8895A3
     }
     
     .sidenav a:active {
         text-decoration: none;
-        color: #95A3B3
+        color: #8895A3
     }
     .sidenav ul {
         list-style-type: none;
@@ -628,12 +721,13 @@ body {
     }
     /* gradeDisplay.js STYLES */
     .grades-table{
-        margin-top: 100px;
+        margin-top: 92px;
         background-color: white;
         border: solid 1px #222222;
         border-collapse: collapse;
         text-align: center;
-        font-size:14px;
+        font-size: 14px;
+        width: 100%;
     }
     th{
         border: solid 1px #222222;
@@ -653,6 +747,7 @@ body {
     .option-container{
         background-color: #4B4E6D;
         border-radius: 5px;
+        height: 200vh;
     }
     .assignment-create{
         float: left;
@@ -711,11 +806,16 @@ body {
     /* Assignment-Display STYLES */
         /* assignmentDisplay.js STYLES */
         .assignment-list{
-            background-color:#95A3B3;
+            background-color: #8895A3;
             color: #222222;
             border-radius: 10px;
             border: 1px solid #222222;
-            padding:5px;
+            padding: 5px;
+            display: inline-flex;
+            width: 100%;
+        }
+        .assignment-list li{
+            width:95%;
         }
         .assignment-name-link{
             text-decoration: none;
@@ -727,6 +827,7 @@ body {
             color:white;
             float:right;
             padding: 5px;
+            cursor: pointer;
         }
         .assignment-list-ul{
             list-style: none;
@@ -763,7 +864,6 @@ body {
         .class-select{
             margin-bottom: 15px;
             margin-left: 5%;
-            width: 60%;
             float: right;
             height: 30px;
             font-size: 14px;
@@ -783,7 +883,7 @@ body {
             margin-top: 5px;
             margin-bottom: 5px;
             border-radius: 5px;
-            background-color: #95A3B3;
+            background-color: #8895A3;
         }
         .edit-class-checkbox-container{
             width: 90%;
@@ -791,12 +891,12 @@ body {
             margin-bottom: 5px;
             color: #222222;
             display: inline-flex;
-            background-color: #95A3B3;
+            background-color: #8895A3;
         }
         .edit-class-checkbox-legend{
             margin: auto;
             color: #222222;
-            background-color: #95A3B3;
+            background-color: #8895A3;
             border-radius: 10px;
         }
         .edit-class-checkbox-label{
@@ -810,8 +910,9 @@ body {
             margin-top: 15px;
             font-family: 'Raleway', sans-serif;
             font-size: 14px;
-            background-color: #95A3B3;
+            background-color: #8895A3;
             border-radius: 5px;
+            cursor: pointer;
         }
     /* Create-Assignment-Form STYLES */
         /* categoryList.js STYLES */
@@ -852,7 +953,7 @@ body {
             margin-top: 5px;
             margin-bottom: 5px;
             border-radius: 5px;
-            background-color: #95A3B3;
+            background-color: #8895A3;
         }
         .assignment-date-create{
             width: 90%;
@@ -862,7 +963,7 @@ body {
             margin-top: 5px;
             margin-bottom: 5px;
             border-radius: 5px;
-            background-color: #95A3B3;
+            background-color: #8895A3;
         }
         .class-checkbox-label{
             font-family: 'Raleway', sans-serif;
@@ -880,6 +981,7 @@ body {
             font-size: 14px;
             background-color: #84DCC6;
             border-radius: 5px;
+            cursor: pointer;
         }
     }
 

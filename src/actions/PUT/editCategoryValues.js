@@ -1,4 +1,10 @@
 import {API_BASE_URL} from '../../config';
+import { fetchCategoriesRequest } from '../GET/fetchCategories';
+
+export const EDIT_CATEGORY_REQUEST = 'EDIT_CATEGORY_REQUEST';
+export const editCategoryRequest = () => ({
+  type: EDIT_CATEGORY_REQUEST
+});
 
 export const EDIT_CATEGORY_SUCCESS = 'EDIT_CATEGORY_SUCCESS';
 export const editCategorySuccess = (category) => ({
@@ -13,6 +19,7 @@ export const editCategoryError = (error) => ({
 });
 
 export const editCategory = (id, name, value) => (dispatch, getState) => {
+  dispatch(fetchCategoriesRequest(id));
   const authToken = getState().loginReducer.authToken;
   return fetch(`${API_BASE_URL}/api/categories/${id}`, {
     method: 'PUT',

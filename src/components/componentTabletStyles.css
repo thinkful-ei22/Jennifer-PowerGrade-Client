@@ -12,9 +12,10 @@ body {
     height: 100%;
 }
 .row{
-    max-width: 768px;
+    max-width: 100%;
     padding-left: 10px;
     padding-right: 10px;
+
     margin: auto;
     background-color: #222222;
 }
@@ -34,6 +35,87 @@ body {
     padding-right: 1.04166666%;
 }
 /* LANDING PAGE STYLES */
+    /*aboutPage.js */
+    .container{
+        margin-left: auto;
+        margin-right: auto;
+        background-color: #8895A3;
+        float: none;
+        padding: 15px;
+        border-radius: 10px;
+        /* margin-bottom: 20px; */
+        height: 301px;
+        /* display: inline-flex; */
+    }
+    .info-heading{
+        font-family: 'Poppins', sans-serif;
+    }
+    .about-info{
+        max-width:500px;
+        text-align:left;
+        padding:0px 25px;
+        margin:auto;
+        font-family: 'Raleway', sans-serif;
+    }
+    .about-icon-container{
+       width:100%;
+       float:left;
+       display:block;
+    }
+    
+    .boxItem{
+        width: 150px;
+        text-align: center;
+        float: left;
+        display: inline-block;
+        font-family: 'Raleway', sans-serif;
+    }
+    .about-icon-container img{
+        position: relative;
+        width: 60px;
+        margin: auto;
+        display: block;
+    }
+    .go-to-login{
+        float:left;
+        display: inline-flex;
+        color:white;
+        cursor: pointer;
+    }
+    .go-to-register{
+        float: left;
+        display: inline-flex;
+        color: white;
+        cursor: pointer;
+    }
+    .go-to-about{
+        float: right;
+        display: inline-flex;
+        color:white;
+        cursor: pointer;
+    }
+    .aboutLogin{
+        display: inline-flex;
+        float: left;
+        margin-left: 25%;
+        margin-top: 15px;
+        font-family: 'Raleway', sans-serif;
+        font-size: 14px;
+        background-color: #84DCC6;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    .aboutRegister{
+        display: inline-flex;
+        float: right;
+        margin-right: 25%;
+        margin-top: 15px;
+        font-family: 'Raleway', sans-serif;
+        font-size: 14px;
+        background-color: #84DCC6;
+        border-radius: 5px;
+        cursor: pointer;
+    }
     /* logoutAlert.js STYLES */
     .warning-box{
         display:none;
@@ -59,7 +141,7 @@ body {
         margin: 20px;
     }
     .login-form label{
-        Font-Family: 'Quattrocento Sans', Sans-Serif;
+        font-family: 'Raleway', sans-serif;
         color: #FFFFFF;
         margin-left:5%;
         margin-top: 10px;
@@ -72,7 +154,7 @@ body {
         margin-top: 5px;
         margin-bottom: 5px;
         border-radius: 5px;
-        background-color: #95A3B3;
+        background-color: #8895A3;
     }
 
     .login-button-container{
@@ -81,10 +163,11 @@ body {
     .login-button{
         margin: 5px;
         margin-top: 15px;
-        Font-Family: 'Quattrocento Sans', Sans-Serif;
+        font-family: 'Raleway', sans-serif;
         font-size: 14px;
         background-color: #84DCC6;
         border-radius: 5px;
+        cursor: pointer;
     }
     /* registerForm.js STYLES  */
     .signup-form{
@@ -92,7 +175,7 @@ body {
         margin: 20px;
     }
     .signup-form label{
-        Font-Family: 'Quattrocento Sans', Sans-Serif;
+        font-family: 'Raleway', sans-serif;
         color: #FFFFFF;
         margin-left:5%;
         margin-top: 10px;
@@ -105,7 +188,7 @@ body {
         margin-top: 5px;
         margin-bottom: 5px;
         border-radius: 5px;
-        background-color: #95A3B3;
+        background-color: #8895A3;
     }
     .signup-button-container{
         text-align: center;
@@ -113,20 +196,21 @@ body {
     .signup-button{
         margin: 5px;
         margin-top: 15px;
-        Font-Family: 'Quattrocento Sans', Sans-Serif;
+        font-family: 'Raleway', sans-serif;
         font-size: 14px;
         background-color: #84DCC6;
         border-radius: 5px;
+        cursor: pointer;
     }
     /* landingPage.js STYLES  */
     .welcome-heading{
         text-align: center;
-        Font-Family: 'Ovo', Serif;
+        font-family: 'Poppins', sans-serif;
         color: white;
     }
     .login-heading{
         text-align: center;
-        Font-Family: 'Ovo', Serif;
+        font-family: 'Poppins', sans-serif;
         color: white;
     }
     .login-form-container{
@@ -136,7 +220,7 @@ body {
     }
     .signup-heading{
         text-align: center;
-        Font-Family: 'Ovo', Serif;
+        font-family: 'Poppins', sans-serif;
         color: white;
     }
     .signup-form-container{
@@ -149,16 +233,18 @@ body {
         position: fixed;
         width: 100%;
         left:0;
+        text-align: center;
     }
     .topnav-link-list{
         list-style-type: none;
         margin: 0px;
         padding: 0px;
         width: 100%;
-        background-color: #95A3B3;
+        background-color: #8895A3;
         height: 40px;
         overflow: hidden;
-        Font-Family: 'Quattrocento Sans', Sans-Serif;
+        font-family: 'Raleway', sans-serif;
+        text-align: center;
     }
     .topnav-link{
         float: left;
@@ -166,6 +252,7 @@ body {
         margin-right: 20px;
         padding: 10px;
         width: 100px;
+        text-align: center;
         text-align: center;
     }
     .topnav-link-logout{
@@ -178,7 +265,7 @@ body {
     }
     .topnav-link a{
         display: block;
-        text-align: left;
+        text-align: center;
     }
     .topnav-link a:link{
         text-decoration: none;
@@ -198,7 +285,7 @@ body {
     }
     .topnav-link-logout a{
         display: block;
-        text-align: left;
+        text-align: center;
     }
     .topnav-link-logout a:link{
         text-decoration: none;
@@ -223,13 +310,19 @@ body {
         width:100%;
     }
     .class-list{
-        background-color:#95A3B3;
+        background-color: #8895A3;
         color: #222222;
         border-radius: 10px;
         border: 1px solid #222222;
-        padding:5px;
+        padding: 5px;
         width: 75%;
-        margin-left:6.25%;
+        display: inline-flex;
+    }
+    .class-edit-container{
+        width:100%
+    }
+    .class-list li{
+        width:95%;
     }
     .class-name-link{
         text-decoration: none;
@@ -241,6 +334,7 @@ body {
         color:white;
         float:right;
         padding: 5px;
+        cursor: pointer;
     }
     .class-list-ul{
         list-style: none;
@@ -271,7 +365,7 @@ body {
     }
     /* createClassForm.js STYLES */
     .create-class-form label{
-        Font-Family: 'Quattrocento Sans', Sans-Serif;
+        font-family: 'Raleway', sans-serif;
         color: #222222;
         margin-left: 5%;
         margin-top: 10px;
@@ -283,7 +377,7 @@ body {
         margin-top: 5px;
         margin-bottom: 5px;
         border-radius: 5px;
-        background-color: #95A3B3;
+        background-color: #8895A3;
     }
     .create-class-save-button-container{
         text-align: center;
@@ -291,40 +385,41 @@ body {
     .create-class-save-button{
         margin: 5px;
         margin-top: 15px;
-        Font-Family: 'Quattrocento Sans', Sans-Serif;
+        font-family: 'Raleway', sans-serif;
         font-size: 14px;
         color:white;
         background-color: #4B4E6D;
         border-radius: 5px;
+        cursor: pointer;
     }
     /* dashboard.js STYLES */
     .welcome{
-        Font-Family: 'Ovo', Serif;
+        font-family: 'Poppins', sans-serif;
         text-align: center;
         color: white;
         margin-top:50px;
         margin-bottom:100px;
     }
     .get-started-container{
-        background-color: #95A3B3;
+        background-color: #8895A3;
         border-radius: 5px;
         margin-left:6.6666668%;
         margin-right:3.33333334%;
     }
     .create-class-container{
-        background-color: #95A3B3;
+        background-color: #8895A3;
         border-radius: 5px;
         margin-left:3.33333334%;
         margin-right:3.33333334%;
     }
     .view-classes-container{
-        background-color: #95A3B3;
+        background-color: #8895A3;
         border-radius: 5px;
         margin-left:3.33333334%;
         margin-right:3.33333334%;
     }
     .set-up-container{
-        background-color: #95A3B3;
+        background-color: #8895A3;
         border-radius: 5px;
         margin-left:3.33333334%;
         margin-right:3.33333334%;
@@ -348,7 +443,7 @@ body {
         font-size:28px;
         text-align:center;
         margin:0px;
-        Font-Family: 'Ovo', Serif;
+        font-family: 'Poppins', sans-serif;
     }
     .get-started-popup-hidden{
         display: none;
@@ -369,10 +464,9 @@ body {
         position: absolute;
         background-color: #84DCC6;
         border-radius: 10px;
-        margin-right: 8%;
         top: 100px;
         padding: 20px;
-        width: auto;
+        width: 97%;
         box-shadow: 5px 5px 10px;
     }
     .getting-started{
@@ -405,22 +499,22 @@ body {
         border-radius: 10px;
         top: 100px;
         padding: 20px;
-        width: 600px;
+        width: 97%;
         box-shadow: 5px 5px 10px;
     }
     .view-classes-popup-active{
         position: absolute;
         background-color: #84DCC6;
-        width: 600px;
+        width: 50%;
         border-radius: 10px;
         padding: 15px;
-        margin-left: 10%;
+        margin-left: 25%;
         box-shadow: 5px 5px 10px;
     }
     .edit-class-popup-active{
         position: absolute;
         background-color: #6DB5A3;
-        width: 570px;
+        width: 92%;
         padding: 10px;
         border-radius: 10px;
         box-shadow: 5px 5px 10px;
@@ -429,7 +523,7 @@ body {
         position: absolute;
         background-color: #84DCC6;
         margin-right: 3%;
-        width: auto;
+        width: 97%;
         border-radius: 10px;
         padding: 10px;
         box-shadow: 5px 5px 10px;
@@ -437,7 +531,7 @@ body {
     .popup-heading{
         color: #222222;
         text-align: center;
-        Font-Family: 'Ovo', Serif;
+        font-family: 'Poppins', sans-serif;
     }
     .heading-close-container{
         display: inline-flex;
@@ -454,7 +548,7 @@ body {
         text-align: center;
     }
     .edit-class-form label{
-        Font-Family: 'Quattrocento Sans', Sans-Serif;
+        font-family: 'Raleway', sans-serif;
         color: #222222;
     }
     .edit-class-input{
@@ -463,7 +557,7 @@ body {
         margin-top: 5px;
         margin-bottom: 5px;
         border-radius: 5px;
-        background-color: #95A3B3;
+        background-color: #8895A3;
         font-size: 15px;
     }
     .edit-class-name{
@@ -481,10 +575,11 @@ body {
     .edit-class-save-button{
         margin: 5px;
         margin-top: 15px;
-        Font-Family: 'Quattrocento Sans', Sans-Serif;
+        font-family: 'Raleway', sans-serif;
         font-size: 14px;
-        background-color: #95A3B3;
+        background-color: #8895A3;
         border-radius: 5px;
+        cursor: pointer;
     }
     /* gettingStarted.js STYLES */
     .lesson {
@@ -532,7 +627,7 @@ body {
         margin-right: 5%;
         border-radius: 5px;
         text-align:center;
-        background-color: #95A3B3;
+        background-color: #8895A3;
         font-size: 15px;
         float:right;
     }
@@ -542,10 +637,11 @@ body {
     .class-setup-button{
         margin: 5px;
         margin-top: 15px;
-        Font-Family: 'Quattrocento Sans', Sans-Serif;
+        font-family: 'Raleway', sans-serif;
         font-size: 14px;
-        background-color: #95A3B3;
+        background-color: #8895A3;
         border-radius: 5px;
+        cursor: pointer;
     }
     /* studentList.js STYLES */
     .student-checkbox{
@@ -562,20 +658,20 @@ body {
     .student-checkbox label{
         margin-top: 6px;
         width:60%;
-        Font-Family: 'Quattrocento Sans', Sans-Serif;
+        font-family: 'Raleway', sans-serif;
         color: #222222;
     }
     .student-checkbox-container{
-        background-color: #95A3B3;
+        background-color: #8895A3;
         margin:5px;
     }
     .checkboxes-container{
-        background-color: #95A3B3;
+        background-color: #8895A3;
         width: 60%;
         margin: auto;
     }
     .checkboxes-container label{
-        Font-Family: 'Quattrocento Sans', Sans-Serif;
+        font-family: 'Raleway', sans-serif;
         color: #222222;
         margin-left: 5%;
     }
@@ -617,16 +713,16 @@ body {
     
     .sidenav a:hover {
         text-decoration: none;
-        color: #95A3B3
+        color: #8895A3
     }
     
     .sidenav a:active {
         text-decoration: none;
-        color: #95A3B3
+        color: #8895A3
     }
     .sidenav ul {
         list-style-type: none;
-        Font-Family: 'Quattrocento Sans', Sans-Serif;
+        font-family: 'Raleway', sans-serif;
         padding:0px;
     }
     /* gradeDisplay.js STYLES */
@@ -644,7 +740,7 @@ body {
         border-collapse: collapse;
         height: 35px;
         background-color: #4B4E6D;
-        Font-Family: 'Ovo', Serif;
+        font-family: 'Poppins', sans-serif;
         color: white;
     }
     td{
@@ -657,6 +753,7 @@ body {
     .option-container{
         background-color: #4B4E6D;
         border-radius: 5px;
+        height: 120vh;
     }
     .assignment-create{
         float: left;
@@ -668,7 +765,7 @@ body {
         margin-left: 3%;
     }
     .assignment-create-label{
-        Font-Family: 'Quattrocento Sans', Sans-Serif;
+        font-family: 'Raleway', sans-serif;
         color: #FFFFFF;
         width:50%;
         margin-top: 10px;
@@ -693,7 +790,7 @@ body {
         box-shadow: 5px 5px 10px;
     }
     .assignment-edit label{
-        Font-Family: 'Quattrocento Sans', Sans-Serif;
+        font-family: 'Raleway', sans-serif;
         color: #222222;
         width:50%;
         margin-top: 10px;
@@ -703,24 +800,29 @@ body {
     }
     .assignment-option-heading{
         text-align: center;
-        Font-Family: 'Ovo', Serif;
+        font-family: 'Poppins', sans-serif;
         color: white;
         margin:5px;
     }
     .assignment-edit-heading{
         text-align: center;
-        Font-Family: 'Ovo', Serif;
+        font-family: 'Poppins', sans-serif;
         color: #222222;
         margin:5px;
     }
     /* Assignment-Display STYLES */
         /* assignmentDisplay.js STYLES */
         .assignment-list{
-            background-color:#95A3B3;
+            background-color: #8895A3;
             color: #222222;
             border-radius: 10px;
             border: 1px solid #222222;
-            padding:5px;
+            padding: 5px;
+            width: 100%;
+            display: inline-flex;
+        }
+        .assignment-list li{
+            width: 95%;
         }
         .assignment-name-link{
             text-decoration: none;
@@ -732,6 +834,7 @@ body {
             color:white;
             float:right;
             padding: 5px;
+            cursor: pointer;
         }
         .assignment-list-ul{
             list-style: none;
@@ -740,7 +843,7 @@ body {
         }
         /*  assignmentFilters.js STYLES */
         .assignment-filters-label{
-            Font-Family: 'Quattrocento Sans', Sans-Serif;
+            font-family: 'Raleway', sans-serif;
             color: #FFFFFF;
             margin-top: 10px;
         }
@@ -761,7 +864,7 @@ body {
            width: 100%
         }
         .class-select-label{
-            Font-Family: 'Quattrocento Sans', Sans-Serif;
+            font-family: 'Raleway', sans-serif;
             color: #FFFFFF;
             margin-top: 10px;
         }
@@ -776,7 +879,7 @@ body {
         }
         /* editAssignmentForm.js STYLES */
         .assignment-edit-label{
-            Font-Family: 'Quattrocento Sans', Sans-Serif;
+            font-family: 'Raleway', sans-serif;
             color: #222222;
             margin-top: 10px;
         }
@@ -788,7 +891,7 @@ body {
             margin-top: 5px;
             margin-bottom: 5px;
             border-radius: 5px;
-            background-color: #95A3B3;
+            background-color: #8895A3;
         }
         .edit-class-checkbox-container{
             width: 90%;
@@ -796,12 +899,12 @@ body {
             margin-bottom: 5px;
             color: #222222;
             display: inline-flex;
-            background-color: #95A3B3;
+            background-color: #8895A3;
         }
         .edit-class-checkbox-legend{
             margin: auto;
             color: #222222;
-            background-color: #95A3B3;
+            background-color: #8895A3;
             border-radius: 10px;
         }
         .edit-class-checkbox-label{
@@ -813,10 +916,11 @@ body {
         .assignment-edit-save-button{
             margin: 5px;
             margin-top: 15px;
-            Font-Family: 'Quattrocento Sans', Sans-Serif;
+            font-family: 'Raleway', sans-serif;
             font-size: 14px;
-            background-color: #95A3B3;
+            background-color: #8895A3;
             border-radius: 5px;
+            cursor: pointer;
         }
     /* Create-Assignment-Form STYLES */
         /* categoryList.js STYLES */
@@ -857,7 +961,7 @@ body {
             margin-top: 5px;
             margin-bottom: 5px;
             border-radius: 5px;
-            background-color: #95A3B3;
+            background-color: #8895A3;
         }
         .assignment-date-create{
             width: 90%;
@@ -867,10 +971,10 @@ body {
             margin-top: 5px;
             margin-bottom: 5px;
             border-radius: 5px;
-            background-color: #95A3B3;
+            background-color: #8895A3;
         }
         .class-checkbox-label{
-            Font-Family: 'Quattrocento Sans', Sans-Serif;
+            font-family: 'Raleway', sans-serif;
             color: #FFFFFF;
             width:80%;
         }
@@ -881,10 +985,11 @@ body {
         .assignment-create-save-button{
             margin: 5px;
             margin-top: 15px;
-            Font-Family: 'Quattrocento Sans', Sans-Serif;
+            font-family: 'Raleway', sans-serif;
             font-size: 14px;
             background-color: #84DCC6;
             border-radius: 5px;
+            cursor: pointer;
         }
     }
 

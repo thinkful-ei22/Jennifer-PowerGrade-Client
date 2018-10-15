@@ -1,7 +1,7 @@
 import {CREATE_CLASS_ERROR, CREATE_CLASS_REQUEST, CREATE_CLASS_SUCCESS} from '../actions/POST/createClass';
-import {FETCH_CLASSES_SUCCESS, FETCH_CLASSES_ERROR, FILTER_CLASSES, FETCH_ONE_CLASS_SUCCESS, FETCH_ONE_CLASS_ERROR} from '../actions/GET/fetchClasses';
+import {FETCH_CLASSES_SUCCESS, FETCH_CLASSES_ERROR, FILTER_CLASSES, FETCH_ONE_CLASS_SUCCESS, FETCH_ONE_CLASS_ERROR, FETCH_CLASSES_REQUEST} from '../actions/GET/fetchClasses';
 import {DELETE_CLASS_SUCCESS, DELETE_CLASS_ERROR} from '../actions/DELETE/deleteClass';
-import {EDIT_CLASS_SUCCESS, EDIT_CLASS_ERROR, ADD_CLASS_STUDENT, REMOVE_CLASS_STUDENT} from '../actions/PUT/editClass';
+import {EDIT_CLASS_SUCCESS, EDIT_CLASS_ERROR, ADD_CLASS_STUDENT, REMOVE_CLASS_STUDENT, EDIT_CLASS_REQUEST} from '../actions/PUT/editClass';
 import { CREATE_ASSIGNMENT_SUCCESS } from '../actions/POST/createAssignment';
 
 const initialState = {
@@ -34,37 +34,53 @@ export default function classesCRUDReducers(state = initialState, action) {
   }
   else if(action.type === CREATE_CLASS_ERROR) {
     return Object.assign({}, state, {
-      error: action.error
+      error: action.error,
+      loading: false
+    });
+  }
+  else if(action.type === CREATE_CLASS_REQUEST){
+    return Object.assign({}, state, {
+      loading: true
     });
   }
   else if(action.type===FETCH_CLASSES_SUCCESS){
     //GET all classes
     return Object.assign({}, state, {
       error: null,
-      classes: action.classes
+      classes: action.classes,
+      loading: false
     });
   }
   else if(action.type===FETCH_CLASSES_ERROR){
     return Object.assign({}, state, {
-      error: action.error
+      error: action.error,
+      loading: false
+    });
+  }
+  else if(action.type === FETCH_CLASSES_REQUEST){
+    return Object.assign({}, state, {
+      loading: true
     });
   }
   //GET one class
   else if(action.type===FETCH_ONE_CLASS_SUCCESS){
     return Object.assign({}, state, {
       error: null,
-      currentClass: action.currentClass
+      currentClass: action.currentClass,
+      loading: false
     });
   }
   else if(action.type===FETCH_ONE_CLASS_ERROR){
     return Object.assign({}, state, {
-      error: action.error
+      error: action.error,
+      loading: false
     });
   }
   //filter class list
   else if(action.type===FILTER_CLASSES){
     return Object.assign({}, state, {
-      filteredClasses: action.filter
+      filteredClasses: action.filter,
+      loading: false
     });
   }
   //PUT edit one class
@@ -75,12 +91,19 @@ export default function classesCRUDReducers(state = initialState, action) {
     const updatedClasses = [...state.classes];
     state.classes[indexToUpdate]=action.class;
     return Object.assign({}, state, {
-      classes: updatedClasses
+      classes: updatedClasses,
+      loading: false
     });
   }
   else if(action.type===EDIT_CLASS_ERROR){
     return Object.assign({}, state, {
-      error: action.error
+      error: action.error,
+      loading: false
+    });
+  }
+  else if(action.type === EDIT_CLASS_REQUEST){
+    return Object.assign({}, state, {
+      loading: true
     });
   }
   else if(action.type===ADD_CLASS_STUDENT){
@@ -91,7 +114,8 @@ export default function classesCRUDReducers(state = initialState, action) {
         id: state.currentClass.id,
         userId: state.currentClass.id,
         students: newStudents
-      }
+      },
+      loading: false
     });
   }
   else if(action.type===REMOVE_CLASS_STUDENT){
@@ -102,7 +126,8 @@ export default function classesCRUDReducers(state = initialState, action) {
         id: state.currentClass.id,
         userId: state.currentClass.id,
         students: newStudents
-      }
+      },
+      loading: false
     });
   }
   else if(action.type === CREATE_ASSIGNMENT_SUCCESS){
@@ -114,7 +139,8 @@ export default function classesCRUDReducers(state = initialState, action) {
       return classItem;
     });
     return Object.assign({}, state, {
-      classes: updatedAssignmentList
+      classes: updatedAssignmentList,
+      loading: false
     });
   }
   //DELTE one class
@@ -130,7 +156,8 @@ export default function classesCRUDReducers(state = initialState, action) {
   }
   else if(action.type===DELETE_CLASS_ERROR){
     return Object.assign({}, state, {
-      error: action.error
+      error: action.error,
+      loading: false
     });
   }
   return state;

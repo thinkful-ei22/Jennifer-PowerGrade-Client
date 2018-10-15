@@ -24,21 +24,27 @@ export class GradebookSetupForm extends React.Component {
     }
   }
   render (){
-    const categoryInputs = this.props.categories.map(
-      category => {
-        return (
-          <div className="input-container" key={category.id}>
-            <label htmlFor={category.id}>{category.name}</label>
-            <input
-              className="value-input"
-              type="number"
-              name={category.name}
-              id={category.id}
-              defaultValue={category.value*100}>
-            </input>
-          </div>
-        );
-      });
+    let categoryInputs;
+    if(this.props.loading ===false){
+      categoryInputs = this.props.categories.map(
+        category => {
+          return (
+            <div className="input-container" key={category.id}>
+              <label htmlFor={category.id}>{category.name}</label>
+              <input
+                className="value-input"
+                type="number"
+                name={category.name}
+                id={category.id}
+                defaultValue={category.value*100}>
+              </input>
+            </div>
+          );
+        });
+    }
+    if(this.props.loading===true){
+      categoryInputs = <div>Loading...</div>;
+    }
     return (
       <form className="gradebook-setup-form" onSubmit={e => {
         e.preventDefault();
@@ -60,6 +66,7 @@ export class GradebookSetupForm extends React.Component {
 const mapStateToProps = state => {
   return {
     categories: state.categoriesCRUDReducer.categories,
+    loading: state.categoriesCRUDReducer.loading
   };
 };
 

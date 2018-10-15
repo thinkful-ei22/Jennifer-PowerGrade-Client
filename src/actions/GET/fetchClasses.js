@@ -1,6 +1,10 @@
 import {API_BASE_URL} from '../../config';
 import {normalizeResponseErrors} from '../OTHER/utils';
 
+export const FETCH_CLASSES_REQUEST='FETCH_CLASSES_REQUEST';
+export const fetchClassesRequest= () => ({
+  type: FETCH_CLASSES_REQUEST
+});
 export const FETCH_CLASSES_SUCCESS='FETCH_CLASSES_SUCCESS';
 export const fetchClassesSuccess= classes => ({
   type: FETCH_CLASSES_SUCCESS,
@@ -25,6 +29,7 @@ export const filterClasses = (filter) => (dispatch, getState) => {
 };
 
 export const fetchClasses = () => (dispatch,getState) => {
+  dispatch(fetchClassesRequest());
   const authToken = getState().loginReducer.authToken;
   return fetch(`${API_BASE_URL}/api/classes`, {
     method: 'GET',

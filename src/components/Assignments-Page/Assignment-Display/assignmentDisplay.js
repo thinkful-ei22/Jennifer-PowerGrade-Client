@@ -13,7 +13,6 @@ export class AssignmentDisplay extends React.Component {
   }
   activateAssignmentEditPopup(e){
     const popup = e.target.parentElement.parentElement.parentElement.nextSibling;
-    console.log(popup);
     if(popup.className === 'assignment-edit-hidden col-3'){
       return popup.className = 'assignment-edit-active col-3';
     }
@@ -23,24 +22,35 @@ export class AssignmentDisplay extends React.Component {
     return this.props.assignments.filter(assignment=>assignment.userId===this.props.currentUser.id);
   }
   render(){
-    const assignmentList=this.generateAssignmentList().map(assignment =>(
-      <div className="assignment-list" key={assignment.id}>
-        <li 
-          onClick={(e)=>{
-            this.activateAssignmentEditPopup(e);
-            this.props.dispatch(fetchOneAssignment(e.target.id));
-          }} 
-          className="assignment-list-item" 
-          id={assignment.id}>
-          {assignment.name}
-        </li>
-        <i id={assignment.id} className="delete-assignment-x fa fa-times" onClick={(e) => {
-          this.props.dispatch(deleteAssignment(e.target.id));
-          this.props.dispatch(fetchAssignments());
-        }}></i>     
-      </div>)); 
+    let assignmentList;
+    if(this.props.loading === false){
+      assignmentList=this.generateAssignmentList().map((assignment, i) =>(
+        <div className="assignment-list" key={assignment.id}>
+          <li 
+            onClick={(e)=>{
+              this.activateAssignmentEditPopup(e);
+              this.props.dispatch(fetchOneAssignment(e.target.id));
+            }} 
+            className="assignment-list-item" 
+            id={assignment.id+i}>
+            {assignment.name}
+          </li>
+          <i id={assignment.id} className="delete-assignment-x fa fa-times" onClick={(e) => {
+            this.props.dispatch(deleteAssignment(e.target.id));
+            this.props.dispatch(fetchAssignments());
+          }}></i>     
+        </div>));
+    }
+    if(this.props.loading === true){
+      assignmentList = <li className="assignment-list-item" >Loading...</li>;
+    } 
     return (
-      <ul className="assignment-list-ul">{assignmentList}</ul>
+      <div>
+        <h4 className="lesson-title">Click an assignment to edit.</h4>
+        <ul className="assignment-list-ul">
+          {assignmentList}
+        </ul>
+      </div>
     );
   }
 }
@@ -49,7 +59,8 @@ const mapStateToProps = state => {
   return {
     assignments: state.assignmentCRUDReducer.filteredAssignments,
     currentAssignment: state.assignmentCRUDReducer.currentAssignment,
-    currentUser: state.loginReducer.currentUser
+    currentUser: state.loginReducer.currentUser,
+    loading: state.assignmentCRUDReducer.loading
   };
 };
 

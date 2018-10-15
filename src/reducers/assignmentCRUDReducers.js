@@ -1,7 +1,7 @@
 import {CREATE_ASSIGNMENT_ERROR,CREATE_ASSIGNMENT_REQUEST,CREATE_ASSIGNMENT_SUCCESS} from '../actions/POST/createAssignment';
-import  {FETCH_ASSIGNMENT_SUCCESS, FETCH_ASSIGNMENT_ERROR, FILTER_ASSIGNMENTS, FETCH_ONE_ASSIGNMENT_SUCCESS, FETCH_ONE_ASSIGNMENT_ERROR, SEARCH_ASSIGNMENTS_SUCCESS} from '../actions/GET/fetchAssignments';
+import  {FETCH_ASSIGNMENT_SUCCESS, FETCH_ASSIGNMENT_ERROR, FILTER_ASSIGNMENTS, FETCH_ONE_ASSIGNMENT_SUCCESS, FETCH_ONE_ASSIGNMENT_ERROR, SEARCH_ASSIGNMENTS_SUCCESS, FETCH_ASSIGNMENT_REQUEST} from '../actions/GET/fetchAssignments';
 import {DELETE_ASSIGNMENT_ERROR, DELETE_ASSIGNMENT_SUCCESS} from '../actions/DELETE/deleteAssignment';
-import {EDIT_ASSIGNMENT_SUCCESS, EDIT_ASSIGNMENT_ERROR, ADD_ASSIGNMENT_CLASS, REMOVE_ASSIGNMENT_CLASS} from '../actions/PUT/editAssignment';
+import {EDIT_ASSIGNMENT_SUCCESS, EDIT_ASSIGNMENT_ERROR, ADD_ASSIGNMENT_CLASS, REMOVE_ASSIGNMENT_CLASS, EDIT_ASSIGNMENT_REQUEST} from '../actions/PUT/editAssignment';
 import { EDIT_GRADE_SUCCESS } from '../actions/PUT/editGrade';
 
 const initialState = {
@@ -37,7 +37,8 @@ export default function assignmentCRUDReducers(state = initialState, action) {
   }
   else if(action.type === CREATE_ASSIGNMENT_ERROR) {
     return Object.assign({}, state, {
-      error: action.error
+      error: action.error,
+      loading: false
     });
   }
   //GET all
@@ -45,34 +46,40 @@ export default function assignmentCRUDReducers(state = initialState, action) {
     return Object.assign({}, state, {
       error: null,
       assignments: action.assignmentInfo,
-      filteredAssignments: action.assignmentInfo
+      filteredAssignments: action.assignmentInfo,
+      loading: false
     });
   }
   else if(action.type===FETCH_ASSIGNMENT_ERROR){
     return Object.assign({}, state, {
-      error: action.error
+      error: action.error,
+      loading: false
     });
   }
   else if(action.type===FILTER_ASSIGNMENTS){
     return Object.assign({}, state, {
-      filteredAssignments: action.filter
+      filteredAssignments: action.filter,
+      loading: false
     });
   }
   else if(action.type===SEARCH_ASSIGNMENTS_SUCCESS){
     return Object.assign({}, state, {
-      filteredAssignments: action.searchTerm
+      filteredAssignments: action.searchTerm,
+      loading: false
     });
   }
   //GET one class
   else if(action.type===FETCH_ONE_ASSIGNMENT_SUCCESS){
     return Object.assign({}, state, {
       error: null,
-      currentAssignment: action.currentAssignment
+      currentAssignment: action.currentAssignment,
+      loading: false
     });
   }
   else if(action.type===FETCH_ONE_ASSIGNMENT_ERROR){
     return Object.assign({}, state, {
-      error: action.error
+      error: action.error,
+      loading: false
     });
   }
   //PUT update assignment
@@ -83,16 +90,17 @@ export default function assignmentCRUDReducers(state = initialState, action) {
     const updatedAssignments = [...state.assignments];
     state.assignments[indexToUpdate]=action.assignment;
     return Object.assign({}, state, {
-      assignments: updatedAssignments
+      assignments: updatedAssignments,
+      loading: false
     });
   }
   else if(action.type===EDIT_ASSIGNMENT_ERROR){
     return Object.assign({}, state, {
-      error: action.error
+      error: action.error,
+      loading: false
     });
   }
   else if(action.type=== ADD_ASSIGNMENT_CLASS){
-    console.log(action);
     const newClasses = [...state.currentAssignment.classes, action.classItem];
     return Object.assign({}, state, {
       currentAssignment:{
@@ -102,11 +110,11 @@ export default function assignmentCRUDReducers(state = initialState, action) {
         categoryId: state.currentAssignment.categoryId,
         classes: newClasses,
         grades: state.currentAssignment.grades
-      }
+      },
+      loading: false
     });
   }
   else if(action.type=== REMOVE_ASSIGNMENT_CLASS){
-    console.log(action);
     const newClasses = state.currentAssignment.classes.filter(classItem => classItem !== action.classItem);
     return Object.assign({}, state, {
       currentAssignment:{
@@ -116,7 +124,8 @@ export default function assignmentCRUDReducers(state = initialState, action) {
         categoryId: state.currentAssignment.categoryId,
         classes: newClasses,
         grades: state.currentAssignment.grades
-      }
+      },
+      loading: false
     });
   }
   else if(action.type===EDIT_GRADE_SUCCESS){
@@ -128,7 +137,8 @@ export default function assignmentCRUDReducers(state = initialState, action) {
     const updatedAssignments = [...state.assignments];
     updatedAssignments.splice(indexToUpdate, 1, assignmentToEdit);
     return Object.assign({}, state, {
-      assignments: updatedAssignments
+      assignments: updatedAssignments,
+      loading: false
     });
   }
   //DELETE    
@@ -144,7 +154,23 @@ export default function assignmentCRUDReducers(state = initialState, action) {
   }
   else if(action.type === DELETE_ASSIGNMENT_ERROR) {
     return Object.assign({}, state, {
-      error: action.error
+      error: action.error,
+      loading: false
+    });
+  }
+  else if(action.type === FETCH_ASSIGNMENT_REQUEST){
+    return Object.assign({}, state, {
+      loading: true
+    });
+  }
+  else if(action.type === CREATE_ASSIGNMENT_REQUEST){
+    return Object.assign({}, state, {
+      loading: true
+    });
+  }
+  else if(action.type === EDIT_ASSIGNMENT_REQUEST){
+    return Object.assign({}, state, {
+      loading: true
     });
   }
   return state;

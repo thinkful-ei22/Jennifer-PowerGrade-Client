@@ -1,6 +1,10 @@
 import {API_BASE_URL} from '../../config';
 import {normalizeResponseErrors} from '../OTHER/utils';
 
+export const FETCH_CATEGORIES_REQUEST='FETCH_CATEGORIES_REQUEST';
+export const fetchCategoriesRequest= () => ({
+  type: FETCH_CATEGORIES_REQUEST,
+});
 export const FETCH_CATEGORIES_SUCCESS='FETCH_CATEGORIES_SUCCESS';
 export const fetchCategoriesSuccess= categories => ({
   type: FETCH_CATEGORIES_SUCCESS,
@@ -13,6 +17,7 @@ export const fetchCategoriesError= error => ({
 });
 
 export const fetchCategories = () => (dispatch, getState) => {
+  dispatch(fetchCategoriesRequest());
   const authToken = getState().loginReducer.authToken;
   return fetch(`${API_BASE_URL}/api/categories`, {
     method: 'GET',

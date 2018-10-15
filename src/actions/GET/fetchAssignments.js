@@ -1,6 +1,10 @@
 import {API_BASE_URL} from '../../config';
 import {normalizeResponseErrors} from '../OTHER/utils';
 
+export const FETCH_ASSIGNMENT_REQUEST='FETCH_ASSIGNMENT_REQUEST';
+export const fetchAssignmentsRequest= () => ({
+  type: FETCH_ASSIGNMENT_REQUEST,
+});
 export const FETCH_ASSIGNMENT_SUCCESS='FETCH_ASSIGNMENT_SUCCESS';
 export const fetchAssignmentsSuccess= assignmentInfo => ({
   type: FETCH_ASSIGNMENT_SUCCESS,
@@ -28,6 +32,11 @@ export const filterAssignments = (filter) => (dispatch, getState) => {
   }
 };
 
+export const SEARCH_ASSIGNMENT_REQUEST='SEARCH_ASSIGNMENT_REQUEST';
+export const searchAssignmentsRequest= () => ({
+  type: SEARCH_ASSIGNMENT_REQUEST,
+});
+
 export const SEARCH_ASSIGNMENTS_SUCCESS = 'SEARCH_ASSIGNMENTS_SUCCESS';
 export const searchAssignmentsSuccess = searchTerm => ({
   type: SEARCH_ASSIGNMENTS_SUCCESS,
@@ -41,6 +50,7 @@ export const searchAssignmentsError = error => ({
 });
 
 export const searchAssignmentFilter = searchTerm => (dispatch, getState) => {
+  dispatch(searchAssignmentsRequest());
   const authToken = getState().loginReducer.authToken;
   return fetch(`${API_BASE_URL}/api/assignments/?searchTerm=${searchTerm}`, {
     method: 'GET',
@@ -59,6 +69,7 @@ export const searchAssignmentFilter = searchTerm => (dispatch, getState) => {
     );
 };
 export const fetchAssignments = () => (dispatch, getState) => {
+  dispatch(fetchAssignmentsRequest());
   const authToken = getState().loginReducer.authToken;
   return fetch(`${API_BASE_URL}/api/assignments`, {
     method: 'GET',
@@ -74,6 +85,11 @@ export const fetchAssignments = () => (dispatch, getState) => {
     });
 };
 
+export const FETCH_ONE_ASSIGNMENT_REQUEST = 'FETCH_ONE_ASSIGNMENT_REQUEST';
+export const fetchOneAssignmentRequest = () => ({
+  type: FETCH_ONE_ASSIGNMENT_REQUEST,
+});
+
 export const FETCH_ONE_ASSIGNMENT_SUCCESS = 'FETCH_ONE_ASSIGNMENT_SUCCESS';
 export const fetchOneAssignmentSuccess = currentAssignment => ({
   type: FETCH_ONE_ASSIGNMENT_SUCCESS,
@@ -87,6 +103,7 @@ export const fetchOneAssignmentError = error => ({
 });
 
 export const fetchOneAssignment = (id) => (dispatch, getState) => {
+  dispatch(fetchOneAssignmentRequest());
   const authToken = getState().loginReducer.authToken;
   return fetch(`${API_BASE_URL}/api/assignments/${id}`, {
     method: 'GET',

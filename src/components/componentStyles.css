@@ -1,5 +1,5 @@
 @media only screen 
-  and (min-width: 1025px) 
+  and (min-width: 1024px) 
   and (max-width: 1600px) 
   and (-webkit-min-device-pixel-ratio: 1) { 
 /* UNIVERSAL STYLES */
@@ -12,7 +12,8 @@ body {
     height: 100%;
 }
 .row{
-    max-width: 1600px;
+    max-width: 100%;
+    height:100%;
     padding-left: 20px;
     padding-right: 20px;
     margin: auto;
@@ -49,6 +50,86 @@ body {
     width: 16.666667%;
 }
 /* LANDING PAGE STYLES */
+    /*aboutPage.js */
+    .container{
+        margin-left: auto;
+        margin-right: auto;
+        background-color: #8895A3;
+        float: none;
+        padding: 15px;
+        border-radius: 10px;
+        /* margin-bottom: 20px; */
+        height: 301px;
+        /* display: inline-flex; */
+    }
+    .info-heading{
+        font-family: 'Poppins', sans-serif;
+    }
+    .about-info{
+            /* max-width: 500px; */
+        text-align: center;
+        /* padding: 0px 33px; */
+        margin: auto;
+        font-family: 'Raleway', sans-serif;
+    }
+    .about-icon-container{
+        width: 100%;
+        float: left;
+        display: inline-flex;
+    }
+    .go-to-login{
+        float:left;
+        display: inline-flex;
+        color:white;
+        cursor: pointer;
+    }
+    .go-to-register{
+        float: left;
+        display: inline-flex;
+        color: white;
+        cursor: pointer;
+    }
+    .go-to-about{
+        float: right;
+        display: inline-flex;
+        color:white;
+        cursor: pointer;
+    }
+    .aboutLogin{
+        display: inline-flex;
+        float: left;
+        margin-left: 25%;
+        margin-top: 15px;
+        font-family: 'Raleway', sans-serif;
+        font-size: 14px;
+        background-color: #84DCC6;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    .aboutRegister{
+        display: inline-flex;
+        float: right;
+        margin-right: 25%;
+        margin-top: 15px;
+        font-family: 'Raleway', sans-serif;
+        font-size: 14px;
+        background-color: #84DCC6;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    .boxItem{
+        width: 200px;
+        text-align: center;
+        /* float: left; */
+        display: inline-block;
+        font-family: 'Raleway', sans-serif;
+    }
+    .about-icon-container img{
+        position: relative;
+        width: 60px;
+        margin: auto;
+        display: block;
+    }
     /* logoutAlert.js STYLES */
     .warning-box{
         display:none;
@@ -87,7 +168,7 @@ body {
         margin-top: 5px;
         margin-bottom: 5px;
         border-radius: 5px;
-        background-color: #95A3B3;
+        background-color: #8895A3;
     }
 
     .login-button-container{
@@ -100,6 +181,7 @@ body {
         font-size: 14px;
         background-color: #84DCC6;
         border-radius: 5px;
+        cursor: pointer;
     }
     /* registerForm.js STYLES  */
     .signup-form{
@@ -120,7 +202,7 @@ body {
         margin-top: 5px;
         margin-bottom: 5px;
         border-radius: 5px;
-        background-color: #95A3B3;
+        background-color: #8895A3;
     }
     .signup-button-container{
         text-align: center;
@@ -132,6 +214,7 @@ body {
         font-size: 14px;
         background-color: #84DCC6;
         border-radius: 5px;
+        cursor: pointer;
     }
     /* landingPage.js STYLES  */
     .welcome-heading{
@@ -147,8 +230,9 @@ body {
     .login-form-container{
         background-color: #4B4E6D;
         border-radius: 10px;
-        margin-left: 16.6666667%;
-        margin-right: 8.33333333%;
+        /* margin-left: 16.6666667%; */
+        /* margin-right: 8.33333333%; */
+        margin-left: 25%;
     }
     .signup-heading{
         text-align: center;
@@ -158,8 +242,9 @@ body {
     .signup-form-container{
         background-color: #4B4E6D;
         border-radius: 10px;
-        margin-right: 16.6666667%;
-        margin-left: 8.33333333%;
+        /* margin-left: 16.6666667%; */
+        /* margin-right: 8.33333333%; */
+        margin-left: 25%;
     }
 /* NAVBAR STYLES */
     /* navbar.js STYLES */
@@ -167,16 +252,18 @@ body {
         position: fixed;
         width: 100%;
         left:0;
+        text-align: center;
     }
     .topnav-link-list{
         list-style-type: none;
         margin: 0px;
         padding: 0px;
         width: 100%;
-        background-color: #95A3B3;
+        background-color: #8895A3;
         height: 40px;
         overflow: hidden;
         font-family: 'Raleway', sans-serif;
+        text-align: center;
     }
     .topnav-link{
         float: left;
@@ -196,7 +283,7 @@ body {
     }
     .topnav-link a{
         display: block;
-        text-align: left;
+        text-align: center;
     }
     .topnav-link a:link{
         text-decoration: none;
@@ -216,7 +303,7 @@ body {
     }
     .topnav-link-logout a{
         display: block;
-        text-align: left;
+        text-align: center;
     }
     .topnav-link-logout a:link{
         text-decoration: none;
@@ -245,7 +332,7 @@ body {
         margin-top: 5px;
     }
     .class-list{
-        background-color: #95A3B3;
+        background-color: #8895A3;
         color: #222222;
         border-radius: 10px;
         border: 1px solid #222222;
@@ -266,6 +353,7 @@ body {
         float: right;
         padding: 5px;
         margin-left: 50%;
+        cursor: pointer;
     }
     .class-list-ul{
         list-style: none;
@@ -307,7 +395,7 @@ body {
         margin-top: 5px;
         margin-bottom: 5px;
         border-radius: 5px;
-        background-color: #95A3B3;
+        background-color: #8895A3;
     }
     .create-class-save-button-container{
         text-align: center;
@@ -318,37 +406,38 @@ body {
         font-family: 'Raleway', sans-serif;
         font-size: 14px;
         color:white;
-        background-color: #4B4E6DC6;
+        background-color: #4B4E6D;
         border-radius: 5px;
+        cursor: pointer;
     }
     /* dashboard.js STYLES */
     .welcome{
         font-family: 'Poppins', sans-serif;
         text-align: center;
         color: white;
-        margin-top:50px;
-        margin-bottom:100px;
+        margin-top: 100px;
+        margin-bottom: 75px;
     }
     .get-started-container{
-        background-color: #95A3B3;
+        background-color: #8895A3;
         border-radius: 5px;
         margin-left:6.6666668%;
         margin-right:3.33333334%;
     }
     .create-class-container{
-        background-color: #95A3B3;
+        background-color: #8895A3;
         border-radius: 5px;
         margin-left:3.33333334%;
         margin-right:3.33333334%;
     }
     .view-classes-container{
-        background-color: #95A3B3;
+        background-color: #8895A3;
         border-radius: 5px;
         margin-left:3.33333334%;
         margin-right:3.33333334%;
     }
     .set-up-container{
-        background-color: #95A3B3;
+        background-color: #8895A3;
         border-radius: 5px;
         margin-left:3.33333334%;
         margin-right:3.33333334%;
@@ -468,7 +557,7 @@ body {
         margin-top: 5px;
         margin-bottom: 5px;
         border-radius: 5px;
-        background-color: #95A3B3;
+        background-color: #8895A3;
         font-size: 15px;
     }
     .edit-class-name{
@@ -488,8 +577,9 @@ body {
         margin-top: 15px;
         font-family: 'Raleway', sans-serif;
         font-size: 14px;
-        background-color: #95A3B3;
+        background-color: #8895A3;
         border-radius: 5px;
+        cursor: pointer;
     }
     /* gettingStarted.js STYLES */
     .lesson {
@@ -537,7 +627,7 @@ body {
         margin-right: 5%;
         border-radius: 5px;
         text-align:center;
-        background-color: #95A3B3;
+        background-color: #8895A3;
         font-size: 15px;
         float:right;
     }
@@ -549,8 +639,9 @@ body {
         margin-top: 15px;
         font-family: 'Raleway', sans-serif;
         font-size: 14px;
-        background-color: #95A3B3;
+        background-color: #8895A3;
         border-radius: 5px;
+        cursor: pointer;
     }
     /* studentList.js STYLES */
     .student-checkbox{
@@ -571,11 +662,11 @@ body {
         color: #222222;
     }
     .student-checkbox-container{
-        background-color: #95A3B3;
+        background-color: #8895A3;
         margin:5px;
     }
     .checkboxes-container{
-        background-color: #95A3B3;
+        background-color: #8895A3;
         width: 60%;
         margin: auto;
     }
@@ -622,12 +713,12 @@ body {
     
     .sidenav a:hover {
         text-decoration: none;
-        color: #95A3B3
+        color: #8895A3
     }
     
     .sidenav a:active {
         text-decoration: none;
-        color: #95A3B3
+        color: #8895A3
     }
     .sidenav ul {
         list-style-type: none;
@@ -662,6 +753,7 @@ body {
     .option-container{
         background-color: #4B4E6D;
         border-radius: 5px;
+        height: 200vh;
     }
     .assignment-create{
         float: left;
@@ -720,7 +812,7 @@ body {
     /* Assignment-Display STYLES */
         /* assignmentDisplay.js STYLES */
         .assignment-list{
-            background-color: #95A3B3;
+            background-color: #8895A3;
             color: #222222;
             border-radius: 10px;
             border: 1px solid #222222;
@@ -738,6 +830,7 @@ body {
             color:white;
             float:right;
             padding: 5px;
+            cursor: pointer;
         }
         .assignment-list-ul{
             list-style: none;
@@ -794,7 +887,7 @@ body {
             margin-top: 5px;
             margin-bottom: 5px;
             border-radius: 5px;
-            background-color: #95A3B3;
+            background-color: #8895A3;
         }
         .edit-class-checkbox-container{
             width: 90%;
@@ -802,12 +895,12 @@ body {
             margin-bottom: 5px;
             color: #222222;
             display: inline-flex;
-            background-color: #95A3B3;
+            background-color: #8895A3;
         }
         .edit-class-checkbox-legend{
             margin: auto;
             color: #222222;
-            background-color: #95A3B3;
+            background-color: #8895A3;
             border-radius: 10px;
         }
         .edit-class-checkbox-label{
@@ -821,8 +914,9 @@ body {
             margin-top: 15px;
             font-family: 'Raleway', sans-serif;
             font-size: 14px;
-            background-color: #95A3B3;
+            background-color: #8895A3;
             border-radius: 5px;
+            cursor: pointer;
         }
     /* Create-Assignment-Form STYLES */
         /* categoryList.js STYLES */
@@ -862,7 +956,7 @@ body {
             margin-top: 5px;
             margin-bottom: 5px;
             border-radius: 5px;
-            background-color: #95A3B3;
+            background-color: #8895A3;
         }
         .assignment-date-create{
             width: 90%;
@@ -872,7 +966,7 @@ body {
             margin-top: 5px;
             margin-bottom: 5px;
             border-radius: 5px;
-            background-color: #95A3B3;
+            background-color: #8895A3;
         }
         .class-checkbox-label{
             font-family: 'Raleway', sans-serif;
@@ -890,7 +984,9 @@ body {
             font-size: 14px;
             background-color: #84DCC6;
             border-radius: 5px;
+            cursor: pointer;
         }
+
     }
 
 

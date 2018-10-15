@@ -20,7 +20,7 @@ export class CreateAssignmentForm extends React.Component {
     ));
     let classesToAdd = [];
     const availableClasses = this.props.classes.filter(classItem=> classItem.userId.id === this.props.currentUser.id);
-    const classList = availableClasses.map(classItem =>{
+    const classList = availableClasses.map((classItem,i) =>{
       return(
         <div className="class-checkbox-container" key={classItem.id}>
           <label className="class-checkbox-label" htmlFor={classItem.id}>{classItem.name}</label>
@@ -28,18 +28,16 @@ export class CreateAssignmentForm extends React.Component {
             onChange={(e) =>{
               if(e.target.checked===true){
                 classesToAdd.push(e.target.id);
-                console.log('adding a class', classesToAdd);
               }
               if(e.target.checked===false){
                 const indexToDelete = classesToAdd.indexOf(e.target.id);
                 classesToAdd.splice(indexToDelete, 1);
-                console.log('removing a class', classesToAdd);
               }
             }}
             className="class-checkbox-list-item"
             type="checkbox"
             name={classItem.name}
-            id={classItem.id}>
+            id={classItem.id+i}>
           </input>
         </div>);
     });
@@ -58,26 +56,26 @@ export class CreateAssignmentForm extends React.Component {
           this.props.dispatch(fetchClasses());
           this.props.dispatch(fetchAssignments());
         }}>
-        <label className="assignment-create-label" htmlFor="name">Assignment Name</label>
+        <label className="assignment-create-label" htmlFor="assignment-create-name">Assignment Name</label>
         <input
           className="assignment-name-create"
           type="text"
           name="name"
-          id="name">
+          id="assignment-create-name">
         </input>
-        <label className="assignment-create-label" htmlFor="date">Assignment Date</label>
+        <label className="assignment-create-label" htmlFor="assignment-create-date">Assignment Date</label>
         <input
           className="assignment-date-create"
           type="date"
           name="date"
-          id="date">
+          id="assignment-create-date">
         </input>
-        <label className="assignment-create-label" htmlFor="date">Select a Category</label>
+        <label className="assignment-create-label" htmlFor="assignment-create-categoryId">Select a Category</label>
         <select
           className="category-select"
           type="select"
           name="categoryId"
-          id="categoryId">
+          id="assignment-create-categoryId">
           <option value="0"></option>
           {categoryOptions}
         </select>

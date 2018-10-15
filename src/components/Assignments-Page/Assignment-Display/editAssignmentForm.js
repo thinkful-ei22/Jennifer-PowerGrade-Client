@@ -35,15 +35,26 @@ export class EditAssignmentForm extends React.Component {
     return;
   }
   render (){
-    const availableClasses = this.props.classes.filter(classItem => classItem.userId.id === this.props.currentUser.id);
-    const categoryOptions = this.props.categories.map((category, i) => (
-      <option key={i} value={category.id}>{category.name}</option>
-    ));
-    const classList = availableClasses.map(classItem => {
+    let availableClasses;
+    if(this.props.loading === false && this.props.classes !== undefined){
+      availableClasses = this.props.classes.filter(classItem => classItem.userId.id === this.props.currentUser.id);
+    }else{
+      availableClasses = [];
+    }
+    let categoryOptions;
+    if(this.props.catLoading=== true){
+      categoryOptions= <option>Loading...</option>;
+    }
+    if(this.props.catLoading === false){
+      categoryOptions = this.props.categories.map((category, i) => (
+        <option key={i} value={category.id}>{category.name}</option>
+      ));
+    }
+    const classList = availableClasses.map((classItem, i) => {
       if(this.props.currentAssignment.classes.includes(classItem.id)){
         return (
           <div className="edit-class-checkbox-container" key={classItem.id}>
-            <label className="edit-class-checkbox-label" htmlFor={classItem.id}>{classItem.name}</label>
+            <label className="edit-class-checkbox-label" htmlFor={classItem.id+i}>{classItem.name}</label>
             <input
               onChange={(e)=> {
                 if(e.target.checked===true){
@@ -57,9 +68,8 @@ export class EditAssignmentForm extends React.Component {
               }}
               className="class-checkbox-list-item"
               type="checkbox"
-              role="checkbox"
               name={classItem.name}
-              id={classItem.id}
+              id={classItem.id +i}
               defaultChecked>
             </input>
           </div>);
@@ -67,7 +77,7 @@ export class EditAssignmentForm extends React.Component {
       else{
         return(
           <div className="edit-class-checkbox-container" key={classItem.id}>
-            <label className="edit-class-checkbox-label" htmlFor={classItem.id}>{classItem.name}</label>
+            <label className="edit-class-checkbox-label" htmlFor={classItem.id+i+1}>{classItem.name}</label>
             <input
               onChange={(e)=> {
                 if(e.target.checked===true){
@@ -82,7 +92,7 @@ export class EditAssignmentForm extends React.Component {
               className="class-checkbox-list-item"
               type="checkbox"
               name={classItem.name}
-              id={classItem.id}>
+              id={classItem.id +i+1}>
             </input>
           </div>);
       }
@@ -141,7 +151,9 @@ const mapStateToProps = state => {
     currentAssignment: (state.assignmentCRUDReducer.currentAssignment !== null) ? state.assignmentCRUDReducer.currentAssignment : {name: 'Loading', date: '1/6/1988', userId: 'userId', classes: [], categoryId: 'Test', grades: []},
     categories: state.categoriesCRUDReducer.categories,
     classes: state.classesCRUDReducer.classes,
-    currentUser: state.loginReducer.currentUser
+    currentUser: state.loginReducer.currentUser,
+    loading: state.classesCRUDReducer.loading,
+    catLoading: state.categoriesCRUDReducer.loading
   };
 };
 

@@ -1,7 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import ClassDropdown from './classDropdown';
-import Input from '../../input';
 import {searchAssignmentFilter} from '../../../actions/GET/fetchAssignments';
 import '../../componentStyles.css';
 import '../../componentTabletStyles.css';

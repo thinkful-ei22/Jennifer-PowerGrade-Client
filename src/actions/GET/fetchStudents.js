@@ -1,6 +1,10 @@
 import {API_BASE_URL} from '../../config';
 import {normalizeResponseErrors} from '../OTHER/utils';
 
+export const FETCH_STUDENTS_REQUEST='FETCH_STUDENTS_REQUEST';
+export const fetchStudentsRequest= () => ({
+  type: FETCH_STUDENTS_REQUEST
+});
 export const FETCH_STUDENTS_SUCCESS='FETCH_STUDENTS_SUCCESS';
 export const fetchStudentsSuccess= students => ({
   type: FETCH_STUDENTS_SUCCESS,
@@ -13,6 +17,7 @@ export const fetchStudentsError= error => ({
 });
 
 export const fetchStudents = () => (dispatch,getState) => {
+  dispatch(fetchStudentsRequest());
   const authToken = getState().loginReducer.authToken;
   return fetch(`${API_BASE_URL}/api/students`, {
     method: 'GET',

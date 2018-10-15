@@ -13,32 +13,49 @@ export class ClassesDisplay extends React.Component {
     this.props.dispatch(fetchClasses());
   }
   activatePopupEditClass(e){
-    const popup = e.target.parentElement.parentElement.nextSibling;
+    const popup = e.target.parentElement.parentElement.parentElement.nextSibling;
     if(popup.className === 'edit-class-popup-hidden'){
       return popup.className = 'edit-class-popup-active';
     }
     return;
   }
   render(){
-    const availableClasses = this.props.classes.filter(classItem => classItem.userId.id === this.props.currentUser.id);
-    const classList=availableClasses.map(classItem =>(
-      <div className="class-list" key={classItem.id}>
-        <li 
-          onClick={(e)=>{
-            this.activatePopupEditClass(e);
-            this.props.dispatch(fetchOneClass(e.target.id));
-          }}
-          className="class-list-item" id={classItem.id}>
-          {classItem.name}
-        </li>
-        <i  id={classItem.id} className="delete-class-x fa fa-times" 
-          onClick={(e) => {
-            this.props.dispatch(deleteClass(e.target.id));
-            this.props.dispatch(fetchClasses());
-          }}></i>     
-      </div>)); 
+    let availableClasses;
+    let classList;
+    if(this.props.loading===false){
+      availableClasses = this.props.classes.filter(classItem => classItem.userId.id === this.props.currentUser.id);
+    }
+    if(this.props.loading === false){
+      if(availableClasses.length === 0){
+        classList = <div>No classes yet. Create one!</div>;
+      }else{
+        classList=availableClasses.map((classItem,i) =>(
+          <div className="class-list" key={classItem.id}>
+            <li 
+              onClick={(e)=>{
+                this.activatePopupEditClass(e);
+                this.props.dispatch(fetchOneClass(e.target.id));
+              }}
+              className="class-list-item" id={classItem.id+i}>
+              {classItem.name}
+            </li>
+            <i  id={classItem.id} className="delete-class-x fa fa-times" 
+              onClick={(e) => {
+                this.props.dispatch(deleteClass(e.target.id));
+                this.props.dispatch(fetchClasses());
+              }}></i>     
+          </div>)); 
+      }
+    }
+    if(this.props.loading === true){
+      classList = <div>Loading...</div>;
+    }
+    
     return (
-      <ul className="class-list-ul">{classList}</ul>
+      <div className="class-edit-container">
+        <h2 className="lesson-title">Click on a class to edit.</h2>
+        <ul className="class-list-ul">{classList}</ul>
+      </div>
     );
   }
 }
@@ -47,7 +64,8 @@ const mapStateToProps = state => {
   return {
     classes: state.classesCRUDReducer.classes,
     currentClass: state.classesCRUDReducer.currentClass,
-    currentUser: state.loginReducer.currentUser
+    currentUser: state.loginReducer.currentUser,
+    loading: state.classesCRUDReducer.loading
   };
 };
 
