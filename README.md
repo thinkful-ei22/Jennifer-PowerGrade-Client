@@ -2,7 +2,8 @@
 
 As a former teacher, I know how important it is to be able to quicky manage classroom data. PowerGrade is a tool for teachers to create classes, add assignments, and view and edit grades.  
 
-**Live App**: https://powergrade-client.herokuapp.com/
+[Live App](https://powergrade-client.herokuapp.com/)
+[Server-side repo]()
 
 ## Features:
 Teachers can login to an existing account or register for the first time.
