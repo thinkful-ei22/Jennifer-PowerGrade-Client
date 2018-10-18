@@ -14,15 +14,15 @@ import '../componentTabletStyles.css';
 export class Dashboard extends React.Component {
   activatePopupGetStarted(e){
     const popup = e.target.parentElement.parentElement.parentElement.nextSibling;
-    if(popup.className ==='get-started-popup-hidden col-2'){
-      return popup.className = 'get-started-popup-active col-2';
+    if(popup.className ==='get-started-popup-hidden col-3'){
+      return popup.className = 'get-started-popup-active col-3';
     }
     return;
   }
   closePopupGetStarted(e){
     const popup = e.target.parentElement;
-    if(popup.className === 'get-started-popup-active col-2'){
-      return popup.className = 'get-started-popup-hidden col-2';
+    if(popup.className === 'get-started-popup-active col-3'){
+      return popup.className = 'get-started-popup-hidden col-3';
     }
   }
   activatePopupClassForm(e){
@@ -69,6 +69,10 @@ export class Dashboard extends React.Component {
   }
 
   render(){
+    const iconStyle={
+      width:'80px',
+      cursor:'pointer'
+    };
     return (
       <div>
         <div className="row">
@@ -79,15 +83,28 @@ export class Dashboard extends React.Component {
         </div>
         <div className="row">
           <div className="col-6 get-started-container option-box">
-            <div className="go"><a onClick={(e)=> this.activatePopupGetStarted(e)}><i className="fa fa-plus"></i></a></div>
-            <h2 className="action-heading" >Get Started</h2>
+            <div className="go"><a onClick={(e)=> this.activatePopupGetStarted(e)}><i className="far fa-question-circle" style={iconStyle}></i></a></div>
+            <h2 className="action-heading" >Get Help</h2>
           </div>
-          <div className="get-started-popup-hidden col-2">
+          <div className="get-started-popup-hidden col-3">
             <i className="close-form fa fa-times" onClick={(e) => this.closePopupGetStarted(e)}></i>
             <GettingStarted/>
           </div>
+          <div className="col-6 view-classes-container option-box">
+            <div className="go"><a onClick={(e)=> this.activatePopupClassView(e)}><img src="https://github.com/thinkful-ei22/Jennifer-PowerGrade-Client/blob/master/Screenshots/class.png?raw=true" alt="class" style={iconStyle}></img></a></div>
+            <h2 className="action-heading" >View Classes</h2>
+          </div>
+          <div className="view-classes-popup-hidden col-2">
+            <div className="class-view-edit-container">
+              <i className="close-form fa fa-times" onClick={(e) => this.closePopupClassView(e)} ></i>
+              <ClassesDisplay/>
+              <div className="edit-class-popup-hidden">
+                <EditClassForm/>
+              </div>
+            </div>
+          </div>
           <div className="col-6 create-class-container option-box">
-            <div className="go"><a onClick={(e)=> this.activatePopupClassForm(e)}><i className="fa fa-plus"></i></a></div>
+            <div className="go"><a onClick={(e)=> this.activatePopupClassForm(e)}><i className="far fa-plus-square" style={iconStyle}></i></a></div>
             <h2 className="action-heading" >Create Class</h2>
           </div>
           <div className="create-class-popup-hidden col-2">
@@ -95,21 +112,8 @@ export class Dashboard extends React.Component {
             <h2 className="popup-heading">Create a Class</h2>
             <CreateClassForm/>
           </div>
-          <div className="col-6 view-classes-container option-box">
-            <div className="go"><a onClick={(e)=> this.activatePopupClassView(e)}><i className="fa fa-plus"></i></a></div>
-            <h2 className="action-heading" >View Classes</h2>
-          </div>
-          <div className="view-classes-popup-hidden col-2">
-            <div className="class-view-edit-container">
-              <i className="close-form fa fa-times" onClick={(e) => this.closePopupClassView(e)}></i>
-              <ClassesDisplay/>
-              <div className="edit-class-popup-hidden">
-                <EditClassForm/>
-              </div>
-            </div>
-          </div>
           <div className="col-6 set-up-container option-box">
-            <div className="go"><a onClick={(e)=> this.activatePopupSetup(e)}><i className="fa fa-plus"></i></a></div>
+            <div className="go"><a onClick={(e)=> this.activatePopupSetup(e)}> <img src="https://github.com/thinkful-ei22/Jennifer-PowerGrade-Client/blob/master/Screenshots/grade.png?raw=true" alt="grade" style={iconStyle}/></a></div>
             <h2 className="action-heading" >Setup Gradebook</h2>
           </div>
           <div className="gradebook-setup-popup-hidden col-2">

@@ -7,17 +7,14 @@
     box-sizing:border-box;
 }
 body {
-    background-color: #222222;
-    width: 100%;
-    height: 100%;
+    background:
+    url(https://github.com/thinkful-ei22/Jennifer-PowerGrade-Client/blob/master/Screenshots/what-the-hex-dark/what-the-hex-dark.png?raw=true);
 }
 .row{
     max-width: 100%;
     padding-left: 10px;
     padding-right: 10px;
-
     margin: auto;
-    background-color: #222222;
 }
 /* Clearfix */
 .row::before,
@@ -39,13 +36,10 @@ body {
     .container{
         margin-left: auto;
         margin-right: auto;
-        background-color: #8895A3;
-        float: none;
+        background-color: white;
         padding: 15px;
         border-radius: 10px;
-        /* margin-bottom: 20px; */
         height: 301px;
-        /* display: inline-flex; */
     }
     .info-heading{
         font-family: 'Poppins', sans-serif;
@@ -79,42 +73,52 @@ body {
     .go-to-login{
         float:left;
         display: inline-flex;
-        color:white;
+        color:black;
         cursor: pointer;
     }
     .go-to-register{
         float: left;
         display: inline-flex;
-        color: white;
+        color: black;
         cursor: pointer;
     }
     .go-to-about{
         float: right;
         display: inline-flex;
-        color:white;
+        color:black;
         cursor: pointer;
     }
     .aboutLogin{
         display: inline-flex;
-        float: left;
-        margin-left: 25%;
-        margin-top: 15px;
+        float: right;
+        margin-right: 25%;
+        margin-top: 25px;
+        margin-bottom: 15px;
         font-family: 'Raleway', sans-serif;
         font-size: 14px;
-        background-color: #84DCC6;
+        background-color: #8895A3;
         border-radius: 5px;
         cursor: pointer;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        padding-left: 30px;
+        width: 100px;
     }
     .aboutRegister{
         display: inline-flex;
-        float: right;
-        margin-right: 25%;
-        margin-top: 15px;
+        float: left;
+        margin-left: 25%;
+        margin-top: 25px;
+        margin-bottom: 15px;
         font-family: 'Raleway', sans-serif;
         font-size: 14px;
-        background-color: #84DCC6;
+        background-color: #8895A3;
         border-radius: 5px;
         cursor: pointer;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        padding-left: 21px;
+        width: 100px;
     }
     /* logoutAlert.js STYLES */
     .warning-box{
@@ -122,12 +126,12 @@ body {
         margin-top: 10%;
         margin-left: 43%;
         position: absolute;
-        background-color: #84DCC6;
+        background-color: white;
         width: 200px;
         text-align: center;
         padding: 5px;
         border-radius: 10px;
-        color: #222222;
+        color: black;
     }
     /* loginForm.js STYLES  */
     .form-error{
@@ -142,9 +146,12 @@ body {
     }
     .login-form label{
         font-family: 'Raleway', sans-serif;
-        color: #FFFFFF;
+        color: black;
         margin-left:5%;
         margin-top: 10px;
+    }
+    .login-input{
+        margin-top:15px;
     }
     .login-input input{
         width: 90%;
@@ -159,14 +166,17 @@ body {
 
     .login-button-container{
         text-align: center;
+        margin-top: 20px;
     }
     .login-button{
         margin: 5px;
         margin-top: 15px;
         font-family: 'Raleway', sans-serif;
         font-size: 14px;
-        background-color: #84DCC6;
+        background-color: #8895A3;
         border-radius: 5px;
+        width: 100px;
+        padding: 10px;
         cursor: pointer;
     }
     /* registerForm.js STYLES  */
@@ -176,9 +186,12 @@ body {
     }
     .signup-form label{
         font-family: 'Raleway', sans-serif;
-        color: #FFFFFF;
+        color: black;
         margin-left:5%;
         margin-top: 10px;
+    }
+    .signup-input{
+        margin-top:15px;
     }
     .signup-input input{
         width: 90%;
@@ -192,14 +205,17 @@ body {
     }
     .signup-button-container{
         text-align: center;
+        margin-top: 20px;
     }
     .signup-button{
         margin: 5px;
         margin-top: 15px;
         font-family: 'Raleway', sans-serif;
         font-size: 14px;
-        background-color: #84DCC6;
+        background-color: #8895A3;
         border-radius: 5px;
+        width: 100px;
+        padding: 10px;
         cursor: pointer;
     }
     /* landingPage.js STYLES  */
@@ -214,9 +230,13 @@ body {
         color: white;
     }
     .login-form-container{
-        background-color: #4B4E6D;
+        background-color: white;
         border-radius: 10px;
         margin-bottom: 10px;
+        padding-top: 25px;
+        padding-bottom: 25px;
+        padding-left: 50px;
+        padding-right: 50px;
     }
     .signup-heading{
         text-align: center;
@@ -224,8 +244,12 @@ body {
         color: white;
     }
     .signup-form-container{
-        background-color: #4B4E6D;
+        background-color: white;
         border-radius: 10px;
+        padding-top: 25px;
+        padding-bottom: 25px;
+        padding-left: 50px;
+        padding-right: 50px;
     }
 /* NAVBAR STYLES */
     /* navbar.js STYLES */
@@ -269,11 +293,11 @@ body {
     }
     .topnav-link a:link{
         text-decoration: none;
-        color: #222222;
+        color: black;
     }
     .topnav-link a:visited{
         text-decoration: none;
-        color: #222222;
+        color: black;
     }
     .topnav-link a:hover{
         text-decoration: none;
@@ -289,11 +313,11 @@ body {
     }
     .topnav-link-logout a:link{
         text-decoration: none;
-        color: #222222;
+        color: black;
     }
     .topnav-link-logout a:visited{
         text-decoration: none;
-        color: #222222;
+        color: black;
     }
     .topnav-link-logout a:hover{
         text-decoration: none;
@@ -327,7 +351,7 @@ body {
     .class-name-link{
         text-decoration: none;
         font-size: 15px;
-        color: #222222;
+        color: black;
         display: inline-block;
     }
     .delete-class-x{
@@ -347,26 +371,26 @@ body {
     }
     .class-list a:link {
         text-decoration: none;
-        color: #222222;
+        color: black;
     }
     .class-list a:visited {
         text-decoration: none;
-        color:  #222222;
+        color:  black;
     }
     
     .class-list a:hover {
         text-decoration: none;
-        color: white;
+        color: #868686;
     }
     
     .class-list a:active {
         text-decoration: none;
-        color:  #222222;
+        color:  #84DCC6;
     }
     /* createClassForm.js STYLES */
     .create-class-form label{
         font-family: 'Raleway', sans-serif;
-        color: #222222;
+        color: black;
         margin-left: 5%;
         margin-top: 10px;
     }
@@ -387,9 +411,10 @@ body {
         margin-top: 15px;
         font-family: 'Raleway', sans-serif;
         font-size: 14px;
-        color:white;
-        background-color: #4B4E6D;
+        background-color: #8895A3;
         border-radius: 5px;
+        width: 100px;
+        padding: 10px;
         cursor: pointer;
     }
     /* dashboard.js STYLES */
@@ -436,11 +461,12 @@ body {
         width:100%;
         text-align:center;
         font-size: 60px;
-        color: #4B4E6D;
+        color: black;
+        height:95px;
     }
     .action-heading{
         color: white;
-        font-size:28px;
+        font-size:20px;
         text-align:center;
         margin:0px;
         font-family: 'Poppins', sans-serif;
@@ -462,7 +488,7 @@ body {
     }
     .get-started-popup-active{
         position: absolute;
-        background-color: #84DCC6;
+        background-color: white;
         border-radius: 10px;
         top: 100px;
         padding: 20px;
@@ -481,21 +507,9 @@ body {
         margin-bottom: 20px;
         width:100%;
     }
-    .current-lesson img {
-        height: 100%
-    } 
-    .thumbnail {
-        display: inline-block;
-        cursor: pointer;
-        height: 60px;
-    }
-    .thumbnail p{
-        height: 60px;
-        max-width: 100%;
-    }
     .create-class-popup-active{
         position: absolute;
-        background-color: #84DCC6;
+        background-color: white;
         border-radius: 10px;
         top: 100px;
         padding: 20px;
@@ -504,7 +518,7 @@ body {
     }
     .view-classes-popup-active{
         position: absolute;
-        background-color: #84DCC6;
+        background-color: white;
         width: 50%;
         border-radius: 10px;
         padding: 15px;
@@ -513,7 +527,7 @@ body {
     }
     .edit-class-popup-active{
         position: absolute;
-        background-color: #6DB5A3;
+        background-color: white;
         width: 92%;
         padding: 10px;
         border-radius: 10px;
@@ -521,7 +535,7 @@ body {
     }
     .gradebook-setup-popup-active{
         position: absolute;
-        background-color: #84DCC6;
+        background-color: white;
         margin-right: 3%;
         width: 97%;
         border-radius: 10px;
@@ -529,7 +543,7 @@ body {
         box-shadow: 5px 5px 10px;
     }
     .popup-heading{
-        color: #222222;
+        color: black;
         text-align: center;
         font-family: 'Poppins', sans-serif;
     }
@@ -549,7 +563,7 @@ body {
     }
     .edit-class-form label{
         font-family: 'Raleway', sans-serif;
-        color: #222222;
+        color: black;
     }
     .edit-class-input{
         width: 100%;
@@ -567,7 +581,7 @@ body {
     .edit-class-name label{
         margin-top: 10px;
         margin-right: 5px;
-        color: #222222;
+        color: black;
     }
     .edit-class-save-button-container{
         text-align: center;
@@ -579,23 +593,28 @@ body {
         font-size: 14px;
         background-color: #8895A3;
         border-radius: 5px;
+        width: 100px;
+        padding: 10px;
         cursor: pointer;
     }
     /* gettingStarted.js STYLES */
     .lesson {
         border-radius: 10px;
-        background-color: #4B4E6D;
+        background-color: white;
         padding:10px;
         margin: 10px;
     }
     .lesson-title{
-        color: white;
+        color: #4B4E6D;
+        text-align: center;
     }
     .get-started-heading{
         text-align: center;
     }
     .lesson-steps{
-        color: white;
+        color: black;
+        width: 75%;
+        margin: auto;
     }
     /* gradebookSetupForm.js STYLES */
     .gradebook-setup-form{
@@ -607,14 +626,14 @@ body {
     .gradebook-setup-form label{
         margin-top: 10px;
         margin-right: 20px;
-        color:white;
+        color:black;
         margin-left: 5%;
         float: left;
     }
     .input-container{
         width: 100%;
         display: inline-block;
-        background-color: #4B4E6D;
+        background-color: white;
         margin: 5px;
         border-radius: 10px;
         padding: 5px;
@@ -641,6 +660,8 @@ body {
         font-size: 14px;
         background-color: #8895A3;
         border-radius: 5px;
+        width: 100px;
+        padding: 10px;
         cursor: pointer;
     }
     /* studentList.js STYLES */
@@ -659,20 +680,20 @@ body {
         margin-top: 6px;
         width:60%;
         font-family: 'Raleway', sans-serif;
-        color: #222222;
+        color: black;
     }
     .student-checkbox-container{
         background-color: #8895A3;
         margin:5px;
     }
     .checkboxes-container{
-        background-color: #8895A3;
+        background-color: white;
         width: 60%;
         margin: auto;
     }
     .checkboxes-container label{
         font-family: 'Raleway', sans-serif;
-        color: #222222;
+        color: black;
         margin-left: 5%;
     }
     .student-checkbox-legend{
@@ -718,7 +739,7 @@ body {
     
     .sidenav a:active {
         text-decoration: none;
-        color: #8895A3
+        color: #84DCC6
     }
     .sidenav ul {
         list-style-type: none;
@@ -731,12 +752,12 @@ body {
         margin-left:15%;
         margin-top:40px;
         background-color: white;
-        border: solid 1px #222222;
+        border: solid 1px black;
         border-collapse: collapse;
         text-align: center;
     }
     th{
-        border: solid 1px #222222;
+        border: solid 1px black;
         border-collapse: collapse;
         height: 35px;
         background-color: #4B4E6D;
@@ -744,7 +765,7 @@ body {
         color: white;
     }
     td{
-        border: solid 1px #222222;
+        border: solid 1px black;
         border-collapse: collapse;
         height: 35px;
     }
@@ -759,14 +780,14 @@ body {
         float: left;
         margin-top: 60px;
         border-radius: 10px;
-        background-color: #222222;
+        background-color: white;
         padding: 15px;
         width: 700px;
         margin-left: 3%;
     }
     .assignment-create-label{
         font-family: 'Raleway', sans-serif;
-        color: #FFFFFF;
+        color: black;
         width:50%;
         margin-top: 10px;
     }
@@ -774,7 +795,7 @@ body {
         float: right;
         margin-top: 5px;
         border-radius: 10px;
-        background-color: #222222;
+        background-color: white;
         padding: 15px;
         width: 700px;
         margin-right: 3%;
@@ -784,14 +805,14 @@ body {
         margin-left: 10%;
         width: 600px;
         border-radius: 10px;
-        background-color: #84DCC6;
+        background-color: white;
         padding: 15px;
         position: absolute;
         box-shadow: 5px 5px 10px;
     }
     .assignment-edit label{
         font-family: 'Raleway', sans-serif;
-        color: #222222;
+        color: black;
         width:50%;
         margin-top: 10px;
     }
@@ -807,7 +828,7 @@ body {
     .assignment-edit-heading{
         text-align: center;
         font-family: 'Poppins', sans-serif;
-        color: #222222;
+        color: black;
         margin:5px;
     }
     /* Assignment-Display STYLES */
@@ -827,7 +848,7 @@ body {
         .assignment-name-link{
             text-decoration: none;
             font-size: 15px;
-            color: #222222;
+            color: black;
             display: inline-block;
         }
         .delete-assignment-x{
@@ -844,14 +865,13 @@ body {
         /*  assignmentFilters.js STYLES */
         .assignment-filters-label{
             font-family: 'Raleway', sans-serif;
-            color: #FFFFFF;
+            color: black;
             margin-top: 10px;
         }
         .assignment-search-filter{
             float: right;
             width: 75%;
             height: 30px;
-            border: white;
             border-radius: 5px;
         }
         .assignment-filters{
@@ -865,7 +885,7 @@ body {
         }
         .class-select-label{
             font-family: 'Raleway', sans-serif;
-            color: #FFFFFF;
+            color: white;
             margin-top: 10px;
         }
         .class-select{
@@ -880,7 +900,7 @@ body {
         /* editAssignmentForm.js STYLES */
         .assignment-edit-label{
             font-family: 'Raleway', sans-serif;
-            color: #222222;
+            color: black;
             margin-top: 10px;
         }
         .assignment-edit-input{
@@ -897,13 +917,13 @@ body {
             width: 90%;
             margin-left: 5%;
             margin-bottom: 5px;
-            color: #222222;
+            color: black;
             display: inline-flex;
             background-color: #8895A3;
         }
         .edit-class-checkbox-legend{
             margin: auto;
-            color: #222222;
+            color: black;
             background-color: #8895A3;
             border-radius: 10px;
         }
@@ -920,6 +940,8 @@ body {
             font-size: 14px;
             background-color: #8895A3;
             border-radius: 5px;
+            width: 100px;
+            padding: 10px;
             cursor: pointer;
         }
     /* Create-Assignment-Form STYLES */
@@ -945,7 +967,7 @@ body {
         }
         .class-checkbox-legend{
             margin:auto;
-            color: white;
+            color: black;
         }
         /* createAssignmentForm.js STYLES */
         .create-assignment-form{
@@ -975,7 +997,7 @@ body {
         }
         .class-checkbox-label{
             font-family: 'Raleway', sans-serif;
-            color: #FFFFFF;
+            color: white;
             width:80%;
         }
         .assignment-create-save-button-container{
@@ -987,8 +1009,10 @@ body {
             margin-top: 15px;
             font-family: 'Raleway', sans-serif;
             font-size: 14px;
-            background-color: #84DCC6;
+            background-color: #8895A3;
             border-radius: 5px;
+            width: 100px;
+            padding: 10px;
             cursor: pointer;
         }
     }

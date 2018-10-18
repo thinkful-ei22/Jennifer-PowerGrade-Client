@@ -64,8 +64,7 @@ export class LoginPage extends React.Component{
         <div className="row">
           <h1 className="welcome-heading">Welcome to PowerGrade</h1>  
           <div className="row">
-            <div className="col-2 login-form-container">
-              <h3 className="login-heading">Log-In</h3>
+            <div className="col-3 login-form-container">
               {component}
               <p onClick={() => this.showRegister()}className="go-to-register">Sign up instead</p>
               <p onClick={() => this.showAbout()}className="go-to-about">Learn more</p>
@@ -79,8 +78,7 @@ export class LoginPage extends React.Component{
       return (
         <div className="row">
           <h1 className="welcome-heading">Welcome to PowerGrade</h1>  
-          <div className="col-2 signup-form-container">
-            <h3 className="signup-heading">Sign-Up</h3>
+          <div className="col-3 signup-form-container">
             {component}
             <p onClick={()=> this.showLogin()}className="go-to-login">Login instead</p>
             <p onClick={() => this.showAbout()}className="go-to-about">Learn more</p>
