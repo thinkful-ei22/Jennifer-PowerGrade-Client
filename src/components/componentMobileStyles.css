@@ -1,7 +1,6 @@
 @media only screen 
   and (min-width: 320px) 
-  and (max-width: 480px)
-  and (-webkit-min-device-pixel-ratio: 2) {
+  and (max-width: 480px){
 /* UNIVERSAL STYLES */
 *{
     box-sizing:border-box;
