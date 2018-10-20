@@ -468,21 +468,6 @@ body {
         margin:0px;
         font-family: 'Poppins', sans-serif;
     }
-    .get-started-popup-hidden{
-        display: none;
-    }
-    .create-class-popup-hidden{
-        display: none;
-    }
-    .view-classes-popup-hidden{
-        display: none;
-    }
-    .edit-class-popup-hidden{
-        display: none;
-    }
-    .gradebook-setup-popup-hidden{
-        display: none;
-    }
     .get-started-popup-active{
         position: absolute;
         background-color: white;

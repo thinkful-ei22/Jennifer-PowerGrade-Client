@@ -10,69 +10,84 @@ import GettingStarted from './gettingStarted';
 import '../componentMobileStyles.css';
 import '../componentStyles.css';
 import '../componentTabletStyles.css';
+import { setDashboardDisplay } from '../../actions/OTHER/displayAction';
+import { fetchCategories } from '../../actions/GET/fetchCategories';
+import { fetchClasses } from '../../actions/GET/fetchClasses';
+import { fetchStudents } from '../../actions/GET/fetchStudents';
 
 export class Dashboard extends React.Component {
-  activatePopupGetStarted(e){
-    const popup = e.target.parentElement.parentElement.parentElement.nextSibling;
-    if(popup.className ==='get-started-popup-hidden col-3'){
-      return popup.className = 'get-started-popup-active col-3';
-    }
-    return;
+  componentDidMount(){
+    this.props.dispatch(fetchCategories());
+    this.props.dispatch(fetchClasses());
+    this.props.dispatch(fetchStudents());
   }
-  closePopupGetStarted(e){
-    const popup = e.target.parentElement;
-    if(popup.className === 'get-started-popup-active col-3'){
-      return popup.className = 'get-started-popup-hidden col-3';
-    }
+  closePopup(){
+    this.props.dispatch(setDashboardDisplay('none'));
   }
-  activatePopupClassForm(e){
-    const popup = e.target.parentElement.parentElement.parentElement.nextSibling;
-    if(popup.className === 'create-class-popup-hidden col-2'){
-      return popup.className = 'create-class-popup-active col-2';
-    }
-    return;
+  activatePopupGetStarted(){
+    this.props.dispatch(setDashboardDisplay('help'));
   }
-  closePopupClassForm(e){
-    const popup = e.target.parentElement;
-    if(popup.className==='create-class-popup-active col-2'){
-      return popup.className = 'create-class-popup-hidden col-2';
-    }
-    return;
+  activatePopupClassForm(){
+    this.props.dispatch(setDashboardDisplay('create'));
   }
-  activatePopupClassView(e){
-    const popup = e.target.parentElement.parentElement.parentElement.nextSibling;
-    if(popup.className === 'view-classes-popup-hidden col-2'){
-      return popup.className = 'view-classes-popup-active col-2';
-    }
-    return;
+  activatePopupClassView(){
+    this.props.dispatch(setDashboardDisplay('view'));
   }
-  closePopupClassView(e){
-    const popup = e.target.parentElement.parentElement;
-    if(popup.className === 'view-classes-popup-active col-2'){
-      return popup.className = 'view-classes-popup-hidden col-2';
-    }
-    return;
+  activatePopupSetup(){
+    this.props.dispatch(setDashboardDisplay('setup'));
   }
-  activatePopupSetup(e){
-    const popup = e.target.parentElement.parentElement.parentElement.nextSibling;
-    if(popup.className === 'gradebook-setup-popup-hidden col-2'){
-      return popup.className = 'gradebook-setup-popup-active col-2';
-    }
-    return;
+  // activatePopupClassEdit(){
+  //   this.props.dispatch(setDashboardDisplay('edit'));
+  // }
+  closePopupClassEdit(){
+    this.props.dispatch(setDashboardDisplay('view'));
   }
-  closePopupSetup(e){
-    const popup = e.target.parentElement;
-    if(popup.className === 'gradebook-setup-popup-active col-2'){
-      return popup.className = 'gradebook-setup-popup-hidden col-2';
-    }
-    return;
-  }
-
   render(){
     const iconStyle={
       width:'80px',
       cursor:'pointer'
     };
+    let popup;
+    if(this.props.display==='edit'){
+      popup = 
+      <div className='edit-class-popup-active col-2'>
+        <i className="close-form fa fa-times" onClick={() => this.closePopupClassEdit()}></i>
+        <h2 className="popup-heading">Edit Class</h2>
+        <EditClassForm {...this.props}/>
+      </div>;
+    }else if(this.props.display==='setup'){
+      popup = 
+      <div className="gradebook-setup-popup-active col-3">
+        <i className="close-form fa fa-times" onClick={() => this.closePopup()}></i>
+        <h2 className="popup-heading">Set Gradebook Categories</h2>
+        <p className="setup-instructions">Please enter the percentage that you would like each category to be worth.</p>
+        <GradebookSetupForm/>
+      </div>;
+    }else if(this.props.display==='view'){
+      popup= 
+      <div className="view-classes-popup-active col-2">
+        <div className="class-view-edit-container">
+          <i className="close-form fa fa-times" onClick={() => this.closePopup()} ></i>
+          <ClassesDisplay openEdit={this.activatePopupClassEdit} {...this.props}/>
+        </div>
+      </div>;
+    }else if(this.props.display==='create'){
+      popup=    
+      <div className="create-class-popup-active col-2">
+        <i className="close-form fa fa-times" onClick={() => this.closePopup()}></i>
+        <h2 className="popup-heading">Create a Class</h2>
+        <CreateClassForm/>
+      </div>;
+    }else if(this.props.display==='help'){
+      popup= 
+      <div className="get-started-popup-active col-3">
+        <i className="close-form fa fa-times" onClick={() => this.closePopup()}></i>
+        <GettingStarted/>
+      </div>;
+    }else if(this.props.display==='none'){
+      popup =
+      <div></div>;
+    }
     return (
       <div>
         <div className="row">
@@ -83,45 +98,22 @@ export class Dashboard extends React.Component {
         </div>
         <div className="row">
           <div className="col-6 get-started-container option-box">
-            <div className="go"><a onClick={(e)=> this.activatePopupGetStarted(e)}><i className="far fa-question-circle" style={iconStyle}></i></a></div>
+            <div className="go"><a onClick={()=> this.activatePopupGetStarted()}><i className="far fa-question-circle" style={iconStyle}></i></a></div>
             <h2 className="action-heading" >Get Help</h2>
           </div>
-          <div className="get-started-popup-hidden col-3">
-            <i className="close-form fa fa-times" onClick={(e) => this.closePopupGetStarted(e)}></i>
-            <GettingStarted/>
-          </div>
           <div className="col-6 view-classes-container option-box">
-            <div className="go"><a onClick={(e)=> this.activatePopupClassView(e)}><img src="https://github.com/thinkful-ei22/Jennifer-PowerGrade-Client/blob/master/Screenshots/class.png?raw=true" alt="class" style={iconStyle}></img></a></div>
+            <div className="go"><a onClick={()=> this.activatePopupClassView()}><img src="https://github.com/thinkful-ei22/Jennifer-PowerGrade-Client/blob/master/Screenshots/class.png?raw=true" alt="class" style={iconStyle}></img></a></div>
             <h2 className="action-heading" >View Classes</h2>
           </div>
-          <div className="view-classes-popup-hidden col-2">
-            <div className="class-view-edit-container">
-              <i className="close-form fa fa-times" onClick={(e) => this.closePopupClassView(e)} ></i>
-              <ClassesDisplay/>
-              <div className="edit-class-popup-hidden">
-                <EditClassForm/>
-              </div>
-            </div>
-          </div>
           <div className="col-6 create-class-container option-box">
-            <div className="go"><a onClick={(e)=> this.activatePopupClassForm(e)}><i className="far fa-plus-square" style={iconStyle}></i></a></div>
+            <div className="go"><a onClick={()=> this.activatePopupClassForm()}><i className="far fa-plus-square" style={iconStyle}></i></a></div>
             <h2 className="action-heading" >Create Class</h2>
           </div>
-          <div className="create-class-popup-hidden col-2">
-            <i className="close-form fa fa-times" onClick={(e) => this.closePopupClassForm(e)}></i>
-            <h2 className="popup-heading">Create a Class</h2>
-            <CreateClassForm/>
-          </div>
           <div className="col-6 set-up-container option-box">
-            <div className="go"><a onClick={(e)=> this.activatePopupSetup(e)}> <img src="https://github.com/thinkful-ei22/Jennifer-PowerGrade-Client/blob/master/Screenshots/grade.png?raw=true" alt="grade" style={iconStyle}/></a></div>
+            <div className="go"><a onClick={()=> this.activatePopupSetup()}> <img src="https://github.com/thinkful-ei22/Jennifer-PowerGrade-Client/blob/master/Screenshots/grade.png?raw=true" alt="grade" style={iconStyle}/></a></div>
             <h2 className="action-heading" >Setup Gradebook</h2>
           </div>
-          <div className="gradebook-setup-popup-hidden col-2">
-            <i className="close-form fa fa-times" onClick={(e) => this.closePopupSetup(e)}></i>
-            <h2 className="popup-heading">Set Gradebook Categories</h2>
-            <p className="setup-instructions">Please enter the percentage that you would like each category to be worth.</p>
-            <GradebookSetupForm/>
-          </div>
+          {popup}
         </div>
       </div>
     );
@@ -130,8 +122,13 @@ export class Dashboard extends React.Component {
 
 const mapStateToProps = state =>{
   return {
+    display: state.dashboardReducer.display,
     name: state.loginReducer.currentUser.firstName,
-    students: state.studentsCRUDReducer.students
+    students: state.studentsCRUDReducer.students,
+    classes: state.classesCRUDReducer.classes,
+    currentUser: state.loginReducer.currentUser,
+    loading: state.classesCRUDReducer.loading,
+    currentClass: (state.classesCRUDReducer.currentClass !== null) ? state.classesCRUDReducer.currentClass : { name: 'Loading', students: [], id: null },
   };
 };
 

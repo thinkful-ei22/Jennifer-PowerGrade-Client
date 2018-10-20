@@ -6,6 +6,7 @@ import { fetchCategories } from '../../actions/GET/fetchCategories';
 import '../componentStyles.css';
 import '../componentMobileStyles.css';
 import '../componentTabletStyles.css';
+import { setDashboardDisplay } from '../../actions/OTHER/displayAction';
 
 export class GradebookSetupForm extends React.Component { 
   componentDidMount(){
@@ -17,25 +18,19 @@ export class GradebookSetupForm extends React.Component {
     this.props.dispatch(editCategory(e.target.Classwork.id, e.target.Classwork.name, e.target.Classwork.value/100));
     this.props.dispatch(editCategory(e.target.Homework.id, e.target.Homework.name, e.target.Homework.value/100));
   }
-  closePopup(e){
-    const popup = e.target.parentElement;
-    if(popup.className === 'gradebook-setup-popup-active col-2'){
-      return popup.className = 'gradebook-setup-popup-hidden col-2';
-    }
-  }
   render (){
     let categoryInputs;
     if(this.props.loading ===false){
       categoryInputs = this.props.categories.map(
         category => {
           return (
-            <div className="input-container" key={category.id}>
-              <label htmlFor={category.id}>{category.name}</label>
+            <div className="input-container" key={category._id}>
+              <label htmlFor={category._id}>{category.name}</label>
               <input
                 className="value-input"
                 type="number"
                 name={category.name}
-                id={category.id}
+                id={category._id}
                 defaultValue={category.value*100}>
               </input>
             </div>
@@ -49,7 +44,7 @@ export class GradebookSetupForm extends React.Component {
       <form className="gradebook-setup-form" onSubmit={e => {
         e.preventDefault();
         this.onSubmit(e);
-        this.closePopup(e);
+        this.props.dispatch(setDashboardDisplay('none'));
         this.props.dispatch(fetchCategories());
       }}>
         {categoryInputs}

@@ -4,7 +4,6 @@ import requiresLogin from '../requiresLogin';
 import '../componentStyles.css';
 import '../componentMobileStyles.css';
 import '../componentTabletStyles.css';
-import { ftruncate } from 'fs';
 
 export class GettingStarted extends React.Component {
   constructor(props){

@@ -3,7 +3,8 @@ import { CREATE_CLASS_SUCCESS } from '../actions/POST/createClass';
 
 const initialState = {
   students: [],
-  error: null
+  error: null,
+  loading:false
 };
 
 export default function studentsCRUDReducer(state=initialState, action) {

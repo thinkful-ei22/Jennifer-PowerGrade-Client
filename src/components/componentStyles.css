@@ -480,21 +480,6 @@ body {
         margin:0px;
         font-family: 'Poppins', sans-serif;
     }
-    .get-started-popup-hidden{
-        display: none;
-    }
-    .create-class-popup-hidden{
-        display: none;
-    }
-    .view-classes-popup-hidden{
-        display: none;
-    }
-    .edit-class-popup-hidden{
-        display: none;
-    }
-    .gradebook-setup-popup-hidden{
-        display: none;
-    }
     .get-started-popup-active{
         position: absolute;
         background-color: white;
@@ -502,7 +487,6 @@ body {
         margin-left: 33.333333%;
         top: 180px;
         padding: 20px;
-        -webkit-box-shadow: 5px 5px 10px;
         box-shadow: 5px 5px 10px;
     }
     .getting-started{
@@ -517,34 +501,35 @@ body {
         position: absolute;
         background-color: white;
         border-radius: 10px;
-        margin-left: 22.7%;
-        top: 100px;
+        margin-left: 25%;
+        top: 180px;;
         padding: 20px;
         box-shadow: 5px 5px 10px;
     }
     .view-classes-popup-active{
         position: absolute;
         background-color: white;
-        margin-left: 22.75%;
+        margin-left: 25%;
         border-radius: 10px;
-        top: 100px;
+        top: 180px;
         padding: 15px;
         box-shadow: 5px 5px 10px;
     }
     .edit-class-popup-active{
-        width: 610px;
         box-shadow: 5px 5px 10px;
         position: absolute;
         background-color: white;
         border-radius: 10px;
         padding: 10px;
+        top:180px;
+        margin-left:25%;
     }
     .gradebook-setup-popup-active{
         position: absolute;
         background-color: white;
-        margin-left: 22.7%;
+        margin-left: 33.33%;
         border-radius: 10px;
-        top: 100px;
+        top: 180px;
         padding:20px;
         box-shadow: 5px 5px 10px;
     }

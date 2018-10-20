@@ -9,6 +9,7 @@ import assignmentCRUDReducer from './reducers/assignmentCRUDReducers';
 import classesCRUDReducer from './reducers/classesCRUDReducers';
 import gradesCRUDReducer from './reducers/gradesCRUDReducers';
 import studentsCRUDReducer from './reducers/studentsCRUDReducers';
+import dashboardReducer from './reducers/dashboardReducer';
 
 const rootReducer = combineReducers({
   loginReducer,
@@ -19,6 +20,7 @@ const rootReducer = combineReducers({
   fetchStandardsReducer,
   gradesCRUDReducer,
   studentsCRUDReducer,
+  dashboardReducer
 });
 const store= createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)));
 
