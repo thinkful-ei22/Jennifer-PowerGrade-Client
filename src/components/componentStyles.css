@@ -338,6 +338,9 @@ body {
         color: #84DCC6;;
     }
 /* DASHBOARD PAGE STYLES */
+    .close-form{
+        cursor:pointer;
+    }
     /* classesDisplay.js STYLES */
     .class-view-edit-container{
         display:inline-flex;
@@ -428,6 +431,14 @@ body {
         cursor: pointer;
     }
     /* dashboard.js STYLES */
+    @keyframes fadein{
+        from{opacity:0;}
+        to{opacity:1;}
+    }
+    @keyframes fadeout{
+        from{opacity:1;}
+        to{opacity:0;}
+    }
     .welcome{
         font-family: 'Poppins', sans-serif;
         text-align: center;
@@ -487,6 +498,8 @@ body {
         top: 180px;
         padding: 20px;
         box-shadow: 5px 5px 10px;
+        animation-name: fadein;
+        animation-duration: 0.5s;
     }
     .getting-started{
         width: 100%;
@@ -504,6 +517,8 @@ body {
         top: 180px;;
         padding: 20px;
         box-shadow: 5px 5px 10px;
+        animation-name: fadein;
+        animation-duration: 0.5s;
     }
     .view-classes-popup-active{
         position: absolute;
@@ -513,6 +528,8 @@ body {
         top: 180px;
         padding: 15px;
         box-shadow: 5px 5px 10px;
+        animation-name: fadein;
+        animation-duration: 0.5s;
     }
     .edit-class-popup-active{
         box-shadow: 5px 5px 10px;
@@ -522,6 +539,8 @@ body {
         padding: 10px;
         top:180px;
         margin-left:25%;
+        animation-name: fadein;
+        animation-duration: 0.5s;
     }
     .gradebook-setup-popup-active{
         position: absolute;
@@ -531,6 +550,8 @@ body {
         top: 180px;
         padding:20px;
         box-shadow: 5px 5px 10px;
+        animation-name: fadein;
+        animation-duration: 0.5s;
     }
     .popup-heading{
         color: black;
@@ -707,9 +728,10 @@ body {
     .sidenav a {
         padding: 6px 8px 6px 16px;
         text-decoration: none;
-        font-size: 20px;
+        font-size: 19px;
         color:white;
         display: block;
+        cursor: pointer;
     }
     .sidenav a:link {
         text-decoration: none;
@@ -722,7 +744,7 @@ body {
     
     .sidenav a:hover {
         text-decoration: none;
-        color: #8895A3
+        color: #868686;
     }
     
     .sidenav a:active {
@@ -759,11 +781,6 @@ body {
     }
 /* ASSIGNMENT PAGE STYLES */
     /* assignmentPage.js STYLES */
-    .option-container{
-        background-color: #4B4E6D;
-        border-radius: 5px;
-        height: 200vh;
-    }
     .assignment-create{
         float: left;
         margin-top: 60px;
@@ -776,8 +793,9 @@ body {
     .assignment-create-label{
         font-family: 'Raleway', sans-serif;
         color: black;
-        width:50%;
+        width: 50%;
         margin-top: 10px;
+        margin-left: 20px;
     }
     .assignment-display{
         float: right;
@@ -809,7 +827,7 @@ body {
     .assignment-option-heading{
         text-align: center;
         font-family: 'Poppins', sans-serif;
-        color: white;
+        color: black;
         margin:5px;
     }
     .assignment-edit-heading{
@@ -828,6 +846,7 @@ body {
             padding: 5px;
             display: inline-flex;
             width: 100%;
+            margin-bottom: 5px;
         }
         .assignment-name-link{
             text-decoration: none;
@@ -849,6 +868,7 @@ body {
         .assignment-list-item{
             width: 90%;
             margin-top: 5px;
+            cursor:pointer;
         }
         /*  assignmentFilters.js STYLES */
         .assignment-filters-label{
@@ -860,6 +880,8 @@ body {
             float: right;
             width: 75%;
             height: 30px;
+            background-color: #8895A3;
+            border-radius: 5px;
         }
         .assignment-filters{
             padding: 5px;
@@ -914,7 +936,7 @@ body {
             border-radius: 10px;
         }
         .edit-class-checkbox-label{
-            width:80%
+            width:80%;
         }
         .assignment-edit-save-button-container{
             text-align:center;
@@ -983,7 +1005,7 @@ body {
         }
         .class-checkbox-label{
             font-family: 'Raleway', sans-serif;
-            color: white;
+            color: black;
             width:80%;
         }
         .assignment-create-save-button-container{

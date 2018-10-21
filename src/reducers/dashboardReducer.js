@@ -6,7 +6,6 @@ const initialState = {
 
 export default function dashboardReducer(state = initialState, action){
   if(action.type === SET_DASHBOARD_DISPLAY){
-    console.log(action);
     return Object.assign({}, state, {
       display: action.display
     });

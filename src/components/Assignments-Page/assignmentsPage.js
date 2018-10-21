@@ -25,11 +25,11 @@ export class AssignmentsPage extends React.Component {
           <NavBar />
         </div>
         <div className="row option-container">
-          <div className="assignment-create col-3">
+          <div className="assignment-create col-2">
             <h2 className="assignment-option-heading">Create an Assignment</h2>
             <CreateAssignmentForm />
           </div>
-          <div className="assignment-display col-3">
+          <div className="assignment-display col-2">
             <h2 className="assignment-option-heading">Your Assignments</h2>
             <AssignmentFilters/>
             <AssignmentDisplay/>

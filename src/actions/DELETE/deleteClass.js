@@ -18,7 +18,6 @@ export const deleteClass = classId => (dispatch, getState) => {
     headers: {
       Authorization: `Bearer ${authToken}`
     }})
-    .then(res => {return res.json();})
     .then(res => dispatch(deleteClassSuccess(res)))
     .catch(err => dispatch(deleteClassError(err)));
 };

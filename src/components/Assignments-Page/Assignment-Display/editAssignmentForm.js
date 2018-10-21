@@ -21,11 +21,11 @@ export class EditAssignmentForm extends React.Component {
     const categoryId = e.target.categoryId.value;
     const grades = this.props.currentAssignment.grades;
     const classes = this.props.currentAssignment.classes;
-    const userId = this.props.currentUser.id;
+    const userId = this.props.currentUser._id;
     this.props.dispatch(fetchClasses());
     this.props.dispatch(fetchCategories());
     this.props.dispatch(fetchAssignments());
-    this.props.dispatch(editAssignment(id, name, date, userId, classes, categoryId, grades));
+    this.props.dispatch(editAssignment(id, name, date, userId, classes, categoryId, grades)); 
   }
   closeEditPopup(e){
     const popup= e.target.parentElement;
@@ -37,7 +37,7 @@ export class EditAssignmentForm extends React.Component {
   render (){
     let availableClasses;
     if(this.props.loading === false && this.props.classes !== undefined){
-      availableClasses = this.props.classes.filter(classItem => classItem.userId.id === this.props.currentUser.id);
+      availableClasses = this.props.classes.filter(classItem => classItem.userId._id === this.props.currentUser._id);
     }else{
       availableClasses = [];
     }
@@ -47,64 +47,65 @@ export class EditAssignmentForm extends React.Component {
     }
     if(this.props.catLoading === false){
       categoryOptions = this.props.categories.map((category, i) => (
-        <option key={i} value={category.id}>{category.name}</option>
+        <option key={i} value={category._id}>{category.name}</option>
       ));
     }
     const classList = availableClasses.map((classItem, i) => {
-      if(this.props.currentAssignment.classes.includes(classItem.id)){
+      if(this.props.currentAssignment.classes.includes(classItem._id)){
         return (
-          <div className="edit-class-checkbox-container" key={classItem.id}>
-            <label className="edit-class-checkbox-label" htmlFor={classItem.id+i}>{classItem.name}</label>
+          <div className="edit-class-checkbox-container" key={classItem._id}>
+            <label className="edit-class-checkbox-label" htmlFor={classItem._id}>{classItem.name}</label>
             <input
               onChange={(e)=> {
                 if(e.target.checked===true){
-                  this.props.dispatch(addAssignmentClass(classItem.id));
+                  this.props.dispatch(addAssignmentClass(classItem._id));
                   this.props.dispatch(fetchClasses());
                 }
                 else if(e.target.checked===false){
-                  this.props.dispatch(removeAssignmentClass(classItem.id));
+                  this.props.dispatch(removeAssignmentClass(classItem._id));
                   this.props.dispatch(fetchClasses());
                 }
               }}
               className="class-checkbox-list-item"
               type="checkbox"
               name={classItem.name}
-              id={classItem.id +i}
+              id={classItem._id}
               defaultChecked>
             </input>
           </div>);
       }
       else{
         return(
-          <div className="edit-class-checkbox-container" key={classItem.id}>
-            <label className="edit-class-checkbox-label" htmlFor={classItem.id+i+1}>{classItem.name}</label>
+          <div className="edit-class-checkbox-container" key={classItem._id}>
+            <label className="edit-class-checkbox-label" htmlFor={classItem._id}>{classItem.name}</label>
             <input
               onChange={(e)=> {
                 if(e.target.checked===true){
-                  this.props.dispatch(addAssignmentClass(classItem.id));
+                  this.props.dispatch(addAssignmentClass(classItem._id));
                   this.props.dispatch(fetchClasses());
                 }
                 else if(e.target.checked===false){
-                  this.props.dispatch(removeAssignmentClass(classItem.id));
+                  this.props.dispatch(removeAssignmentClass(classItem._id));
                   this.props.dispatch(fetchClasses());
                 }
               }}
               className="class-checkbox-list-item"
               type="checkbox"
               name={classItem.name}
-              id={classItem.id +i+1}>
+              id={classItem._id}>
             </input>
           </div>);
       }
     });
     return (
       <form
-        id={(this.props.currentAssignment.id !== null) ? `${this.props.currentAssignment.id}`: 'id'} 
+        id={this.props.currentAssignmentId} 
         className="edit-assignment-form" 
         onSubmit={(e) => {
           e.preventDefault();
           this.closeEditPopup(e);
           this.onSubmit(e);
+          this.props.dispatch(fetchAssignments());
         }
         }>
         <label className="assignment-edit-label" htmlFor="name">Assignment Name</label>
@@ -148,7 +149,8 @@ export class EditAssignmentForm extends React.Component {
 const mapStateToProps = state => {
   return {
     grades: state.gradesCRUDReducer.grades,
-    currentAssignment: (state.assignmentCRUDReducer.currentAssignment !== null) ? state.assignmentCRUDReducer.currentAssignment : {name: 'Loading', date: '1/6/1988', userId: 'userId', classes: [], categoryId: 'Test', grades: []},
+    currentAssignment: (state.assignmentCRUDReducer.currentAssignment !== null) ? state.assignmentCRUDReducer.currentAssignment : {id: 'none',name: 'Loading', date: '1/6/1988', userId: 'userId', classes: [], categoryId: 'Test', grades: []},
+    currentAssignmentId: (state.assignmentCRUDReducer.currentAssignmentId !== null) ? state.assignmentCRUDReducer.currentAssignmentId : '12345',
     categories: state.categoriesCRUDReducer.categories,
     classes: state.classesCRUDReducer.classes,
     currentUser: state.loginReducer.currentUser,

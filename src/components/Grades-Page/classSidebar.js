@@ -11,7 +11,7 @@ export class SideBar extends React.Component{
     return this.props.dispatch(filterClasses(values));
   }
   render(){
-    const currentClasses = this.props.classes.filter(classItem => classItem.userId.id === this.props.currentUser.id);
+    const currentClasses = this.props.classes.filter(classItem => classItem.userId._id === this.props.currentUser._id);
     const classLinks = currentClasses.map(classItem =>
       <li onClick={() => this.onClick(classItem.name)} key={classItem.id}><a role="button">{classItem.name}</a></li>);
     return (
