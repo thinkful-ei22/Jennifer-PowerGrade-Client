@@ -47,7 +47,7 @@ export class LoginPage extends React.Component{
       component = <AboutPage/>;
       return(
         <div className="row">
-          <h1 className="welcome-heading">Welcome to PowerGrade</h1>  
+          <h1 className="welcome-heading">PowerGrade</h1>  
           <div className="row">
             <div className="col-2 container">
               {component}
