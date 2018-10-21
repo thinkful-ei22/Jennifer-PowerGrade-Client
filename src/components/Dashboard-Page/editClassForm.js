@@ -17,7 +17,6 @@ export default class EditClassForm extends React.Component {
     this.props.dispatch(editClass(id, name, students, assignments, userId));
   }
   render(){
-    console.log(this.props);
     let studentCheckboxes;
     if(this.props.students !==null && this.props.students !== undefined){
       studentCheckboxes = this.props.students.map(

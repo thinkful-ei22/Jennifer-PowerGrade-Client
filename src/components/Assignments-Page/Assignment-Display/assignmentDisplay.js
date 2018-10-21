@@ -12,19 +12,19 @@ export class AssignmentDisplay extends React.Component {
     this.props.dispatch(fetchAssignments());
   }
   activateAssignmentEditPopup(e){
-    const popup = e.target.parentElement.parentElement.parentElement.nextSibling;
+    const popup = e.target.parentElement.parentElement.parentElement.parentElement.nextSibling;
     if(popup.className === 'assignment-edit-hidden col-3'){
       return popup.className = 'assignment-edit-active col-3';
     }
     return;
   }
   generateAssignmentList(){
-    return this.props.assignments.filter(assignment=>assignment.userId===this.props.currentUser.id);
+    return this.props.assignments.filter(assignment=>assignment.userId===this.props.currentUser._id);
   }
   render(){
     let assignmentList;
     if(this.props.loading === false){
-      assignmentList=this.generateAssignmentList().map((assignment, i) =>(
+      assignmentList=this.generateAssignmentList().map((assignment) =>(
         <div className="assignment-list" key={assignment.id}>
           <li 
             onClick={(e)=>{
@@ -32,10 +32,10 @@ export class AssignmentDisplay extends React.Component {
               this.props.dispatch(fetchOneAssignment(e.target.id));
             }} 
             className="assignment-list-item" 
-            id={assignment.id+i}>
+            id={assignment._id}>
             {assignment.name}
           </li>
-          <i id={assignment.id} className="delete-assignment-x fa fa-times" onClick={(e) => {
+          <i id={assignment._id} className="delete-assignment-x fa fa-times" onClick={(e) => {
             this.props.dispatch(deleteAssignment(e.target.id));
             this.props.dispatch(fetchAssignments());
           }}></i>     

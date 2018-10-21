@@ -30,7 +30,7 @@ export const editAssignmentError = error => ({
 });
 
 export const editAssignment = (id, name, date, userId, classes, categoryId, grades) => (dispatch, getState) => {
-  dispatch(editAssignmentRequest(id));
+  dispatch(editAssignmentRequest());
   const authToken = getState().loginReducer.authToken;
   return fetch(`${API_BASE_URL}/api/assignments/${id}`, {
     method: 'PUT',
@@ -50,9 +50,9 @@ export const editAssignment = (id, name, date, userId, classes, categoryId, grad
     .then(res => {
       return res.json();
     })
-    .then(res => 
-      dispatch(editAssignmentSuccess(res))
-    )
+    .then(res => {
+      dispatch(editAssignmentSuccess(res));
+    })
     .catch(err => 
       dispatch(editAssignmentError(err))
     );

@@ -21,13 +21,14 @@ export class GradeDisplay extends React.Component {
   }
   getValue(assignment, student){
     if(this.props.grades){
-      const grade = this.props.grades.find(grade=>grade.studentId.id===student.id && grade.assignmentId.id===assignment.id);
+      const validGrades = this.props.grades.filter(grade => grade !== null && grade.assignmentId !==null && grade.studentId !== null);
+      const grade = validGrades.find(grade=>grade.studentId._id===student._id && grade.assignmentId._id===assignment._id);
       if(grade){
         return grade;
       }else{
         return {
-          studentId: {id: student.id},
-          assignmentId: {id: assignment.id},
+          studentId: {id: student._id},
+          assignmentId: {id: assignment._id},
           value:0
         };
       }
@@ -35,7 +36,7 @@ export class GradeDisplay extends React.Component {
   }
   getAssignmentAverage(assignment){
     if(this.props.grades){
-      const grade = this.props.grades.filter(grade=> grade.assignmentId.id===assignment.id);
+      const grade = this.props.grades.filter(grade=> grade.assignmentId!==null && grade.assignmentId._id===assignment._id);
       const gradeValues = grade.map(grade => grade.value);
       let total = 0;
       for(let i=0; i<gradeValues.length; i++){
@@ -54,67 +55,68 @@ export class GradeDisplay extends React.Component {
   }
   calculateStudentAverage(student){
     if(this.props.grades){
-      const grade = this.props.grades.filter(grade=> grade.studentId.id===student.id);
+      const validGrades = this.props.grades.filter(grade => grade !== null && grade.assignmentId !==null && grade.studentId !== null);
+      const grade = validGrades.filter(grade=> grade.studentId._id===student._id);
       
-      const homework = this.props.categories.filter(category => category.id==='444444444444444444444400');
+      const homework = this.props.categories.filter(category => category._id==='444444444444444444444400');
       const homeworkWeight = homework[0].value;
       
-      const classwork = this.props.categories.filter(category => category.id==='444444444444444444444401');
+      const classwork = this.props.categories.filter(category => category._id==='444444444444444444444401');
       const classworkWeight = classwork[0].value;
     
-      const quiz = this.props.categories.filter(category => category.id==='444444444444444444444402');
+      const quiz = this.props.categories.filter(category => category._id==='444444444444444444444402');
       const quizWeight = quiz[0].value;
    
-      const test = this.props.categories.filter(category => category.id==='444444444444444444444403');
+      const test = this.props.categories.filter(category => category._id==='444444444444444444444403');
       const testWeight = test[0].value;
    
-
       let total = 0;
-      for(let i=0; i<grade.length; i++){
-        if(grade[i].assignmentId.categoryId === '444444444444444444444400'){
-          total+=(grade[i].value*100)*homeworkWeight;
+      if(grade){
+        for(let i=0; i<grade.length; i++){
+          if(grade[i].assignmentId.categoryId === '444444444444444444444400'){
+            total+=(grade[i].value*100)*homeworkWeight;
+          }
+          if(grade[i].assignmentId.categoryId === '444444444444444444444401'){
+            total+=(grade[i].value*100)*classworkWeight;
+          }
+          if(grade[i].assignmentId.categoryId === '444444444444444444444402'){
+            total+=(grade[i].value*100)*quizWeight;
+          }
+          if(grade[i].assignmentId.categoryId === '444444444444444444444403'){
+            total+=(grade[i].value*100)*testWeight;
+          }
         }
-        if(grade[i].assignmentId.categoryId === '444444444444444444444401'){
-          total+=(grade[i].value*100)*classworkWeight;
-        }
-        if(grade[i].assignmentId.categoryId === '444444444444444444444402'){
-          total+=(grade[i].value*100)*quizWeight;
-        }
-        if(grade[i].assignmentId.categoryId === '444444444444444444444403'){
-          total+=(grade[i].value*100)*testWeight;
-        }
+        return `${Math.round(total)}%`;
       }
-      return Math.round(total);
+      return '-';
     }
-    return '-';
   }
   render(){
     const currentStudents =this.props.filteredClasses.map(item => item.students.map(student => student));
-    const currentClasses = this.props.filteredClasses.filter(classItem => classItem.userId.id === this.props.currentUser.id);
+    const currentClasses = this.props.filteredClasses.filter(classItem => classItem.userId._id === this.props.currentUser._id);
     const assignmentList = currentClasses.map(classItem => classItem.assignments.map(assignment => assignment));
     const assignmentRows = assignmentList.map((assignment => assignment.map(name => <th key={name.name}>{name.name}</th>)));
-    const averageCells = assignmentList.map(assignment => assignment.map(assignment => <td key={assignment.id}>{this.getAssignmentAverage(assignment)}</td>));
+    const averageCells = assignmentList.map(assignment => assignment.map(assignment => <td key={assignment._id}>{this.getAssignmentAverage(assignment)}%</td>));
     const studentCells=currentStudents.map(students => students.map(student =>{
       const assignments = assignmentList.map((assignment) => {
         return assignment.map(name => {
           const grade = this.getValue(name, student);
           return (<td 
             contentEditable="true" 
-            id={grade.id} 
+            id={grade._id} 
             onInput={(e) => {
               this.onGradeChange(e, grade);
             }}
-            key={name.id}>
-            {Math.round(this.getValue(name, student).value*100)}
+            key={name._id}>
+            {Math.round(this.getValue(name, student).value*100)}%
           </td>);
         });
       });
-
       assignments.unshift(<td key="average">{this.calculateStudentAverage(student)}</td>);
       assignments.unshift(<td key="studentName">{`${student.lastName}, ${student.firstName}`}</td>);
 
       return (
-        <tr key={student.id}>
+        <tr key={student._id}>
           {assignments}
         </tr>);
     }));

@@ -19,7 +19,9 @@ export class AssignmentFilters extends React.Component {
         <label className="assignment-filters-label" htmlFor="search">Search</label>
         <input
           className="assignment-search-filter"
-          onChange={(e) => this.props.dispatch(searchAssignmentFilter(e.target.value))}
+          onChange={(e) => {
+            this.props.dispatch(searchAssignmentFilter(e.target.value));
+          }}
           type="search"
           name="search"
           id="search">

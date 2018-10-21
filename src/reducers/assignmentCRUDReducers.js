@@ -9,7 +9,8 @@ const initialState = {
   error: null,
   assignments: [],
   filteredAssignments: [],
-  currentAssignment: null
+  currentAssignment: null,
+  currentAssignmentId: null
 };
   
 export default function assignmentCRUDReducers(state = initialState, action) {
@@ -68,11 +69,12 @@ export default function assignmentCRUDReducers(state = initialState, action) {
       loading: false
     });
   }
-  //GET one class
+  //GET one assignment
   else if(action.type===FETCH_ONE_ASSIGNMENT_SUCCESS){
     return Object.assign({}, state, {
       error: null,
       currentAssignment: action.currentAssignment,
+      currentAssignmentId:action.currentAssignment._id,
       loading: false
     });
   }
@@ -85,10 +87,10 @@ export default function assignmentCRUDReducers(state = initialState, action) {
   //PUT update assignment
   else if(action.type===EDIT_ASSIGNMENT_SUCCESS){
     const indexToUpdate = state.assignments.findIndex(assignment => {
-      return assignment.id === action.assignment.id;
+      return assignment._id === action.currentAssignment._id;
     });
     const updatedAssignments = [...state.assignments];
-    state.assignments[indexToUpdate]=action.assignment;
+    state.assignments[indexToUpdate]=action.currentAssignment;
     return Object.assign({}, state, {
       assignments: updatedAssignments,
       loading: false
@@ -143,16 +145,13 @@ export default function assignmentCRUDReducers(state = initialState, action) {
   }
   //DELETE    
   else if(action.type === DELETE_ASSIGNMENT_SUCCESS) {
-    const indexToDelete = state.findIndex(assignment => {
-      return assignment.id === action.assignment.id;
-    });
     return Object.assign({}, state, {
-      assignments: this.assignments.splice(indexToDelete, 1),
       loading:false,
       error:null
     });
   }
   else if(action.type === DELETE_ASSIGNMENT_ERROR) {
+    console.log(action);
     return Object.assign({}, state, {
       error: action.error,
       loading: false

@@ -73,7 +73,7 @@ body {
     .aboutLogin{
         display: inline-flex;
         float: right;
-        margin-right: 25%;
+        margin-right: 10%;
         margin-top: 25px;
         font-family: 'Raleway', sans-serif;
         font-size: 14px;
@@ -88,8 +88,8 @@ body {
     .aboutRegister{
         display: inline-flex;
         float: left;
-        margin-left: 25%;
-        margin-top: 15px;
+        margin-left: 10%;
+        margin-top: 25px;
         font-family: 'Raleway', sans-serif;
         font-size: 14px;
         background-color: #8895A3;
@@ -222,7 +222,6 @@ body {
     .login-form-container{
         background-color: white;
         border-radius: 10px;
-        margin-left: 33.333%;
         padding-top: 25px;
         padding-bottom: 25px;
         padding-left: 50px;
@@ -236,7 +235,6 @@ body {
     .signup-form-container{
         background-color: white;
         border-radius: 10px;
-        margin-left: 33.333%;
         padding-top: 25px;
         padding-bottom: 25px;
         padding-left: 50px;
@@ -324,6 +322,9 @@ body {
         color: #84DCC6;
     }
 /* DASHBOARD PAGE STYLES */
+    .close-form{
+        cursor:pointer;
+    }
     /* classesDisplay.js STYLES */
     .class-view-edit-container{
         display:inline-flex;
@@ -471,11 +472,14 @@ body {
         position: absolute;
         background-color: white;
         border-radius: 10px;
-        margin-right: 3%;
-        top: 55px;
-        padding: 20px;
-        width: auto;
+        top: 150px;
+        padding: 15px;
         box-shadow: 5px 5px 10px;
+        animation-name: fadein;
+        animation-duration: 0.5s;
+        margin-left: 13%;
+        margin-left: 7.5%;
+        max-width: 80%;
     }
     .getting-started{
         width: 100%;
@@ -497,6 +501,8 @@ body {
         padding: 10px;
         width: 95%;
         box-shadow: 5px 5px 10px;
+        animation-name: fadein;
+        animation-duration: 0.5s;
     }
     .view-classes-popup-active{
         position: absolute;
@@ -505,14 +511,27 @@ body {
         border-radius: 10px;
         padding: 15px;
         box-shadow: 5px 5px 10px;
+        animation-name: fadein;
+        animation-duration: 0.5s;
     }
     .edit-class-popup-active{
         position: absolute;
         background-color: white;
-        width: 325px;
-        padding: 5px;
+        max-width: 80%;
+        padding: 10px;
         border-radius: 10px;
         box-shadow: 5px 5px 10px;
+        animation-name: fadein;
+        animation-duration: 0.5s;
+        margin-left: 7.5%;
+    }
+    @keyframes fadein{
+        from{opacity:0;}
+        to{opacity:1;}
+    }
+    @keyframes fadeout{
+        from{opacity:1;}
+        to{opacity:0;}
     }
     .gradebook-setup-popup-active{
         position: absolute;
@@ -522,6 +541,8 @@ body {
         border-radius: 10px;
         padding: 20px;
         box-shadow: 5px 5px 10px;
+        animation-name: fadein;
+        animation-duration: 0.5s;
     }
     .popup-heading{
         color: black;
@@ -587,12 +608,20 @@ body {
     }
     .lesson-title{
         color: #4B4E6D;
+        text-align: center;
+        margin-bottom: 0px;
+        margin-top:0px;
+        cursor: pointer;
     }
     .get-started-heading{
         text-align: center;
     }
     .lesson-steps{
         color: black;
+        width: 100%;
+        margin: auto;
+        padding-top: 10px;
+        padding-left: 25px;
     }
     /* gradebookSetupForm.js STYLES */
     .gradebook-setup-form{
@@ -602,9 +631,7 @@ body {
     .gradebook-setup-form label{
         margin-top: 10px;
         margin-right: 20px;
-        color:white;
-        margin-left: 5%;
-        float: left;
+        color: black;
     }
     .input-container{
         width: 100%;
@@ -636,7 +663,7 @@ body {
         font-size: 14px;
         background-color: #8895A3;
         border-radius: 5px;
-        width: 100px;
+        width: 115px;
         padding: 10px;
         cursor: pointer;
     }
@@ -691,10 +718,12 @@ body {
         overflow-x: hidden;
     }
     .sidenav a {
-        padding: 6px 10px 6px 6px;
+        padding: 6px 8px 6px 16px;
         text-decoration: none;
         font-size: 18px;
-        color: white;
+        color:white;
+        display: block;
+        cursor: pointer;
     }
     .sidenav a:link {
         text-decoration: none;
@@ -746,11 +775,6 @@ body {
     }
 /* ASSIGNMENT PAGE STYLES */
     /* assignmentPage.js STYLES */
-    .option-container{
-        background-color: #4B4E6D;
-        border-radius: 5px;
-        height: 200vh;
-    }
     .assignment-create{
         float: left;
         margin-top: 60px;
@@ -762,8 +786,9 @@ body {
     .assignment-create-label{
         font-family: 'Raleway', sans-serif;
         color: black;
-        width:50%;
+        width: 50%;
         margin-top: 10px;
+        margin-left: 20px;
     }
     .assignment-display{
         float: right;
@@ -796,7 +821,7 @@ body {
     .assignment-option-heading{
         text-align: center;
         font-family: 'Poppins', sans-serif;
-        color: white;
+        color: black;
         margin:5px;
     }
     .assignment-edit-heading{
@@ -815,6 +840,12 @@ body {
             padding: 5px;
             display: inline-flex;
             width: 100%;
+            margin-bottom: 5px;
+        }
+        .assignment-list-item{
+            width: 90%;
+            margin-top: 5px;
+            cursor:pointer;
         }
         .assignment-list li{
             width:95%;
@@ -846,7 +877,7 @@ body {
             float: right;
             width: 75%;
             height: 30px;
-            border: white;
+            background-color: #8895A3;
             border-radius: 5px;
         }
         .assignment-filters{
@@ -864,9 +895,7 @@ body {
             margin-top: 10px;
         }
         .class-select{
-            margin-bottom: 15px;
-            margin-left: 5%;
-            float: right;
+            width: 100%;
             height: 30px;
             font-size: 14px;
             background-color: white;
@@ -971,7 +1000,7 @@ body {
         }
         .class-checkbox-label{
             font-family: 'Raleway', sans-serif;
-            color: white;
+            color: black;
             width:80%;
         }
         .assignment-create-save-button-container{

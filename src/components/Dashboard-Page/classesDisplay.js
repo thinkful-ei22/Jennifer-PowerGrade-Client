@@ -22,7 +22,6 @@ export default class ClassesDisplay extends React.Component {
         <div className="class-list" key={classItem._id}>
           <li 
             onClick={(e)=>{
-              console.log(e.target.id);
               this.props.dispatch(fetchOneClass(e.target.id));
               this.props.dispatch(setDashboardDisplay('edit'));
             }}
@@ -37,15 +36,13 @@ export default class ClassesDisplay extends React.Component {
         </div>)); 
     }
     if(this.props.loading === true){
-      console.log('loading');
       return (<div>Loading...</div>);
     } 
     if(this.props.loading === false){
-      console.log('showing class list');
       return(
         <div className="class-edit-container">
           <h2 className="lesson-title">Click on a class to edit.</h2>
-          <ul className="class-list-ul">{classList}</ul>;
+          <ul className="class-list-ul">{classList}</ul>
         </div>);
     }
   }

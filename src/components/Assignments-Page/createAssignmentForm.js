@@ -15,15 +15,17 @@ export class CreateAssignmentForm extends React.Component {
     e.target.date.value='';
   }
   render (){
-    const categoryOptions = this.props.categories.map((category, i) => (
-      <option key={i} value={category.id}>{category.name}</option>
-    ));
+    const categoryOptions = this.props.categories.map((category, i) => {
+      return(
+        <option key={i} value={category._id}>{category.name}</option>
+      );
+    });
     let classesToAdd = [];
-    const availableClasses = this.props.classes.filter(classItem=> classItem.userId.id === this.props.currentUser.id);
+    const availableClasses = this.props.classes.filter(classItem=> classItem.userId._id === this.props.currentUser._id);
     const classList = availableClasses.map((classItem,i) =>{
       return(
-        <div className="class-checkbox-container" key={classItem.id}>
-          <label className="class-checkbox-label" htmlFor={classItem.id}>{classItem.name}</label>
+        <div className="class-checkbox-container" key={classItem._id}>
+          <label className="class-checkbox-label" htmlFor={classItem._id}>{classItem.name}</label>
           <input
             onChange={(e) =>{
               if(e.target.checked===true){
@@ -37,7 +39,7 @@ export class CreateAssignmentForm extends React.Component {
             className="class-checkbox-list-item"
             type="checkbox"
             name={classItem.name}
-            id={classItem.id+i}>
+            id={classItem._id}>
           </input>
         </div>);
     });
@@ -50,7 +52,8 @@ export class CreateAssignmentForm extends React.Component {
           const name = e.target.name.value;
           const date = e.target.date.value;
           const categoryId = e.target.categoryId.value;
-          const userId = this.props.currentUser.id;
+          const userId = this.props.currentUser._id;
+          console.log(name, date, classes, userId, categoryId);
           this.props.dispatch(createAssignment(name, date, classes, userId, categoryId));
           this.clearValues(e);
           this.props.dispatch(fetchClasses());

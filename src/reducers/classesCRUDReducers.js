@@ -20,6 +20,7 @@ export default function classesCRUDReducers(state = initialState, action) {
     });
   }
   else if(action.type === CREATE_CLASS_SUCCESS) {
+    console.log(action);
     const newClass ={
       name: action.classInfo.name,
       userId: action.classInfo.userId,
@@ -36,11 +37,6 @@ export default function classesCRUDReducers(state = initialState, action) {
     return Object.assign({}, state, {
       error: action.error,
       loading: false
-    });
-  }
-  else if(action.type === CREATE_CLASS_REQUEST){
-    return Object.assign({}, state, {
-      loading: true
     });
   }
   else if(action.type===FETCH_CLASSES_SUCCESS){
@@ -145,16 +141,14 @@ export default function classesCRUDReducers(state = initialState, action) {
   }
   //DELTE one class
   else if(action.type===DELETE_CLASS_SUCCESS){
-    const indexToDelete = state.findIndex(classItem => {
-      return classItem.id === action.class.id;
-    });
+    console.log(action);
     return Object.assign({}, state, {
-      classes: state.classes.splice(indexToDelete, 1),
       loading:false,
       error:null
     });
   }
   else if(action.type===DELETE_CLASS_ERROR){
+    console.log(action);
     return Object.assign({}, state, {
       error: action.error,
       loading: false

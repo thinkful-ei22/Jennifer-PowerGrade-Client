@@ -47,12 +47,11 @@ body {
 /* LANDING PAGE STYLES */
     /*aboutPage.js */
     .container{
-        margin-left: auto;
+        margin-left: 25%;
         margin-right: auto;
         background-color: white;
         padding: 15px;
         border-radius: 10px;
-        height: 301px;
     }
     .info-heading{
         font-family: 'Poppins', sans-serif;
@@ -65,9 +64,9 @@ body {
         font-family: 'Raleway', sans-serif;
     }
     .about-icon-container{
-       width:100%;
-       float:left;
-       display:block;
+        width: 100%;
+        float: left;
+        display: inline-flex;
     }
     
     .boxItem{
@@ -104,7 +103,7 @@ body {
     .aboutLogin{
         display: inline-flex;
         float: right;
-        margin-right: 25%;
+        margin-right: 15%;
         margin-top: 25px;
         margin-bottom: 15px;
         font-family: 'Raleway', sans-serif;
@@ -120,7 +119,7 @@ body {
     .aboutRegister{
         display: inline-flex;
         float: left;
-        margin-left: 25%;
+        margin-left: 15%;
         margin-top: 25px;
         margin-bottom: 15px;
         font-family: 'Raleway', sans-serif;
@@ -246,10 +245,11 @@ body {
         background-color: white;
         border-radius: 10px;
         margin-bottom: 10px;
-        padding-top: 25px;
-        padding-bottom: 25px;
-        padding-left: 50px;
-        padding-right: 50px;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        padding-left: 15px;
+        padding-right: 15px;
+        margin-left: 33.55%;
     }
     .signup-heading{
         text-align: center;
@@ -259,10 +259,11 @@ body {
     .signup-form-container{
         background-color: white;
         border-radius: 10px;
-        padding-top: 25px;
-        padding-bottom: 25px;
-        padding-left: 50px;
-        padding-right: 50px;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        padding-left: 15px;
+        padding-right: 15px;
+        margin-left: 33.33%;
     }
 /* NAVBAR STYLES */
     /* navbar.js STYLES */
@@ -341,6 +342,9 @@ body {
         color: #84DCC6;;
     }
 /* DASHBOARD PAGE STYLES */
+    .close-form{
+        cursor:pointer;
+    }
     /* classesDisplay.js STYLES */
     .class-view-edit-container{
         display:inline-flex;
@@ -360,6 +364,7 @@ body {
     }
     .class-list li{
         width:95%;
+        cursor: pointer;
     }
     .class-name-link{
         text-decoration: none;
@@ -404,13 +409,11 @@ body {
     .create-class-form label{
         font-family: 'Raleway', sans-serif;
         color: black;
-        margin-left: 5%;
         margin-top: 10px;
     }
     .create-class-name{
-        width: 75%;
+        width: 100%;
         height: 30px;
-        margin-left: 10px;
         margin-top: 5px;
         margin-bottom: 5px;
         border-radius: 5px;
@@ -482,14 +485,24 @@ body {
         margin: 0px;
         font-family: 'Poppins', sans-serif;
     }
+    @keyframes fadein{
+        from{opacity:0;}
+        to{opacity:1;}
+    }
+    @keyframes fadeout{
+        from{opacity:1;}
+        to{opacity:0;}
+    }
     .get-started-popup-active{
         position: absolute;
         background-color: white;
         border-radius: 10px;
-        top: 100px;
-        padding: 20px;
-        width: 97%;
+        top: 115px;
+        padding: 15px;
         box-shadow: 5px 5px 10px;
+        animation-name: fadein;
+        animation-duration: 0.5s;
+        margin-left: 33.33%;
     }
     .getting-started{
         width: 100%;
@@ -507,10 +520,12 @@ body {
         position: absolute;
         background-color: white;
         border-radius: 10px;
-        top: 100px;
+        top: 115px;
         padding: 20px;
-        width: 97%;
+        margin-left:25%;
         box-shadow: 5px 5px 10px;
+        animation-name: fadein;
+        animation-duration: 0.5s;
     }
     .view-classes-popup-active{
         position: absolute;
@@ -520,23 +535,30 @@ body {
         padding: 15px;
         margin-left: 25%;
         box-shadow: 5px 5px 10px;
+        animation-name: fadein;
+        animation-duration: 0.5s;
     }
     .edit-class-popup-active{
         position: absolute;
         background-color: white;
-        width: 92%;
-        padding: 10px;
+        padding: 15px;
         border-radius: 10px;
         box-shadow: 5px 5px 10px;
+        animation-name: fadein;
+        animation-duration: 0.5s;
+        top: 115px;
+        margin-left: 25%;
     }
     .gradebook-setup-popup-active{
         position: absolute;
         background-color: white;
-        margin-right: 3%;
-        width: 97%;
+        margin-left: 33.33%;
         border-radius: 10px;
         padding: 10px;
+        top:115px;
         box-shadow: 5px 5px 10px;
+        animation-name: fadein;
+        animation-duration: 0.5s;
     }
     .popup-heading{
         color: black;
@@ -597,34 +619,37 @@ body {
     .lesson {
         border-radius: 10px;
         background-color: white;
-        padding:10px;
-        margin: 10px;
+        padding: 5px;
+        margin: 5px;
     }
     .lesson-title{
         color: #4B4E6D;
         text-align: center;
+        margin: 0px;
+        cursor: pointer;
     }
     .get-started-heading{
         text-align: center;
     }
     .lesson-steps{
         color: black;
-        width: 75%;
+        width: 100%;
         margin: auto;
+        padding-top: 10px;
+        padding-left: 25px;
+    }
+    .lesson-steps li{
+        margin-bottom:5px;
     }
     /* gradebookSetupForm.js STYLES */
     .gradebook-setup-form{
-        padding-top: 25px;
-        padding-right: 50px;
-        padding-bottom: 25px;
-        padding-left: 50px;
+        padding-top: 5px;
+        padding-bottom: 5px;
     }
     .gradebook-setup-form label{
         margin-top: 10px;
         margin-right: 20px;
-        color:black;
-        margin-left: 5%;
-        float: left;
+        color: black;
     }
     .input-container{
         width: 100%;
@@ -637,14 +662,12 @@ body {
     .value-input{
         width: 50%;
         height: 30px;
-        margin-top: 5px;
-        margin-bottom: 5px;
         margin-right: 5%;
         border-radius: 5px;
-        text-align:center;
+        text-align: center;
         background-color: #8895A3;
         font-size: 15px;
-        float:right;
+        float: right;
     }
     .class-setup-button-container{
         text-align:center;
@@ -656,7 +679,7 @@ body {
         font-size: 14px;
         background-color: #8895A3;
         border-radius: 5px;
-        width: 100px;
+        width: 115px;
         padding: 10px;
         cursor: pointer;
     }
@@ -680,11 +703,13 @@ body {
     }
     .student-checkbox-container{
         background-color: #8895A3;
-        margin:5px;
+        margin: 5px;
+        border-radius: 5px;
+        padding-top: 5px;
     }
     .checkboxes-container{
         background-color: white;
-        width: 60%;
+        width: 100%;
         margin: auto;
     }
     .checkboxes-container label{
@@ -715,9 +740,10 @@ body {
     .sidenav a {
         padding: 6px 8px 6px 16px;
         text-decoration: none;
-        font-size: 20px;
+        font-size: 19px;
         color:white;
         display: block;
+        cursor: pointer;
     }
     .sidenav a:link {
         text-decoration: none;
@@ -767,34 +793,28 @@ body {
     }
 /* ASSIGNMENT PAGE STYLES */
     /* assignmentPage.js STYLES */
-    .option-container{
-        background-color: #4B4E6D;
-        border-radius: 5px;
-        height: 120vh;
-    }
     .assignment-create{
         float: left;
         margin-top: 60px;
         border-radius: 10px;
         background-color: white;
         padding: 15px;
-        width: 700px;
-        margin-left: 3%;
+        width: 49%;
     }
     .assignment-create-label{
         font-family: 'Raleway', sans-serif;
         color: black;
-        width:50%;
+        width: 50%;
         margin-top: 10px;
+        margin-left: 20px;
     }
     .assignment-display{
         float: right;
-        margin-top: 5px;
+        margin-top: 60px;
         border-radius: 10px;
         background-color: white;
         padding: 15px;
-        width: 700px;
-        margin-right: 3%;
+        width: 49%;
     }
     .assignment-edit-active{
         margin-top: 120px;
@@ -818,7 +838,7 @@ body {
     .assignment-option-heading{
         text-align: center;
         font-family: 'Poppins', sans-serif;
-        color: white;
+        color: black;
         margin:5px;
     }
     .assignment-edit-heading{
@@ -837,6 +857,12 @@ body {
             padding: 5px;
             width: 100%;
             display: inline-flex;
+            margin-bottom: 5px;
+        }
+        .assignment-list-item{
+            width: 90%;
+            margin-top: 5px;
+            cursor:pointer;
         }
         .assignment-list li{
             width: 95%;
@@ -868,6 +894,7 @@ body {
             float: right;
             width: 75%;
             height: 30px;
+            background-color: #8895A3;
             border-radius: 5px;
         }
         .assignment-filters{
@@ -993,7 +1020,7 @@ body {
         }
         .class-checkbox-label{
             font-family: 'Raleway', sans-serif;
-            color: white;
+            color: black;
             width:80%;
         }
         .assignment-create-save-button-container{
